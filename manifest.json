@@ -1,0 +1,19 @@
+{
+  "name": "街のパーツ収集・宝探しビンゴ｜近代建築探検手帖",
+  "short_name": "建築宝探しビンゴ",
+  "description": "街角の建築パーツを探して撮影し、ビンゴと標本図鑑を完成させる休日街歩きWebアプリ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#111927",
+  "theme_color": "#111927",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
