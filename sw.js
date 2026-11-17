@@ -6,7 +6,7 @@
 // ・外出先（オフライン・PC電源OFF時）は即座にスマホ内のキャッシュから起動します。
 // ・写真やクリア状況はブラウザの localStorage に保存されるため、アップデートしても消えません。
 
-const CACHE_NAME = "town-bingo-pwa-cache-v11";
+const CACHE_NAME = "town-bingo-pwa-cache-v14";
 const CORE_ASSETS = [
   "./",
   "./index.html",

@@ -23,6 +23,7 @@
   let state = loadState();
   let activeModalCellId = null;
   let lastAnimatedCellId = null;
+  let activeTourTypeFilter = "すべて"; // "すべて" | "walk" | "wide"
   let activeRegionFilter = "すべて";
   let activeSubRegionFilter = "すべて";
   let activePartsCategory = "すべて";
@@ -160,6 +161,7 @@
   function getDefaultState() {
     return {
       selectedTownId: INITIAL_TOWNS[0].id,
+      pinnedTownIds: [], // ピン留めされたコースID一覧
       unlockedHints: {}, // { [cellId]: true }
       collectedCells: {}, // { [cellId]: { photoDataUrl, capturedAt, mode, isSketch, isDummy } }
       achievedBingos: {} // { [townId]: ["row_1", ...] }
@@ -183,6 +185,7 @@
       });
       return {
         selectedTownId: parsed.selectedTownId || INITIAL_TOWNS[0].id,
+        pinnedTownIds: Array.isArray(parsed.pinnedTownIds) ? parsed.pinnedTownIds : [],
         unlockedHints: parsed.unlockedHints || {},
         collectedCells: normalizedCells,
         achievedBingos: parsed.achievedBingos || {}
@@ -215,6 +218,7 @@
     });
     return {
       selectedTownId: state.selectedTownId,
+      pinnedTownIds: state.pinnedTownIds || [],
       unlockedHints: state.unlockedHints,
       collectedCells: slimCells,
       achievedBingos: state.achievedBingos
@@ -263,7 +267,7 @@
       } else if ((rec.isDummy || rec.mode === "dummy") && !rec.photoDataUrl) {
         const found = findCellAndTown(cid);
         if (found) {
-          rec.photoDataUrl = generateDummyArchitecturalPhoto(found.cell, found.town);
+          rec.photoDataUrl = generateFieldSketchSpecimen(found.cell, found.town);
         }
       }
     });
@@ -307,12 +311,49 @@
     return INITIAL_TOWNS.find((t) => t.id === townId) || INITIAL_TOWNS[0];
   }
 
+  function isTownPinned(townId) {
+    return Array.isArray(state.pinnedTownIds) && state.pinnedTownIds.includes(townId);
+  }
+
+  function togglePinTown(townId) {
+    if (!Array.isArray(state.pinnedTownIds)) {
+      state.pinnedTownIds = [];
+    }
+    const idx = state.pinnedTownIds.indexOf(townId);
+    if (idx >= 0) {
+      state.pinnedTownIds.splice(idx, 1);
+    } else {
+      state.pinnedTownIds.push(townId);
+    }
+    saveState();
+    renderAll();
+  }
+
   function findCellAndTown(cellId) {
     for (const town of INITIAL_TOWNS) {
       const cell = town.cells.find((c) => c.id === cellId);
       if (cell) return { cell, town };
     }
     return null;
+  }
+
+  function getCellSpotKey(cell) {
+    if (!cell) return "";
+    return cell.spot_key || cell.spot_name || cell.id;
+  }
+
+  function findMatchingCellsAndTowns(targetCell) {
+    const key = getCellSpotKey(targetCell);
+    if (!key) return [];
+    const results = [];
+    for (const town of INITIAL_TOWNS) {
+      for (const cell of town.cells) {
+        if (getCellSpotKey(cell) === key) {
+          results.push({ cell, town });
+        }
+      }
+    }
+    return results;
   }
 
   function getTownProgress(town) {
@@ -478,108 +519,8 @@
   }
 
   // ==========================================================================
-  // 4. テスト用ダミー画像ジェネレーター（レトロ建築標本風イラスト合成）
+  // 4. 『建築スケッチ標本画』ジェネレーター
   // ==========================================================================
-  function generateDummyArchitecturalPhoto(cell, town) {
-    const canvas = document.createElement("canvas");
-    const size = 520;
-    canvas.width = size;
-    canvas.height = size;
-    const ctx = canvas.getContext("2d");
-
-    const pal = cell.dummy_palette || {
-      bg: "#7A4938",
-      accent: "#E5DEC9",
-      detail: "#1B263B"
-    };
-
-    // 背景グラデーション
-    const grad = ctx.createLinearGradient(0, 0, size, size);
-    grad.addColorStop(0, pal.bg);
-    grad.addColorStop(1, pal.detail);
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, size, size);
-
-    // 建築図面風のグリッド線
-    ctx.strokeStyle = "rgba(255, 248, 231, 0.12)";
-    ctx.lineWidth = 1;
-    for (let x = 0; x < size; x += 26) {
-      ctx.beginPath();
-      ctx.moveTo(x, 0);
-      ctx.lineTo(x, size);
-      ctx.stroke();
-    }
-    for (let y = 0; y < size; y += 26) {
-      ctx.beginPath();
-      ctx.moveTo(0, y);
-      ctx.lineTo(size, y);
-      ctx.stroke();
-    }
-
-    // 太陽光・ビネット効果
-    const radial = ctx.createRadialGradient(size * 0.5, size * 0.42, 30, size * 0.5, size * 0.5, size * 0.65);
-    radial.addColorStop(0, "rgba(255, 245, 220, 0.25)");
-    radial.addColorStop(1, "rgba(10, 15, 25, 0.55)");
-    ctx.fillStyle = radial;
-    ctx.fillRect(0, 0, size, size);
-
-    // 中央の建築モチーフ描画
-    ctx.save();
-    ctx.translate(size / 2, size * 0.44);
-    ctx.strokeStyle = pal.accent;
-    ctx.fillStyle = "rgba(255, 250, 240, 0.14)";
-    ctx.lineWidth = 4;
-
-    drawArchitecturalMotifOnCanvas(ctx, cell.icon_type, pal.accent);
-    ctx.restore();
-
-    // 四隅のファインダー枠線
-    ctx.strokeStyle = "rgba(217, 182, 108, 0.85)";
-    ctx.lineWidth = 3;
-    ctx.strokeRect(18, 18, size - 36, size - 36);
-
-    ctx.strokeStyle = "rgba(255, 255, 255, 0.35)";
-    ctx.lineWidth = 1;
-    ctx.strokeRect(26, 26, size - 52, size - 52);
-
-    // 上部標本ラベル
-    ctx.fillStyle = "rgba(17, 25, 39, 0.78)";
-    ctx.fillRect(26, 26, size - 52, 44);
-    ctx.fillStyle = "#D9B66C";
-    ctx.font = "bold 15px 'Courier New', monospace";
-    ctx.textAlign = "left";
-    ctx.fillText(
-      `SPECIMEN ${town.specimen_prefix}-${String(cell.position).padStart(2, "0")} [TEST ARCHIVE]`,
-      40,
-      53
-    );
-
-    // 下部キャプション帯
-    ctx.fillStyle = "rgba(17, 25, 39, 0.86)";
-    ctx.fillRect(26, size - 118, size - 52, 92);
-    ctx.strokeStyle = "#B5893E";
-    ctx.lineWidth = 1.5;
-    ctx.beginPath();
-    ctx.moveTo(26, size - 118);
-    ctx.lineTo(size - 26, size - 118);
-    ctx.stroke();
-
-    ctx.fillStyle = "#FAF6EE";
-    ctx.font = "bold 20px 'Shippori Mincho', serif";
-    ctx.textAlign = "center";
-    ctx.fillText(cell.title, size / 2, size - 82);
-
-    ctx.fillStyle = "#D9B66C";
-    ctx.font = "14px sans-serif";
-    ctx.fillText(`📍 ${cell.spot_name}`, size / 2, size - 54);
-
-    ctx.fillStyle = "rgba(242, 236, 225, 0.75)";
-    ctx.font = "12px sans-serif";
-    ctx.fillText(`照準: ${cell.crop_target}`, size / 2, size - 34);
-
-    return canvas.toDataURL("image/jpeg", 0.86);
-  }
-
   // 写真なしで「発見！採集スタンプ」を押した際の『建築スケッチ標本画』ジェネレーター
   function generateFieldSketchSpecimen(cell, town) {
     const canvas = document.createElement("canvas");
@@ -1114,13 +1055,21 @@
   function registerCellPhoto(cellId, photoDataUrl, mode = "photo", customDate = null) {
     const found = findCellAndTown(cellId);
     if (!found) return;
-    const { town } = found;
+    const { cell: targetCell, town } = found;
 
-    // 登録前のビンゴ状態を記録
-    const wasAlreadyCollected = Boolean(state.collectedCells[cellId]);
-    const prevProgress = getTownProgress(town);
-    const prevAchievedIds = new Set(state.achievedBingos[town.id] || []);
-    prevProgress.activeLines.forEach((l) => prevAchievedIds.add(l.id));
+    const matchingEntries = findMatchingCellsAndTowns(targetCell);
+    const entries = matchingEntries.length > 0 ? matchingEntries : [{ cell: targetCell, town }];
+
+    // 影響を受けるすべてのコースの登録前ビンゴ状態を記録
+    const prevTownStates = new Map();
+    entries.forEach(({ town: t }) => {
+      if (!prevTownStates.has(t.id)) {
+        const prevProgress = getTownProgress(t);
+        const prevAchievedIds = new Set(state.achievedBingos[t.id] || []);
+        prevProgress.activeLines.forEach((l) => prevAchievedIds.add(l.id));
+        prevTownStates.set(t.id, { town: t, prevProgress, prevAchievedIds });
+      }
+    });
 
     // 写真と採集日（時間なし・写真の撮影日があれば優先）を保存
     const formattedDate = customDate ? formatDateOnly(customDate) : formatDateObj(new Date());
@@ -1128,33 +1077,46 @@
     const isDummy = mode === "dummy";
     const hasPhoto = !isSketch && !isDummy && Boolean(photoDataUrl);
 
-    state.collectedCells[cellId] = {
-      photoDataUrl,
-      capturedAt: formattedDate,
-      mode: mode,
-      isSketch: isSketch,
-      isDummy: isDummy,
-      hasPhoto: hasPhoto
-    };
+    entries.forEach(({ cell: mCell }) => {
+      const wasAlreadyCollected = Boolean(state.collectedCells[mCell.id]);
 
-    // ユーザー写真は大容量のIndexedDBへ保存、スケッチ・ダミーの場合は不要な写真データをIndexedDBから削除
-    if (hasPhoto) {
-      idbPutPhoto(cellId, photoDataUrl);
-    } else {
-      idbDeletePhoto(cellId);
-    }
+      state.collectedCells[mCell.id] = {
+        photoDataUrl,
+        capturedAt: formattedDate,
+        mode: mode,
+        isSketch: isSketch,
+        isDummy: isDummy,
+        hasPhoto: hasPhoto
+      };
 
-    if (!wasAlreadyCollected) {
-      unreadCompendiumCount += 1;
-    }
-    // 採集時はスポット名も自動開放
-    state.unlockedHints[cellId] = true;
+      // ユーザー写真は大容量のIndexedDBへ保存、スケッチ・ダミーの場合は不要な写真データをIndexedDBから削除
+      if (hasPhoto) {
+        idbPutPhoto(mCell.id, photoDataUrl);
+      } else {
+        idbDeletePhoto(mCell.id);
+      }
 
-    // 登録後のビンゴ状態を計算
-    const newProgress = getTownProgress(town);
-    const newlyFormedLines = newProgress.activeLines.filter((l) => !prevAchievedIds.has(l.id));
+      if (!wasAlreadyCollected) {
+        unreadCompendiumCount += 1;
+      }
+      // 採集時はスポット名も自動開放
+      state.unlockedHints[mCell.id] = true;
+    });
 
-    state.achievedBingos[town.id] = newProgress.activeLines.map((l) => l.id);
+    // 影響を受けたすべてのコースで登録後のビンゴ状態を計算
+    const achievements = [];
+    prevTownStates.forEach(({ town: t, prevProgress, prevAchievedIds }) => {
+      const newProgress = getTownProgress(t);
+      const newlyFormedLines = newProgress.activeLines.filter((l) => !prevAchievedIds.has(l.id));
+      state.achievedBingos[t.id] = newProgress.activeLines.map((l) => l.id);
+
+      if (!prevProgress.isComplete && newProgress.isComplete) {
+        achievements.push({ mode: "COMPLETE", town: t, lines: newProgress.activeLines });
+      } else if (newlyFormedLines.length > 0) {
+        achievements.push({ mode: "BINGO", town: t, lines: newlyFormedLines });
+      }
+    });
+
     lastAnimatedCellId = cellId;
     saveState();
 
@@ -1164,14 +1126,13 @@
     // モーダルを閉じる
     closeCellModal();
 
-    // 9マスすべて埋まった場合は「COMPLETE!」特別演出、新規ライン成立時は「BINGO!」演出
-    if (!prevProgress.isComplete && newProgress.isComplete) {
+    // 達成したコースがあれば祝福演出を表示（現在のコースを優先し、他コースの同時達成も併記）
+    if (achievements.length > 0) {
+      const primaryIdx = achievements.findIndex((a) => a.town.id === town.id);
+      const primary = primaryIdx >= 0 ? achievements[primaryIdx] : achievements[0];
+      const extras = achievements.filter((a) => a !== primary);
       setTimeout(() => {
-        showCelebrationOverlay("COMPLETE", town, newProgress.activeLines);
-      }, 320);
-    } else if (newlyFormedLines.length > 0) {
-      setTimeout(() => {
-        showCelebrationOverlay("BINGO", town, newlyFormedLines);
+        showCelebrationOverlay(primary.mode, primary.town, primary.lines, extras);
       }, 320);
     }
   }
@@ -1179,15 +1140,28 @@
   function removeCellPhoto(cellId) {
     const found = findCellAndTown(cellId);
     if (!found) return;
-    const { town } = found;
+    const { cell: targetCell, town } = found;
 
-    delete state.collectedCells[cellId];
-    idbDeletePhoto(cellId);
-    if (unreadCompendiumCount > 0) {
-      unreadCompendiumCount -= 1;
-    }
-    const updatedProgress = getTownProgress(town);
-    state.achievedBingos[town.id] = updatedProgress.activeLines.map((l) => l.id);
+    const matchingEntries = findMatchingCellsAndTowns(targetCell);
+    const entries = matchingEntries.length > 0 ? matchingEntries : [{ cell: targetCell, town }];
+    const affectedTowns = new Map();
+
+    entries.forEach(({ cell: mCell, town: t }) => {
+      if (state.collectedCells[mCell.id]) {
+        delete state.collectedCells[mCell.id];
+        if (unreadCompendiumCount > 0) {
+          unreadCompendiumCount -= 1;
+        }
+      }
+      idbDeletePhoto(mCell.id);
+      affectedTowns.set(t.id, t);
+    });
+
+    affectedTowns.forEach((t) => {
+      const updatedProgress = getTownProgress(t);
+      state.achievedBingos[t.id] = updatedProgress.activeLines.map((l) => l.id);
+    });
+
     saveState();
     renderAll();
     openCellModal(cellId);
@@ -1219,8 +1193,26 @@
 
   const MACRO_REGIONS = ["すべて", "北海道", "東北", "関東", "甲信越", "東海", "北陸", "近畿", "中国・四国", "九州"];
 
+  const TOUR_TYPE_OPTIONS = [
+    { key: "すべて", label: "すべて" },
+    { key: "walk", label: "🚶 散策（〜3時間・車不要）" },
+    { key: "wide", label: "🚃 広域（半日〜週末探検）" }
+  ];
+
+  function getTourTypeBadgeHtml(town) {
+    const isWalk = (town.tour_type || "walk") === "walk";
+    return isWalk
+      ? '<span class="tour-type-badge is-walk">🚶 散策〜3h</span>'
+      : '<span class="tour-type-badge is-wide">🚃 広域</span>';
+  }
+
+  function getTownsByTourType() {
+    if (activeTourTypeFilter === "すべて") return INITIAL_TOWNS;
+    return INITIAL_TOWNS.filter((t) => (t.tour_type || "walk") === activeTourTypeFilter);
+  }
+
   function getFilteredTowns() {
-    let list = INITIAL_TOWNS;
+    let list = getTownsByTourType();
     if (activeRegionFilter !== "すべて") {
       list = list.filter((t) => (t.region_group || "関東") === activeRegionFilter);
       if (activeSubRegionFilter !== "すべて") {
@@ -1230,17 +1222,42 @@
     return list;
   }
 
+  function renderTourTypeFilterBar(barElementId) {
+    const bar = document.getElementById(barElementId);
+    if (!bar) return;
+    bar.innerHTML = "";
+
+    TOUR_TYPE_OPTIONS.forEach((opt) => {
+      const count =
+        opt.key === "すべて"
+          ? INITIAL_TOWNS.length
+          : INITIAL_TOWNS.filter((t) => (t.tour_type || "walk") === opt.key).length;
+
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = `filter-chip tourtype-chip ${activeTourTypeFilter === opt.key ? "active" : ""}`;
+      btn.textContent = `${opt.label} (${count})`;
+      btn.addEventListener("click", () => {
+        activeTourTypeFilter = opt.key;
+        renderHomeTownCards();
+        renderTownSpecimenPlates();
+      });
+      bar.appendChild(btn);
+    });
+  }
+
   function renderRegionFilterBar(barElementId, subBarElementId) {
     const filterBar = document.getElementById(barElementId);
     if (!filterBar) return;
 
     filterBar.innerHTML = "";
+    const baseList = getTownsByTourType();
 
     MACRO_REGIONS.forEach((reg) => {
       const count =
         reg === "すべて"
-          ? INITIAL_TOWNS.length
-          : INITIAL_TOWNS.filter((t) => (t.region_group || "関東") === reg).length;
+          ? baseList.length
+          : baseList.filter((t) => (t.region_group || "関東") === reg).length;
 
       if (count === 0 && reg !== "すべて") return;
 
@@ -1267,7 +1284,7 @@
       return;
     }
 
-    const townsInRegion = INITIAL_TOWNS.filter((t) => (t.region_group || "関東") === activeRegionFilter);
+    const townsInRegion = baseList.filter((t) => (t.region_group || "関東") === activeRegionFilter);
     const subGroups = [];
     townsInRegion.forEach((t) => {
       if (t.prefecture_group && !subGroups.includes(t.prefecture_group)) {
@@ -1310,6 +1327,7 @@
   }
 
   function renderHomeTownCards() {
+    renderTourTypeFilterBar("home-tourtype-filters");
     renderRegionFilterBar("home-region-filters", "home-subregion-filters");
     const container = document.getElementById("town-cards-container");
     container.innerHTML = "";
@@ -1335,13 +1353,14 @@
         ? `${town.region_group}・${town.prefecture_group}`
         : town.prefecture_group || "関東";
       const areaMapUrl = getAreaGoogleMapUrl(town);
+      const tourTypeBadge = getTourTypeBadgeHtml(town);
 
       const card = document.createElement("article");
       card.className = `town-card ${isSelected ? "selected-town" : ""}`;
       card.innerHTML = `
         <div class="town-card-banner" style="background: ${town.theme_color || "var(--navy-base)"};">
           <div>
-            <div class="town-banner-kicker">[${regionTag}] ${town.subtitle}</div>
+            <div class="town-banner-kicker">[${regionTag}] ${town.subtitle} ${tourTypeBadge}</div>
             <h3 class="town-banner-title">${town.title}</h3>
           </div>
           <span class="town-status-stamp ${statusClass}">${statusLabel}</span>
@@ -1370,6 +1389,14 @@
               <span>🧭 ${prog.clearedCount > 0 ? "この街の探索を再開する" : "この街でビンゴを始める"}</span>
               <span>▶</span>
             </button>
+            <button
+              type="button"
+              class="btn-card-pin ${isTownPinned(town.id) ? "is-pinned" : ""}"
+              data-pin-town="${town.id}"
+              title="${isTownPinned(town.id) ? "ピン留めを解除" : "このビンゴをピン留めしてどこからでもすぐ開く"}"
+            >
+              <span>${isTownPinned(town.id) ? "📌 ピン中" : "📌"}</span>
+            </button>
             <a
               href="${areaMapUrl}"
               target="_blank"
@@ -1388,6 +1415,10 @@
         saveState();
         renderAll();
         switchMainView("view-bingo");
+      });
+
+      card.querySelector("[data-pin-town]").addEventListener("click", () => {
+        togglePinTown(town.id);
       });
 
       container.appendChild(card);
@@ -1412,6 +1443,13 @@
     const stageMapBtn = document.getElementById("btn-stage-area-map");
     if (stageMapBtn) {
       stageMapBtn.href = getAreaGoogleMapUrl(town);
+    }
+
+    const pinBtn = document.getElementById("btn-toggle-pin-town");
+    if (pinBtn) {
+      const pinned = isTownPinned(town.id);
+      pinBtn.classList.toggle("is-pinned", pinned);
+      pinBtn.innerHTML = pinned ? "<span>📌 ピン留め中</span>" : "<span>📌 ピン留め</span>";
     }
 
     const gridEl = document.getElementById("bingo-grid");
@@ -1589,6 +1627,24 @@
     document.getElementById("modal-cell-title").textContent = cell.title;
     document.getElementById("modal-crop-target").textContent = cell.crop_target;
 
+    // 複数ビンゴ連動スポット表示
+    const sharedBox = document.getElementById("modal-shared-courses-box");
+    if (sharedBox) {
+      const otherCourses = findMatchingCellsAndTowns(cell)
+        .filter((item) => item.town.id !== town.id)
+        .map((item) => item.town.title);
+      if (otherCourses.length > 0) {
+        sharedBox.style.display = "block";
+        sharedBox.innerHTML = `
+          <div class="modal-shared-courses-title">🔗 複数ビンゴ連動スポット（他 ${otherCourses.length} コースにも収録）</div>
+          <div class="modal-shared-courses-list">この場所を採集すると「${otherCourses.join("」「")}」の対応マスも同時に開きます。</div>
+        `;
+      } else {
+        sharedBox.style.display = "none";
+        sharedBox.innerHTML = "";
+      }
+    }
+
     // プレビュー枠
     const frameEl = document.getElementById("modal-photo-frame");
     const isSketch = Boolean(collected && (collected.isSketch || collected.mode === "sketch"));
@@ -1729,6 +1785,7 @@
 
   // 10-A. 街タイル図鑑（収集済みの街標本カード）
   function renderTownSpecimenPlates() {
+    renderTourTypeFilterBar("tiles-tourtype-filters");
     renderRegionFilterBar("tiles-region-filters", "tiles-subregion-filters");
     const container = document.getElementById("specimen-plates-container");
     container.innerHTML = "";
@@ -2019,7 +2076,7 @@
   // ==========================================================================
   // 11. BINGO! & COMPLETE! 祝福演出オーバーレイと紙吹雪アニメーション
   // ==========================================================================
-  function showCelebrationOverlay(mode, town, lines) {
+  function showCelebrationOverlay(mode, town, lines, extras = []) {
     const overlay = document.getElementById("celebration-overlay");
     const medallion = document.getElementById("celebration-medallion");
     const kicker = document.getElementById("celebration-kicker");
@@ -2049,6 +2106,16 @@
         pill.textContent = `★ ${line.label}`;
         pillsWrap.appendChild(pill);
       });
+    }
+
+    if (Array.isArray(extras) && extras.length > 0) {
+      const extraBox = document.createElement("div");
+      extraBox.className = "celebration-extra-box";
+      const summaryText = extras
+        .map((ex) => `「${ex.town.title}」(${ex.mode === "COMPLETE" ? "COMPLETE!" : `BINGO ${ex.lines.length}本`})`)
+        .join(" / ");
+      extraBox.textContent = `🔗 連動オープンにより他コースでも同時達成！: ${summaryText}`;
+      pillsWrap.appendChild(extraBox);
     }
 
     overlay.classList.add("active");
@@ -2164,7 +2231,12 @@
         return;
       }
 
-      // 4. サブ画面（ビンゴ探索・コレクション図鑑）なら直前の画面またはトップへ戻る
+      // 4. サブ画面（ビンゴ探索・コレクション図鑑）ならエリア一覧（または直前の画面）へ戻る
+      if (currentViewId === "view-bingo") {
+        switchMainView("view-home", { fromHistory: true, scrollToAreaList: true });
+        pushBrowserHistoryEntry({ view: currentViewId, guard: true });
+        return;
+      }
       const prevView = viewHistoryStack.length > 0 ? viewHistoryStack.pop() : "view-home";
       switchMainView(prevView, { fromHistory: true });
       pushBrowserHistoryEntry({ view: currentViewId, guard: true });
@@ -2194,7 +2266,69 @@
     document.querySelectorAll(".nav-tab-btn").forEach((btn) => {
       btn.classList.toggle("active", btn.getAttribute("data-target") === targetViewId);
     });
+    renderPinnedQuickBar();
+
+    if (targetViewId === "view-home" && options.scrollToAreaList) {
+      const areaHeader = document.getElementById("home-area-section-title");
+      if (areaHeader) {
+        requestAnimationFrame(() => {
+          areaHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
+        return;
+      }
+    }
     window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function renderPinnedQuickBar() {
+    const bar = document.getElementById("pinned-quick-bar");
+    if (!bar) return;
+
+    const pinnedIds = Array.isArray(state.pinnedTownIds) ? state.pinnedTownIds : [];
+    const pinnedTowns = pinnedIds
+      .map((id) => INITIAL_TOWNS.find((t) => t.id === id))
+      .filter(Boolean);
+
+    if (pinnedTowns.length === 0) {
+      bar.style.display = "none";
+      bar.innerHTML = "";
+      return;
+    }
+
+    bar.style.display = "flex";
+    bar.innerHTML = '<span class="pinned-quick-label">📌 ピン留め:</span>';
+
+    pinnedTowns.forEach((town) => {
+      const prog = getTownProgress(town);
+      const isCurrentActive = currentViewId === "view-bingo" && state.selectedTownId === town.id;
+      const chip = document.createElement("div");
+      chip.className = `pinned-quick-chip ${isCurrentActive ? "is-active" : ""}`;
+      chip.setAttribute("role", "button");
+      chip.setAttribute("tabindex", "0");
+      chip.title = `${town.title} を開く`;
+
+      const shortTitle = town.title.split(" ")[0];
+      chip.innerHTML = `
+        <span>${shortTitle}</span>
+        <span class="pinned-quick-progress">${prog.clearedCount}/9</span>
+        <button type="button" class="pinned-quick-unpin" aria-label="${town.title}のピン留めを解除" title="ピン留め解除">✕</button>
+      `;
+
+      chip.addEventListener("click", (e) => {
+        if (e.target.closest(".pinned-quick-unpin")) return;
+        state.selectedTownId = town.id;
+        saveState();
+        renderAll();
+        switchMainView("view-bingo");
+      });
+
+      chip.querySelector(".pinned-quick-unpin").addEventListener("click", (e) => {
+        e.stopPropagation();
+        togglePinTown(town.id);
+      });
+
+      bar.appendChild(chip);
+    });
   }
 
   function switchCompendiumSubtab(subtab) {
@@ -2207,6 +2341,7 @@
 
   function renderAll() {
     renderHeaderAndStats();
+    renderPinnedQuickBar();
     renderHomeTownCards();
     renderBingoBoard();
     renderCompendium();
@@ -2227,10 +2362,18 @@
       switchMainView("view-home");
     });
 
-    // ビンゴ画面から街選択へ戻る
+    // ビンゴ画面からエリア一覧へ戻る
     document.getElementById("btn-back-to-home").addEventListener("click", () => {
-      switchMainView("view-home");
+      switchMainView("view-home", { scrollToAreaList: true });
     });
+
+    // ビンゴ画面から現在のビンゴをピン留め／解除
+    const pinTownBtn = document.getElementById("btn-toggle-pin-town");
+    if (pinTownBtn) {
+      pinTownBtn.addEventListener("click", () => {
+        togglePinTown(state.selectedTownId);
+      });
+    }
 
     // ビンゴ画面から標本図鑑へ
     document.getElementById("btn-view-in-compendium").addEventListener("click", () => {
@@ -2332,15 +2475,6 @@
       processUploadedImageFile(file, (dataUrl, capturedDate) => {
         registerCellPhoto(targetCellId, dataUrl, "photo", capturedDate);
       });
-    });
-
-    // テスト用ダミー画像でクリアにするボタン
-    document.getElementById("btn-debug-dummy-clear").addEventListener("click", () => {
-      if (!activeModalCellId) return;
-      const found = findCellAndTown(activeModalCellId);
-      if (!found) return;
-      const dummyUrl = generateDummyArchitecturalPhoto(found.cell, found.town);
-      registerCellPhoto(activeModalCellId, dummyUrl, "dummy");
     });
 
     // 登録写真の削除ボタン

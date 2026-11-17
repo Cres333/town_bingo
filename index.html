@@ -45,6 +45,9 @@
       </div>
     </header>
 
+    <!-- ==================== ピン留めビンゴ クイックアクセスバー ==================== -->
+    <div id="pinned-quick-bar" class="pinned-quick-bar" style="display: none;" aria-label="ピン留めしたビンゴ"></div>
+
     <!-- ==================== メインビュー領域 ==================== -->
     <main class="app-main">
       <!-- 1. ホーム / 街セレクト画面 -->
@@ -75,10 +78,13 @@
         </div>
 
         <div class="notebook-section-header">
-          <h2 class="notebook-section-title" id="home-area-section-title">探索エリアを選択（全国全56コース）</h2>
+          <h2 class="notebook-section-title" id="home-area-section-title">探索エリアを選択（全国全100コース）</h2>
           <span class="notebook-section-sub">SELECT AREA</span>
         </div>
 
+        <div id="home-tourtype-filters" class="parts-filter-bar tourtype-filter-bar" aria-label="移動スタイルフィルタ">
+          <!-- すべて / 散策（〜3時間・車不要） / 広域 -->
+        </div>
         <div id="home-region-filters" class="parts-filter-bar" aria-label="地方フィルタ">
           <!-- 地方区分フィルタチップ（北海道・東北・関東・甲信越・東海・北陸・近畿・中国四国・九州） -->
         </div>
@@ -99,7 +105,15 @@
               <span>◀</span>
               <span>街セレクトへ</span>
             </button>
-            <div style="display: flex; align-items: center; gap: 8px;">
+            <div style="display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end;">
+              <button
+                type="button"
+                class="btn-pin-town"
+                id="btn-toggle-pin-town"
+                title="このビンゴをピン留めしてどこからでもすぐ開く"
+              >
+                <span>📌 ピン留め</span>
+              </button>
               <a
                 href="#"
                 target="_blank"
@@ -195,6 +209,9 @@
 
         <!-- サブビューA: 街タイル図鑑 -->
         <div id="compendium-tiles-panel">
+          <div id="tiles-tourtype-filters" class="parts-filter-bar tourtype-filter-bar" aria-label="街タイル移動スタイルフィルタ">
+            <!-- すべて / 散策 / 広域 -->
+          </div>
           <div id="tiles-region-filters" class="parts-filter-bar" aria-label="街タイル地方フィルタ">
             <!-- 地方区分フィルタチップ -->
           </div>
@@ -292,6 +309,9 @@
           <div class="modal-target-banner">
             <span>🎯 探索ターゲット:</span>
             <strong id="modal-crop-target">時計塔の赤煉瓦と白い花崗岩の帯</strong>
+          </div>
+          <div id="modal-shared-courses-box" class="modal-shared-courses-box" style="display: none;">
+            <!-- JSで他コース連動バッジを描画 -->
           </div>
         </div>
 
@@ -415,9 +435,6 @@
           </div>
 
           <div class="debug-action-row">
-            <button type="button" class="btn-debug-dummy" id="btn-debug-dummy-clear" title="現地に行かなくてもカラー標本画像で動作確認できるテスト用ボタン">
-              <span>🔧 テスト用ダミー画像でクリアにする</span>
-            </button>
             <button type="button" class="btn-reset-cell" id="btn-reset-cell" style="display: none;">
               <span>採集を取り消す</span>
             </button>

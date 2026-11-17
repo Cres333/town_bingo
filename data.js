@@ -1,8 +1,7 @@
 // ============================================================================
-// 街のパーツ収集・宝探しビンゴ — 全国8地域・全47コース（全423スポット）初期データ
-// 収録地域：北海道・東北・関東・東海・北陸・近畿・中国・四国・九州（沖縄含む）
-// 収録対象：観光名所・通年楽しめる絶景風景・有名建築（城郭・社寺・現代ランドマーク・近代建築）
-// 各スポットに緯度経度（lat / lng）および Google マップ検索クエリ（map_query）を収録
+// 街のパーツ収集・宝探しビンゴ — 全国全100コース（全900スポット）初期データ
+// ジャンル区分：散策（〜3時間・車不要 68コース）／広域（半日〜週末探検 32コース）
+// 同一スポット（spot_key）は複数コース間で連動し、1回の採集で複数ビンゴが同時開放
 // ============================================================================
 
 const INITIAL_TOWNS = [
@@ -41,7 +40,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.0626,
         "lng": 141.3535,
-        "map_query": "札幌市時計台"
+        "map_query": "札幌市時計台",
+        "spot_key": "sapporo_clock_tower"
       },
       {
         "id": "otr_02",
@@ -63,7 +63,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.0639,
         "lng": 141.3479,
-        "map_query": "北海道庁旧本庁舎 赤れんが庁舎"
+        "map_query": "北海道庁旧本庁舎 赤れんが庁舎",
+        "spot_key": "sapporo_akarenga"
       },
       {
         "id": "otr_03",
@@ -85,7 +86,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.0462,
         "lng": 141.3532,
-        "map_query": "札幌 豊平館"
+        "map_query": "札幌 豊平館",
+        "spot_key": "sapporo_hoheikan"
       },
       {
         "id": "otr_04",
@@ -107,7 +109,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.1959,
         "lng": 141.0019,
-        "map_query": "日本銀行旧小樽支店 金融資料館"
+        "map_query": "日本銀行旧小樽支店 金融資料館",
+        "spot_key": "otaru_boj"
       },
       {
         "id": "otr_05",
@@ -129,7 +132,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.1956,
         "lng": 141.0031,
-        "map_query": "旧三井銀行小樽支店"
+        "map_query": "旧三井銀行小樽支店",
+        "spot_key": "otaru_mitsui"
       },
       {
         "id": "otr_06",
@@ -151,7 +155,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.2043,
         "lng": 141.0018,
-        "map_query": "旧日本郵船小樽支店"
+        "map_query": "旧日本郵船小樽支店",
+        "spot_key": "otaru_nyusen"
       },
       {
         "id": "otr_07",
@@ -173,7 +178,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.1976,
         "lng": 141.003,
-        "map_query": "小樽運河 浅草橋街園"
+        "map_query": "小樽運河 浅草橋街園",
+        "spot_key": "otaru_canal"
       },
       {
         "id": "otr_08",
@@ -195,7 +201,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.1972,
         "lng": 141.001,
-        "map_query": "小樽バイン 旧北海道銀行本店"
+        "map_query": "小樽バイン 旧北海道銀行本店",
+        "spot_key": "otaru_hokkaido_bank"
       },
       {
         "id": "otr_09",
@@ -217,9 +224,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.195,
         "lng": 141.0046,
-        "map_query": "小樽浪漫館 旧百十三銀行小樽支店"
+        "map_query": "小樽浪漫館 旧百十三銀行小樽支店",
+        "spot_key": "otaru_113_bank"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "hokkaido_hakodate",
@@ -256,7 +265,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.765,
         "lng": 140.7088,
-        "map_query": "旧函館区公会堂"
+        "map_query": "旧函館区公会堂",
+        "spot_key": "hakodate_kokaido"
       },
       {
         "id": "hkd_02",
@@ -344,7 +354,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.766,
         "lng": 140.7165,
-        "map_query": "金森赤レンガ倉庫"
+        "map_query": "金森赤レンガ倉庫",
+        "spot_key": "hakodate_kanemori"
       },
       {
         "id": "hkd_06",
@@ -434,7 +445,8 @@ const INITIAL_TOWNS = [
         "lng": 140.7163,
         "map_query": "日本最古のコンクリート電柱 函館"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "hokkaido_sapporo_landmarks",
@@ -471,7 +483,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.0611,
         "lng": 141.3564,
-        "map_query": "さっぽろテレビ塔"
+        "map_query": "さっぽろテレビ塔",
+        "spot_key": "sapporo_tv_tower"
       },
       {
         "id": "spl_02",
@@ -603,7 +616,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 43.0555,
         "lng": 141.3534,
-        "map_query": "すすきの交差点 ニッカ看板"
+        "map_query": "すすきの交差点 ニッカ看板",
+        "spot_key": "sapporo_susukino_nikka"
       },
       {
         "id": "spl_08",
@@ -649,7 +663,8 @@ const INITIAL_TOWNS = [
         "lng": 141.2708,
         "map_query": "白い恋人パーク"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "hokkaido_hakodate_goryokaku",
@@ -686,7 +701,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.7947,
         "lng": 140.754,
-        "map_query": "五稜郭タワー"
+        "map_query": "五稜郭タワー",
+        "spot_key": "hakodate_goryokaku"
       },
       {
         "id": "grk_02",
@@ -708,7 +724,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.7971,
         "lng": 140.7568,
-        "map_query": "箱館奉行所"
+        "map_query": "箱館奉行所",
+        "spot_key": "hakodate_bugyosho"
       },
       {
         "id": "grk_03",
@@ -752,7 +769,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.7638,
         "lng": 140.7116,
-        "map_query": "函館 八幡坂"
+        "map_query": "函館 八幡坂",
+        "spot_key": "hakodate_hachimanzaka"
       },
       {
         "id": "grk_05",
@@ -774,7 +792,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.7717,
         "lng": 140.7224,
-        "map_query": "函館 摩周丸"
+        "map_query": "函館 摩周丸",
+        "spot_key": "hakodate_mashumaru"
       },
       {
         "id": "grk_06",
@@ -862,9 +881,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 41.7722,
         "lng": 140.7253,
-        "map_query": "函館朝市"
+        "map_query": "函館朝市",
+        "spot_key": "hakodate_asaichi"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tohoku_hirosaki_aomori",
@@ -901,7 +922,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.6022,
         "lng": 140.466,
-        "map_query": "旧弘前市立図書館"
+        "map_query": "旧弘前市立図書館",
+        "spot_key": "hirosaki_old_library"
       },
       {
         "id": "hrs_02",
@@ -923,7 +945,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.6029,
         "lng": 140.4682,
-        "map_query": "旧第五十九銀行本店本館 青森銀行記念館"
+        "map_query": "旧第五十九銀行本店本館 青森銀行記念館",
+        "spot_key": "hirosaki_59bank"
       },
       {
         "id": "hrs_03",
@@ -945,7 +968,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.6021,
         "lng": 140.4701,
-        "map_query": "日本基督教団 弘前教会"
+        "map_query": "日本基督教団 弘前教会",
+        "spot_key": "hirosaki_church"
       },
       {
         "id": "hrs_04",
@@ -967,7 +991,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.602,
         "lng": 140.4663,
-        "map_query": "旧東奥義塾外人教師館"
+        "map_query": "旧東奥義塾外人教師館",
+        "spot_key": "hirosaki_toogijuku"
       },
       {
         "id": "hrs_05",
@@ -989,7 +1014,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.6019,
         "lng": 140.4596,
-        "map_query": "藤田記念庭園 洋館"
+        "map_query": "藤田記念庭園 洋館",
+        "spot_key": "hirosaki_fujita_villa"
       },
       {
         "id": "hrs_06",
@@ -1011,7 +1037,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 40.5968,
         "lng": 140.4728,
-        "map_query": "弘前昇天教会"
+        "map_query": "弘前昇天教会",
+        "spot_key": "hirosaki_ascension_church"
       },
       {
         "id": "hrs_07",
@@ -1079,7 +1106,8 @@ const INITIAL_TOWNS = [
         "lng": 140.7506,
         "map_query": "青森県立郷土館"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tohoku_yamagata_tsuruoka",
@@ -1294,7 +1322,8 @@ const INITIAL_TOWNS = [
         "lng": 140.1059,
         "map_query": "旧米沢高等工業学校本館"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tohoku_sendai_matsushima",
@@ -1331,7 +1360,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.2529,
         "lng": 140.8559,
-        "map_query": "仙台城跡 伊達政宗公騎馬像"
+        "map_query": "仙台城跡 伊達政宗公騎馬像",
+        "spot_key": "sendai_castle"
       },
       {
         "id": "snd_02",
@@ -1353,7 +1383,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.2505,
         "lng": 140.8659,
-        "map_query": "仙台 瑞鳳殿"
+        "map_query": "仙台 瑞鳳殿",
+        "spot_key": "sendai_zuihoden"
       },
       {
         "id": "snd_03",
@@ -1375,7 +1406,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.2725,
         "lng": 140.8447,
-        "map_query": "仙台 大崎八幡宮"
+        "map_query": "仙台 大崎八幡宮",
+        "spot_key": "sendai_osaki_hachimangu"
       },
       {
         "id": "snd_04",
@@ -1397,7 +1429,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.2655,
         "lng": 140.8656,
-        "map_query": "せんだいメディアテーク"
+        "map_query": "せんだいメディアテーク",
+        "spot_key": "sendai_mediatheque"
       },
       {
         "id": "snd_05",
@@ -1419,7 +1452,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.3688,
         "lng": 141.0641,
-        "map_query": "松島 五大堂"
+        "map_query": "松島 五大堂",
+        "spot_key": "matsushima_godaido"
       },
       {
         "id": "snd_06",
@@ -1441,7 +1475,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.3682,
         "lng": 141.0625,
-        "map_query": "松島海岸 中央桟橋"
+        "map_query": "松島海岸 中央桟橋",
+        "spot_key": "matsushima_bay_view"
       },
       {
         "id": "snd_07",
@@ -1463,7 +1498,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.3721,
         "lng": 141.0598,
-        "map_query": "松島 瑞巌寺"
+        "map_query": "松島 瑞巌寺",
+        "spot_key": "matsushima_zuiganji"
       },
       {
         "id": "snd_08",
@@ -1485,7 +1521,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 38.368,
         "lng": 141.0694,
-        "map_query": "松島 福浦橋"
+        "map_query": "松島 福浦橋",
+        "spot_key": "matsushima_fukuurabashi"
       },
       {
         "id": "snd_09",
@@ -1509,7 +1546,8 @@ const INITIAL_TOWNS = [
         "lng": 141.0125,
         "map_query": "塩竈神社"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tohoku_aizuwakamatsu_ouchijuku",
@@ -1546,7 +1584,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.4877,
         "lng": 139.9298,
-        "map_query": "会津若松 鶴ヶ城"
+        "map_query": "会津若松 鶴ヶ城",
+        "spot_key": "aizu_tsurugajo"
       },
       {
         "id": "aiz_02",
@@ -1568,7 +1607,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.5048,
         "lng": 139.9541,
-        "map_query": "会津さざえ堂"
+        "map_query": "会津さざえ堂",
+        "spot_key": "aizu_sazaedo"
       },
       {
         "id": "aiz_03",
@@ -1634,7 +1674,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.4867,
         "lng": 139.9311,
-        "map_query": "鶴ヶ城 茶室麟閣"
+        "map_query": "鶴ヶ城 茶室麟閣",
+        "spot_key": "aizu_rinkaku"
       },
       {
         "id": "aiz_06",
@@ -1656,7 +1697,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.4908,
         "lng": 139.9436,
-        "map_query": "会津若松 御薬園"
+        "map_query": "会津若松 御薬園",
+        "spot_key": "aizu_oyakuen"
       },
       {
         "id": "aiz_07",
@@ -1678,7 +1720,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.4991,
         "lng": 139.9234,
-        "map_query": "会津若松 野口英世青春館"
+        "map_query": "会津若松 野口英世青春館",
+        "spot_key": "aizu_nanokamachi"
       },
       {
         "id": "aiz_08",
@@ -1724,7 +1767,8 @@ const INITIAL_TOWNS = [
         "lng": 140.0628,
         "map_query": "猪苗代 天鏡閣"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tohoku_hiraizumi_morioka",
@@ -1827,7 +1871,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.7005,
         "lng": 141.1552,
-        "map_query": "岩手銀行赤レンガ館"
+        "map_query": "岩手銀行赤レンガ館",
+        "spot_key": "morioka_iwate_bank"
       },
       {
         "id": "iwt_05",
@@ -1849,7 +1894,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.7006,
         "lng": 141.1501,
-        "map_query": "盛岡城跡公園"
+        "map_query": "盛岡城跡公園",
+        "spot_key": "morioka_castle_park"
       },
       {
         "id": "iwt_06",
@@ -1871,7 +1917,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.7024,
         "lng": 141.1574,
-        "map_query": "盛岡 紺屋町番屋"
+        "map_query": "盛岡 紺屋町番屋",
+        "spot_key": "morioka_konyacho_banya"
       },
       {
         "id": "iwt_07",
@@ -1893,7 +1940,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.7019,
         "lng": 141.1419,
-        "map_query": "盛岡 開運橋"
+        "map_query": "盛岡 開運橋",
+        "spot_key": "morioka_kaiunbashi"
       },
       {
         "id": "iwt_08",
@@ -1915,7 +1963,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.7042,
         "lng": 141.1512,
-        "map_query": "盛岡 石割桜"
+        "map_query": "盛岡 石割桜",
+        "spot_key": "morioka_ishiwari_zakura"
       },
       {
         "id": "iwt_09",
@@ -1937,9 +1986,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 39.6956,
         "lng": 141.1636,
-        "map_query": "盛岡八幡宮"
+        "map_query": "盛岡八幡宮",
+        "spot_key": "morioka_hachimangu"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "yokohama_modern",
@@ -2130,7 +2181,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.4526,
         "lng": 139.6429,
-        "map_query": "横浜赤レンガ倉庫"
+        "map_query": "横浜赤レンガ倉庫",
+        "spot_key": "yokohama_akarenga"
       },
       {
         "id": "ykh_09",
@@ -2154,7 +2206,8 @@ const INITIAL_TOWNS = [
         "lng": 139.6499,
         "map_query": "ホテルニューグランド本館"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tokyo_nihonbashi",
@@ -2345,7 +2398,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6712,
         "lng": 139.765,
-        "map_query": "SEIKO HOUSE GINZA 和光本館"
+        "map_query": "SEIKO HOUSE GINZA 和光本館",
+        "spot_key": "ginza_wako"
       },
       {
         "id": "tyo_09",
@@ -2367,9 +2421,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6744,
         "lng": 139.769,
-        "map_query": "銀座 奥野ビル"
+        "map_query": "銀座 奥野ビル",
+        "spot_key": "ginza_okuno_bldg"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tokyo_ueno_yanesen",
@@ -2584,7 +2640,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7654,
         "map_query": "谷中銀座 夕やけだんだん"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tokyo_kanda_jinbocho",
@@ -2799,7 +2856,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7621,
         "map_query": "山の上ホテル 神田駿河台"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tokyo_hongo_todai",
@@ -3014,7 +3072,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7562,
         "map_query": "本郷 菊坂通り"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "yokohama_yamate",
@@ -3229,7 +3288,8 @@ const INITIAL_TOWNS = [
         "lng": 139.6433,
         "map_query": "ブラフ18番館"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kamakura_retro",
@@ -3266,7 +3326,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.315,
         "lng": 139.5391,
-        "map_query": "鎌倉文学館"
+        "map_query": "鎌倉文学館",
+        "spot_key": "kamakura_bungakukan"
       },
       {
         "id": "kmk_02",
@@ -3444,7 +3505,8 @@ const INITIAL_TOWNS = [
         "lng": 139.5356,
         "map_query": "長谷寺 鎌倉"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "saitama_kawagoe",
@@ -3659,7 +3721,8 @@ const INITIAL_TOWNS = [
         "lng": 139.4832,
         "map_query": "川越 大正浪漫夢通り"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "chiba_sawara",
@@ -3874,7 +3937,8 @@ const INITIAL_TOWNS = [
         "lng": 140.4988,
         "map_query": "佐原 木内惣五郎商店"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kitakanto_nikko_tomioka",
@@ -3911,7 +3975,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.7472,
         "lng": 139.6221,
-        "map_query": "JR日光駅"
+        "map_query": "JR日光駅",
+        "spot_key": "nikko_jr_station"
       },
       {
         "id": "nkt_02",
@@ -3933,7 +3998,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.7525,
         "lng": 139.6042,
-        "map_query": "日光金谷ホテル"
+        "map_query": "日光金谷ホテル",
+        "spot_key": "nikko_kanaya_hotel"
       },
       {
         "id": "nkt_03",
@@ -3955,7 +4021,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.7518,
         "lng": 139.5919,
-        "map_query": "日光田母沢御用邸記念公園"
+        "map_query": "日光田母沢御用邸記念公園",
+        "spot_key": "nikko_tamozawa"
       },
       {
         "id": "nkt_04",
@@ -3999,7 +4066,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.7533,
         "lng": 139.6039,
-        "map_query": "日光二荒山神社 神橋"
+        "map_query": "日光二荒山神社 神橋",
+        "spot_key": "nikko_shinkyo"
       },
       {
         "id": "nkt_06",
@@ -4089,7 +4157,8 @@ const INITIAL_TOWNS = [
         "lng": 139.3323,
         "map_query": "桐生織物記念館"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kanto_asakusa_skytree",
@@ -4304,7 +4373,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7888,
         "map_query": "ニイミ洋食器店 ジャンボコック像"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kanto_shibuya_harajuku_minato",
@@ -4385,7 +4455,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6801,
         "lng": 139.7289,
-        "map_query": "迎賓館赤坂離宮"
+        "map_query": "迎賓館赤坂離宮",
+        "spot_key": "tokyo_geihinkan"
       },
       {
         "id": "tkt_04",
@@ -4495,7 +4566,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6695,
         "lng": 139.7676,
-        "map_query": "銀座 歌舞伎座"
+        "map_query": "銀座 歌舞伎座",
+        "spot_key": "ginza_kabukiza"
       },
       {
         "id": "tkt_09",
@@ -4519,7 +4591,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7717,
         "map_query": "お台場 自由の女神像"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kanto_hakone_enoshima",
@@ -4666,7 +4739,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.2508,
         "lng": 139.1536,
-        "map_query": "小田原城 天守閣"
+        "map_query": "小田原城 天守閣",
+        "spot_key": "odawara_castle"
       },
       {
         "id": "hkn_07",
@@ -4688,7 +4762,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.2997,
         "lng": 139.4786,
-        "map_query": "江の島シーキャンドル"
+        "map_query": "江の島シーキャンドル",
+        "spot_key": "enoshima_sea_candle"
       },
       {
         "id": "hkn_08",
@@ -4710,7 +4785,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.3005,
         "lng": 139.4802,
-        "map_query": "江島神社 瑞心門"
+        "map_query": "江島神社 瑞心門",
+        "spot_key": "enoshima_jinja"
       },
       {
         "id": "hkn_09",
@@ -4732,9 +4808,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.2977,
         "lng": 139.4748,
-        "map_query": "江の島 稚児ヶ淵"
+        "map_query": "江の島 稚児ヶ淵",
+        "spot_key": "enoshima_iwaya"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tokai_nagoya",
@@ -4771,7 +4849,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.1813,
         "lng": 136.9098,
-        "map_query": "名古屋市市政資料館"
+        "map_query": "名古屋市市政資料館",
+        "spot_key": "nagoya_shiseishiryokan"
       },
       {
         "id": "ngy_02",
@@ -4793,7 +4872,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.1815,
         "lng": 136.9064,
-        "map_query": "名古屋市役所本庁舎"
+        "map_query": "名古屋市役所本庁舎",
+        "spot_key": "nagoya_city_hall"
       },
       {
         "id": "ngy_03",
@@ -4815,7 +4895,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.1802,
         "lng": 136.9066,
-        "map_query": "愛知県庁本庁舎"
+        "map_query": "愛知県庁本庁舎",
+        "spot_key": "aichi_pref_office"
       },
       {
         "id": "ngy_04",
@@ -4947,9 +5028,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.1723,
         "lng": 136.9083,
-        "map_query": "中部電力 MIRAI TOWER 名古屋テレビ塔"
+        "map_query": "中部電力 MIRAI TOWER 名古屋テレビ塔",
+        "spot_key": "nagoya_tv_tower"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "tokai_kuwana_ise",
@@ -5096,7 +5179,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4883,
         "lng": 136.7142,
-        "map_query": "宇治山田駅"
+        "map_query": "宇治山田駅",
+        "spot_key": "ise_ujiyamada_station"
       },
       {
         "id": "ise_07",
@@ -5118,7 +5202,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4867,
         "lng": 136.7259,
-        "map_query": "伊勢 神宮徴古館"
+        "map_query": "伊勢 神宮徴古館",
+        "spot_key": "ise_chokokan"
       },
       {
         "id": "ise_08",
@@ -5140,7 +5225,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4608,
         "lng": 136.7239,
-        "map_query": "五十鈴川郵便局 おかげ横丁"
+        "map_query": "五十鈴川郵便局 おかげ横丁",
+        "spot_key": "ise_oharaimachi_okage"
       },
       {
         "id": "ise_09",
@@ -5162,9 +5248,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4981,
         "lng": 136.7153,
-        "map_query": "伊勢河崎商人館"
+        "map_query": "伊勢河崎商人館",
+        "spot_key": "ise_kawasaki_shoninkan"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tokai_fujisan_shizuoka",
@@ -5333,7 +5421,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.5012,
         "lng": 138.8014,
-        "map_query": "新倉山浅間公園 忠霊塔"
+        "map_query": "新倉山浅間公園 忠霊塔",
+        "spot_key": "yamanashi_chureito"
       },
       {
         "id": "fuj_08",
@@ -5355,7 +5444,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.4601,
         "lng": 138.8328,
-        "map_query": "忍野八海"
+        "map_query": "忍野八海",
+        "spot_key": "yamanashi_oshinohakkai"
       },
       {
         "id": "fuj_09",
@@ -5379,7 +5469,8 @@ const INITIAL_TOWNS = [
         "lng": 138.1872,
         "map_query": "島田 蓬莱橋"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tokai_takayama_shirakawago_inuyama",
@@ -5460,7 +5551,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.1415,
         "lng": 137.2597,
-        "map_query": "飛騨高山 古い町並 上三之町"
+        "map_query": "飛騨高山 古い町並 上三之町",
+        "spot_key": "takayama_sanmachi"
       },
       {
         "id": "hid_04",
@@ -5482,7 +5574,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.1397,
         "lng": 137.2575,
-        "map_query": "高山陣屋"
+        "map_query": "高山陣屋",
+        "spot_key": "takayama_jinya"
       },
       {
         "id": "hid_05",
@@ -5504,7 +5597,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.1399,
         "lng": 137.259,
-        "map_query": "飛騨高山 中橋"
+        "map_query": "飛騨高山 中橋",
+        "spot_key": "takayama_nakabashi"
       },
       {
         "id": "hid_06",
@@ -5526,7 +5620,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.3883,
         "lng": 136.9392,
-        "map_query": "国宝 犬山城"
+        "map_query": "国宝 犬山城",
+        "spot_key": "inuyama_castle"
       },
       {
         "id": "hid_07",
@@ -5548,7 +5643,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.3865,
         "lng": 136.9391,
-        "map_query": "犬山 三光稲荷神社"
+        "map_query": "犬山 三光稲荷神社",
+        "spot_key": "inuyama_sanko_inari"
       },
       {
         "id": "hid_08",
@@ -5594,7 +5690,8 @@ const INITIAL_TOWNS = [
         "lng": 137.2415,
         "map_query": "下呂温泉 白鷺の湯"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "hokuriku_kanazawa",
@@ -5809,7 +5906,8 @@ const INITIAL_TOWNS = [
         "lng": 136.6631,
         "map_query": "兼六園 成巽閣"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "hokuriku_takaoka_mikuni",
@@ -5956,7 +6054,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6552,
         "lng": 136.0694,
-        "map_query": "敦賀市立博物館 旧大和田銀行本店"
+        "map_query": "敦賀市立博物館 旧大和田銀行本店",
+        "spot_key": "tsuruga_owada_bank"
       },
       {
         "id": "hkr_07",
@@ -5978,7 +6077,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6615,
         "lng": 136.0757,
-        "map_query": "敦賀赤レンガ倉庫"
+        "map_query": "敦賀赤レンガ倉庫",
+        "spot_key": "tsuruga_akarenga"
       },
       {
         "id": "hkr_08",
@@ -6000,7 +6100,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6634,
         "lng": 136.0757,
-        "map_query": "旧敦賀港駅ランプ小屋"
+        "map_query": "旧敦賀港駅ランプ小屋",
+        "spot_key": "tsuruga_lamp_hut"
       },
       {
         "id": "hkr_09",
@@ -6024,7 +6125,8 @@ const INITIAL_TOWNS = [
         "lng": 136.5008,
         "map_query": "勝山 旧料亭花月楼"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "hokuriku_kanazawa_garden_modern",
@@ -6239,7 +6341,8 @@ const INITIAL_TOWNS = [
         "lng": 136.6491,
         "map_query": "金沢 妙立寺 忍者寺"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "hokuriku_fukui_tojinbo_eiheiji",
@@ -6454,7 +6557,8 @@ const INITIAL_TOWNS = [
         "lng": 137.2141,
         "map_query": "富山市ガラス美術館"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kinki_kyoto",
@@ -6669,7 +6773,8 @@ const INITIAL_TOWNS = [
         "lng": 135.7945,
         "map_query": "南禅寺 水路閣"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kinki_osaka",
@@ -6884,7 +6989,8 @@ const INITIAL_TOWNS = [
         "lng": 135.5011,
         "map_query": "大阪 淀屋橋 大江橋"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kinki_kobe",
@@ -7099,7 +7205,8 @@ const INITIAL_TOWNS = [
         "lng": 135.1959,
         "map_query": "フロインドリーブ本店 旧神戸ユニオン教会"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kinki_kyoto_heritage",
@@ -7158,7 +7265,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.9949,
         "lng": 135.785,
-        "map_query": "京都 清水寺"
+        "map_query": "京都 清水寺",
+        "spot_key": "kyoto_kiyomizudera"
       },
       {
         "id": "kth_03",
@@ -7180,7 +7288,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.9671,
         "lng": 135.7727,
-        "map_query": "伏見稲荷大社 千本鳥居"
+        "map_query": "伏見稲荷大社 千本鳥居",
+        "spot_key": "kyoto_fushimi_inari"
       },
       {
         "id": "kth_04",
@@ -7202,7 +7311,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.0116,
         "lng": 135.6778,
-        "map_query": "嵐山 渡月橋"
+        "map_query": "嵐山 渡月橋",
+        "spot_key": "kyoto_togetsukyo"
       },
       {
         "id": "kth_05",
@@ -7224,7 +7334,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.0169,
         "lng": 135.6713,
-        "map_query": "嵐山 竹林の小径"
+        "map_query": "嵐山 竹林の小径",
+        "spot_key": "kyoto_chikurin"
       },
       {
         "id": "kth_06",
@@ -7246,7 +7357,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.8893,
         "lng": 135.8077,
-        "map_query": "宇治 平等院鳳凰堂"
+        "map_query": "宇治 平等院鳳凰堂",
+        "spot_key": "uji_byodoin"
       },
       {
         "id": "kth_07",
@@ -7268,7 +7380,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.9986,
         "lng": 135.7793,
-        "map_query": "京都 八坂の塔 法観寺"
+        "map_query": "京都 八坂の塔 法観寺",
+        "spot_key": "kyoto_yasaka_pagoda"
       },
       {
         "id": "kth_08",
@@ -7314,7 +7427,8 @@ const INITIAL_TOWNS = [
         "lng": 135.7593,
         "map_query": "京都タワー"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kinki_osaka_landmarks",
@@ -7529,7 +7643,8 @@ const INITIAL_TOWNS = [
         "lng": 135.5139,
         "map_query": "あべのハルカス"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kinki_nara",
@@ -7566,7 +7681,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.689,
         "lng": 135.8398,
-        "map_query": "奈良 東大寺大仏殿"
+        "map_query": "奈良 東大寺大仏殿",
+        "spot_key": "nara_todaiji_daibutsuden"
       },
       {
         "id": "nra_02",
@@ -7588,7 +7704,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.6855,
         "lng": 135.8398,
-        "map_query": "東大寺 南大門"
+        "map_query": "東大寺 南大門",
+        "spot_key": "nara_todaiji_nandaimon"
       },
       {
         "id": "nra_03",
@@ -7610,7 +7727,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.6814,
         "lng": 135.8484,
-        "map_query": "奈良 春日大社"
+        "map_query": "奈良 春日大社",
+        "spot_key": "nara_kasuga_taisha"
       },
       {
         "id": "nra_04",
@@ -7632,7 +7750,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.6825,
         "lng": 135.8322,
-        "map_query": "奈良 興福寺"
+        "map_query": "奈良 興福寺",
+        "spot_key": "nara_kofukuji"
       },
       {
         "id": "nra_05",
@@ -7742,9 +7861,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.6765,
         "lng": 135.8312,
-        "map_query": "奈良 ならまち格子の家"
+        "map_query": "奈良 ならまち格子の家",
+        "spot_key": "nara_naramachi"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kinki_himeji_kobe_port",
@@ -7781,7 +7902,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.8394,
         "lng": 134.6939,
-        "map_query": "姫路城"
+        "map_query": "姫路城",
+        "spot_key": "himeji_castle"
       },
       {
         "id": "hmj_02",
@@ -7803,7 +7925,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.8398,
         "lng": 134.6915,
-        "map_query": "姫路城 西の丸百間廊下"
+        "map_query": "姫路城 西の丸百間廊下",
+        "spot_key": "himeji_nishinomaru"
       },
       {
         "id": "hmj_03",
@@ -7959,7 +8082,8 @@ const INITIAL_TOWNS = [
         "lng": 135.2478,
         "map_query": "有馬温泉 ねね橋"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "chugoku_kurashiki_onomichi",
@@ -7996,7 +8120,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.596,
         "lng": 133.7706,
-        "map_query": "倉敷 大原美術館"
+        "map_query": "倉敷 大原美術館",
+        "spot_key": "kurashiki_ohara_museum"
       },
       {
         "id": "krs_02",
@@ -8018,7 +8143,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.5957,
         "lng": 133.7705,
-        "map_query": "旧大原家住宅 語らい座大原本邸"
+        "map_query": "旧大原家住宅 語らい座大原本邸",
+        "spot_key": "kurashiki_ohara_residence"
       },
       {
         "id": "krs_03",
@@ -8040,7 +8166,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.5952,
         "lng": 133.7714,
-        "map_query": "倉敷館 観光案内所"
+        "map_query": "倉敷館 観光案内所",
+        "spot_key": "kurashiki_kan"
       },
       {
         "id": "krs_04",
@@ -8062,7 +8189,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.5945,
         "lng": 133.7729,
-        "map_query": "倉敷アイビースクエア"
+        "map_query": "倉敷アイビースクエア",
+        "spot_key": "kurashiki_ivy_square"
       },
       {
         "id": "krs_05",
@@ -8084,7 +8212,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.5956,
         "lng": 133.7731,
-        "map_query": "旧中国銀行倉敷本町出張所"
+        "map_query": "旧中国銀行倉敷本町出張所",
+        "spot_key": "kurashiki_chugoku_bank"
       },
       {
         "id": "krs_06",
@@ -8106,7 +8235,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.5957,
         "lng": 133.7709,
-        "map_query": "倉敷 有隣荘"
+        "map_query": "倉敷 有隣荘",
+        "spot_key": "kurashiki_yurinso"
       },
       {
         "id": "krs_07",
@@ -8150,7 +8280,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4091,
         "lng": 133.2036,
-        "map_query": "尾道商業会議所記念館"
+        "map_query": "尾道商業会議所記念館",
+        "spot_key": "onomichi_chamber"
       },
       {
         "id": "krs_09",
@@ -8172,9 +8303,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.4106,
         "lng": 133.2019,
-        "map_query": "尾道 旧和泉家別邸"
+        "map_query": "尾道 旧和泉家別邸",
+        "spot_key": "onomichi_gaudi_house"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "shikoku_matsuyama_uchiko",
@@ -8211,7 +8344,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.8521,
         "lng": 132.7864,
-        "map_query": "道後温泉本館"
+        "map_query": "道後温泉本館",
+        "spot_key": "matsuyama_dogo_honkan"
       },
       {
         "id": "mty_02",
@@ -8233,7 +8367,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.8421,
         "lng": 132.7689,
-        "map_query": "松山 萬翠荘"
+        "map_query": "松山 萬翠荘",
+        "spot_key": "matsuyama_bansuiso"
       },
       {
         "id": "mty_03",
@@ -8255,7 +8390,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.8416,
         "lng": 132.7653,
-        "map_query": "愛媛県庁本館"
+        "map_query": "愛媛県庁本館",
+        "spot_key": "matsuyama_ehime_pref"
       },
       {
         "id": "mty_04",
@@ -8277,7 +8413,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.8505,
         "lng": 132.7852,
-        "map_query": "道後温泉駅"
+        "map_query": "道後温泉駅",
+        "spot_key": "matsuyama_dogo_station"
       },
       {
         "id": "mty_05",
@@ -8387,9 +8524,11 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.8415,
         "lng": 132.7695,
-        "map_query": "松山 坂の上の雲ミュージアム"
+        "map_query": "松山 坂の上の雲ミュージアム",
+        "spot_key": "matsuyama_saka_museum"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "chugoku_hiroshima_miyajima",
@@ -8426,7 +8565,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.2959,
         "lng": 132.3183,
-        "map_query": "宮島 厳島神社大鳥居"
+        "map_query": "宮島 厳島神社大鳥居",
+        "spot_key": "miyajima_torii"
       },
       {
         "id": "myj_02",
@@ -8448,7 +8588,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.2958,
         "lng": 132.3198,
-        "map_query": "宮島 厳島神社"
+        "map_query": "宮島 厳島神社",
+        "spot_key": "miyajima_itsukushima_shrine"
       },
       {
         "id": "myj_03",
@@ -8470,7 +8611,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 34.2974,
         "lng": 132.3208,
-        "map_query": "宮島 五重塔 千畳閣"
+        "map_query": "宮島 五重塔 千畳閣",
+        "spot_key": "miyajima_senjokaku_pagoda"
       },
       {
         "id": "myj_04",
@@ -8604,7 +8746,8 @@ const INITIAL_TOWNS = [
         "lng": 132.5556,
         "map_query": "呉 大和ミュージアム"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "chugoku_izumo_matsue_tottori",
@@ -8819,7 +8962,8 @@ const INITIAL_TOWNS = [
         "lng": 134.2286,
         "map_query": "鳥取砂丘 馬の背"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "shikoku_kagawa_tokushima_kochi",
@@ -9034,7 +9178,8 @@ const INITIAL_TOWNS = [
         "lng": 133.575,
         "map_query": "高知 桂浜 坂本龍馬像"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kyushu_mojiko",
@@ -9249,7 +9394,8 @@ const INITIAL_TOWNS = [
         "lng": 130.9641,
         "map_query": "ブルーウィングもじ"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kyushu_nagasaki",
@@ -9464,7 +9610,8 @@ const INITIAL_TOWNS = [
         "lng": 129.8801,
         "map_query": "長崎 眼鏡橋"
       }
-    ]
+    ],
+    "tour_type": "walk"
   },
   {
     "id": "kyushu_fukuoka_dazaifu",
@@ -9501,7 +9648,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.5215,
         "lng": 130.5349,
-        "map_query": "太宰府天満宮"
+        "map_query": "太宰府天満宮",
+        "spot_key": "dazaifu_tenmangu"
       },
       {
         "id": "fko_02",
@@ -9523,7 +9671,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.5196,
         "lng": 130.5322,
-        "map_query": "スターバックス 太宰府天満宮表参道店"
+        "map_query": "スターバックス 太宰府天満宮表参道店",
+        "spot_key": "dazaifu_starbucks_kuma"
       },
       {
         "id": "fko_03",
@@ -9545,7 +9694,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 33.5183,
         "lng": 130.5386,
-        "map_query": "九州国立博物館"
+        "map_query": "九州国立博物館",
+        "spot_key": "dazaifu_kyuhaku"
       },
       {
         "id": "fko_04",
@@ -9679,7 +9829,8 @@ const INITIAL_TOWNS = [
         "lng": 130.3994,
         "map_query": "柳川藩主立花邸 御花"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kyushu_kumamoto_aso_beppu",
@@ -9716,7 +9867,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 32.8062,
         "lng": 130.7058,
-        "map_query": "熊本城"
+        "map_query": "熊本城",
+        "spot_key": "kumamoto_castle"
       },
       {
         "id": "kmb_02",
@@ -9738,7 +9890,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 32.7911,
         "lng": 130.7347,
-        "map_query": "熊本 水前寺成趣園"
+        "map_query": "熊本 水前寺成趣園",
+        "spot_key": "kumamoto_suizenji"
       },
       {
         "id": "kmb_03",
@@ -9894,7 +10047,8 @@ const INITIAL_TOWNS = [
         "lng": 131.3747,
         "map_query": "大分 宇佐神宮"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kyushu_kagoshima_okinawa",
@@ -9931,7 +10085,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 31.6186,
         "lng": 130.5789,
-        "map_query": "鹿児島 仙厳園"
+        "map_query": "鹿児島 仙厳園",
+        "spot_key": "kagoshima_senganen"
       },
       {
         "id": "oka_02",
@@ -9953,7 +10108,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 31.6172,
         "lng": 130.5769,
-        "map_query": "鹿児島 尚古集成館"
+        "map_query": "鹿児島 尚古集成館",
+        "spot_key": "kagoshima_shoko_shuseikan"
       },
       {
         "id": "oka_03",
@@ -10041,7 +10197,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 26.2178,
         "lng": 127.7169,
-        "map_query": "那覇 首里城 守礼門"
+        "map_query": "那覇 首里城 守礼門",
+        "spot_key": "naha_shurijo"
       },
       {
         "id": "oka_07",
@@ -10109,7 +10266,8 @@ const INITIAL_TOWNS = [
         "lng": 128.0169,
         "map_query": "沖縄 古宇利大橋"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "koshinetsu_matsumoto_azumino_narai",
@@ -10146,7 +10304,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.2386,
         "lng": 137.9689,
-        "map_query": "国宝 松本城"
+        "map_query": "国宝 松本城",
+        "spot_key": "matsumoto_castle"
       },
       {
         "id": "mtm_02",
@@ -10168,7 +10327,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.2435,
         "lng": 137.9673,
-        "map_query": "旧開智学校校舎"
+        "map_query": "旧開智学校校舎",
+        "spot_key": "matsumoto_kaichi_school"
       },
       {
         "id": "mtm_03",
@@ -10190,7 +10350,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.2431,
         "lng": 137.9669,
-        "map_query": "松本市旧司祭館"
+        "map_query": "松本市旧司祭館",
+        "spot_key": "matsumoto_old_priest_house"
       },
       {
         "id": "mtm_04",
@@ -10212,7 +10373,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.2335,
         "lng": 137.9718,
-        "map_query": "松本 中町通り 蔵シック館"
+        "map_query": "松本 中町通り 蔵シック館",
+        "spot_key": "matsumoto_nakamachi"
       },
       {
         "id": "mtm_05",
@@ -10324,7 +10486,8 @@ const INITIAL_TOWNS = [
         "lng": 138.1135,
         "map_query": "諏訪湖 片倉館"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "koshinetsu_nagano_zenkoji_karuizawa",
@@ -10361,7 +10524,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.6617,
         "lng": 138.1877,
-        "map_query": "信州 善光寺 本堂"
+        "map_query": "信州 善光寺 本堂",
+        "spot_key": "nagano_zenkoji"
       },
       {
         "id": "ngn_02",
@@ -10405,7 +10569,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.3694,
         "lng": 138.6272,
-        "map_query": "軽井沢 旧三笠ホテル"
+        "map_query": "軽井沢 旧三笠ホテル",
+        "spot_key": "karuizawa_mikasa_hotel"
       },
       {
         "id": "ngn_04",
@@ -10427,7 +10592,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 36.3579,
         "lng": 138.6344,
-        "map_query": "軽井沢聖パウロカトリック教会"
+        "map_query": "軽井沢聖パウロカトリック教会",
+        "spot_key": "karuizawa_st_paul"
       },
       {
         "id": "ngn_05",
@@ -10539,7 +10705,8 @@ const INITIAL_TOWNS = [
         "lng": 138.3931,
         "map_query": "小諸 布引観音 釈尊寺"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "koshinetsu_niigata_sado_kiyotsu",
@@ -10576,7 +10743,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.9197,
         "lng": 139.0542,
-        "map_query": "新潟 萬代橋"
+        "map_query": "新潟 萬代橋",
+        "spot_key": "niigata_bandai_bridge"
       },
       {
         "id": "ngt_02",
@@ -10598,7 +10766,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.9325,
         "lng": 139.0606,
-        "map_query": "旧新潟税関庁舎"
+        "map_query": "旧新潟税関庁舎",
+        "spot_key": "niigata_old_customs"
       },
       {
         "id": "ngt_03",
@@ -10620,7 +10789,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.9261,
         "lng": 139.0419,
-        "map_query": "新潟 旧齋藤家別邸"
+        "map_query": "新潟 旧齋藤家別邸",
+        "spot_key": "niigata_saito_villa"
       },
       {
         "id": "ngt_04",
@@ -10730,7 +10900,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 37.9169,
         "lng": 139.0389,
-        "map_query": "新潟県政記念館"
+        "map_query": "新潟県政記念館",
+        "spot_key": "niigata_kensei_kinenkan"
       },
       {
         "id": "ngt_09",
@@ -10754,7 +10925,8 @@ const INITIAL_TOWNS = [
         "lng": 138.2553,
         "map_query": "高田城址公園 三重櫓"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "koshinetsu_yamanashi_fujigoko_kofu",
@@ -10791,7 +10963,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.5012,
         "lng": 138.8014,
-        "map_query": "新倉山浅間公園 忠霊塔"
+        "map_query": "新倉山浅間公園 忠霊塔",
+        "spot_key": "yamanashi_chureito"
       },
       {
         "id": "ymn_02",
@@ -10813,7 +10986,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.4601,
         "lng": 138.8328,
-        "map_query": "忍野八海"
+        "map_query": "忍野八海",
+        "spot_key": "yamanashi_oshinohakkai"
       },
       {
         "id": "ymn_03",
@@ -10857,7 +11031,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6675,
         "lng": 138.5688,
-        "map_query": "甲府 藤村記念館 旧睦沢学校"
+        "map_query": "甲府 藤村記念館 旧睦沢学校",
+        "spot_key": "kofu_fujimura_kinenkan"
       },
       {
         "id": "ymn_05",
@@ -10879,7 +11054,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6644,
         "lng": 138.5711,
-        "map_query": "甲府城 舞鶴城公園 鉄門"
+        "map_query": "甲府城 舞鶴城公園 鉄門",
+        "spot_key": "kofu_castle"
       },
       {
         "id": "ymn_06",
@@ -10945,7 +11121,8 @@ const INITIAL_TOWNS = [
         },
         "lat": 35.6869,
         "lng": 138.5775,
-        "map_query": "甲府 武田神社"
+        "map_query": "甲府 武田神社",
+        "spot_key": "kofu_takeda_shrine"
       },
       {
         "id": "ymn_09",
@@ -10969,7 +11146,8 @@ const INITIAL_TOWNS = [
         "lng": 138.4264,
         "map_query": "身延山久遠寺 三門"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "tohoku_akita_kakunodate_kosaka",
@@ -11184,7 +11362,8 @@ const INITIAL_TOWNS = [
         "lng": 139.7014,
         "map_query": "男鹿 入道崎灯台"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kanto_ibaraki_mito_ushiku_oarai",
@@ -11399,7 +11578,8 @@ const INITIAL_TOWNS = [
         "lng": 140.5969,
         "map_query": "国営ひたち海浜公園 みはらしの丘"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kinki_shiga_hikone_omihachiman_biwako",
@@ -11614,7 +11794,8 @@ const INITIAL_TOWNS = [
         "lng": 136.0114,
         "map_query": "高島 白鬚神社 湖中大鳥居"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kinki_wakayama_koyasan_kumano_shirahama",
@@ -11829,7 +12010,8 @@ const INITIAL_TOWNS = [
         "lng": 135.8875,
         "map_query": "飛瀧神社 那智の滝"
       }
-    ]
+    ],
+    "tour_type": "wide"
   },
   {
     "id": "kyushu_saga_karatsu_takeo_arita",
@@ -12043,6 +12225,9907 @@ const INITIAL_TOWNS = [
         "lat": 33.5514,
         "lng": 129.9103,
         "map_query": "唐津 呼子 七ツ釜"
+      }
+    ],
+    "tour_type": "wide"
+  },
+  {
+    "id": "hokkaido_sapporo_central",
+    "region_group": "北海道",
+    "prefecture_group": "札幌・小樽",
+    "tour_type": "walk",
+    "title": "札幌中心部 大通・赤れんが・中島公園散策",
+    "subtitle": "SAPPORO CENTRAL HERITAGE WALK",
+    "region": "北海道・札幌駅〜大通公園〜すすきの〜中島公園",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・徒歩＆地下鉄）",
+    "era_focus": "明治初期〜昭和中期",
+    "description": "札幌駅から徒歩と地下鉄・市電だけで約2時間半で回れる都心コンパクトコース。時計台や赤れんが庁舎、豊平館などの開拓使建築とテレビ塔・大通公園を巡ります。",
+    "theme_color": "#1B3042",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "SPC",
+    "area_map_query": "札幌市時計台 北海道庁旧本庁舎 さっぽろテレビ塔 豊平館",
+    "cells": [
+      {
+        "id": "spc_01",
+        "position": 1,
+        "title": "赤い五稜星が輝く開拓使の白い木造時計塔",
+        "category": "明治建築",
+        "sub_category": "アメリカン・バルーンフレーム木造（重要文化財）",
+        "crop_target": "白い下見板の時計塔と開拓使の赤い五稜星・四面文字盤",
+        "hint_level_1": "札幌市役所のすぐ近く、ビル街の緑の中に佇む白い木造洋館。切妻屋根の下にある「赤い星マーク」と時計塔の針を切り取ろう。",
+        "hint_level_2": "クラーク博士の提言で札幌農学校の演武場として建てられた『札幌市時計台（旧札幌農学校演武場）』です。",
+        "spot_name": "札幌市時計台（旧札幌農学校演武場）",
+        "built_year": "1878年（明治11年）",
+        "architect_note": "開拓使工業局の安達喜幸らが設計。アメリカ中西部で流行していた「バルーンフレーム構造」を採用し、ハワード社製の振り子時計が140年以上時を刻み続ける。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#9E2A2B"
+        },
+        "lat": 43.0626,
+        "lng": 141.3535,
+        "map_query": "札幌市時計台",
+        "spot_key": "sapporo_clock_tower"
+      },
+      {
+        "id": "spc_02",
+        "position": 2,
+        "title": "北の都を見守る八角ドームと赤れんが庁舎",
+        "category": "明治建築",
+        "sub_category": "アメリカン・ネオ・バロック様式（重要文化財）",
+        "crop_target": "中央にそびえる緑青屋根の八角塔屋と250万個の赤煉瓦壁",
+        "hint_level_1": "札幌駅から大通公園へ向かう途中、イチョウ並木の奥に広がる庭園の中央。約250万個の赤煉瓦で築かれた庁舎の八角ドームを見上げよう。",
+        "hint_level_2": "道民に「赤れんが庁舎」として親しまれる『北海道庁旧本庁舎』です。",
+        "spot_name": "北海道庁旧本庁舎（赤れんが庁舎）",
+        "built_year": "1888年（明治21年）",
+        "architect_note": "北海道庁の技師・平井晴二郎らが設計。寒さの厳しい北海道向けに二重窓などの防寒構造を取り入れたアメリカン・ネオ・バロックの傑作。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#4A7C6B",
+          "detail": "#1D2A35"
+        },
+        "lat": 43.0639,
+        "lng": 141.3479,
+        "map_query": "北海道庁旧本庁舎 赤れんが庁舎",
+        "spot_key": "sapporo_akarenga"
+      },
+      {
+        "id": "spc_03",
+        "position": 3,
+        "title": "大通公園を貫く赤い鉄塔と巨大デジタル電光時計",
+        "category": "有名建築・塔",
+        "sub_category": "集約電波鉄塔（内藤多仲設計）",
+        "crop_target": "大通公園の正面にそびえる赤と緑の鉄塔と中腹のデジタル時計",
+        "hint_level_1": "札幌の中心を東西に貫く大通公園の東端（1丁目）。噴水やテレビ父さんでおなじみの、地上90mに展望台を持つ赤い電波塔を見上げよう。",
+        "hint_level_2": "東京タワーや名古屋テレビ塔と同じ「塔博士」内藤多仲が設計した『さっぽろテレビ塔』です。",
+        "spot_name": "さっぽろテレビ塔",
+        "built_year": "1957年（昭和32年）",
+        "architect_note": "高さ147.2m。地上65m付近の四面に設置された巨大な電光時計は、完成以来60年以上にわたり札幌市民に時刻を知らせる街のランドマーク。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E8E2D5",
+          "detail": "#1D3557"
+        },
+        "lat": 43.0611,
+        "lng": 141.3564,
+        "map_query": "さっぽろテレビ塔",
+        "spot_key": "sapporo_tv_tower"
+      },
+      {
+        "id": "spc_04",
+        "position": 4,
+        "title": "ウルトラマリンブルーが映える白亜の迎賓館",
+        "category": "明治建築",
+        "sub_category": "開拓使洋風ホテル建築（重要文化財）",
+        "crop_target": "白壁を縁取る鮮やかな群青色（ウルトラマリン）の柱と半円破風",
+        "hint_level_1": "中島公園の池のほとり。真っ白な外壁に、目が覚めるような鮮やかな青いラインとバルコニーが映える明治の洋風ホテルを探そう。",
+        "hint_level_2": "明治天皇の行在所（宿泊所）として開拓使が建てた『豊平館（ほうへいかん）』です。",
+        "spot_name": "豊平館",
+        "built_year": "1880年（明治13年）",
+        "architect_note": "開拓使の安達喜幸・山崎定次郎らが担当。アメリカ風様式に日本の伝統的な漆喰塗りや神社風の正面モチーフを融合させた唯一無二の色彩建築。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#1D4E89",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 43.0462,
+        "lng": 141.3532,
+        "map_query": "札幌 豊平館",
+        "spot_key": "sapporo_hoheikan"
+      },
+      {
+        "id": "spc_05",
+        "position": 5,
+        "title": "北の繁華街を照らすヒゲの「キング・オブ・ブレンダーズ」看板",
+        "category": "観光名所・街並み",
+        "sub_category": "都市ランドマーク・ネオンサイン",
+        "crop_target": "交差点角のビル壁面に輝くシルクハットとヒゲの紳士の大看板",
+        "hint_level_1": "国道36号線と駅前通が交わる「すすきの交差点」。札幌に来た誰もが一度は写真を撮る、グラスを傾けるヒゲの紳士の巨大看板を切り取ろう。",
+        "hint_level_2": "すすきのビルの壁面に掲げられた『すすきの交差点 ニッカウヰスキー大看板』です。",
+        "spot_name": "すすきの交差点（ニッカ大看板）",
+        "built_year": "1969年（昭和44年）初代設置",
+        "architect_note": "英国のウイスキー卿「W.P.ローリー」をモデルにしたキング・オブ・ブレンダーズの図案。昼も夜も札幌の活気を象徴するフォトスポット。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#2B2D42",
+          "accent": "#E9C46A",
+          "detail": "#9E2A2B"
+        },
+        "lat": 43.0555,
+        "lng": 141.3534,
+        "map_query": "すすきの交差点 ニッカ看板",
+        "spot_key": "sapporo_susukino_nikka"
+      },
+      {
+        "id": "spc_06",
+        "position": 6,
+        "spot_key": "sapporo_shiryokan",
+        "title": "札幌軟石が積まれた旧札幌控訴院の重厚ファサード",
+        "category": "大正建築",
+        "sub_category": "ネオ・バロック様式石造建築（重要文化財）",
+        "crop_target": "札幌軟石の切石積み外壁と正面の半円アーチ玄関",
+        "hint_level_1": "大通公園の西端（西13丁目）に佇む、地元の札幌軟石を積み上げた重厚な大正時代の裁判所建築を狙おう。",
+        "hint_level_2": "大通公園の西の起点に建つ『札幌市資料館（旧札幌控訴院）』です。",
+        "spot_name": "札幌市資料館（旧札幌控訴院）",
+        "built_year": "1926年（大正15年）",
+        "architect_note": "司法省の金刺森太郎が設計。外壁全体に温かみのある札幌軟石を用い、大通公園の景観の西の要として親しまれる。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#E3DDD3",
+          "detail": "#262B33"
+        },
+        "lat": 43.0593,
+        "lng": 141.3372,
+        "map_query": "札幌市資料館 旧札幌控訴院"
+      },
+      {
+        "id": "spc_07",
+        "position": 7,
+        "spot_key": "sapporo_nagayama_residence",
+        "title": "屯田兵の司令官が暮らした和洋折衷の木造邸宅",
+        "category": "明治建築",
+        "sub_category": "和洋折衷木造住宅（北海道指定有形文化財）",
+        "crop_target": "下見板張りの洋風応接室と和風入母屋が並ぶ外観",
+        "hint_level_1": "サッポロファクトリーのすぐ隣、永山記念公園の緑の中に建つ、開拓使・屯田兵ゆかりの白い木造洋館を切り取ろう。",
+        "hint_level_2": "明治期の北海道長官・永山武四郎の私邸『旧永山武四郎邸』です。",
+        "spot_name": "旧永山武四郎邸（永山記念公園）",
+        "built_year": "1880年（明治13年）頃",
+        "architect_note": "和風の書院座敷と洋風の応接棟が連結された明治初期の貴重な和洋折衷住宅。現在はカフェも併設され憩いの場となっている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#F5F2EA",
+          "detail": "#233228"
+        },
+        "lat": 43.0653,
+        "lng": 141.3636,
+        "map_query": "旧永山武四郎邸 札幌"
+      },
+      {
+        "id": "spc_08",
+        "position": 8,
+        "spot_key": "sapporo_odori_park",
+        "title": "都心を貫く緑の軸線とイサム・ノグチの滑り台彫刻",
+        "category": "風景・観光名所",
+        "sub_category": "都市公園・ランドスケープ彫刻",
+        "crop_target": "大通公園の噴水・花壇越しの都心景観またはブラック・スライド・マントラ",
+        "hint_level_1": "札幌の中心を東西に走る幅105mの公園。テレビ塔を背後に望む噴水や、黒御影石の幾何学的な滑り台彫刻を探そう。",
+        "hint_level_2": "札幌の街づくりの基軸となった『大通公園（ブラック・スライド・マントラ等）』です。",
+        "spot_name": "大通公園（噴水・ブラック・スライド・マントラ）",
+        "built_year": "1871年（明治4年）火防線として設置",
+        "architect_note": "明治の都市計画で防火帯として設けられ、のちに市民の公園へ。9丁目にはイサム・ノグチ設計の彫刻遊具もある。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 43.0598,
+        "lng": 141.3474,
+        "map_query": "札幌 大通公園"
+      },
+      {
+        "id": "spc_09",
+        "position": 9,
+        "spot_key": "sapporo_nijo_market",
+        "title": "明治から続く北の台所と木造市場のアーケード",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的市場建築・商店街",
+        "crop_target": "「二条市場」の看板と鮮魚・青果が並ぶレトロな仲通り",
+        "hint_level_1": "創成川の東側、大通とすすきのの中間に位置する明治時代発祥の市場。歴史を感じる看板と活気ある軒先を切り取ろう。",
+        "hint_level_2": "札幌市民の台所として100年以上の歴史を持つ『二条市場』です。",
+        "spot_name": "札幌 二条市場",
+        "built_year": "明治初期発祥",
+        "architect_note": "石狩浜の漁師が新鮮な魚を売り始めたことがルーツ。創成川イーストの街歩きに欠かせないレトロスポット。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 43.0586,
+        "lng": 141.3586,
+        "map_query": "札幌 二条市場"
+      }
+    ]
+  },
+  {
+    "id": "hokkaido_otaru_canal",
+    "region_group": "北海道",
+    "prefecture_group": "札幌・小樽",
+    "tour_type": "walk",
+    "title": "小樽運河・北のウォール街 徒歩散策",
+    "subtitle": "OTARU CANAL & WALL STREET WALK",
+    "region": "北海道・JR小樽駅〜小樽運河〜色内〜堺町通り",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "明治後期〜昭和初期",
+    "description": "JR小樽駅から徒歩圏内にギュッと凝縮された、小樽運河・北のウォール街の石造銀行群・堺町通りのガラス館やオルゴール堂を巡る車不要の王道散策コース。",
+    "theme_color": "#22384D",
+    "accent_color": "#D4A359",
+    "specimen_prefix": "OTC",
+    "area_map_query": "小樽運河 堺町通り 日本銀行旧小樽支店",
+    "cells": [
+      {
+        "id": "otc_01",
+        "position": 1,
+        "title": "運河の水面に映る木骨石造倉庫とガス灯",
+        "category": "大正建築",
+        "sub_category": "木骨石造倉庫群（小樽市指定歴史的建造物）",
+        "crop_target": "運河沿いに連なる小樽軟石の切妻壁とレトロなガス灯",
+        "hint_level_1": "小樽運河の浅草橋や中央橋から眺める、緩やかに湾曲した水路。水辺にずらりと並ぶ「石造りの倉庫群」とガス灯のシルエットを収めよう。",
+        "hint_level_2": "大正12年に完成した『小樽運河と旧篠田倉庫・旧大家倉庫などの木骨石造倉庫群』です。",
+        "spot_name": "小樽運河・石造倉庫群（旧大家倉庫ほか）",
+        "built_year": "1923年（大正12年）運河完成（倉庫は明治〜大正期）",
+        "architect_note": "木の骨組みの外側に耐火性・保温性に優れた「小樽軟石」を積み上げる『木骨石造（もっこつせきぞう）』が、北海道の港町ならではの景観を生んでいる。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#3B596A",
+          "accent": "#E9C46A",
+          "detail": "#1D2832"
+        },
+        "lat": 43.1976,
+        "lng": 141.003,
+        "map_query": "小樽運河 浅草橋街園",
+        "spot_key": "otaru_canal"
+      },
+      {
+        "id": "otc_02",
+        "position": 2,
+        "title": "5つの緑青ドームとミミズクが護る金融の城",
+        "category": "明治建築",
+        "sub_category": "辰野式ルネサンス（小樽市指定歴史的建造物）",
+        "crop_target": "屋根の5つの緑青ドーム塔屋と外壁アーチのミミズク（梟）彫刻",
+        "hint_level_1": "小樽の「北のウォール街」こと色内大通り。屋根に5つの緑色のドームを戴く旧銀行の外壁で、知恵の象徴「ミミズク（フクロウ）」の彫刻を探そう。",
+        "hint_level_2": "辰野金吾・長野宇平治らが設計した『日本銀行旧小樽支店 金融資料館』です。",
+        "spot_name": "日本銀行旧小樽支店 金融資料館",
+        "built_year": "1912年（明治45年）",
+        "architect_note": "煉瓦造の表面にモルタルを塗って石造り風に仕上げ、正面中央と四隅に計5つのドームを配した重厚な設計。要石の上で睨みを利かせるミミズク像が見どころ。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#DED7C8",
+          "detail": "#1E293B"
+        },
+        "lat": 43.1959,
+        "lng": 141.0019,
+        "map_query": "日本銀行旧小樽支店 金融資料館",
+        "spot_key": "otaru_boj"
+      },
+      {
+        "id": "otc_03",
+        "position": 3,
+        "title": "北のウォール街を飾る石造三連アーチと回廊",
+        "category": "昭和初期建築",
+        "sub_category": "イタリアルネサンス様式（重要文化財）",
+        "crop_target": "1階の重厚なルスティカ石積み三連アーチと軒の歯飾り",
+        "hint_level_1": "日本銀行旧小樽支店のすぐ近く。フィレンツェのパラッツォ（宮殿）を思わせる、重厚な花崗岩積みの旧銀行建築を切り取ろう。",
+        "hint_level_2": "曽禰達蔵・中條精一郎が設計した重要文化財『旧三井銀行小樽支店（小樽芸術村）』です。",
+        "spot_name": "旧三井銀行小樽支店（小樽芸術村）",
+        "built_year": "1927年（昭和2年）",
+        "architect_note": "関東大震災後の高度な鉄骨鉄筋コンクリート造と、ルネサンス様式の端正な石貼り立面を融合。吹き抜けの営業室天井の石膏装飾も圧巻。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#C2B9A7",
+          "accent": "#6E655A",
+          "detail": "#242830"
+        },
+        "lat": 43.1956,
+        "lng": 141.0031,
+        "map_query": "旧三井銀行小樽支店",
+        "spot_key": "otaru_mitsui"
+      },
+      {
+        "id": "otc_04",
+        "position": 4,
+        "title": "軟石の街に威容を誇るルネサンス海運社屋",
+        "category": "明治建築",
+        "sub_category": "近世ヨーロッパ復興様式（重要文化財）",
+        "crop_target": "小樽軟石を積み上げた2層アーチ玄関と屋根のドーマー窓",
+        "hint_level_1": "小樽運河の北側（色内三丁目）。明治39年に建てられた海運会社の支店で、地元産の軟石を精緻に積み上げた重厚な正面ポーチを狙おう。",
+        "hint_level_2": "佐立七次郎が設計した重要文化財『旧日本郵船株式会社小樽支店』です。",
+        "spot_name": "旧日本郵船小樽支店",
+        "built_year": "1906年（明治39年）",
+        "architect_note": "日露戦争後の小樽の繁栄を象徴する本格石造建築。内部の金唐革紙（きんからかわかみ）や寄木張りの床など、明治の最高峰の室内装飾が残る。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 43.2043,
+        "lng": 141.0018,
+        "map_query": "旧日本郵船小樽支店",
+        "spot_key": "otaru_nyusen"
+      },
+      {
+        "id": "otc_05",
+        "position": 5,
+        "title": "街角のアイストップとなる円筒形の石造塔屋",
+        "category": "明治建築",
+        "sub_category": "ルネサンス様式石造銀行（小樽市指定歴史的建造物）",
+        "crop_target": "交差点角に張り出した丸い石造りの塔屋と半円アーチ窓",
+        "hint_level_1": "中央通りと日銀通りの交差点角。角の部分が円筒形の塔のように張り出した、重厚な軟石造りの旧銀行（現ワインカフェ）を探そう。",
+        "hint_level_2": "長野宇平治が設計した明治45年竣工の『旧北海道銀行本店（現・小樽バイン）』です。",
+        "spot_name": "旧北海道銀行本店（現・小樽バイン）",
+        "built_year": "1912年（明治45年）",
+        "architect_note": "日本銀行旧小樽支店と同じ長野宇平治の設計。交差点に向いたコーナーに円筒形の張り出しを設けることで、立体感と威厳を演出している。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#6E5248",
+          "accent": "#E2D8C8",
+          "detail": "#261E1D"
+        },
+        "lat": 43.1972,
+        "lng": 141.001,
+        "map_query": "小樽バイン 旧北海道銀行本店",
+        "spot_key": "otaru_hokkaido_bank"
+      },
+      {
+        "id": "otc_06",
+        "position": 6,
+        "title": "蔦が絡まる軟石壁とイオニア式の双柱玄関",
+        "category": "明治建築",
+        "sub_category": "明治洋風銀行建築（小樽市指定歴史的建造物）",
+        "crop_target": "コーナー玄関を支えるイオニア式円柱と屋根上の小塔（ピナクル）",
+        "hint_level_1": "堺町通りの入口（メルヘン交差点へ向かう途中）。玄関の両脇に渦巻き柱頭を持つ円柱が立ち、屋根の上に小さな尖塔が並ぶ石造洋館を探そう。",
+        "hint_level_2": "明治41年築の『旧百十三銀行小樽支店（現・小樽浪漫館）』です。",
+        "spot_name": "旧百十三銀行小樽支店（小樽浪漫館）",
+        "built_year": "1908年（明治41年）",
+        "architect_note": "池田増治郎の設計。防火用の鉄扉や屋根上の小尖塔（ピナクル）、イオニア式柱頭など、小さな建物の中に明治の洋風意匠が凝縮されている。",
+        "icon_type": "capital",
+        "dummy_palette": {
+          "bg": "#7A7468",
+          "accent": "#D9B66C",
+          "detail": "#242B28"
+        },
+        "lat": 43.195,
+        "lng": 141.0046,
+        "map_query": "小樽浪漫館 旧百十三銀行小樽支店",
+        "spot_key": "otaru_113_bank"
+      },
+      {
+        "id": "otc_07",
+        "position": 7,
+        "spot_key": "otaru_kitaichi_glass",
+        "title": "明治の漁業用石造倉庫が煌めく硝子ギャラリー",
+        "category": "明治建築",
+        "sub_category": "木骨石造倉庫（小樽市指定歴史的建造物）",
+        "crop_target": "札幌軟石の外壁に吊るされた石油ランプとトロッコ軌道の名残",
+        "hint_level_1": "堺町通りの中心。明治24年築の木骨石造倉庫を改装した有名ガラス店で、重厚な石壁と店名看板を切り取ろう。",
+        "hint_level_2": "旧木村倉庫を活用した人気スポット『北一硝子 三号館』です。",
+        "spot_name": "北一硝子 三号館（旧木村倉庫）",
+        "built_year": "1891年（明治24年）",
+        "architect_note": "海産物保管用の木骨石造倉庫として建てられ、内部には荷揚げ用トロッコのレールが今も保存されている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#F4D58D",
+          "detail": "#1D2A35"
+        },
+        "lat": 43.1924,
+        "lng": 141.0068,
+        "map_query": "北一硝子 三号館 小樽"
+      },
+      {
+        "id": "otc_08",
+        "position": 8,
+        "spot_key": "otaru_orgel_doh",
+        "title": "メルヘン交差点に佇む煉瓦造と蒸気時計の館",
+        "category": "大正建築",
+        "sub_category": "木骨煉瓦造店舗（小樽市指定歴史的建造物）",
+        "crop_target": "赤煉瓦のアーチ窓と玄関前に立つブロンズの蒸気時計",
+        "hint_level_1": "堺町通りの南端「メルヘン交差点」。15分ごとに蒸気を吹く時計塔と、その背後の赤い煉瓦造の洋館を狙おう。",
+        "hint_level_2": "旧共成株式会社の本社社屋を活用した『小樽オルゴール堂 本館』です。",
+        "spot_name": "小樽オルゴール堂 本館・蒸気時計",
+        "built_year": "1912年（明治45年）〜1915年（大正4年）",
+        "architect_note": "北海道有数の精米・雑穀商だった共成株式会社の社屋として建築。玄関前の蒸気時計はカナダの時計職人製。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#E6C77A",
+          "detail": "#242830"
+        },
+        "lat": 43.1903,
+        "lng": 141.0079,
+        "map_query": "小樽オルゴール堂 本館"
+      },
+      {
+        "id": "otc_09",
+        "position": 9,
+        "spot_key": "otaru_temiya_line",
+        "title": "北海道初の鉄道が走ったレンガと線路の遊歩道",
+        "category": "近代土木遺産",
+        "sub_category": "廃線跡遊歩道（旧国鉄手宮線）",
+        "crop_target": "街中にまっすぐ残された鉄路と踏切・遮断機のモニュメント",
+        "hint_level_1": "小樽駅から運河へ向かう途中に横切る、レールがそのまま残された遊歩道。石畳と鉄路の風景を切り取ろう。",
+        "hint_level_2": "1880年に北海道で最初に開通した鉄道の跡地『旧国鉄手宮線跡地』です。",
+        "spot_name": "旧国鉄手宮線跡地",
+        "built_year": "1880年（明治13年）開通",
+        "architect_note": "幌内炭鉱の石炭を小樽港へ運ぶために敷設された官営幌内鉄道の一部。現在は散策路として整備されている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#D9C5A0",
+          "detail": "#1F2421"
+        },
+        "lat": 43.1963,
+        "lng": 140.9998,
+        "map_query": "旧国鉄手宮線跡地 小樽"
+      }
+    ]
+  },
+  {
+    "id": "hokkaido_hakodate_bay_goryokaku",
+    "region_group": "北海道",
+    "prefecture_group": "函館",
+    "tour_type": "walk",
+    "title": "函館市電で巡る ベイエリア〜五稜郭散策",
+    "subtitle": "HAKODATE TRAMWAY HERITAGE WALK",
+    "region": "北海道・函館駅前〜ベイエリア〜五稜郭公園",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・函館市電＋徒歩）",
+    "era_focus": "幕末〜昭和初期",
+    "description": "車なしで函館市電1日乗車券を使って約3時間で巡れる王道コース。函館駅前から赤レンガ倉庫・八幡坂・五稜郭タワーまで市電で快適に移動できます。",
+    "theme_color": "#2C3E50",
+    "accent_color": "#C85A32",
+    "specimen_prefix": "HBG",
+    "area_map_query": "五稜郭タワー 金森赤レンガ倉庫 函館朝市",
+    "cells": [
+      {
+        "id": "hbg_01",
+        "position": 1,
+        "title": "地上90mから見下ろす五芒星の堀と五稜郭タワー",
+        "category": "観光名所・城郭",
+        "sub_category": "特別史跡・稜堡式城郭＆展望タワー",
+        "crop_target": "五角形の星形に広がる五稜郭の堀または五角形断面の白い展望タワー",
+        "hint_level_1": "幕末の箱館戦争の舞台となった日本初の西洋式城塞。高さ107mの白い展望タワーの上から、地面に描かれた巨大な「星形（五芒星）」を切り取ろう。",
+        "hint_level_2": "武田斐三郎が設計した特別史跡『五稜郭 と 五稜郭タワー』です。",
+        "spot_name": "五稜郭タワー・特別史跡五稜郭跡",
+        "built_year": "1864年（元治元年）五稜郭完成・2006年新タワー",
+        "architect_note": "ヨーロッパの城塞都市をモデルに築かれた5つの稜堡（りょうほ）を持つ星形要塞。2代目五稜郭タワーもまた、断面が五角形、展望台が五稜星形に設計されている。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#2B5B6C",
+          "accent": "#FAF6EE",
+          "detail": "#3B6E4C"
+        },
+        "lat": 41.7947,
+        "lng": 140.754,
+        "map_query": "五稜郭タワー",
+        "spot_key": "hakodate_goryokaku"
+      },
+      {
+        "id": "hbg_02",
+        "position": 2,
+        "title": "星形城郭の中央に蘇った太鼓櫓と赤瓦の奉行所",
+        "category": "歴史建築・城郭",
+        "sub_category": "江戸幕末庁舎木造復元",
+        "crop_target": "屋根の中央にそびえる白い太鼓櫓（たいこやぐら）と唐破風玄関",
+        "hint_level_1": "五稜郭の堀を渡ったまさに中心部。西洋式の星形の石垣の中に建つ、ちょんまげのように屋根の上に「太鼓櫓」が載った純和風の幕府庁舎を狙おう。",
+        "hint_level_2": "古写真と発掘調査をもとに伝統工法で完全復元された『箱館奉行所』です。",
+        "spot_name": "箱館奉行所",
+        "built_year": "1864年創建（2010年木造復元）",
+        "architect_note": "五稜郭の外周は西洋の最新軍事工学、中心の役所は日本の伝統的な武家書院造という、幕末日本の過渡期を象徴する歴史建築。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#8A3324",
+          "accent": "#E6DEC8",
+          "detail": "#222629"
+        },
+        "lat": 41.7971,
+        "lng": 140.7568,
+        "map_query": "箱館奉行所",
+        "spot_key": "hakodate_bugyosho"
+      },
+      {
+        "id": "hbg_03",
+        "position": 3,
+        "title": "函館湾に連なる赤い切妻屋根と「森」の商標",
+        "category": "明治建築",
+        "sub_category": "煉瓦造倉庫群（伝統的建造物）",
+        "crop_target": "水辺に並ぶ三角形の赤煉瓦切妻壁と白い『森』の屋号マーク",
+        "hint_level_1": "ベイエリアの海辺。山型（切妻）の赤いレンガ壁が5棟ズラリと並び、壁面に白い曲尺（かねじゃく）と「森」の文字が描かれた倉庫群を狙おう。",
+        "hint_level_2": "初代・渡邉熊四郎が開業した洋物店に端を発する『金森赤レンガ倉庫』です。",
+        "spot_name": "金森赤レンガ倉庫",
+        "built_year": "1909年（明治42年）再建",
+        "architect_note": "明治40年の大火後に不燃建築として再建されたイギリス積みの赤煉瓦倉庫群。函館港の物流の歴史を伝えるランドマーク。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#FAF6EE",
+          "detail": "#1B263B"
+        },
+        "lat": 41.766,
+        "lng": 140.7165,
+        "map_query": "金森赤レンガ倉庫",
+        "spot_key": "hakodate_kanemori"
+      },
+      {
+        "id": "hbg_04",
+        "position": 4,
+        "title": "本州と北海道を結び続けた緑と白の青函連絡船",
+        "category": "観光名所・産業遺産",
+        "sub_category": "近代交通遺産・記念艦",
+        "crop_target": "函館港の岸壁に停泊するエメラルドグリーンと白の船体・煙突のJNRマーク",
+        "hint_level_1": "JR函館駅のすぐ横の岸壁。かつて鉄道車両をそのまま船内に積み込んで津軽海峡を渡っていた、懐かしの巨大連絡船と操舵室を狙おう。",
+        "hint_level_2": "1988年の終航まで活躍した『函館市青函連絡船記念館 摩周丸』です。",
+        "spot_name": "青函連絡船記念館 摩周丸",
+        "built_year": "1965年（昭和40年）就航",
+        "architect_note": "車両甲板や無線通信室、航海ブリッジが当時のまま公開されており、海峡を越えた鉄道連絡輸送の歴史を体感できる貴重な船舶遺産。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#2E6B5E",
+          "accent": "#FAF6EE",
+          "detail": "#1D3557"
+        },
+        "lat": 41.7717,
+        "lng": 140.7224,
+        "map_query": "函館 摩周丸",
+        "spot_key": "hakodate_mashumaru"
+      },
+      {
+        "id": "hbg_05",
+        "position": 5,
+        "title": "石畳の坂の上から青い函館湾と連絡船を見通す一本道",
+        "category": "風景・街並み",
+        "sub_category": "日本の坂道百選・景観形成地区",
+        "crop_target": "坂の上から海と青函連絡船『摩周丸』まで真っすぐ伸びる並木道",
+        "hint_level_1": "元町の坂道の中で最も有名なビュースポット。坂の上から振り返ると、石畳の道が青い海と白い船に向かって一直線に滑り落ちていく絶景を切り取ろう。",
+        "hint_level_2": "CMや映画のロケ地として知られる『八幡坂（はちまんざか）』です。",
+        "spot_name": "函館 元町・八幡坂",
+        "built_year": "明治期街区形成",
+        "architect_note": "大火の延焼を防ぐために港へ向かって幅広の直線道路として整備された坂道。正面の海に摩周丸がピタリと収まる都市軸の傑作。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#3B6E4C"
+        },
+        "lat": 41.7638,
+        "lng": 140.7116,
+        "map_query": "函館 八幡坂",
+        "spot_key": "hakodate_hachimanzaka"
+      },
+      {
+        "id": "hbg_06",
+        "position": 6,
+        "title": "ブルーグレーと黄金色に輝くコロニアル大バルコニー",
+        "category": "明治建築",
+        "sub_category": "コロニアル様式木造洋館（重要文化財）",
+        "crop_target": "鮮やかなイエローの列柱と花綱レリーフが彩る2階バルコニー",
+        "hint_level_1": "基坂（もといざか）を登りきった元町公園の上。港を見下ろすブルーグレーの外壁と、黄金色に輝く華やかな2階バルコニーを切り取ろう。",
+        "hint_level_2": "明治43年に大火からの復興シンボルとして建てられた『旧函館区公会堂』です。",
+        "spot_name": "旧函館区公会堂",
+        "built_year": "1910年（明治43年）",
+        "architect_note": "函館区技師・小西朝政らが設計。左右対称のコロニアル様式で、保存修理により創建当時の鮮やかなウルトラマリン・ブルーと黄色の塗装が蘇った。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B6280",
+          "accent": "#E9C46A",
+          "detail": "#1D3142"
+        },
+        "lat": 41.765,
+        "lng": 140.7088,
+        "map_query": "旧函館区公会堂",
+        "spot_key": "hakodate_kokaido"
+      },
+      {
+        "id": "hbg_07",
+        "position": 7,
+        "title": "活気あふれる「函館朝市」のアーケード看板とイカのモニュメント",
+        "category": "観光名所・街並み",
+        "sub_category": "市場建築＆ご当地モニュメント",
+        "crop_target": "『函館朝市』の大きな看板ゲートまたは駅前の赤い鋼製モニュメント",
+        "hint_level_1": "JR函館駅のすぐ隣。約250軒もの海産物店や食堂がひしめく北の台所で、威勢の良い市場のアーケード看板や名物のイカ釣堀風景を収めよう。",
+        "hint_level_2": "函館観光に欠かせない食のランドマーク『函館朝市（駅二市場・どんぶり横丁）』です。",
+        "spot_name": "函館朝市・函館駅前モニュメント",
+        "built_year": "1945年（昭和20年）発祥・2014年新市場棟",
+        "architect_note": "戦後の駅前広場での立ち売りから始まった歴史ある市場。函館駅前の赤いループ状モニュメント『OYAKO』とともに旅人を出迎える。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E9C46A",
+          "detail": "#1B263B"
+        },
+        "lat": 41.7722,
+        "lng": 140.7253,
+        "map_query": "函館朝市",
+        "spot_key": "hakodate_asaichi"
+      },
+      {
+        "id": "hbg_08",
+        "position": 8,
+        "spot_key": "hakodate_meijikan",
+        "title": "ツタの絡まる赤煉瓦の旧函館郵便局舎",
+        "category": "明治建築",
+        "sub_category": "煉瓦造郵便局建築",
+        "crop_target": "赤煉瓦のアーチ窓枠と白い木製サッシのコントラスト",
+        "hint_level_1": "金森赤レンガ倉庫のすぐ近く、市電「十字街」電停から歩いてすぐの赤煉瓦ショッピング施設を狙おう。",
+        "hint_level_2": "1911年築の旧函館郵便局を再利用した『はこだて明治館』です。",
+        "spot_name": "はこだて明治館（旧函館郵便局）",
+        "built_year": "1911年（明治44年）",
+        "architect_note": "明治末期の重厚な赤煉瓦造郵便局。外壁を覆うツタが季節ごとに色を変え、ベイエリアの象徴となっている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#2B3A42"
+        },
+        "lat": 41.7662,
+        "lng": 140.7186,
+        "map_query": "はこだて明治館"
+      },
+      {
+        "id": "hbg_09",
+        "position": 9,
+        "spot_key": "hakodate_machisen",
+        "title": "東北以北最古の手動式エレベーターが残る百貨店跡",
+        "category": "大正建築",
+        "sub_category": "鉄筋コンクリート造百貨店建築（景観形成指定建築物）",
+        "crop_target": "十字街角の重厚な丸柱とドーム角塔屋のファサード",
+        "hint_level_1": "市電「十字街」交差点の角に建つ、かつての丸井今井百貨店函館支店の重厚なビルを切り取ろう。",
+        "hint_level_2": "1923年築の旧百貨店を活用した『函館市地域交流まちづくりセンター』です。",
+        "spot_name": "函館市地域交流まちづくりセンター（旧丸井今井百貨店）",
+        "built_year": "1923年（大正12年）",
+        "architect_note": "内部には1934年（昭和9年）製の東北以北最古の手動制御式エレベーターが動態保存されている。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#7A746B",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 41.7641,
+        "lng": 140.7166,
+        "map_query": "函館市地域交流まちづくりセンター"
+      }
+    ]
+  },
+  {
+    "id": "tohoku_hirosaki_castle",
+    "region_group": "東北",
+    "prefecture_group": "青森・弘前",
+    "tour_type": "walk",
+    "title": "弘前城・追手門と城下町の洋館散策",
+    "subtitle": "HIROSAKI CASTLE & WESTERN HOUSES WALK",
+    "region": "青森県弘前市・弘前公園〜追手門〜土手町",
+    "difficulty": "★☆☆（散策目安：約2.5時間・徒歩＆循環バス）",
+    "era_focus": "江戸初期〜大正",
+    "description": "現存12天守のひとつ弘前城と、その周辺に密集する明治・大正期の洋館群を徒歩と100円バスで巡る、東北随一の城下町建築散歩コース。",
+    "theme_color": "#2E4057",
+    "accent_color": "#C97D60",
+    "specimen_prefix": "HRC",
+    "area_map_query": "弘前城 旧弘前市立図書館 弘前れんが倉庫美術館",
+    "cells": [
+      {
+        "id": "hrc_01",
+        "position": 1,
+        "spot_key": "hirosaki_castle",
+        "title": "みちのく唯一の現存天守と朱塗りの下乗橋",
+        "category": "歴史建築・城郭",
+        "sub_category": "現存12天守・重要文化財（江戸時代）",
+        "crop_target": "3層3階の白亜の天守閣と内濠に架かる朱色の下乗橋",
+        "hint_level_1": "弘前公園の本丸に立つ、東北地方で唯一現存する江戸時代の天守。天守と濠の美しい構図を狙おう。",
+        "hint_level_2": "津軽藩4万7千石のシンボル『弘前城（天守・追手門）』です。",
+        "spot_name": "弘前城（天守・追手門）",
+        "built_year": "1810年（文化7年）現天守再建",
+        "architect_note": "本丸の石垣修理のため曳家移動されたことでも話題に。追手門や三つの櫓など重要文化財が数多く現存する。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#9E2A2B"
+        },
+        "lat": 40.6075,
+        "lng": 140.464,
+        "map_query": "弘前城 天守"
+      },
+      {
+        "id": "hrc_02",
+        "position": 2,
+        "title": "赤い八角形の双塔ドームが並ぶルネサンス洋館",
+        "category": "明治建築",
+        "sub_category": "ルネサンス様式木造双塔（青森県重宝）",
+        "crop_target": "正面左右にそびえる赤い屋根の八角形双塔と白漆喰壁",
+        "hint_level_1": "弘前公園の追手門広場。真っ白な下見板の建物の両脇に、赤いとんがり帽子の「八角形の塔」が2つ並んだ愛らしい洋館を探そう。",
+        "hint_level_2": "明治の名棟梁・堀江佐吉が日露戦争戦勝記念として建てた『旧弘前市立図書館』です。",
+        "spot_name": "旧弘前市立図書館",
+        "built_year": "1906年（明治39年）",
+        "architect_note": "東北の洋風建築の巨匠・堀江佐吉の代表作。八角形の双塔にドーム屋根を載せ、内部には郷土の文人資料が展示されている。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#2C3539"
+        },
+        "lat": 40.6022,
+        "lng": 140.466,
+        "map_query": "旧弘前市立図書館",
+        "spot_key": "hirosaki_old_library"
+      },
+      {
+        "id": "hrc_03",
+        "position": 3,
+        "title": "火の見櫓を兼ねた頂部装飾塔とイオニア列柱",
+        "category": "明治建築",
+        "sub_category": "ルネサンス様式銀行建築（重要文化財）",
+        "crop_target": "屋根中央の展望塔屋と正面バルコニーのイオニア式風円柱",
+        "hint_level_1": "元寺町の通り沿い。白と淡いグリーンの気品ある木造銀行建築で、屋根のてっぺんに載った「展望台のような小塔」を見上げよう。",
+        "hint_level_2": "堀江佐吉が3年がかりで完成させた重要文化財『旧第五十九銀行本店本館（青森銀行記念館）』です。",
+        "spot_name": "旧第五十九銀行本店本館（青森銀行記念館）",
+        "built_year": "1904年（明治37年）",
+        "architect_note": "洋風の意匠でありながら、日本の土蔵造りの防火構造や釘を使わない伝統木組みを応用。天井には貴重な金唐革紙が貼られている。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#4F7768",
+          "accent": "#F5F2EB",
+          "detail": "#232F2B"
+        },
+        "lat": 40.6029,
+        "lng": 140.4682,
+        "map_query": "旧第五十九銀行本店本館 青森銀行記念館",
+        "spot_key": "hirosaki_59bank"
+      },
+      {
+        "id": "hrc_04",
+        "position": 4,
+        "title": "パリのノートルダム大聖堂を模した白いゴシック双塔",
+        "category": "明治建築",
+        "sub_category": "ゴシック・リバイバル双塔教会（青森県重宝）",
+        "crop_target": "正面左右の四角いゴシック双塔と中央のバラ窓・尖頭アーチ",
+        "hint_level_1": "元寺町の坂の上。パリのノートルダム大聖堂をお手本にした、左右対称の白い2つの塔とバラ窓を持つ美しい教会を切り取ろう。",
+        "hint_level_2": "堀江佐吉の四男・斎藤伊三郎が設計した『日本基督教団 弘前教会』です。",
+        "spot_name": "日本基督教団 弘前教会",
+        "built_year": "1906年（明治39年）",
+        "architect_note": "木造モルタル塗りで石造ゴシックの双塔ファサードを見事に表現。尖頭アーチの窓とリブ・ヴォールト天井が荘厳な空間を作り出す。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#D8D4CC",
+          "accent": "#5C6B73",
+          "detail": "#1E262B"
+        },
+        "lat": 40.6021,
+        "lng": 140.4701,
+        "map_query": "日本基督教団 弘前教会",
+        "spot_key": "hirosaki_church"
+      },
+      {
+        "id": "hrc_05",
+        "position": 5,
+        "title": "白と緑のツートン下見板と角塔のベランダ",
+        "category": "明治建築",
+        "sub_category": "明治宣教師・外人教師館（青森県重宝）",
+        "crop_target": "1階白・2階緑の下見板壁と赤いとんがり屋根の角塔",
+        "hint_level_1": "旧弘前市立図書館のすぐ隣。1階が白、2階が爽やかなモスグリーンに塗られた木造洋館の、ガラス張りベランダと角塔を狙おう。",
+        "hint_level_2": "明治33年に外国人宣教師たちの住まいとして建てられた『旧東奥義塾外人教師館』です。",
+        "spot_name": "旧東奥義塾外人教師館",
+        "built_year": "1900年（明治33年）",
+        "architect_note": "東奥義塾の卒業生・櫻庭駒五郎が設計し、堀江佐吉が施工。寒冷地対策としてベランダをガラス戸で囲んだサンルーム風の意匠が特徴。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D7A5E",
+          "accent": "#FAF6EE",
+          "detail": "#8C3B2B"
+        },
+        "lat": 40.602,
+        "lng": 140.4663,
+        "map_query": "旧東奥義塾外人教師館",
+        "spot_key": "hirosaki_toogijuku"
+      },
+      {
+        "id": "hrc_06",
+        "position": 6,
+        "title": "岩木山を望む赤い尖塔と八角サンルームの別邸",
+        "category": "大正建築",
+        "sub_category": "大正ロマン洋館（国登録有形文化財）",
+        "crop_target": "急勾配の赤いとんがり屋根と花柄ステンドグラスの窓枠",
+        "hint_level_1": "弘前公園の南西、広大な日本庭園の入口。赤いとんがり帽子の屋根と、優美なステンドグラス窓を持つ大正時代の別邸洋館を探そう。",
+        "hint_level_2": "実業家・藤田謙一が別邸として構えた『藤田記念庭園 洋館』（堀江金蔵設計・施工）です。",
+        "spot_name": "藤田記念庭園 洋館",
+        "built_year": "1921年（大正10年）",
+        "architect_note": "堀江佐吉の六男・堀江金蔵が手がけた大正モダンの名作。リンゴの花をあしらったステンドグラスや、和館と接続する巧みな平面構成が光る。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#A33B2E",
+          "accent": "#E8E2D5",
+          "detail": "#263228"
+        },
+        "lat": 40.6019,
+        "lng": 140.4596,
+        "map_query": "藤田記念庭園 洋館",
+        "spot_key": "hirosaki_fujita_villa"
+      },
+      {
+        "id": "hrc_07",
+        "position": 7,
+        "title": "ガーディナーが遺したイギリス積み赤煉瓦の鐘塔",
+        "category": "大正建築",
+        "sub_category": "英国ゴシック様式煉瓦聖堂（青森県重宝）",
+        "crop_target": "イギリス積みの赤煉瓦鐘塔と白いピンコロ石の基礎・尖頭窓",
+        "hint_level_1": "弘前市山道町。雪国にも映える温かい赤煉瓦造りの聖堂で、凹凸のある胸壁（パラペット）を戴く四角い鐘塔を見上げよう。",
+        "hint_level_2": "横浜山手の外交官の家も設計したJ.M.ガーディナーによる『日本聖公会 弘前昇天教会』です。",
+        "spot_name": "日本聖公会 弘前昇天教会",
+        "built_year": "1921年（大正10年）",
+        "architect_note": "ガーディナー設計、林緑施工。外壁はイギリス積みの赤煉瓦、内部は木造のハンマービーム・トラスが架かる本格的な英国ゴシック教会。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8C3B2B",
+          "accent": "#DFD3C3",
+          "detail": "#1E242B"
+        },
+        "lat": 40.5968,
+        "lng": 140.4728,
+        "map_query": "弘前昇天教会",
+        "spot_key": "hirosaki_ascension_church"
+      },
+      {
+        "id": "hrc_08",
+        "position": 8,
+        "spot_key": "hirosaki_saishoin_pagoda",
+        "title": "東北随一の美塔と称えられる五重塔の相輪",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸初期仏塔建築（重要文化財）",
+        "crop_target": "銅板葺きの重層屋根と空へ伸びる繊細な五重塔",
+        "hint_level_1": "弘前公園から南へ徒歩約15分。津軽地方の統一戦没者供養のために建立された国重要文化財の五重塔を探そう。",
+        "hint_level_2": "1667年完成、日本最北端の重要文化財五重塔『最勝院五重塔』です。",
+        "spot_name": "最勝院五重塔",
+        "built_year": "1667年（寛文7年）",
+        "architect_note": "高さ31.2m。江戸時代初期の端正なプロポーションを保ち、東北で最も美しい五重塔のひとつと称される。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 40.5974,
+        "lng": 140.4682,
+        "map_query": "最勝院五重塔 弘前"
+      },
+      {
+        "id": "hrc_09",
+        "position": 9,
+        "spot_key": "hirosaki_brick_museum",
+        "title": "シードル工場を再生した田根剛の「記憶の継承」美術館",
+        "category": "現代建築・リノベーション",
+        "sub_category": "明治〜大正赤煉瓦倉庫再生（田根剛設計）",
+        "crop_target": "シードルゴールドの屋根と重厚な赤煉瓦壁の対比",
+        "hint_level_1": "土淵川沿いに建つ明治・大正期の元酒造・シードル工場。2020年に現代美術館として生まれ変わった赤煉瓦棟を狙おう。",
+        "hint_level_2": "建築家・田根剛氏が改修を手掛けた『弘前れんが倉庫美術館』です。",
+        "spot_name": "弘前れんが倉庫美術館",
+        "built_year": "1923年頃（2020年改修開館）",
+        "architect_note": "吉野町煉瓦倉庫（旧シードル工場）を「記憶の継承」をコンセプトに再生。太陽光を反射するシードルゴールドの屋根が特徴。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#D4AF37",
+          "detail": "#242830"
+        },
+        "lat": 40.5985,
+        "lng": 140.4765,
+        "map_query": "弘前れんが倉庫美術館"
+      }
+    ]
+  },
+  {
+    "id": "tohoku_morioka_central",
+    "region_group": "東北",
+    "prefecture_group": "岩手・盛岡",
+    "tour_type": "walk",
+    "title": "盛岡・中津川とレトロ銀行街 散策",
+    "subtitle": "MORIOKA RIVERSIDE & BRICK WALK",
+    "region": "岩手県盛岡市・開運橋〜盛岡城跡〜紺屋町",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸〜大正",
+    "description": "JR盛岡駅から徒歩で巡れる中津川沿いの城下町コース。辰野金吾設計の赤レンガ館や石割桜、紺屋町番屋、盛岡城の石垣を約2時間半で歩きます。",
+    "theme_color": "#7A2E2E",
+    "accent_color": "#E0C078",
+    "specimen_prefix": "MRC",
+    "area_map_query": "岩手銀行赤レンガ館 盛岡城跡公園 石割桜",
+    "cells": [
+      {
+        "id": "mrc_01",
+        "position": 1,
+        "title": "辰野金吾が東北に唯一遺した赤煉瓦と白帯の八角ドーム",
+        "category": "明治建築",
+        "sub_category": "辰野式フリークラシック（重要文化財）",
+        "crop_target": "交差点角にそびえる緑青の八角ドーム塔屋と赤煉瓦×白花崗岩の壁面",
+        "hint_level_1": "盛岡市の中ノ橋通交差点。東京駅と同じ辰野金吾が設計した、鮮やかな赤煉瓦と白い花崗岩のストライプ、そして緑青色のドームを持つ名建築を見上げよう。",
+        "hint_level_2": "東北地方に残る唯一の辰野金吾設計建築、重要文化財『岩手銀行赤レンガ館（旧盛岡銀行本店本館）』です。",
+        "spot_name": "岩手銀行赤レンガ館（旧盛岡銀行本店）",
+        "built_year": "1911年（明治44年）",
+        "architect_note": "辰野・葛西建築事務所の設計。東京駅の3年前に竣工し、2012年まで100年以上にわたり現役の銀行店舗として使われ続けた奇跡の近代建築。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#FAF6EE",
+          "detail": "#22333B"
+        },
+        "lat": 39.7005,
+        "lng": 141.1552,
+        "map_query": "岩手銀行赤レンガ館",
+        "spot_key": "morioka_iwate_bank"
+      },
+      {
+        "id": "mrc_02",
+        "position": 2,
+        "title": "白い花崗岩が曲線を描く東北随一の「三段高石垣」",
+        "category": "歴史名所・城郭",
+        "sub_category": "日本100名城・国指定史跡",
+        "crop_target": "本丸・二ノ丸を支える白い花崗岩の高石垣と赤い渡雲橋",
+        "hint_level_1": "盛岡の中心部、北上川と中津川の合流点。地元の白い花崗岩をパズルのように精緻に積み上げた、東北地方の城郭の中でも屈指の美しさを誇る高石垣を切り取ろう。",
+        "hint_level_2": "南部藩20万石の居城『盛岡城跡公園（岩手公園）』です。",
+        "spot_name": "盛岡城跡公園（石垣と渡雲橋）",
+        "built_year": "1598年（慶長3年）築城開始",
+        "architect_note": "川中島から切り出された良質な花崗岩を用い、築城年代によって「野面積み」「打込接ぎ」「切込接ぎ」の3種類の石積み技法が一つの城で見られる石垣博物館。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#9E9A90",
+          "accent": "#9E2A2B",
+          "detail": "#263228"
+        },
+        "lat": 39.7006,
+        "lng": 141.1501,
+        "map_query": "盛岡城跡公園",
+        "spot_key": "morioka_castle_park"
+      },
+      {
+        "id": "mrc_03",
+        "position": 3,
+        "title": "パステルブルーの下見板と八角望楼が愛らしい消防番屋",
+        "category": "大正建築",
+        "sub_category": "木造洋風消防番屋（盛岡市保存建造物）",
+        "crop_target": "六角形の1階外壁と屋根の上に載る八角形の火の見望楼",
+        "hint_level_1": "岩手銀行赤レンガ館から中津川を渡ってすぐ（紺屋町）。淡いブルーの下見板と、屋根のてっぺんに小さな八角形の見張り台（望楼）が載った可愛い建物を探そう。",
+        "hint_level_2": "大正2年に盛岡消防組第四部事務所として建てられた『紺屋町番屋（こんやちょうばんや）』です。",
+        "spot_name": "盛岡 紺屋町番屋",
+        "built_year": "1913年（大正2年）",
+        "architect_note": "街角の見通しを良くするために1階コーナーを隅切り（六角形風）にし、頂部に八角の望楼と半鐘を備えた大正ロマンあふれる木造公共建築。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#5B8FA8",
+          "accent": "#FAF6EE",
+          "detail": "#22333B"
+        },
+        "lat": 39.7024,
+        "lng": 141.1574,
+        "map_query": "盛岡 紺屋町番屋",
+        "spot_key": "morioka_konyacho_banya"
+      },
+      {
+        "id": "mrc_04",
+        "position": 4,
+        "title": "開運橋と北上川の向こうにそびえる名峰「岩手山」",
+        "category": "風景・観光名所",
+        "sub_category": "都市河川＆山岳眺望風景",
+        "crop_target": "白いアーチの『開運橋』と北上川の先にそびえる南部片富士・岩手山",
+        "hint_level_1": "JR盛岡駅から大通りへ出る際に渡る北上川の橋。白い2連アーチの橋の向こうに、標高2038mの秀峰「岩手山（南部片富士）」が大きくそびえる盛岡一番の風景を収めよう。",
+        "hint_level_2": "通称「二度泣き橋」としても知られる『開運橋（かいうんばし）からの岩手山眺望』です。",
+        "spot_name": "開運橋と岩手山の眺望",
+        "built_year": "1890年（明治23年）初代架橋・1953年現橋",
+        "architect_note": "転勤で盛岡に来た人が「遠くまで来てしまった」と泣き、帰る時には「離れたくない」とまた泣くことから『二度泣き橋』と呼ばれる名橋。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1D3557"
+        },
+        "lat": 39.7019,
+        "lng": 141.1419,
+        "map_query": "盛岡 開運橋",
+        "spot_key": "morioka_kaiunbashi"
+      },
+      {
+        "id": "mrc_05",
+        "position": 5,
+        "title": "巨大な花崗岩を割って伸びる国の天然記念物「石割桜」",
+        "category": "観光名所・自然造形",
+        "sub_category": "国指定天然記念物（※通年見学可能）",
+        "crop_target": "周囲21mの巨大な花崗岩の割れ目から太い幹を伸ばす大樹の造形",
+        "hint_level_1": "盛岡地方裁判所の前庭。春だけでなく1年中いつでも圧巻の迫力を見せる、周囲21mもの巨大な花崗岩を真っ二つに割って太い幹が伸びる生命の造形を切り取ろう！",
+        "hint_level_2": "大正12年に国の天然記念物に指定された樹齢約360年の『石割桜（いしわりざくら）』です。",
+        "spot_name": "盛岡 石割桜（盛岡地方裁判所前）",
+        "built_year": "1923年（大正12年）国の天然記念物指定",
+        "architect_note": "旧北山家（南部藩家老）の庭園にあった巨石の落雷亀裂に種子が入り込んで成長したもの。岩を押し広げる根と幹の力強さは通年人気の名所。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E7378",
+          "accent": "#4A6B4E",
+          "detail": "#262B30"
+        },
+        "lat": 39.7042,
+        "lng": 141.1512,
+        "map_query": "盛岡 石割桜",
+        "spot_key": "morioka_ishiwari_zakura"
+      },
+      {
+        "id": "mrc_06",
+        "position": 6,
+        "title": "南部藩の総鎮守を飾る鮮やかな朱塗りの大社殿と彫刻",
+        "category": "歴史社寺・名所",
+        "sub_category": "神社建築・流造大社殿",
+        "crop_target": "鮮やかな朱塗りの大拝殿と唐破風向拝に施された精緻な彫刻",
+        "hint_level_1": "盛岡市八幡町の突き当たり。チャグチャグ馬コや山車行事の舞台となる盛岡の総鎮守で、青空に映える朱塗りの大社殿と神門を狙おう。",
+        "hint_level_2": "延宝8年（1680年）に南部重信公が建立した『盛岡八幡宮』です。",
+        "spot_name": "盛岡八幡宮",
+        "built_year": "1680年（延宝8年）創建・1997年新社殿造営",
+        "architect_note": "岩手県随一の規模を誇る朱塗りの社殿。境内には12の社が並び、南部鉄器の風鈴やひょうたん飾りなど城下町の信仰と工芸が息づいている。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#D4AF37",
+          "detail": "#1E2623"
+        },
+        "lat": 39.6956,
+        "lng": 141.1636,
+        "map_query": "盛岡八幡宮",
+        "spot_key": "morioka_hachimangu"
+      },
+      {
+        "id": "mrc_07",
+        "position": 7,
+        "spot_key": "morioka_kogensha",
+        "title": "宮沢賢治ゆかりの赤レンガと中庭の白壁蔵",
+        "category": "大正〜昭和建築",
+        "sub_category": "民芸・出版ゆかりの歴史的建造物",
+        "crop_target": "材木町のレトロな木造店舗と中庭「可否館」の看板",
+        "hint_level_1": "開運橋を渡って材木町へ。宮沢賢治の『注文の多い料理店』を出版した民芸店・喫茶の中庭を狙おう。",
+        "hint_level_2": "1924年創業の民芸と文学の殿堂『光原社（材木町）』です。",
+        "spot_name": "光原社（材木町）",
+        "built_year": "1924年（大正13年）創業",
+        "architect_note": "宮沢賢治の童話集を刊行した及川四郎が創設。敷地内には蔵を改装した喫茶「可否館」やマヂエル館が並ぶ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#232B2B"
+        },
+        "lat": 39.7042,
+        "lng": 141.1422,
+        "map_query": "光原社 盛岡"
+      },
+      {
+        "id": "mrc_08",
+        "position": 8,
+        "spot_key": "morioka_sakurayama_eboshiiwa",
+        "title": "城跡の麓に鎮座する巨大な烏帽子岩と門前横丁",
+        "category": "観光名所・神社",
+        "sub_category": "南部藩ゆかりの神社・奇岩",
+        "crop_target": "境内に突き立つ巨大な「烏帽子岩（兜岩）」と本殿",
+        "hint_level_1": "盛岡城跡公園の北側、昭和レトロな飲食店が並ぶ「桜山界隈」の正面にある神社で、巨大な岩のご神体を探そう。",
+        "hint_level_2": "盛岡の総鎮守のひとつ『櫻山神社・烏帽子岩』です。",
+        "spot_name": "櫻山神社・烏帽子岩",
+        "built_year": "1749年（寛延2年）創建",
+        "architect_note": "築城時に掘り出された高さ約7mの花崗岩「烏帽子岩」が御神体の一つ。参道には昭和の面影を残す飲食店街が続く。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D5D53",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 39.7018,
+        "lng": 141.1516,
+        "map_query": "櫻山神社 盛岡"
+      },
+      {
+        "id": "mrc_09",
+        "position": 9,
+        "spot_key": "morioka_nansho_so",
+        "title": "明治の実業家が築いた和風邸宅と池泉回遊庭園",
+        "category": "明治建築",
+        "sub_category": "明治期木造和風邸宅（盛岡市保護庭園・保存建造物）",
+        "crop_target": "広い縁側から眺める池泉庭園と重厚な板塀門",
+        "hint_level_1": "盛岡城跡の南西（清水町）。明治18年に建てられた和風建築と美しい日本庭園の座敷を切り取ろう。",
+        "hint_level_2": "映画のロケ地にも使われる盛岡の名邸『南昌荘』です。",
+        "spot_name": "南昌荘",
+        "built_year": "1885年（明治18年）",
+        "architect_note": "実業家・瀬川安五郎の邸宅として建築。新緑や紅葉の時期に板張りの床に映り込む庭園の景観が名高い。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1C2420"
+        },
+        "lat": 39.6961,
+        "lng": 141.1471,
+        "map_query": "南昌荘 盛岡"
+      }
+    ]
+  },
+  {
+    "id": "tohoku_sendai_central",
+    "region_group": "東北",
+    "prefecture_group": "宮城・仙台",
+    "tour_type": "walk",
+    "title": "仙台中心部 るーぷる仙台で巡る杜の都散策",
+    "subtitle": "SENDAI CITY HERITAGE WALK",
+    "region": "宮城県仙台市・仙台駅〜瑞鳳殿〜仙台城跡〜定禅寺通",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・循環バス＋地下鉄）",
+    "era_focus": "安土桃山〜現代",
+    "description": "観光循環バス「るーぷる仙台」と地下鉄東西線だけで車なし約3時間で巡れる仙台市内コース。瑞鳳殿、仙台城跡、大崎八幡宮、伊東豊雄のメディアテークを網羅。",
+    "theme_color": "#1F3B2C",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "SDC",
+    "area_map_query": "仙台城跡 瑞鳳殿 大崎八幡宮 せんだいメディアテーク",
+    "cells": [
+      {
+        "id": "sdc_01",
+        "position": 1,
+        "title": "杜の都を見下ろす三日月兜の「伊達政宗公騎馬像」",
+        "category": "観光名所・城郭",
+        "sub_category": "国指定史跡・仙台城本丸跡",
+        "crop_target": "黄金の弦月（三日月）前立を輝かせ馬上に立つ伊達政宗公銅像",
+        "hint_level_1": "標高約130mの青葉山の上、仙台城の本丸跡。仙台の街並みと太平洋をはるかに見下ろす、東北で最も有名な三日月兜の武将の騎馬像を切り取ろう。",
+        "hint_level_2": "仙台出身の彫刻家・小室達が制作した『仙台城跡（青葉城址）伊達政宗公騎馬像』です。",
+        "spot_name": "仙台城跡（伊達政宗公騎馬像）",
+        "built_year": "1935年（昭和10年）初代建立・1964年再建",
+        "architect_note": "自然の断崖と広瀬川を天然の要害とした山城。本丸北壁にそびえる高さ17mの切石積み石垣もまた、伊達62万石の土木技術を今に伝える。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#1D2832",
+          "accent": "#D4AF37",
+          "detail": "#4A5859"
+        },
+        "lat": 38.2529,
+        "lng": 140.8559,
+        "map_query": "仙台城跡 伊達政宗公騎馬像",
+        "spot_key": "sendai_castle"
+      },
+      {
+        "id": "sdc_02",
+        "position": 2,
+        "title": "杉木立の中に輝く極彩色の桃山彫刻と涅槃門",
+        "category": "歴史建築・名所",
+        "sub_category": "安土桃山様式霊廟建築",
+        "crop_target": "黒漆に金箔と極彩色の天女・獅子頭彫刻が輝く瑞鳳殿本殿・唐門",
+        "hint_level_1": "広瀬川が大きく蛇行する経ヶ峰の杉林の中。伊達政宗公が眠る霊廟で、目が覚めるような極彩色の龍や天女の彫刻と唐門を狙おう。",
+        "hint_level_2": "桃山文化の遺風を伝える豪華絢爛な霊屋『瑞鳳殿（ずいほうでん）』です。",
+        "spot_name": "瑞鳳殿（伊達政宗公霊屋）",
+        "built_year": "1637年（寛永14年）創建・1979年再建",
+        "architect_note": "二代藩主・伊達忠宗が造営。樹齢数百年の青森ヒバを用いた涅槃門や、創建当時の極彩色を復元した組物・飾り金具が圧倒的な美を放つ。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#1E2226",
+          "accent": "#E9C46A",
+          "detail": "#9E2A2B"
+        },
+        "lat": 38.2505,
+        "lng": 140.8659,
+        "map_query": "仙台 瑞鳳殿",
+        "spot_key": "sendai_zuihoden"
+      },
+      {
+        "id": "sdc_03",
+        "position": 3,
+        "title": "黒漆と金箔・胡粉のコントラストが眩い現存最古の権現造",
+        "category": "歴史社寺・国宝",
+        "sub_category": "安土桃山時代・権現造社殿（国宝）",
+        "crop_target": "艶やかな黒漆塗りの柱と極彩色の彫刻が彩る唐破風向拝",
+        "hint_level_1": "仙台市青葉区八幡。伊達政宗公が名工たちを招いて造営した国宝の神社で、黒漆の壁に金箔と鮮やかな瑞鳥の彫刻が浮かび上がる社殿を収めよう。",
+        "hint_level_2": "安土桃山時代の唯一の遺構とされる国宝『大崎八幡宮 社殿』です。",
+        "spot_name": "大崎八幡宮（国宝社殿）",
+        "built_year": "1607年（慶長12年）",
+        "architect_note": "日光東照宮に先駆けて造営された、現存する日本最古の「権現造（本殿と拝殿を石の間でつなぐ形式）」社殿。伊達家の美意識の頂点。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#1A1C20",
+          "accent": "#D4AF37",
+          "detail": "#8C3B2B"
+        },
+        "lat": 38.2725,
+        "lng": 140.8447,
+        "map_query": "仙台 大崎八幡宮",
+        "spot_key": "sendai_osaki_hachimangu"
+      },
+      {
+        "id": "sdc_04",
+        "position": 4,
+        "title": "ケヤキ並木を映すガラス壁と13本の「海藻のようなチューブ」",
+        "category": "現代建築・名所",
+        "sub_category": "伊東豊雄設計・現代建築の金字塔",
+        "crop_target": "全面ガラスのファサード越しに透けて見える白い網目状のチューブ柱",
+        "hint_level_1": "定禅寺通のケヤキ並木沿い。巨大な水槽の中に「白い海藻のような網目状の柱（チューブ）」がゆらゆらと7階まで貫いている、世界的に有名なガラス建築を見上げよう。",
+        "hint_level_2": "プリツカー賞受賞建築家・伊東豊雄の代表作『せんだいメディアテーク』です。",
+        "spot_name": "せんだいメディアテーク",
+        "built_year": "2001年（平成13年）",
+        "architect_note": "壁を一切持たず、13本の鋼管ラチス（チューブ）と薄い鉄板スラブだけで建物を支える革命的構造。世界中の建築ファンが訪れる聖地。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B6978",
+          "accent": "#E8F1F5",
+          "detail": "#1D2D35"
+        },
+        "lat": 38.2655,
+        "lng": 140.8656,
+        "map_query": "せんだいメディアテーク",
+        "spot_key": "sendai_mediatheque"
+      },
+      {
+        "id": "sdc_05",
+        "position": 5,
+        "spot_key": "sendai_jozenji_dori",
+        "title": "杜の都を象徴するケヤキ並木と彫刻プロムナード",
+        "category": "風景・街並み",
+        "sub_category": "都市緑道・ケヤキ並木",
+        "crop_target": "中央分離帯の緑道に並ぶケヤキ並木とブロンズ彫刻",
+        "hint_level_1": "せんだいメディアテークの目の前を東西に貫く大通り。中央の遊歩道に並ぶケヤキの木立と彫刻を狙おう。",
+        "hint_level_2": "仙台の象徴的な並木道『定禅寺通（ケヤキ並木）』です。",
+        "spot_name": "定禅寺通（ケヤキ並木）",
+        "built_year": "昭和戦災復興事業にて整備",
+        "architect_note": "中央の遊歩道にはエミリオ・グレコらの彫刻が点在し、四季を通じて「杜の都」を体感できる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 38.2654,
+        "lng": 140.8682,
+        "map_query": "定禅寺通 仙台"
+      },
+      {
+        "id": "sdc_06",
+        "position": 6,
+        "spot_key": "sendai_aoba_shrine",
+        "title": "伊達政宗公を祀る北山丘陵の静謐な社殿",
+        "category": "近代社寺建築",
+        "sub_category": "登録有形文化財・神社建築",
+        "crop_target": "杉木立の参道奥に建つ本殿と重厚な石鳥居",
+        "hint_level_1": "地下鉄南北線「北仙台駅」から徒歩圏内。伊達政宗を御祭神として明治期に創建された神社を訪ねよう。",
+        "hint_level_2": "1874年創建の登録有形文化財社殿群『青葉神社』です。",
+        "spot_name": "青葉神社",
+        "built_year": "1874年（明治7年）創建",
+        "architect_note": "伊達政宗（武振彦命）を祀り、本殿・拝殿・神門など6棟が国の登録有形文化財に指定されている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3A5A40",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 38.2788,
+        "lng": 140.8659,
+        "map_query": "青葉神社 仙台"
+      },
+      {
+        "id": "sdc_07",
+        "position": 7,
+        "spot_key": "sendai_bansui_sodo",
+        "title": "「荒城の月」の詩人・土井晩翠が晩年を過ごした和風建築",
+        "category": "昭和建築",
+        "sub_category": "昭和戦後木造住宅（土井晩翠旧居）",
+        "crop_target": "趣ある木造平屋の玄関と庭に立つ晩翠の胸像",
+        "hint_level_1": "仙台駅から青葉通を西へ徒歩約15分。青葉区大町にひっそりと建つ、詩人・土井晩翠の旧居を訪ねよう。",
+        "hint_level_2": "『荒城の月』の作詞者ゆかりの記念館『晩翠草堂』です。",
+        "spot_name": "晩翠草堂",
+        "built_year": "1949年（昭和24年）",
+        "architect_note": "戦災で自宅を失った土井晩翠のために教え子や市民の寄付で建てられた木造住宅。無料で見学できる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 38.2591,
+        "lng": 140.8707,
+        "map_query": "晩翠草堂 仙台"
+      },
+      {
+        "id": "sdc_08",
+        "position": 8,
+        "spot_key": "sendai_city_museum",
+        "title": "伊達家の甲冑を収蔵する青葉山麓の三の丸跡",
+        "category": "現代建築・博物館",
+        "sub_category": "前川國男設計（仙台城三の丸跡）",
+        "crop_target": "五色沼のほとりに建つモダニズム建築のファサード",
+        "hint_level_1": "仙台城跡の麓、五色沼のすぐ隣。日本近代建築の巨匠・前川國男が設計した博物館を切り取ろう。",
+        "hint_level_2": "伊達政宗の黒漆五枚胴具足などを収蔵する『仙台市博物館』です。",
+        "spot_name": "仙台市博物館",
+        "built_year": "1961年（昭和36年）開館・1986年改築",
+        "architect_note": "前川國男建築設計事務所の設計。敷地前の五色沼は日本のフィギュアスケート発祥の地としても知られる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#4A607A",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 38.2557,
+        "lng": 140.8565,
+        "map_query": "仙台市博物館"
+      },
+      {
+        "id": "sdc_09",
+        "position": 9,
+        "spot_key": "sendai_aer_terrace",
+        "title": "杜の都と太平洋を一望する仙台駅前の無料展望テラス",
+        "category": "現代建築・展望",
+        "sub_category": "高層ビル展望テラス（31階）",
+        "crop_target": "地上145mの展望テラスから望む仙台市街と青葉山",
+        "hint_level_1": "JR仙台駅西口北側の高層ビル最上階（31階）。無料で開放されている東西の展望テラスから街を見渡そう。",
+        "hint_level_2": "仙台駅直結の複合高層ビル最上階『AER（アエル）展望テラス』です。",
+        "spot_name": "AER（アエル）31階展望テラス",
+        "built_year": "1998年（平成10年）",
+        "architect_note": "地上31階・高さ145.5m。西側テラスからは仙台城跡方面、東側テラスからは宮城野・太平洋方面を一望できる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#E6DFD3",
+          "detail": "#13293D"
+        },
+        "lat": 38.2624,
+        "lng": 140.8814,
+        "map_query": "アエル 展望テラス 仙台"
+      }
+    ]
+  },
+  {
+    "id": "tohoku_matsushima_bay",
+    "region_group": "東北",
+    "prefecture_group": "宮城・仙台",
+    "tour_type": "walk",
+    "title": "日本三景・松島海岸 徒歩散策",
+    "subtitle": "MATSUSHIMA BAY HERITAGE WALK",
+    "region": "宮城県松島町・JR松島海岸駅〜瑞巌寺〜福浦島",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "安土桃山〜現代",
+    "description": "JR仙石線・松島海岸駅からすべて徒歩圏内で巡れる日本三景・松島コース。国宝瑞巌寺、五大堂、円通院、朱塗りの福浦橋、観瀾亭を2時間半で歩きます。",
+    "theme_color": "#1B4353",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "MTB",
+    "area_map_query": "瑞巌寺 五大堂 福浦橋 松島",
+    "cells": [
+      {
+        "id": "mtb_01",
+        "position": 1,
+        "title": "足元の海が見える赤い「透かし橋」と小島の桃山お堂",
+        "category": "観光名所・重要文化財",
+        "sub_category": "日本三景・安土桃山仏堂（重要文化財）",
+        "crop_target": "海上の小島に建つ宝形造のお堂と足元に隙間がある赤い『透かし橋』",
+        "hint_level_1": "日本三景・松島の海岸すぐ目の前。隙間から下の海が丸見えになるスリル満点の「赤い透かし橋」を渡った小島に建つ、松島のシンボルのお堂を切り取ろう。",
+        "hint_level_2": "伊達政宗公が慶長9年に再建した重要文化財『松島 瑞巌寺五大堂（ごだいどう）』です。",
+        "spot_name": "松島 五大堂と透かし橋",
+        "built_year": "1604年（慶長9年）",
+        "architect_note": "東北地方に現存する最古の桃山建築。お堂の四面の蟇股（かえるまた）には、方位に合わせて十二支の彫刻が精巧に彫り込まれている。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#2B5B6C",
+          "detail": "#FAF6EE"
+        },
+        "lat": 38.3688,
+        "lng": 141.0641,
+        "map_query": "松島 五大堂",
+        "spot_key": "matsushima_godaido"
+      },
+      {
+        "id": "mtb_02",
+        "position": 2,
+        "title": "伊達政宗公が5年かけて完成させた禅宗大本堂と岩窟群",
+        "category": "歴史社寺・国宝",
+        "sub_category": "桃山書院造本堂（国宝）",
+        "crop_target": "巨大な入母屋本瓦葺き本堂または参道脇の岩壁に掘られた法身窟・洞窟群",
+        "hint_level_1": "松島の杉並木を抜けた奥。参道脇の岸壁に無数の石窟や五輪塔が彫り込まれ、その先に幅39mもの壮大な国宝本堂が構える奥州随一の禅寺を探そう。",
+        "hint_level_2": "伊達家の菩提寺、国宝『松島 青龍山 瑞巌寺（本堂・庫裏・洞窟遺跡群）』です。",
+        "spot_name": "国宝 瑞巌寺（本堂・洞窟遺跡群）",
+        "built_year": "1609年（慶長14年）",
+        "architect_note": "熊野から取り寄せた良材を用い、130人の名工を動員して完成。台所である「庫裏（くり）」すらも唐草彫刻の妻飾りを備え、国宝に指定されている。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#4D3B2C",
+          "accent": "#D4AF37",
+          "detail": "#26282A"
+        },
+        "lat": 38.3721,
+        "lng": 141.0598,
+        "map_query": "松島 瑞巌寺",
+        "spot_key": "matsushima_zuiganji"
+      },
+      {
+        "id": "mtb_03",
+        "position": 3,
+        "title": "青い松島湾をまたぐ全長252mの朱塗り橋「福浦橋」",
+        "category": "風景・観光名所",
+        "sub_category": "海上歩道橋・名勝風景",
+        "crop_target": "青い海の上を福浦島へ向かって真っすぐ伸びる252mの赤い欄干橋",
+        "hint_level_1": "五大堂のさらに東側。松島湾に浮かぶ自然植物園の島へと、海の上を252メートルにわたって一直線に結ぶ鮮やかな朱塗りの長い橋を狙おう。",
+        "hint_level_2": "通称「出会い橋」として親しまれる『福浦橋（ふくうらばし）と福浦島』です。",
+        "spot_name": "松島 福浦橋",
+        "built_year": "1967年（昭和42年）架橋（震災後台湾からの支援で修復）",
+        "architect_note": "松島の青い海と緑の松林に、一直線の朱色が鮮やかに映える景観スポット。橋の上からは360度のパノラマで湾内の島々を眺められる。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#2B6584",
+          "detail": "#FAF6EE"
+        },
+        "lat": 38.368,
+        "lng": 141.0694,
+        "map_query": "松島 福浦橋",
+        "spot_key": "matsushima_fukuurabashi"
+      },
+      {
+        "id": "mtb_04",
+        "position": 4,
+        "title": "大小260余りの白岩と黒松が浮かぶ「日本三景・松島湾」",
+        "category": "風景・自然名所",
+        "sub_category": "特別名勝・日本三景",
+        "crop_target": "穏やかな海に浮かぶ白い凝灰岩の小島と松の枝ぶり・遊覧船",
+        "hint_level_1": "松島海岸の桟橋や展望台（双観山・四大観）。白い岩肌に緑の松を載せた無数の島々が海に浮かぶ、松尾芭蕉も魅了された多島美の絶景を収めよう。",
+        "hint_level_2": "天橋立・宮島と並ぶ日本三景『特別名勝 松島（松島湾の島々）』です。",
+        "spot_name": "日本三景・松島湾の多島海風景",
+        "built_year": "特別名勝（通年絶景スポット）",
+        "architect_note": "丘陵が沈降してできたリアス海岸と無数の島々。波風によって白い砂岩・凝灰岩が削られ、一島ごとに異なる彫刻のような造形美を見せている。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#4A6B4E",
+          "detail": "#E6DEC8"
+        },
+        "lat": 38.3682,
+        "lng": 141.0625,
+        "map_query": "松島海岸 中央桟橋",
+        "spot_key": "matsushima_bay_view"
+      },
+      {
+        "id": "mtb_05",
+        "position": 5,
+        "spot_key": "matsushima_entsuin",
+        "title": "伊達光宗公の霊廟「三慧殿」と苔むす石庭",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸初期霊廟建築（国重要文化財）",
+        "crop_target": "禅宗様式の霊廟「三慧殿」と石庭「心字の池」",
+        "hint_level_1": "瑞巌寺のすぐ西隣に建つ禅寺。バラの意匠が描かれた厨子を持つ重要文化財の霊廟と美しい庭園を探そう。",
+        "hint_level_2": "伊達政宗の嫡孫・光宗公の菩提寺『円通院（三慧殿）』です。",
+        "spot_name": "円通院（三慧殿・石庭）",
+        "built_year": "1647年（正保4年）三慧殿建立",
+        "architect_note": "三慧殿の厨子には支倉常長が持ち帰った西洋のバラやトランプのマークが描かれ、鎖国下の国際感覚を伝える。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1E2631"
+        },
+        "lat": 38.3712,
+        "lng": 141.0586,
+        "map_query": "円通院 松島"
+      },
+      {
+        "id": "mtb_06",
+        "position": 6,
+        "spot_key": "matsushima_kanrantei",
+        "title": "豊臣秀吉から拝領した伊達家ゆかりの月見御殿",
+        "category": "歴史建築",
+        "sub_category": "桃山様式茶室建築（宮城県指定有形文化財）",
+        "crop_target": "松島湾に面した高台の書院座敷と松の枝越し眺望",
+        "hint_level_1": "松島海岸駅から東へ徒歩5分、海を見下ろす小高い丘の上に建つ、伊達政宗が伏見城から移築した茶室を狙おう。",
+        "hint_level_2": "「さざ波を見る亭」の意を持つ『観瀾亭（月見御殿）』です。",
+        "spot_name": "観瀾亭（松島博物館）",
+        "built_year": "桃山時代（16世紀末）移築",
+        "architect_note": "豊臣秀吉から政宗が拝領した伏見城の茶室を江戸屋敷を経て松島へ移築。障壁画は狩野派による重要文化財。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 38.368,
+        "lng": 141.0596,
+        "map_query": "観瀾亭 松島"
+      },
+      {
+        "id": "mtb_07",
+        "position": 7,
+        "spot_key": "matsushima_ojima",
+        "title": "朱塗りの渡月橋で結ばれた松島信仰の聖地・雄島",
+        "category": "風景・歴史名所",
+        "sub_category": "国指定史跡・岩窟群と朱塗りの橋",
+        "crop_target": "海を渡る朱塗りの渡月橋と凝灰岩の岩窟・五輪塔",
+        "hint_level_1": "松島海岸駅から南へ徒歩約8分。かつて「奥州の高野山」と呼ばれた修験の小島へ渡る赤い橋を切り取ろう。",
+        "hint_level_2": "松尾芭蕉も訪れた聖地『雄島（おしま）と渡月橋』です。",
+        "spot_name": "雄島・渡月橋",
+        "built_year": "鎌倉〜江戸期の磨崖仏・岩窟群",
+        "architect_note": "島全体に凝灰岩を彫った納骨窟や板碑が点在する独特の景勝地。赤い渡月橋が松島湾の青に映える。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 38.3647,
+        "lng": 141.0595,
+        "map_query": "雄島 渡月橋 松島"
+      },
+      {
+        "id": "mtb_08",
+        "position": 8,
+        "spot_key": "matsushima_saigyo_modoshi",
+        "title": "松島湾の大パノラマを見下ろす高台の展望公園",
+        "category": "風景・展望名所",
+        "sub_category": "日本三景パノラマ展望地",
+        "crop_target": "高台から見下ろす松島湾の島々と湾曲する海岸線",
+        "hint_level_1": "松島海岸駅から山側へ坂道を登ること約20分（徒歩圏）。西行法師が松の木の下で童子と禅問答した伝説の展望地へ。",
+        "hint_level_2": "松島湾一望の絶景スポット『西行戻しの松公園』です。",
+        "spot_name": "西行戻しの松公園",
+        "built_year": "通年景勝地（展望カフェ併設）",
+        "architect_note": "桜の名所としても有名だが、通年で松島湾と福浦島を一望できる高台のビュースポットとして人気。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#EFE8D8",
+          "detail": "#1B3042"
+        },
+        "lat": 38.3638,
+        "lng": 141.0505,
+        "map_query": "西行戻しの松公園"
+      },
+      {
+        "id": "mtb_09",
+        "position": 9,
+        "spot_key": "matsushima_fish_market",
+        "title": "松島湾の海の幸が集う海辺の市場棟",
+        "category": "観光名所・グルメ",
+        "sub_category": "漁港市場施設",
+        "crop_target": "赤い大看板が目印の市場外観と牡蠣小屋・港の風景",
+        "hint_level_1": "五大堂から福浦橋方面へ海沿いを歩いてすぐ。焼きたての牡蠣や海鮮丼が楽しめる2階建ての市場を目指そう。",
+        "hint_level_2": "松島観光の食べ歩き拠点『松島さかな市場』です。",
+        "spot_name": "松島さかな市場",
+        "built_year": "2000年（平成12年）開場",
+        "architect_note": "気仙沼の遠洋マグロ船主が運営し、三陸の海の幸や焼き牡蠣を気軽に楽しめる松島湾の賑わい拠点。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#C85A32",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 38.3716,
+        "lng": 141.0672,
+        "map_query": "松島さかな市場"
+      }
+    ]
+  },
+  {
+    "id": "tohoku_aizuwakamatsu_central",
+    "region_group": "東北",
+    "prefecture_group": "福島・会津",
+    "tour_type": "walk",
+    "title": "会津若松 鶴ヶ城〜七日町・さざえ堂散策",
+    "subtitle": "AIZUWAKAMATSU HERITAGE WALK",
+    "region": "福島県会津若松市・七日町〜鶴ヶ城〜飯盛山",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・周遊バス＋徒歩）",
+    "era_focus": "江戸〜大正",
+    "description": "まちなか周遊バス「ハイカラさん」「あかべぇ」と徒歩だけで約3時間で巡れる会津若松市内コース。赤瓦の鶴ヶ城や二重螺旋のさざえ堂、七日町通りを巡ります。",
+    "theme_color": "#8F3A2B",
+    "accent_color": "#E2C07D",
+    "specimen_prefix": "AZC",
+    "area_map_query": "鶴ヶ城 会津さざえ堂 七日町通り",
+    "cells": [
+      {
+        "id": "azc_01",
+        "position": 1,
+        "title": "青空に映える国内唯一の「赤瓦」五層天守と武者走り",
+        "category": "観光名所・城郭",
+        "sub_category": "国指定史跡・層塔型五重天守",
+        "crop_target": "赤褐色の釉薬瓦（赤瓦）を戴く白漆喰の五層天守とV字型の武者走り石垣",
+        "hint_level_1": "会津若松のシンボル。一般的な黒い瓦ではなく、厳しい冬の凍結にも割れない「赤褐色の瓦（赤瓦）」をまとった優美な五層天守を見上げよう。",
+        "hint_level_2": "難攻不落の名城として知られる『鶴ヶ城（会津若松城）』です。",
+        "spot_name": "鶴ヶ城（会津若松城）",
+        "built_year": "1593年築城（1965年再建・2011年赤瓦復原）",
+        "architect_note": "2011年の改修で幕末当時の「赤瓦」が忠実に再現された、現存・復元天守を含め国内唯一の赤瓦天守。太鼓門の巨石「遊女石」やV字階段の武者走りも見どころ。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#8C3B2B",
+          "accent": "#FAF6EE",
+          "detail": "#263238"
+        },
+        "lat": 37.4877,
+        "lng": 139.9298,
+        "map_query": "会津若松 鶴ヶ城",
+        "spot_key": "aizu_tsurugajo"
+      },
+      {
+        "id": "azc_02",
+        "position": 2,
+        "title": "千利休の侘び寂びを今に伝える鶴ヶ城内の茅葺き茶室",
+        "category": "歴史建築・名所",
+        "sub_category": "安土桃山〜江戸初期茶室（福島県指定重要文化財）",
+        "crop_target": "苔むした露地庭園の奥に佇む入母屋茅葺きの茶室とつくばい",
+        "hint_level_1": "鶴ヶ城の本丸内。大名・蒲生氏郷が千利休の子・少庵を会津にかくまった際に建てさせた、静寂な茅葺き屋根の歴史的茶室を探そう。",
+        "hint_level_2": "千家再興ゆかりの茶室『茶室 麟閣（りんかく）』です。",
+        "spot_name": "鶴ヶ城 茶室麟閣",
+        "built_year": "1590年代（安土桃山時代）創建",
+        "architect_note": "千利休の死後、徳川家康へのとりなしによって千家が再興されるきっかけとなった茶道史上の聖地。素朴な丸太柱と躙口（にじりぐち）に侘び茶の精神が宿る。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5844",
+          "accent": "#D5C3AA",
+          "detail": "#1E241E"
+        },
+        "lat": 37.4867,
+        "lng": 139.9311,
+        "map_query": "鶴ヶ城 茶室麟閣",
+        "spot_key": "aizu_rinkaku"
+      },
+      {
+        "id": "azc_03",
+        "position": 3,
+        "title": "上りと下りが一度もすれ違わない木造二重らせんの奇想仏堂",
+        "category": "歴史建築・重要文化財",
+        "sub_category": "六角三層・二重螺旋構造（重要文化財）",
+        "crop_target": "巻貝のようにねじれ上がる六角形の外観と龍が彫られた唐破風向拝",
+        "hint_level_1": "白虎隊ゆかりの飯盛山の中腹。巻貝（サザエ）のような六角形の3階建てのお堂で、上る人と下りる人が一度もすれ違わずに参拝できる驚異の木造建築を探そう！",
+        "hint_level_2": "寛政8年（1796年）に郁堂和尚が考案した重要文化財『旧正宗寺三匝堂（会津さざえ堂）』です。",
+        "spot_name": "会津さざえ堂（旧正宗寺三匝堂）",
+        "built_year": "1796年（寛政8年）",
+        "architect_note": "階段が一つもなく、二重らせんのスロープ（斜路）が時計回りに頂上まで上り、そのまま反時計回りに下りてくる世界建築史上でも唯一無二の木造建築。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D9B66C",
+          "detail": "#1E1A18"
+        },
+        "lat": 37.5048,
+        "lng": 139.9541,
+        "map_query": "会津さざえ堂",
+        "spot_key": "aizu_sazaedo"
+      },
+      {
+        "id": "azc_04",
+        "position": 4,
+        "title": "野口英世も歩いた「七日町通り」の白漆喰洋館と赤煉瓦蔵",
+        "category": "近代建築・街並み",
+        "sub_category": "蔵造り＆大正ロマン通り",
+        "crop_target": "黒漆喰と赤煉瓦が並ぶ老舗海産物問屋や白い塔屋の洋館医院",
+        "hint_level_1": "JR七日町駅から東へ伸びるレトロなメインストリート。若き日の野口英世が手術を受けた白い洋館や、明治の蔵造り商家・赤べこ看板が並ぶ通りを歩こう。",
+        "hint_level_2": "大正ロマンの街並みが続く『七日町通り（野口英世青春館・渋川問屋ほか）』です。",
+        "spot_name": "七日町通り（野口英世青春館・渋川問屋）",
+        "built_year": "明治17年（1884年）旧会陽医院ほか",
+        "architect_note": "会津独自の耐雪・耐火構造である「店蔵（みせぐら）」や赤煉瓦蔵、擬洋風の旧医院建築が立ち並び、城下町の商都の歴史を体感できる。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#3B2F2F",
+          "accent": "#FAF6EE",
+          "detail": "#8C3B2B"
+        },
+        "lat": 37.4991,
+        "lng": 139.9234,
+        "map_query": "会津若松 野口英世青春館",
+        "spot_key": "aizu_nanokamachi"
+      },
+      {
+        "id": "azc_05",
+        "position": 5,
+        "title": "心字の池に浮かぶ茅葺き「楽寿亭」と歴代藩主の大名庭園",
+        "category": "風景・名勝庭園",
+        "sub_category": "国指定名勝・池泉回遊式大名庭園",
+        "crop_target": "池の中島に建つ茅葺き屋根の数寄屋建築『楽寿亭』と太鼓橋",
+        "hint_level_1": "鶴ヶ城の東側。会津松平氏の別荘兼薬草園として築かれた名勝庭園で、池の真ん中の小島に建つ風雅な茅葺きの建物と水面を切り取ろう。",
+        "hint_level_2": "約600年の歴史を持つ国指定名勝『会津松平氏庭園 御薬園（おやくえん）』です。",
+        "spot_name": "会津松平氏庭園 御薬園",
+        "built_year": "1670年（寛文10年）大名庭園整備",
+        "architect_note": "小堀遠州の流れを汲む目黒浄定が改修した池泉回遊式庭園。戊辰戦争では新政府軍の傷病兵治療所となったため焼失を免れ、江戸初期の庭園美が完存する。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#2E5A44",
+          "accent": "#D9C5B2",
+          "detail": "#1D2A24"
+        },
+        "lat": 37.4908,
+        "lng": 139.9436,
+        "map_query": "会津若松 御薬園",
+        "spot_key": "aizu_oyakuen"
+      },
+      {
+        "id": "azc_06",
+        "position": 6,
+        "spot_key": "aizu_iimoriyama",
+        "title": "鶴ヶ城を望む白虎隊終焉の丘と厳島神社",
+        "category": "歴史名所・史跡",
+        "sub_category": "戊辰戦争史跡（飯盛山）",
+        "crop_target": "白虎隊十九士の墓から遠く望む鶴ヶ城方面の市街地",
+        "hint_level_1": "会津さざえ堂と同じ飯盛山の丘の上。白虎隊の墓前や、その傍らの「自刃の地」から城下を見渡そう。",
+        "hint_level_2": "戊辰戦争の悲劇を伝える史跡『飯盛山（白虎隊十九士の墓）』です。",
+        "spot_name": "飯盛山（白虎隊十九士の墓・自刃の地）",
+        "built_year": "1868年（慶応4年）戊辰戦争史跡",
+        "architect_note": "白虎隊士が飯盛山から燃える城下町（実際は武家屋敷）を見て自刃した場所。鶴ヶ城の方向を示す碑がある。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D5D53",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 37.5037,
+        "lng": 139.9547,
+        "map_query": "飯盛山 会津若松"
+      },
+      {
+        "id": "azc_07",
+        "position": 7,
+        "spot_key": "aizu_suehiro_kura",
+        "title": "嘉永年間創業・白壁土蔵が連なる老舗酒蔵の煉瓦煙突",
+        "category": "明治〜大正建築",
+        "sub_category": "酒蔵建築群（会津若松市景観重要建造物）",
+        "crop_target": "白壁の蔵屋敷と敷地内に聳える赤煉瓦の大煙突",
+        "hint_level_1": "七日町通りからほど近い日新町に建つ、1850年創業の老舗酒蔵。無料見学できる蔵の煙突と看板を切り取ろう。",
+        "hint_level_2": "山廃仕込み発祥の蔵元として知られる『末廣酒造 嘉永蔵』です。",
+        "spot_name": "末廣酒造 嘉永蔵",
+        "built_year": "1850年（嘉永3年）創業（明治〜大正期の蔵群）",
+        "architect_note": "酒蔵を見学できるほか、蔵を改装したクラシックカメラ展示やカフェ「杏」も併設。街歩きの定番スポット。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 37.4962,
+        "lng": 139.9209,
+        "map_query": "末廣酒造 嘉永蔵"
+      },
+      {
+        "id": "azc_08",
+        "position": 8,
+        "spot_key": "aizu_amidaji_ochado",
+        "title": "鶴ヶ城の天守を移築した「御三階」が建つ古刹",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸時代城郭遺構（御三階）",
+        "crop_target": "外観は三層・内部は四層の不思議な木造「御三階」",
+        "hint_level_1": "七日町駅のすぐ目の前。明治の廃城時に鶴ヶ城から移築された貴重な建物が残るお寺を探そう。",
+        "hint_level_2": "新選組・斎藤一の墓所としても知られる『阿弥陀寺（御三階）』です。",
+        "spot_name": "阿弥陀寺（鶴ヶ城遺構・御三階）",
+        "built_year": "江戸時代（明治初期に現在地へ移築）",
+        "architect_note": "鶴ヶ城本丸にあった建築を移築した唯一の現存遺構。外観は3階建てだが内部は4層構造になっている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B4252",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 37.5008,
+        "lng": 139.921,
+        "map_query": "阿弥陀寺 会津若松"
+      },
+      {
+        "id": "azc_09",
+        "position": 9,
+        "spot_key": "aizu_nanokamachi_station",
+        "title": "アンティークカフェを併設した大正ロマン風の木造駅舎",
+        "category": "昭和初期建築",
+        "sub_category": "JR只見線駅舎・観光拠点",
+        "crop_target": "「七日町駅」のレトロな木造駅舎と「駅カフェ」の看板",
+        "hint_level_1": "七日町通りの西端にあるJR只見線の駅。駅舎自体がレトロな観光案内所・カフェになっている姿を切り取ろう。",
+        "hint_level_2": "大正ロマン街歩きの玄関口『JR七日町駅（駅カフェ）』です。",
+        "spot_name": "JR七日町駅舎",
+        "built_year": "1934年（昭和9年）開業・2002年駅舎改装",
+        "architect_note": "只見線の無人駅でありながら、駅舎内にアンテナショップとカフェ「駅カフェ」が入り、街歩きの起点として人気。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 37.5006,
+        "lng": 139.9195,
+        "map_query": "七日町駅 会津若松"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_ginza_hibiya_tsukiji",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "銀座・日比谷・築地 モダン名建築と劇場街散策",
+    "subtitle": "GINZA HIBIYA & TSUKIJI ARCHITECTURE WALK",
+    "region": "東京都中央区・千代田区・日比谷〜銀座〜築地",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "大正〜昭和初期",
+    "description": "日比谷公園の近代建築から銀座の名作ビル、歌舞伎座、そして古代インド様式の築地本願寺・聖路加トイスラー記念館・勝鬨橋まで平坦な都心を2時間半で歩きます。",
+    "theme_color": "#232B38",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "GHZ",
+    "area_map_query": "和光本館 歌舞伎座 築地本願寺 日比谷公園",
+    "cells": [
+      {
+        "id": "ghz_01",
+        "position": 1,
+        "title": "曲線を描く時計塔とアラベスク彫刻",
+        "category": "昭和初期建築",
+        "sub_category": "ネオ・ルネサンス様式",
+        "crop_target": "交差点角の優美な曲面外壁と頂部の時計塔",
+        "hint_level_1": "銀座四丁目交差点のランドマーク。交差点に向かって緩やかなカーブを描く石造りの壁面と、空にそびえる時計塔を見上げよう。",
+        "hint_level_2": "横浜のホテルニューグランドと同じ渡辺仁が設計した『銀座・和光本館（旧服部時計店）』です。",
+        "spot_name": "SEIKO HOUSE GINZA（和光本館・旧服部時計店）",
+        "built_year": "1932年（昭和7年）",
+        "architect_note": "外装にはすべて天然の御影石を使用。窓まわりの繊細なアラベスク（唐草）模様のブロンズグリルと時計塔が、銀座の品格を象徴している。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#D6CCC2",
+          "accent": "#B5838D",
+          "detail": "#1D3557"
+        },
+        "lat": 35.6712,
+        "lng": 139.765,
+        "map_query": "SEIKO HOUSE GINZA 和光本館",
+        "spot_key": "ginza_wako"
+      },
+      {
+        "id": "ghz_02",
+        "position": 2,
+        "title": "白壁と大唐破風が輝く日本演劇の殿堂「歌舞伎座」",
+        "category": "有名建築・名所",
+        "sub_category": "桃山様式劇場建築（岡田信一郎意匠継承・隈研吾設計）",
+        "crop_target": "正面中央の巨大な唐破風屋根と朱塗りの欄干・提灯",
+        "hint_level_1": "東銀座の晴海通り沿い。高層オフィスタワーを背にしながら、城郭のような白い壁と大きな唐破風（からはふ）屋根、赤い提灯が輝く伝統劇場の正面を狙おう。",
+        "hint_level_2": "第3期の岡田信一郎の意匠を継承し、隈研吾らが第5期として設計した『歌舞伎座』です。",
+        "spot_name": "銀座 歌舞伎座",
+        "built_year": "1924年（第3期）・2013年（第5期建て替え）",
+        "architect_note": "大正13年に岡田信一郎が確立した桃山様式の劇場ファサードを細部まで忠実に継承しつつ、背後に29階建ての歌舞伎座タワーを融合させた都市再生の傑作。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#FAF6EE",
+          "accent": "#9E2A2B",
+          "detail": "#222629"
+        },
+        "lat": 35.6695,
+        "lng": 139.7676,
+        "map_query": "銀座 歌舞伎座",
+        "spot_key": "ginza_kabukiza"
+      },
+      {
+        "id": "ghz_03",
+        "position": 3,
+        "title": "現存唯一の手動式エレベーターと幾何学階段",
+        "category": "昭和初期建築",
+        "sub_category": "スパニッシュ・アールデコ",
+        "crop_target": "階数表示の半円インジケーターと黒鉄の格子扉",
+        "hint_level_1": "銀座一丁目の路地裏に佇む、1932年竣工のレトロな雑居ビル。時計の針のように動く階数表示盤や、丸窓が並ぶ外観を探してみよう。",
+        "hint_level_2": "かつては銀座のアパートメントとして建てられ、今は個性豊かなギャラリーやショップが集まる『奥野ビル（旧銀座アパートメント）』です。",
+        "spot_name": "奥野ビル（旧銀座アパートメント）",
+        "built_year": "1932年（昭和7年）",
+        "architect_note": "川元良一の設計。スクラッチタイルの外観と、蛇腹式の扉を手で開閉する手動式エレベーターが当時のまま稼働する生きた建築博物館。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#6C584C",
+          "accent": "#ADC178",
+          "detail": "#222222"
+        },
+        "lat": 35.6744,
+        "lng": 139.769,
+        "map_query": "銀座 奥野ビル",
+        "spot_key": "ginza_okuno_bldg"
+      },
+      {
+        "id": "ghz_04",
+        "position": 4,
+        "spot_key": "ginza_kyobunkan",
+        "title": "A・レーモンドが設計した銀座の白いモダニズム書店",
+        "category": "昭和初期建築",
+        "sub_category": "モダニズム建築（アントニン・レーモンド設計）",
+        "crop_target": "垂直と水平のグリッドが美しい白いファサードと「教文館」のサイン",
+        "hint_level_1": "銀座中央通り、松屋銀座の斜め向かいにある老舗キリスト教書店のビル。1933年築のモダンな外観を狙おう。",
+        "hint_level_2": "アントニン・レーモンド設計の『教文館・聖書館ビル』です。",
+        "spot_name": "教文館・聖書館ビル",
+        "built_year": "1933年（昭和8年）",
+        "architect_note": "日本モダニズム建築の父の一人、アントニン・レーモンドの代表作。現在も書店として営業を続けている。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B4252",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6731,
+        "lng": 139.7664,
+        "map_query": "教文館 銀座"
+      },
+      {
+        "id": "ghz_05",
+        "position": 5,
+        "spot_key": "hibiya_shiseikaikan",
+        "title": "日比谷公園の緑に映えるゴシック調の赤煉瓦時計塔",
+        "category": "昭和初期建築",
+        "sub_category": "ネオ・ゴシック様式（東京都選定歴史的建造物）",
+        "crop_target": "スクラッチタイル貼りの外壁と中央の時計塔・尖塔アーチ",
+        "hint_level_1": "日比谷公園の南東角にそびえる重厚な建物。日比谷公会堂と一体になった昭和4年築の時計塔を切り取ろう。",
+        "hint_level_2": "佐藤功一設計の近代名建築『市政会館・日比谷公会堂』です。",
+        "spot_name": "市政会館・日比谷公会堂",
+        "built_year": "1929年（昭和4年）",
+        "architect_note": "早稲田大学大隈講堂などを手掛けた佐藤功一が設計。スクラッチタイルとゴシック風の縦長窓が美しい。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#6E473B",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 35.6725,
+        "lng": 139.7568,
+        "map_query": "市政会館 日比谷公会堂"
+      },
+      {
+        "id": "ghz_06",
+        "position": 6,
+        "spot_key": "hibiya_matsumotoro",
+        "title": "日比谷公園開園時から愛される森の洋館レストラン",
+        "category": "観光名所・建築",
+        "sub_category": "明治創業洋風レストラン（日比谷公園内）",
+        "crop_target": "大銀杏のそばに佇む白いテラス付きの洋館外観",
+        "hint_level_1": "日比谷公園の中央、樹齢400年以上の大銀杏「首賭けイチョウ」のそばに建つ老舗洋食レストランを狙おう。",
+        "hint_level_2": "1903年創業の日比谷公園のシンボル『日比谷松本楼』です。",
+        "spot_name": "日比谷松本楼（日比谷公園）",
+        "built_year": "1903年（明治36年）創業（1973年再建）",
+        "architect_note": "日本初の洋式公園である日比谷公園の開園と同時に開業。夏目漱石や孫文など多くの文化人・歴史的人物に愛された。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6736,
+        "lng": 139.7556,
+        "map_query": "日比谷松本楼"
+      },
+      {
+        "id": "ghz_07",
+        "position": 7,
+        "spot_key": "tsukiji_honganji",
+        "title": "伊東忠太が設計した古代インド様式の蓮華仏殿",
+        "category": "昭和初期建築",
+        "sub_category": "古代インド・仏教様式（重要文化財）",
+        "crop_target": "大谷石造の重厚なファサードと屋上の菩提樹・蓮華ドーム",
+        "hint_level_1": "東京メトロ日比谷線「築地駅」を出てすぐ。日本の寺院とは思えないオリエンタルな石造建築と動物彫刻を探そう。",
+        "hint_level_2": "建築史家・伊東忠太の最高傑作『築地本願寺 本堂』です。",
+        "spot_name": "築地本願寺 本堂",
+        "built_year": "1934年（昭和9年）",
+        "architect_note": "シルクロードを旅した伊東忠太が古代インド仏教様式を採用。石造の階段や欄干には獅子や象などの霊獣彫刻が潜む。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6667,
+        "lng": 139.7726,
+        "map_query": "築地本願寺"
+      },
+      {
+        "id": "ghz_08",
+        "position": 8,
+        "spot_key": "tsukiji_st_luke_chapel",
+        "title": "十字架の尖塔が空を突く明石町のゴシック礼拝堂",
+        "category": "昭和初期建築",
+        "sub_category": "ゴシック様式鉄骨鉄筋コンクリート造（東京都選定歴史的建造物）",
+        "crop_target": "金色に輝く十字架を載せた尖塔とゴシックアーチ窓",
+        "hint_level_1": "築地本願寺から隅田川方面へ徒歩5分、明石町の聖路加国際病院敷地内に保存されている戦前の旧病棟・礼拝堂を狙おう。",
+        "hint_level_2": "アントニン・レーモンドらも関与した『聖路加国際病院 旧棟・礼拝堂』です。",
+        "spot_name": "聖路加国際病院 旧棟・礼拝堂",
+        "built_year": "1933年（昭和8年）",
+        "architect_note": "J.V.W.バーガミニー基本設計・レーモンド実施設計。聖路加ガーデンの高層ビルの足元に当時の礼拝堂が保存されている。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#F2D06B",
+          "detail": "#13293D"
+        },
+        "lat": 35.6675,
+        "lng": 139.7773,
+        "map_query": "聖路加国際病院 旧棟 礼拝堂"
+      },
+      {
+        "id": "ghz_09",
+        "position": 9,
+        "spot_key": "tsukiji_kachidoki_bridge",
+        "title": "かつて船を通すために中央が開いた隅田川の可動橋",
+        "category": "近代土木遺産",
+        "sub_category": "シカゴ型二葉跳開橋（国重要文化財）",
+        "crop_target": "隅田川に架かる緑色のアーチと中央の跳開部・橋台塔",
+        "hint_level_1": "築地市場跡のすぐ先、晴海通りが隅田川を渡る場所。1940年完成の日本最大級の可動橋の勇姿を切り取ろう。",
+        "hint_level_2": "現存する数少ない跳開橋の重要文化財『勝鬨橋（かちどきばし）』です。",
+        "spot_name": "勝鬨橋（かちどきばし）",
+        "built_year": "1940年（昭和15年）",
+        "architect_note": "1970年まで大型船通航のため中央が開閉していた。現在は開閉しないが、当時の運転室や歯車装置が残る。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6622,
+        "lng": 139.7747,
+        "map_query": "勝鬨橋"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_shinjuku_yotsuya_gaien",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "新宿・四谷・神宮外苑 迎賓館と都心の杜散策",
+    "subtitle": "SHINJUKU YOTSUYA & GAIEN WALK",
+    "region": "東京都新宿区・港区・新宿〜四谷〜外苑前",
+    "difficulty": "★★☆（散策目安：約2.5時間・JR中央線/地下鉄＋徒歩）",
+    "era_focus": "明治末期〜現代",
+    "description": "丹下健三の東京都庁舎や新宿御苑の旧洋館から、JRや丸ノ内線で1〜2駅の四谷「迎賓館赤坂離宮」、神宮外苑の聖徳記念絵画館・国立競技場まで巡る都市散歩コース。",
+    "theme_color": "#1B3042",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "SJY",
+    "area_map_query": "東京都庁舎 新宿御苑 迎賓館赤坂離宮 聖徳記念絵画館",
+    "cells": [
+      {
+        "id": "sjy_01",
+        "position": 1,
+        "spot_key": "shinjuku_tocho",
+        "title": "ゴシック大聖堂を思わせる丹下健三のツインタワー庁舎",
+        "category": "現代建築",
+        "sub_category": "ポストモダン高層建築（丹下健三設計）",
+        "crop_target": "ツインタワーが天を突く第一本庁舎と都民広場の外観",
+        "hint_level_1": "西新宿の高層ビル街の中心。45階に無料展望室もある、ノートルダム大聖堂をモチーフにした都庁ビルを見上げよう。",
+        "hint_level_2": "建築家・丹下健三が設計した『東京都庁舎 第一本庁舎』です。",
+        "spot_name": "東京都庁舎（第一本庁舎・展望室）",
+        "built_year": "1991年（平成3年）",
+        "architect_note": "高さ243mのツインタワー。外壁の格子パターンは日本の伝統的な木組みと集積回路をイメージしている。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B4252",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6896,
+        "lng": 139.6917,
+        "map_query": "東京都庁舎"
+      },
+      {
+        "id": "sjy_02",
+        "position": 2,
+        "spot_key": "shinjuku_gyoen_yokan",
+        "title": "広大な国民公園の奥に佇む皇室ゆかりの木造洋館",
+        "category": "明治建築",
+        "sub_category": "宮廷建築・木造洋館（重要文化財）",
+        "crop_target": "緑の芝生越しの白い木造洋館「旧洋館御休所」または「台湾閣」",
+        "hint_level_1": "新宿門から入って庭園の奥へ。明治29年に皇室の休憩所として建てられた洋館や、中国風の台湾閣を探そう。",
+        "hint_level_2": "皇室庭園の面影を伝える『新宿御苑（旧洋館御休所・台湾閣）』です。",
+        "spot_name": "新宿御苑（旧洋館御休所・台湾閣）",
+        "built_year": "1896年（明治29年）",
+        "architect_note": "片山東熊らが関与した旧洋館御休所と、昭和天皇ご成婚記念に台湾から贈られた木造の旧御凉亭（台湾閣）が見どころ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6852,
+        "lng": 139.7101,
+        "map_query": "新宿御苑 旧洋館御休所"
+      },
+      {
+        "id": "sjy_03",
+        "position": 3,
+        "spot_key": "shinjuku_isetan",
+        "title": "アール・デコ装飾が彩る新宿三丁目の歴史的百貨店",
+        "category": "昭和初期建築",
+        "sub_category": "アール・デコ様式百貨店（東京都選定歴史的建造物）",
+        "crop_target": "明治通りと新宿通りの角を飾る大理石とアール・デコ浮彫装飾",
+        "hint_level_1": "新宿三丁目交差点のランドマーク。1933年築の重厚な百貨店外壁に刻まれた、幾何学的なアール・デコ装飾を狙おう。",
+        "hint_level_2": "東京都選定歴史的建造物に指定されている『伊勢丹新宿店 本館』です。",
+        "spot_name": "伊勢丹新宿店 本館",
+        "built_year": "1933年（昭和8年）",
+        "architect_note": "清水組（現・清水建設）の設計施工。外壁のテラコッタや幾何学的な金属装飾が昭和モダンの粋を伝える。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#D4AF37",
+          "detail": "#242830"
+        },
+        "lat": 35.6915,
+        "lng": 139.7046,
+        "map_query": "伊勢丹新宿店 本館"
+      },
+      {
+        "id": "sjy_04",
+        "position": 4,
+        "spot_key": "shinjuku_hanazono_shrine",
+        "title": "新宿のビル群に囲まれた朱塗りの総鎮守",
+        "category": "観光名所・神社",
+        "sub_category": "都市鎮守社・朱塗り社殿",
+        "crop_target": "靖国通り沿いの大鳥居と朱塗りの拝殿",
+        "hint_level_1": "伊勢丹から徒歩すぐ、新宿の繁華街の真ん中に鎮座する鮮やかな朱色の神社にお参りしよう。",
+        "hint_level_2": "芸能浅間神社も境内にある新宿の総鎮守『花園神社』です。",
+        "spot_name": "花園神社",
+        "built_year": "江戸初期以前創建（現社殿1965年再建）",
+        "architect_note": "新宿の総鎮守として商売繁盛や芸能の神様として親しまれる。酉の市の賑わいでも全国的に有名。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.6934,
+        "lng": 139.7053,
+        "map_query": "花園神社 新宿"
+      },
+      {
+        "id": "sjy_05",
+        "position": 5,
+        "title": "金の菊紋が輝く国宝ネオ・バロック宮殿と白い正面鉄柵",
+        "category": "明治建築・国宝",
+        "sub_category": "ネオ・バロック様式宮殿（国宝）",
+        "crop_target": "白と金の華麗な正門鉄柵と奥にそびえる緑青屋根の石造宮殿",
+        "hint_level_1": "四ツ谷駅のすぐ近く。まるでベルサイユ宮殿かバッキンガム宮殿のように、白と金の華麗な正門の奥にそびえる日本で唯一のネオ・バロック宮殿を狙おう。",
+        "hint_level_2": "片山東熊が設計し、明治以降の建築として初めて国宝となった『迎賓館赤坂離宮（旧東宮御所）』です。",
+        "spot_name": "迎賓館赤坂離宮",
+        "built_year": "1909年（明治42年）",
+        "architect_note": "明治日本の建築・美術・工芸の総力を結集して建設。屋根の上の青銅製「天球儀と霊鳥（金色の星と鳥）」や鎧武者の装飾が日本の独自性を主張する。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#D8D2C5",
+          "accent": "#D4AF37",
+          "detail": "#1E293B"
+        },
+        "lat": 35.6801,
+        "lng": 139.7289,
+        "map_query": "迎賓館赤坂離宮",
+        "spot_key": "tokyo_geihinkan"
+      },
+      {
+        "id": "sjy_06",
+        "position": 6,
+        "spot_key": "gaien_kaigakan",
+        "title": "いちょう並木の正面に威容を誇る白亜のドーム記念館",
+        "category": "大正建築",
+        "sub_category": "ネオ・バロック／セセッション様式（重要文化財）",
+        "crop_target": "中央の大ドームと左右に伸びる花崗岩の列柱ファサード",
+        "hint_level_1": "明治神宮外苑の中心、いちょう並木の突き当たりに聳える重厚な花崗岩造りのドーム建築を切り取ろう。",
+        "hint_level_2": "明治天皇の業績を絵画で伝える重要文化財『聖徳記念絵画館』です。",
+        "spot_name": "聖徳記念絵画館",
+        "built_year": "1926年（大正15年）",
+        "architect_note": "小林正紹の原案をもとに佐野利器・高橋貞太郎らが設計。左右対称の均整美が外苑の軸線を締めくくる。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6763,
+        "lng": 139.7175,
+        "map_query": "聖徳記念絵画館"
+      },
+      {
+        "id": "sjy_07",
+        "position": 7,
+        "spot_key": "yotsuya_suga_shrine",
+        "title": "四谷の坂道に開かれた聖地・赤い手すりの男坂階段",
+        "category": "観光名所・神社",
+        "sub_category": "高台神社の階段風景",
+        "crop_target": "男坂の階段の上から見下ろす四谷の街並みと赤い手すり",
+        "hint_level_1": "四谷三丁目と信濃町の間、住宅街の小高い丘にある神社。アニメ映画のラストシーンの聖地として有名な階段へ。",
+        "hint_level_2": "四谷の総鎮守として知られる『須賀神社（男坂階段）』です。",
+        "spot_name": "須賀神社（四谷）",
+        "built_year": "1634年（寛永11年）現在地へ遷座",
+        "architect_note": "江戸時代から四谷十八ヵ町の鎮守として信仰を集める。境内の大鳥居と東側の階段からの眺望が名所。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#EFE8D8",
+          "detail": "#242830"
+        },
+        "lat": 35.6852,
+        "lng": 139.7224,
+        "map_query": "須賀神社 四谷"
+      },
+      {
+        "id": "sjy_08",
+        "position": 8,
+        "spot_key": "gaien_national_stadium",
+        "title": "隈研吾が「杜のスタジアム」として設計した木と緑の大屋根",
+        "category": "現代建築",
+        "sub_category": "木と鉄のハイブリッド構造（隈研吾設計）",
+        "crop_target": "全国47都道府県の木材を使った軒庇が重なる「空の杜」外観",
+        "hint_level_1": "聖徳記念絵画館のすぐ西側、JR千駄ヶ谷駅・信濃町駅すぐの巨大スタジアム。外周をぐるりと囲む木製庇を見上げよう。",
+        "hint_level_2": "2020東京大会のメイン会場『国立競技場』です。",
+        "spot_name": "国立競技場（MUFGスタジアム）",
+        "built_year": "2019年（令和元年）",
+        "architect_note": "隈研吾・梓設計・大成建設による設計。5階外周の「空の杜」遊歩道からは都心の緑と屋根のディテールを間近に望める。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#233228"
+        },
+        "lat": 35.6778,
+        "lng": 139.7145,
+        "map_query": "国立競技場"
+      },
+      {
+        "id": "sjy_09",
+        "position": 9,
+        "spot_key": "gaien_meiji_kinenkan",
+        "title": "大日本帝国憲法草案の審議が行われた旧赤坂仮皇居御会食所",
+        "category": "明治建築",
+        "sub_category": "明治宮廷木造建築（憲法記念館）",
+        "crop_target": "芝生庭園に面した重厚な木造建築「金鶏の間」の外観",
+        "hint_level_1": "信濃町駅から外苑東通りを南へ徒歩3分。歴史的な憲法制定会議の舞台となった明治14年築の建物を見に行こう。",
+        "hint_level_2": "迎賓館や絵画館からも近い『明治記念館（旧憲法記念館）』です。",
+        "spot_name": "明治記念館（旧憲法記念館）",
+        "built_year": "1881年（明治14年）",
+        "architect_note": "元は赤坂仮皇居の御会食所として建てられ、伊藤博文らが大日本帝国憲法の草案を審議した歴史的空間が残る。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D4AF37",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6766,
+        "lng": 139.7239,
+        "map_query": "明治記念館"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_fukagawa_kiyosumi",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "深川・清澄白河・門前仲町 水辺の庭園と名橋散策",
+    "subtitle": "FUKAGAWA & KIYOSUMI RIVERSIDE WALK",
+    "region": "東京都江東区・清澄白河〜門前仲町〜隅田川",
+    "difficulty": "★☆☆（散策目安：約2.5時間・完全徒歩）",
+    "era_focus": "江戸〜現代",
+    "description": "東京メトロ半蔵門線・大江戸線の清澄白河駅から門前仲町駅へ、名園・清澄庭園や現代美術館、富岡八幡宮、そして隅田川の名橋・清洲橋を徒歩約2時間半で巡る下町散歩。",
+    "theme_color": "#224854",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "FKG",
+    "area_map_query": "清澄庭園 東京都現代美術館 富岡八幡宮 清洲橋",
+    "cells": [
+      {
+        "id": "fkg_01",
+        "position": 1,
+        "spot_key": "kiyosumi_garden",
+        "title": "全国の名石を集めた明治の大名庭園と水上の数寄屋「涼亭」",
+        "category": "明治建築・名園",
+        "sub_category": "回遊式林泉庭園（東京都指定名勝）",
+        "crop_target": "大泉水に張り出して建つ木造数寄屋造りの「涼亭」",
+        "hint_level_1": "清澄白河駅から徒歩3分。岩崎彌太郎が造営を始めた名園で、池の上にせり出す優雅な木造建築を切り取ろう。",
+        "hint_level_2": "三菱財閥ゆかりの泉水庭園『清澄庭園（涼亭）』です。",
+        "spot_name": "清澄庭園（涼亭）",
+        "built_year": "1880年（明治13年）開園・1909年涼亭建築",
+        "architect_note": "保岡勝也設計の涼亭は東京都選定歴史的建造物。池に映る姿が美しく、全国から運ばれた名石の配置も見事。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6805,
+        "lng": 139.7978,
+        "map_query": "清澄庭園"
+      },
+      {
+        "id": "fkg_02",
+        "position": 2,
+        "spot_key": "kiyosumi_mot",
+        "title": "木場公園の緑に広がる巨大なガラスと鉄の現代美術殿堂",
+        "category": "現代建築",
+        "sub_category": "ハイテク・モダニズム建築（柳澤孝彦設計）",
+        "crop_target": "伸びやかなガラス張りのエントランス・キャノピーと野外彫刻",
+        "hint_level_1": "清澄庭園から東へ徒歩約12分、木場公園の北端にある日本最大級の現代美術館のダイナミックな外観を狙おう。",
+        "hint_level_2": "1995年開館の現代アート拠点『東京都現代美術館（MOT）』です。",
+        "spot_name": "東京都現代美術館（MOT）",
+        "built_year": "1995年（平成7年）",
+        "architect_note": "柳澤孝彦＋TAK建築研究所の設計。約3万3千平方メートルの広大な空間と自然光を取り込む吹き抜けが魅力。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.6797,
+        "lng": 139.808,
+        "map_query": "東京都現代美術館"
+      },
+      {
+        "id": "fkg_03",
+        "position": 3,
+        "spot_key": "fukagawa_edo_museum",
+        "title": "江戸末期の深川の街並みを実物大で再現した資料館",
+        "category": "観光名所・建築",
+        "sub_category": "江戸町屋再現ミュージアム",
+        "crop_target": "清澄白河の裏通りに建つ資料館外観または再現された深川の長屋風景",
+        "hint_level_1": "清澄庭園のすぐ東側、清澄通り沿いの資料館。内部では江戸時代の火の見櫓や長屋が実物大で体験できる。",
+        "hint_level_2": "深川の歴史を体感できる『深川江戸資料館』です。",
+        "spot_name": "深川江戸資料館",
+        "built_year": "1986年（昭和61年）開館",
+        "architect_note": "天保年間の深川佐賀町の街並みを実物大で精巧に再現し、照明と音響で江戸の一日の移ろいを演出している。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#EFE8D8",
+          "detail": "#242830"
+        },
+        "lat": 35.6812,
+        "lng": 139.8007,
+        "map_query": "深川江戸資料館"
+      },
+      {
+        "id": "fkg_04",
+        "position": 4,
+        "spot_key": "fukagawa_tomioka_hachimangu",
+        "title": "江戸勧進相撲発祥の地・黄金の一の宮神輿を擁する八幡様",
+        "category": "歴史社寺・名所",
+        "sub_category": "江戸最大の八幡宮・伊能忠敬銅像",
+        "crop_target": "大鳥居と朱塗りの本殿・伊能忠敬像または横綱力士碑",
+        "hint_level_1": "門前仲町駅から徒歩3分。「深川の八幡様」として親しまれる広大な境内と、伊能忠敬の銅像を探そう。",
+        "hint_level_2": "江戸三大祭りの一つ深川八幡祭りの舞台『富岡八幡宮』です。",
+        "spot_name": "富岡八幡宮",
+        "built_year": "1627年（寛永4年）創建",
+        "architect_note": "江戸勧進相撲の発祥地であり、境内には歴代横綱の名を刻んだ横綱力士碑や、深川に住んだ伊能忠敬の銅像がある。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6719,
+        "lng": 139.7995,
+        "map_query": "富岡八幡宮"
+      },
+      {
+        "id": "fkg_05",
+        "position": 5,
+        "spot_key": "fukagawa_fudodo",
+        "title": "外壁一面に梵字が浮かび上がる真言密教の現代本堂",
+        "category": "現代建築・社寺",
+        "sub_category": "真言宗智山派寺院・梵字壁面本堂",
+        "crop_target": "旧本堂の赤い堂宇と新本堂外壁を覆う巨大な梵字レリーフ",
+        "hint_level_1": "富岡八幡宮のすぐ西隣。赤い参道「人情深川ご利益通り」を抜けた先にある、梵字に包まれた迫力あるお堂を狙おう。",
+        "hint_level_2": "成田山新勝寺の東京別院『深川不動堂』です。",
+        "spot_name": "深川不動堂（成田山東京別院）",
+        "built_year": "1703年江戸出開帳・2011年本堂完成",
+        "architect_note": "2011年落慶の本堂は外壁全体が不動明王の真言（梵字）で覆われた圧巻の現代仏教建築。護摩祈祷も有名。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#D4AF37",
+          "detail": "#9E2A2B"
+        },
+        "lat": 35.6728,
+        "lng": 139.7966,
+        "map_query": "深川不動堂"
+      },
+      {
+        "id": "fkg_06",
+        "position": 6,
+        "spot_key": "kiyosumi_kiyosu_bridge",
+        "title": "震災復興の優美な吊り橋・青い鋼鉄の「清洲橋」",
+        "category": "近代土木遺産",
+        "sub_category": "自碇式鋼鎖吊り橋（国重要文化財）",
+        "crop_target": "隅田川に弧を描く水色の吊り橋チェーンと塔柱の優雅な曲線",
+        "hint_level_1": "清澄白河から隅田川へ出たところに架かる、ドイツ・ケルンの吊り橋をモデルにした女性的なシルエットの橋を狙おう。",
+        "hint_level_2": "永代橋と対をなす関東大震災復興橋梁の傑作『清洲橋』です。",
+        "spot_name": "清洲橋（きよすばし）",
+        "built_year": "1928年（昭和3年）",
+        "architect_note": "太田圓三・鈴木清一ら内務省復興局が設計。日本橋区中洲町と深川区清住町を結ぶことから命名された重要文化財。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3A6EA5",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.6828,
+        "lng": 139.7921,
+        "map_query": "清洲橋"
+      },
+      {
+        "id": "fkg_07",
+        "position": 7,
+        "spot_key": "kiyosumi_mannen_bridge",
+        "title": "松尾芭蕉ゆかりの小名木川河口に架かる美しいアーチ橋",
+        "category": "近代土木遺産",
+        "sub_category": "上路式鉄筋コンクリートアーチ橋（昭和初期）",
+        "crop_target": "小名木川の河口に架かるアーチ橋と背後の清洲橋のコラボ",
+        "hint_level_1": "清洲橋のすぐ近く、小名木川が隅田川に注ぐ場所に架かる橋。橋の上から見る富士山や清洲橋の眺めも歌川広重ゆかり。",
+        "hint_level_2": "芭蕉庵史跡展望庭園のそばに架かる『萬年橋』です。",
+        "spot_name": "萬年橋（まんねんばし）",
+        "built_year": "1930年（昭和5年）現橋架替",
+        "architect_note": "葛飾北斎『富嶽三十六景 深川万年橋下』にも描かれた名勝地。現在の橋も昭和初期の復興橋梁として風格がある。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#4A607A",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6838,
+        "lng": 139.7944,
+        "map_query": "萬年橋 江東区"
+      },
+      {
+        "id": "fkg_08",
+        "position": 8,
+        "spot_key": "kiyosumi_reiganji",
+        "title": "江戸六地蔵の一つが鎮座する松平定信ゆかりの名刹",
+        "category": "歴史社寺・名所",
+        "sub_category": "浄土宗寺院・銅造地蔵菩薩坐像",
+        "crop_target": "山門を入ってすぐの巨大な銅造「江戸六地蔵」と本堂",
+        "hint_level_1": "清澄庭園のすぐ北側。江戸の六街道の入口に造られた大きな銅製のお地蔵様と、寛政の改革・松平定信の墓があるお寺へ。",
+        "hint_level_2": "白河楽翁（松平定信）ゆかりの古刹『霊巌寺』です。",
+        "spot_name": "霊巌寺（江戸六地蔵）",
+        "built_year": "1624年（寛永元年）創建・1717年六地蔵造立",
+        "architect_note": "深川の地名の名付け親・深川八郎右衛門が開基に関わる由緒ある寺。像高約2.7mの銅造地蔵菩薩坐像が見事。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6825,
+        "lng": 139.8004,
+        "map_query": "霊巌寺 清澄白河"
+      },
+      {
+        "id": "fkg_09",
+        "position": 9,
+        "spot_key": "kiyosumi_basho_garden",
+        "title": "芭蕉が「奥の細道」へ旅立った隅田川沿いの小さな展望庭園",
+        "category": "風景・史跡",
+        "sub_category": "松尾芭蕉庵跡・隅田川展望庭園",
+        "crop_target": "隅田川と小名木川の合流点を見下ろす松尾芭蕉像",
+        "hint_level_1": "萬年橋の北詰、隅田川沿いの石段を上がったところにある小さな公園。川面を見つめる俳聖の座像を探そう。",
+        "hint_level_2": "『奥の細道』旅立ちの地近くに設けられた『芭蕉庵史跡展望庭園』です。",
+        "spot_name": "芭蕉庵史跡展望庭園",
+        "built_year": "1995年（平成7年）開園",
+        "architect_note": "芭蕉が1680年から暮らし「古池や…」の名句を詠んだとされる一帯の記念公園。夕暮れの隅田川と清洲橋の眺めが抜群。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1C2420"
+        },
+        "lat": 35.6844,
+        "lng": 139.7939,
+        "map_query": "芭蕉庵史跡展望庭園"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_shibamata_taishakuten",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "葛飾・柴又 帝釈天参道と矢切の渡し散策",
+    "subtitle": "SHIBAMATA TAISHAKUTEN & RETRO WALK",
+    "region": "東京都葛飾区・京成柴又駅〜帝釈天〜江戸川",
+    "difficulty": "★☆☆（散策目安：約2時間・完全徒歩）",
+    "era_focus": "江戸〜昭和",
+    "description": "京成金町線・柴又駅の改札を出た瞬間から始まる昭和レトロの旅。精巧な木彫りが圧巻の柴又帝釈天、名園と和洋折衷の山本亭、矢切の渡しを約2時間で巡ります。",
+    "theme_color": "#5C4033",
+    "accent_color": "#D99B4E",
+    "specimen_prefix": "SBM",
+    "area_map_query": "柴又帝釈天 山本亭 柴又駅 矢切の渡し",
+    "cells": [
+      {
+        "id": "sbm_01",
+        "position": 1,
+        "spot_key": "shibamata_taishakuten",
+        "title": "法華経の説話が全面に彫り込まれた帝釈堂の木彫り壁面",
+        "category": "歴史社寺・建築",
+        "sub_category": "日蓮宗寺院・明治〜昭和木彫装飾",
+        "crop_target": "明治〜大正の名工が彫った「彫刻ギャラリー」と重厚な帝釈堂",
+        "hint_level_1": "帝釈天参道の突き当たり。「彫刻の寺」とも呼ばれる大寺院の本堂・帝釈堂で、緻密な欅（けやき）の木彫りを鑑賞しよう。",
+        "hint_level_2": "正式名称は題経寺、『柴又帝釈天（題経寺）』です。",
+        "spot_name": "柴又帝釈天（題経寺・帝釈堂）",
+        "built_year": "1629年（寛永6年）創建・1915年帝釈堂",
+        "architect_note": "帝釈堂外周を囲む10枚の胴羽目彫刻と龍の彫刻は圧巻の美術品。日本庭園「邃渓園」も見事。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 35.7582,
+        "lng": 139.8789,
+        "map_query": "柴又帝釈天"
+      },
+      {
+        "id": "sbm_02",
+        "position": 2,
+        "spot_key": "shibamata_nitenmon",
+        "title": "明治の名工が腕を振るった総欅造りの壮麗な二天門",
+        "category": "歴史社寺・建築",
+        "sub_category": "総欅造り楼門建築（明治29年）",
+        "crop_target": "帝釈天参道の正面にそびえる重厚な木造二天門と龍彫刻",
+        "hint_level_1": "草団子屋や老舗の並ぶ参道を抜けた先に立ちはだかる、明治29年完成の立派な木造の山門を見上げよう。",
+        "hint_level_2": "柴又帝釈天の表玄関『題経寺 二天門』です。",
+        "spot_name": "柴又帝釈天 二天門",
+        "built_year": "1896年（明治29年）",
+        "architect_note": "名工・坂田留吉が手掛けた総欅造りの楼門。増長天・広目天の二天が守護している。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 35.758,
+        "lng": 139.8783,
+        "map_query": "柴又帝釈天 二天門"
+      },
+      {
+        "id": "sbm_03",
+        "position": 3,
+        "spot_key": "shibamata_yamamoto_tei",
+        "title": "書院造の和室とステンドグラスの洋間が同居する大正邸宅",
+        "category": "大正〜昭和建築",
+        "sub_category": "和洋折衷木造邸宅（葛飾区登録有形文化財）",
+        "crop_target": "池泉回遊式庭園を望む書院座敷と、洋間「鳳凰の間」の意匠",
+        "hint_level_1": "帝釈天の裏手すぐ。カメラ部品メーカー創業者・山本栄之助の旧邸宅で、アメリカ日本庭園専門誌でも高評価の名園を味わおう。",
+        "hint_level_2": "和洋折衷建築と純和風庭園の調和が美しい『山本亭』です。",
+        "spot_name": "山本亭",
+        "built_year": "大正末期〜昭和初期",
+        "architect_note": "長屋門をくぐると書院造の和室群と煉瓦造りの暖炉を備えた洋館「鳳凰の間」が並ぶ。縁側でお茶もいただける。",
+        "icon_type": "stained_glass",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 35.7587,
+        "lng": 139.8805,
+        "map_query": "山本亭 柴又"
+      },
+      {
+        "id": "sbm_04",
+        "position": 4,
+        "spot_key": "shibamata_torasan_museum",
+        "title": "寅さんの世界と昭和の柴又駅・帝釈天参道を再現した記念館",
+        "category": "観光名所・博物館",
+        "sub_category": "映画・昭和文化記念館",
+        "crop_target": "山本亭隣の記念館外観または館内の「くるまや」セット",
+        "hint_level_1": "山本亭のすぐ隣、江戸川堤防の麓にある文化施設。映画『男はつらいよ』の美術セットや昭和の街並みが楽しめる。",
+        "hint_level_2": "山田洋次ミュージアムも併設された『葛飾柴又寅さん記念館』です。",
+        "spot_name": "葛飾柴又寅さん記念館",
+        "built_year": "1997年（平成9年）開館",
+        "architect_note": "大船撮影所から移設された「くるまや」の実物セットや昭和30年代の京成電鉄・帝釈天参道の模型などが見どころ。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.7592,
+        "lng": 139.8812,
+        "map_query": "葛飾柴又寅さん記念館"
+      },
+      {
+        "id": "sbm_05",
+        "position": 5,
+        "spot_key": "shibamata_station_tora_statue",
+        "title": "旅の始まりを見送る「フーテンの寅」とさくら像の駅前広場",
+        "category": "観光名所・像",
+        "sub_category": "駅前モニュメント（銅像）",
+        "crop_target": "トランクを手に振り返る寅さん像と見送るさくら像",
+        "hint_level_1": "京成柴又駅の改札を出てすぐ目の前の広場。国民的映画の主人公と妹が見つめ合うブロンズ像を切り取ろう。",
+        "hint_level_2": "柴又散歩のスタート地点『柴又駅前 寅さん・さくら銅像』です。",
+        "spot_name": "柴又駅前「フーテンの寅」像・さくら像",
+        "built_year": "1999年寅さん像・2017年さくら像建立",
+        "architect_note": "旅に出る寅さんが振り返って見送りのさくらと視線を交わす構図で配置された、柴又の定番フォトスポット。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.7565,
+        "lng": 139.8755,
+        "map_query": "寅さん像 柴又駅"
+      },
+      {
+        "id": "sbm_06",
+        "position": 6,
+        "spot_key": "shibamata_yagiri_ferry",
+        "title": "江戸時代から続く都内唯一の手漕ぎ木造の「矢切の渡し」",
+        "category": "風景・歴史遺産",
+        "sub_category": "日本の音風景100選・木造和船渡し場",
+        "crop_target": "江戸川の水面に浮かぶ木造和船と対岸の松戸・矢切風景",
+        "hint_level_1": "寅さん記念館の横の土手を越えて江戸川河川敷へ。歌謡曲でも有名な、380年以上続く渡し舟の船着き場を探そう。",
+        "hint_level_2": "東京と千葉を結ぶ『矢切の渡し（柴又側船着場）』です。",
+        "spot_name": "矢切の渡し（柴又側船着場）",
+        "built_year": "江戸初期（寛永年間）創設",
+        "architect_note": "現在も手漕ぎの和船で対岸の千葉県松戸市側へ渡ることができる都内唯一の渡し場（冬季・平日は運休日あり、外観見学は通年可）。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.7623,
+        "lng": 139.8837,
+        "map_query": "矢切の渡し 柴又"
+      },
+      {
+        "id": "sbm_07",
+        "position": 7,
+        "spot_key": "shibamata_omotesando",
+        "title": "草団子や川魚料理の老舗が軒を連ねる昭和レトロ参道",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的門前商店街（重要文化的景観）",
+        "crop_target": "木造看板建築の店先が続く帝釈天参道の風景",
+        "hint_level_1": "柴又駅から帝釈天へ向かって約200m続く石畳の参道。草だんごの老舗や駄菓子屋が並ぶ活気ある町並みを切り取ろう。",
+        "hint_level_2": "国の重要文化的景観にも選定された『柴又帝釈天参道』です。",
+        "spot_name": "柴又帝釈天参道（高木屋老舗・大和家など）",
+        "built_year": "江戸後期〜昭和初期の町並み",
+        "architect_note": "明治・大正・昭和の木造町家が連なり、門前町の風情を色濃く残す。都内で初めて国の重要文化的景観に選定された一帯。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#7A4E3A",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.7574,
+        "lng": 139.8772,
+        "map_query": "柴又帝釈天参道"
+      },
+      {
+        "id": "sbm_08",
+        "position": 8,
+        "spot_key": "shibamata_edogawa_bank",
+        "title": "スカイツリーと広大な河川敷を一望する江戸川堤防",
+        "category": "風景・自然名所",
+        "sub_category": "河川敷パノラマ景観",
+        "crop_target": "緑の土手と広大な江戸川、遠くに望む東京スカイツリー",
+        "hint_level_1": "寅さん記念館の屋上や矢切の渡しへ向かう土手の上。川風が吹き抜ける開放的な江戸川の堤防風景を撮ろう。",
+        "hint_level_2": "映画のオープニングにも登場する『江戸川河川敷・柴又公園堤防』です。",
+        "spot_name": "江戸川河川敷（柴又公園堤防）",
+        "built_year": "通年景勝地",
+        "architect_note": "堤防の上からは広大な江戸川の向こうに松戸の丘陵や東京スカイツリーが望め、下町散策の爽快なハイライト。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.76,
+        "lng": 139.8825,
+        "map_query": "柴又公園 江戸川"
+      },
+      {
+        "id": "sbm_09",
+        "position": 9,
+        "spot_key": "shibamata_haikara_yokocho",
+        "title": "昭和30年代の駄菓子屋とレトロゲームが並ぶおもちゃ博物館",
+        "category": "観光名所・街並み",
+        "sub_category": "昭和レトロ商業施設",
+        "crop_target": "ホーロー看板が並ぶ木造風の店構え「柴又ハイカラ横丁」",
+        "hint_level_1": "帝釈天参道の真ん中あたりにある、懐かしの駄菓子やブリキのおもちゃがぎっしり詰まった2階建てのお店を探そう。",
+        "hint_level_2": "2階におもちゃ博物館もある『柴又ハイカラ横丁』です。",
+        "spot_name": "柴又ハイカラ横丁・柴又のおもちゃ博物館",
+        "built_year": "昭和レトロ再現施設",
+        "architect_note": "参道の中ほどに位置し、ホーロー看板やピンボール、懐かしの駄菓子が昭和の空気を今に伝えている。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 35.7573,
+        "lng": 139.8768,
+        "map_query": "柴又ハイカラ横丁"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_ryogoku_kuramae",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "両国・蔵前・隅田川 歴史堂宇と現代美術館散策",
+    "subtitle": "RYOGOKU KURAMAE & SUMIDA WALK",
+    "region": "東京都墨田区・台東区・両国〜蔵前",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸〜現代",
+    "description": "JR・大江戸線 両国駅から隅田川沿いに蔵前まで歩く下町とモダン建築のコース。国技館、伊東忠太の東京都慰霊堂、旧安田庭園、妹島和世のすみだ北斎美術館を巡ります。",
+    "theme_color": "#2E3A4D",
+    "accent_color": "#C85A32",
+    "specimen_prefix": "RYG",
+    "area_map_query": "両国国技館 東京都慰霊堂 すみだ北斎美術館 蔵前神社",
+    "cells": [
+      {
+        "id": "ryg_01",
+        "position": 1,
+        "spot_key": "ryogoku_kokugikan",
+        "title": "大相撲の聖地・緑青屋根が印象的な相撲殿堂",
+        "category": "現代建築・観光名所",
+        "sub_category": "大相撲本場所会場（今井兼次・杉本建設等）",
+        "crop_target": "緑青のピラミッド屋根と櫓（やぐら）、正面入口の力士絵番付",
+        "hint_level_1": "JR両国駅西口の目の前。本場所の時期でなくても堂々とした外観と相撲博物館（開館日）が迎えてくれる大相撲の聖地へ。",
+        "hint_level_2": "1985年落成の大相撲の殿堂『両国国技館』です。",
+        "spot_name": "両国国技館",
+        "built_year": "1985年（昭和60年）落成",
+        "architect_note": "約1万1千人を収容する大相撲の聖地。駅前周辺には力士の手形モニュメントやちゃんこ店が並ぶ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.6969,
+        "lng": 139.7932,
+        "map_query": "両国国技館"
+      },
+      {
+        "id": "ryg_02",
+        "position": 2,
+        "spot_key": "ryogoku_ireido",
+        "title": "伊東忠太が和洋中を融合させて築いた鎮魂の三重塔",
+        "category": "昭和初期建築",
+        "sub_category": "和洋折衷仏教・記念建築（東京都選定歴史的建造物）",
+        "crop_target": "三重塔と正面拝殿の重厚な屋根・伊東忠太の怪獣鬼瓦",
+        "hint_level_1": "両国国技館の北、横網町公園の中に建つ荘厳な慰霊施設。屋根の軒先や柱に隠れた独特な彫刻にも注目しよう。",
+        "hint_level_2": "関東大震災と東京大空襲の犠牲者を祀る『東京都慰霊堂（横網町公園）』です。",
+        "spot_name": "東京都慰霊堂（横網町公園）",
+        "built_year": "1930年（昭和5年）",
+        "architect_note": "築地本願寺と同じ伊東忠太の設計。日本伝統の木造建築意匠を鉄筋コンクリートで表現した近代和風建築の傑作。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6989,
+        "lng": 139.7949,
+        "map_query": "東京都慰霊堂"
+      },
+      {
+        "id": "ryg_03",
+        "position": 3,
+        "spot_key": "ryogoku_yasuda_garden",
+        "title": "隅田川の水を引き入れた潮入回遊式の大名庭園",
+        "category": "歴史庭園・名勝",
+        "sub_category": "旧大名庭園（墨田区指定名勝）",
+        "crop_target": "心字池に浮かぶ雪見灯籠と太鼓橋・日本庭園の緑",
+        "hint_level_1": "両国国技館と横網町公園のすぐ隣。江戸時代は本庄宗資の下屋敷、明治に安田善次郎が所有した静かな日本庭園へ。",
+        "hint_level_2": "無料で入園できる都心のオアシス『旧安田庭園』です。",
+        "spot_name": "旧安田庭園",
+        "built_year": "元禄年間（1688〜1704年）造営",
+        "architect_note": "隅田川の干満を利用した潮入回遊式庭園として作庭。現在はポンプで水位の変化を再現している。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#EFE8D8",
+          "detail": "#1C2420"
+        },
+        "lat": 35.6983,
+        "lng": 139.7938,
+        "map_query": "旧安田庭園"
+      },
+      {
+        "id": "ryg_04",
+        "position": 4,
+        "spot_key": "ryogoku_hokusai_museum",
+        "title": "妹島和世が設計したアルミパネルが輝くスリット建築",
+        "category": "現代建築",
+        "sub_category": "現代美術館（妹島和世設計）",
+        "crop_target": "空と街を柔らかく映すアルミパネルと鋭角のスリット空間",
+        "hint_level_1": "両国駅から東へ徒歩約6分、緑町公園の隣に立つ、近未来的な銀色の箱型ミュージアムを切り取ろう。",
+        "hint_level_2": "葛飾北斎の生涯と作品を紹介する『すみだ北斎美術館』です。",
+        "spot_name": "すみだ北斎美術館",
+        "built_year": "2016年（平成28年）",
+        "architect_note": "SANAAの妹島和世が設計。周辺の小さな町工場や住宅のスケールに呼応するよう、建物に複数のスリットが刻まれている。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#7A8694",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.696,
+        "lng": 139.8006,
+        "map_query": "すみだ北斎美術館"
+      },
+      {
+        "id": "ryg_05",
+        "position": 5,
+        "spot_key": "ryogoku_bridge",
+        "title": "江戸の大花火もここから上がった隅田川の黄色いアーチ橋",
+        "category": "近代土木遺産",
+        "sub_category": "ゲルバー式鋼桁橋（昭和7年）",
+        "crop_target": "国技館と東京スカイツリーを背景に架かる両国橋の景観",
+        "hint_level_1": "隅田川テラスに降りて、両国駅南西に架かる歴史ある橋を望もう。江戸時代から武蔵国と下総国を結んだ名橋だ。",
+        "hint_level_2": "花火大会発祥の地としても知られる『両国橋』です。",
+        "spot_name": "両国橋",
+        "built_year": "1659年創架・1932年（昭和7年）現橋架設",
+        "architect_note": "橋の西詰・東詰ともに江戸時代から火除地として賑わい、現在の橋は関東大震災復興事業の一環で架けられた。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#C49A45",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.6933,
+        "lng": 139.7897,
+        "map_query": "両国橋"
+      },
+      {
+        "id": "ryg_06",
+        "position": 6,
+        "spot_key": "kuramae_shrine",
+        "title": "落語「元犬」ゆかり・蔵前の静かな鎮守の社",
+        "category": "歴史社寺・名所",
+        "sub_category": "江戸五社・蔵前の鎮守社",
+        "crop_target": "境内を彩る鳥居と拝殿、元犬の石像モニュメント",
+        "hint_level_1": "蔵前駅から徒歩2分。江戸時代には勧進相撲も行われ、古典落語『元犬』の舞台にもなった蔵前の神社をお参りしよう。",
+        "hint_level_2": "ミモザや桜でも人気の『蔵前神社』です。",
+        "spot_name": "蔵前神社",
+        "built_year": "1693年（元禄6年）創建",
+        "architect_note": "徳川綱吉が京都の石清水八幡宮を勧請して創建。境内に落語『元犬』にちなんだ白い犬の像がある。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.7042,
+        "lng": 139.7905,
+        "map_query": "蔵前神社"
+      },
+      {
+        "id": "ryg_07",
+        "position": 7,
+        "spot_key": "kuramae_umayabashi",
+        "title": "馬のシルエットが欄干を飾る3連緑アーチの厩橋",
+        "category": "近代土木遺産",
+        "sub_category": "3径間タイドアーチ橋（昭和4年）",
+        "crop_target": "薄緑色の3連アーチと欄干にデザインされた馬のレリーフ",
+        "hint_level_1": "蔵前と本所を結ぶ春日通りの橋。かつて幕府の御厩（みうまや）があったことから名付けられ、親柱に馬の模様がある。",
+        "hint_level_2": "ステンドグラス風の装飾灯も美しい『厩橋（うまやばし）』です。",
+        "spot_name": "厩橋（うまやばし）",
+        "built_year": "1929年（昭和4年）",
+        "architect_note": "復興局の設計による3連アーチ橋。親柱や高欄の随所に「馬」の意匠が取り入れられている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.7037,
+        "lng": 139.7939,
+        "map_query": "厩橋 隅田川"
+      },
+      {
+        "id": "ryg_08",
+        "position": 8,
+        "spot_key": "kuramae_komagatabashi",
+        "title": "浅草の玄関口に架かる鮮やかな青色の復興アーチ橋",
+        "category": "近代土木遺産",
+        "sub_category": "中路式鋼アーチ橋（昭和2年）",
+        "crop_target": "青いアーチと浅草・東京スカイツリーを望む橋上風景",
+        "hint_level_1": "厩橋の1本北（浅草寄り）に架かる青い橋。浅草寺の駒形堂のたもとに架かり、スカイツリーの絶好の撮影スポットだ。",
+        "hint_level_2": "1927年完成の震災復興橋梁『駒形橋』です。",
+        "spot_name": "駒形橋",
+        "built_year": "1927年（昭和2年）",
+        "architect_note": "中央径間が美しい鋼アーチ構造。橋の西詰には浅草寺発祥ゆかりの駒形堂が建つ。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.7082,
+        "lng": 139.7955,
+        "map_query": "駒形橋"
+      },
+      {
+        "id": "ryg_09",
+        "position": 9,
+        "spot_key": "kuramae_dozeu",
+        "title": "江戸情緒を今に伝える入母屋造りの老舗どぜう屋",
+        "category": "昭和建築・名店",
+        "sub_category": "木造老舗店舗（江戸創業）",
+        "crop_target": "「どぜう」の暖簾が掛かる総檜造りの重厚な町家外観",
+        "hint_level_1": "駒形橋の西詰すぐ、江戸通り沿いに建つ1801年創業の老舗。戦災後に再建された風情ある木造建築を狙おう。",
+        "hint_level_2": "江戸の味と建物を受け継ぐ『駒形どぜう 本店』です。",
+        "spot_name": "駒形どぜう 本店",
+        "built_year": "1801年（享和元年）創業（現建物は戦後再建）",
+        "architect_note": "畳敷きの入れ込み座敷で味わうどぜう鍋が名物。暖簾と木造ファサードが浅草・蔵前エリアの象徴。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 35.708,
+        "lng": 139.794,
+        "map_query": "駒形どぜう 本店"
+      }
+    ]
+  },
+  {
+    "id": "tokyo_shinagawa_takanawa",
+    "region_group": "関東",
+    "prefecture_group": "東京",
+    "tour_type": "walk",
+    "title": "品川・高輪・泉岳寺 明治洋館と東海道歴史散策",
+    "subtitle": "SHINAGAWA & TAKANAWA HERITAGE WALK",
+    "region": "東京都港区・品川区・高輪〜泉岳寺〜北品川",
+    "difficulty": "★★☆（散策目安：約2.5時間・徒歩＆山手線1駅）",
+    "era_focus": "江戸〜現代",
+    "description": "隈研吾の高輪ゲートウェイ駅から泉岳寺、明治学院の明治洋館群（インブリー館・記念館）、村野藤吾の高輪消防署出張所、旧東海道品川宿まで徒歩2時間半で歩きます。",
+    "theme_color": "#2C3545",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "SNW",
+    "area_map_query": "泉岳寺 高輪ゲートウェイ駅 明治学院大学インブリー館 品川神社",
+    "cells": [
+      {
+        "id": "snw_01",
+        "position": 1,
+        "spot_key": "takanawa_sengakuji",
+        "title": "忠臣蔵・赤穂四十七士が眠る高輪の曹洞宗名刹",
+        "category": "歴史社寺・名所",
+        "sub_category": "曹洞宗寺院・江戸三箇寺",
+        "crop_target": "重厚な中門・山門と境内の大石内蔵助像・義士墓所入口",
+        "hint_level_1": "都営浅草線「泉岳寺駅」・高輪ゲートウェイ駅から徒歩数分。浅野内匠頭と赤穂義士が眠る歴史的なお寺へ。",
+        "hint_level_2": "1612年徳川家康により創建された『泉岳寺』です。",
+        "spot_name": "泉岳寺",
+        "built_year": "1612年（慶長17年）創建",
+        "architect_note": "赤穂浪士ゆかりの品々を展示する赤穂義士記念館や義士木像館も併設。12月の義士祭は特に賑わう。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6378,
+        "lng": 139.7364,
+        "map_query": "泉岳寺"
+      },
+      {
+        "id": "snw_02",
+        "position": 2,
+        "spot_key": "takanawa_gateway_station",
+        "title": "隈研吾の折り紙大屋根が光を通す次世代ターミナル駅",
+        "category": "現代建築",
+        "sub_category": "木と鉄の膜屋根駅舎（隈研吾設計）",
+        "crop_target": "障子を思わせる白い大屋根と吹き抜けの開放的なコンコース",
+        "hint_level_1": "山手線で約50年ぶりの新駅。折り紙をモチーフにした白い大屋根と国産杉材が美しい駅舎を見上げよう。",
+        "hint_level_2": "2020年開業、隈研吾氏デザインの『JR高輪ゲートウェイ駅』です。",
+        "spot_name": "JR高輪ゲートウェイ駅",
+        "built_year": "2020年（令和2年）",
+        "architect_note": "障子のように自然光を柔らかく透過する膜屋根と、福島県産のスギ・ヒノキを使った大空間が特徴。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#5B6E7D",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6355,
+        "lng": 139.7407,
+        "map_query": "高輪ゲートウェイ駅"
+      },
+      {
+        "id": "snw_03",
+        "position": 3,
+        "spot_key": "takanawa_okido_ato",
+        "title": "江戸の南の玄関口を守った石垣遺構「高輪大木戸跡」",
+        "category": "歴史名所・史跡",
+        "sub_category": "国指定史跡（江戸時代石垣）",
+        "crop_target": "第一京浜沿いに残る重厚な切石積みの石垣遺構",
+        "hint_level_1": "高輪ゲートウェイ駅から第一京浜に出てすぐ。かつて江戸の入口として治安を守った石垣がビルの谷間に残っている。",
+        "hint_level_2": "宝永7年（1710年）設置の関門跡『高輪大木戸跡』です。",
+        "spot_name": "高輪大木戸跡",
+        "built_year": "1710年（宝永7年）設置",
+        "architect_note": "東海道を通って江戸に出入りする旅人を改めた大木戸の東側石垣が現存している。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#7A746B",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 35.6396,
+        "lng": 139.7405,
+        "map_query": "高輪大木戸跡"
+      },
+      {
+        "id": "snw_04",
+        "position": 4,
+        "spot_key": "takanawa_meiji_gakuin",
+        "title": "東京最古の宣教師館「インブリー館」と赤煉瓦のチャペル",
+        "category": "明治建築",
+        "sub_category": "重要文化財・明治ミッション系建築群",
+        "crop_target": "白金キャンパス正門奥の白い木造インブリー館と明治学院記念館",
+        "hint_level_1": "高輪台方面へ坂を登った桜田通り沿い。明治22年築の宣教師館や記念館など明治の名建築が並ぶ大学キャンパスへ。",
+        "hint_level_2": "W・ヴォーリズも設計に関わった礼拝堂もある『明治学院大学 インブリー館・記念館』です。",
+        "spot_name": "明治学院大学 インブリー館・記念館",
+        "built_year": "1889年（明治22年）インブリー館",
+        "architect_note": "都内に現存する最古級の宣教師館であるインブリー館（重要文化財）をはじめ、記念館や礼拝堂が歴史的景観をつくる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6373,
+        "lng": 139.729,
+        "map_query": "明治学院大学 インブリー館"
+      },
+      {
+        "id": "snw_05",
+        "position": 5,
+        "spot_key": "takanawa_fire_station",
+        "title": "ドイツ表現主義の影響を受けた円筒形望楼の消防出張所",
+        "category": "昭和初期建築",
+        "sub_category": "表現主義鉄筋コンクリート造（東京都選定歴史的建造物）",
+        "crop_target": "街角にそびえる円筒形の火の見櫓（望楼）と白い曲面の外壁",
+        "hint_level_1": "高輪台駅近くの桜田通り沿い。昭和8年に建てられた、今なお現役の消防署出張所のモダンな塔屋を狙おう。",
+        "hint_level_2": "近代消防建築の白眉『高輪消防署 二本榎出張所』です。",
+        "spot_name": "高輪消防署 二本榎出張所",
+        "built_year": "1933年（昭和8年）",
+        "architect_note": "警視庁総監官房会計課営繕係（越智操）設計。3階建ての円筒形望楼と曲面壁がドイツ表現主義を思わせる。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#C2B9A7",
+          "accent": "#9E2A2B",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6352,
+        "lng": 139.7317,
+        "map_query": "高輪消防署 二本榎出張所"
+      },
+      {
+        "id": "snw_06",
+        "position": 6,
+        "spot_key": "takanawa_prince_murano",
+        "title": "村野藤吾の優美な曲線と繊細な格子手すりが彩る名ホテル",
+        "category": "昭和建築",
+        "sub_category": "村野藤吾設計モダニズムホテル（日本庭園含む）",
+        "crop_target": "貝殻のようなバルコニー手すりが連なるホテル外観または日本庭園",
+        "hint_level_1": "品川駅高輪口から柘榴坂を登ってすぐ。昭和の名建築家・村野藤吾が80歳を超えて設計したホテルと庭園を見に行こう。",
+        "hint_level_2": "村野藤吾晩年の代表作『グランドプリンスホテル新高輪』です。",
+        "spot_name": "グランドプリンスホテル新高輪",
+        "built_year": "1982年（昭和57年）",
+        "architect_note": "すべての客室バルコニーに貝殻を思わせる優美な装飾手すりを配し、敷地内の日本庭園には村野藤吾設計の茶室もある。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#7A746B",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 35.6295,
+        "lng": 139.7336,
+        "map_query": "グランドプリンスホテル新高輪"
+      },
+      {
+        "id": "snw_07",
+        "position": 7,
+        "spot_key": "shinagawa_shrine",
+        "title": "双龍の鳥居と都内最大級の富士塚がそびえる「品川神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "東京十社・昇龍降龍鳥居と富士塚",
+        "crop_target": "石鳥居の柱に巻き付く龍の彫刻と富士塚の溶岩登山道",
+        "hint_level_1": "京急新馬場駅北口のすぐ目の前。石段の入口に龍が彫られた珍しい鳥居「双龍鳥居」とミニ富士山「品川富士」を探そう。",
+        "hint_level_2": "源頼朝創建と伝わる東京十社の一つ『品川神社』です。",
+        "spot_name": "品川神社（双龍鳥居・品川富士）",
+        "built_year": "1187年（文治3年）創建・1869年富士塚築造",
+        "architect_note": "都内に現存する最大級の富士塚（高さ約15m）を登ることができ、山頂からは京急線と品川の街並みを望める。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D5D53",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6185,
+        "lng": 139.7396,
+        "map_query": "品川神社"
+      },
+      {
+        "id": "snw_08",
+        "position": 8,
+        "spot_key": "shinagawa_shuku",
+        "title": "東海道五十三次第一の宿・旧東海道品川宿の街並み",
+        "category": "歴史街並み",
+        "sub_category": "旧街道・宿場町散策路",
+        "crop_target": "石畳風の旧東海道沿いに並ぶ土蔵や老舗和菓子店・本陣跡",
+        "hint_level_1": "品川神社から旧東海道（北品川商店街）へ。電柱が地中化され、江戸の宿場町の風情を残す通りを歩こう。",
+        "hint_level_2": "江戸四宿の一つ『旧東海道品川宿（本陣跡・聖蹟公園）』です。",
+        "spot_name": "旧東海道品川宿（聖蹟公園・本陣跡）",
+        "built_year": "江戸初期（1601年）宿場指定",
+        "architect_note": "江戸日本橋から最初の宿場町。現在も問屋場や本陣の跡地、明治・昭和の木造商家が点在している。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#EFE8D8",
+          "detail": "#242830"
+        },
+        "lat": 35.6197,
+        "lng": 139.7418,
+        "map_query": "聖蹟公園 品川宿本陣跡"
+      },
+      {
+        "id": "snw_09",
+        "position": 9,
+        "spot_key": "shinagawa_tokaiji_takuan",
+        "title": "たくあん漬けの名付け親・沢庵和尚が眠る北品川の古刹",
+        "category": "歴史社寺・史跡",
+        "sub_category": "国指定史跡（沢庵和尚墓・大山墓地）",
+        "crop_target": "静かな竹林に囲まれた沢庵和尚の卵塔（自然石の墓）",
+        "hint_level_1": "品川神社から西へ徒歩5分、線路沿いの静かな墓苑にある、徳川家光が建立した東海寺の開山・沢庵宗彭の墓所へ。",
+        "hint_level_2": "国指定史跡にもなっている『東海寺 大山墓地（沢庵和尚墓）』です。",
+        "spot_name": "東海寺 大山墓地（沢庵和尚墓）",
+        "built_year": "1639年（寛永16年）東海寺開山",
+        "architect_note": "沢庵和尚の遺言により墓碑銘も彫らず自然石を置いただけの簡素な墓。賀茂真淵の墓も隣接している。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1C2420"
+        },
+        "lat": 35.6184,
+        "lng": 139.7351,
+        "map_query": "東海寺 大山墓地"
+      }
+    ]
+  },
+  {
+    "id": "yokohama_minatomirai_bashamichi",
+    "region_group": "関東",
+    "prefecture_group": "神奈川",
+    "tour_type": "walk",
+    "title": "横浜・みなとみらい〜桜木町〜馬車道散策",
+    "subtitle": "YOKOHAMA MINATO MIRAI WATERFRONT WALK",
+    "region": "神奈川県横浜市・桜木町〜みなとみらい〜赤レンガ〜大さん橋",
+    "difficulty": "★☆☆（散策目安：約2.5時間・完全徒歩）",
+    "era_focus": "明治〜現代",
+    "description": "JR桜木町駅から汽車道を渡り、ランドマークタワーや日本丸、ハンマーヘッド、赤レンガ倉庫、大さん橋、馬車道の旧正金銀行まで海辺の絶景を徒歩で巡るコース。",
+    "theme_color": "#1B3B5A",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "MMB",
+    "area_map_query": "横浜ランドマークタワー 横浜赤レンガ倉庫 汽車道 大さん橋",
+    "cells": [
+      {
+        "id": "mmb_01",
+        "position": 1,
+        "title": "海辺の保税倉庫と黒鉄の防火扉",
+        "category": "明治・大正建築",
+        "sub_category": "近代化遺産・煉瓦造倉庫",
+        "crop_target": "赤煉瓦壁に並ぶ黒鉄の防火扉と鉄骨庇",
+        "hint_level_1": "新港ふ頭に並び立つ2棟の巨大な赤レンガ建築。壁面に規則正しく並ぶ「黒い鉄の扉」や無骨なリベット打ちのひさしを切り取ろう。",
+        "hint_level_2": "明治末期から大正初期に国の模範倉庫として建設された、横浜のランドマーク『赤レンガ倉庫』です。",
+        "spot_name": "横浜赤レンガ倉庫（新港埠頭保税倉庫）",
+        "built_year": "1911年（明治44年）〜1913年",
+        "architect_note": "大蔵省の妻木頼黄が設計を指導。レンガの間に鉄骨を埋め込む当時の最新耐震構造を採用し、防火扉や日本最古級の荷物用エレベーターなど産業遺産の宝庫。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#2B2D2F",
+          "detail": "#C8B89A"
+        },
+        "lat": 35.4526,
+        "lng": 139.6429,
+        "map_query": "横浜赤レンガ倉庫",
+        "spot_key": "yokohama_akarenga"
+      },
+      {
+        "id": "mmb_02",
+        "position": 2,
+        "spot_key": "yokohama_rekihaku",
+        "title": "ネオ・バロックの八角ドームが輝く旧横浜正金銀行本店",
+        "category": "明治建築",
+        "sub_category": "ネオ・バロック様式（重要文化財・妻木頼黄設計）",
+        "crop_target": "馬車道角に建つ緑青色の八角ドーム塔屋と花崗岩の列柱",
+        "hint_level_1": "みなとみらい線「馬車道駅」の目の前。日本三大名建築家のひとり妻木頼黄が設計した壮麗な明治の銀行建築を狙おう。",
+        "hint_level_2": "旧横浜正金銀行本店を活用した『神奈川県立歴史博物館』です。",
+        "spot_name": "神奈川県立歴史博物館（旧横浜正金銀行本店）",
+        "built_year": "1904年（明治37年）",
+        "architect_note": "妻木頼黄・遠藤於莵が設計。重厚な石造外壁とコーナーの八角ドームが馬車道のシンボルとなっている。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.4493,
+        "lng": 139.6361,
+        "map_query": "神奈川県立歴史博物館"
+      },
+      {
+        "id": "mmb_03",
+        "position": 3,
+        "spot_key": "yokohama_landmark_dockyard",
+        "title": "高さ296mの超高層ビルと明治の石造ドック遺構",
+        "category": "現代建築・産業遺産",
+        "sub_category": "超高層タワー＆国重要文化財石造ドック",
+        "crop_target": "横浜ランドマークタワーと足元の石積みドックヤードガーデン",
+        "hint_level_1": "桜木町駅から動く歩道ですぐ。日本屈指の超高層ビルの足元に保存されている明治29年築の石造船渠（ドック）を撮ろう。",
+        "hint_level_2": "現存最古の商船用石造ドック『横浜ランドマークタワー・ドックヤードガーデン』です。",
+        "spot_name": "横浜ランドマークタワー・ドックヤードガーデン",
+        "built_year": "1993年タワー竣工（ドックは1896年）",
+        "architect_note": "旧横浜船渠第2号ドックを復元保存した屋外空間が、現代の超高層タワーの足元にドラマチックに共存する。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.4547,
+        "lng": 139.6314,
+        "map_query": "ドックヤードガーデン 横浜"
+      },
+      {
+        "id": "mmb_04",
+        "position": 4,
+        "spot_key": "yokohama_nippon_maru",
+        "title": "「太平洋の白鳥」と呼ばれた純白の4檣バーク型帆船",
+        "category": "近代交通遺産",
+        "sub_category": "昭和初期練習帆船（国重要文化財・旧横浜船渠第1号ドック）",
+        "crop_target": "石造1号ドックに係留された帆船日本丸の白い船体と4本マスト",
+        "hint_level_1": "桜木町駅の目の前、みなとみらいの玄関口に係留されている優雅な白い帆船と石造ドックを切り取ろう。",
+        "hint_level_2": "1930年進水の保存帆船『帆船日本丸（日本丸メモリアルパーク）』です。",
+        "spot_name": "帆船日本丸（日本丸メモリアルパーク）",
+        "built_year": "1930年（昭和5年）進水",
+        "architect_note": "54年間にわたり約1万1千人の実習生を育てた練習帆船。重要文化財の第1号ドックに保存されている。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.453,
+        "lng": 139.6327,
+        "map_query": "帆船日本丸"
+      },
+      {
+        "id": "mmb_05",
+        "position": 5,
+        "spot_key": "yokohama_kishamichi",
+        "title": "明治の臨港鉄道トラス橋を歩く海上のプロムナード",
+        "category": "近代土木遺産",
+        "sub_category": "廃線跡遊歩道・トラス橋梁（明治44年開通）",
+        "crop_target": "海の上を一直線に結ぶ「汽車道」の鉄橋と背景のビル群",
+        "hint_level_1": "桜木町駅前から新港地区（赤レンガ方面）へ海の上をまっすぐ渡る、かつての貨物線跡の遊歩道を歩こう。",
+        "hint_level_2": "1911年開通の臨港線跡を活用した『汽車道』です。",
+        "spot_name": "汽車道",
+        "built_year": "1911年（明治44年）鉄道開通・1997年遊歩道開通",
+        "architect_note": "英国製および国産の歴史的な鋼トラス橋3基がそのまま遊歩道の橋として再利用されている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#4A607A",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.4526,
+        "lng": 139.6365,
+        "map_query": "汽車道 横浜"
+      },
+      {
+        "id": "mmb_06",
+        "position": 6,
+        "spot_key": "yokohama_cosmo_clock",
+        "title": "横浜の港を彩る時計機能付き巨大観覧車「コスモクロック21」",
+        "category": "観光名所・ランドマーク",
+        "sub_category": "都市型巨大観覧車（全高112.5m）",
+        "crop_target": "大観覧車の巨大な輪と中央のデジタル時計表示",
+        "hint_level_1": "汽車道を歩きながら左手に見上げる、みなとみらいの象徴的な大観覧車の姿を切り取ろう。",
+        "hint_level_2": "1989年の横浜博覧会で誕生した『大観覧車 コスモクロック21』です。",
+        "spot_name": "大観覧車 コスモクロック21",
+        "built_year": "1989年（平成元年）設置・1999年移設",
+        "architect_note": "時計機能付きの大観覧車としてギネス認定されたこともある横浜のアイコン。夜間のイルミネーションも名物。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#1B3042",
+          "accent": "#F2D06B",
+          "detail": "#3A6EA5"
+        },
+        "lat": 35.4551,
+        "lng": 139.6368,
+        "map_query": "コスモクロック21"
+      },
+      {
+        "id": "mmb_07",
+        "position": 7,
+        "spot_key": "yokohama_hammerhead",
+        "title": "大正3年製の50トン大型クレーンが保存された新港ふ頭",
+        "category": "近代産業遺産",
+        "sub_category": "英国製ハンマーヘッドクレーン（土木学会選奨土木遺産）",
+        "crop_target": "ふ頭先端にそびえる「ハンマーヘッドクレーン」の鉄骨シルエット",
+        "hint_level_1": "赤レンガ倉庫から北西へ徒歩数分、新港ふ頭客船ターミナルの先端に保存された日本に3基しか残らない希少なクレーンを狙おう。",
+        "hint_level_2": "1914年設置の港湾荷役遺産『新港ふ頭 ハンマーヘッドクレーン』です。",
+        "spot_name": "横浜ハンマーヘッド（ハンマーヘッドクレーン）",
+        "built_year": "1914年（大正3年）設置",
+        "architect_note": "イギリスのカウアンス・シェルドン社製50トン定置式電気起重機。2019年に周囲が客船ターミナル施設として再整備された。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.4557,
+        "lng": 139.6426,
+        "map_query": "横浜ハンマーヘッド"
+      },
+      {
+        "id": "mmb_08",
+        "position": 8,
+        "spot_key": "yokohama_osanbashi",
+        "title": "クジラの背中と呼ばれる木製デッキの国際客船ターミナル",
+        "category": "現代建築",
+        "sub_category": "FOAJ（ファシード／アレハンドロ・ザエラ＝ポロ）設計",
+        "crop_target": "柱のない波打つ天然木ウッドデッキの屋上広場「くじらのせなか」",
+        "hint_level_1": "赤レンガ倉庫から象の鼻パークを抜けて海へ突き出した大きな桟橋へ。芝生とウッドデッキがうねる屋上広場を歩こう。",
+        "hint_level_2": "世界的な建築コンペで選ばれた名作『横浜港大さん橋国際客船ターミナル』です。",
+        "spot_name": "横浜港大さん橋国際客船ターミナル",
+        "built_year": "2002年（平成14年）",
+        "architect_note": "折り紙構造の鉄板を立体的に組み合わせ、屋上全体を街と海をつなぐ「くじらのせなか」広場として開放した革新的建築。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#2B4C65"
+        },
+        "lat": 35.452,
+        "lng": 139.6479,
+        "map_query": "横浜港大さん橋国際客船ターミナル"
+      },
+      {
+        "id": "mmb_09",
+        "position": 9,
+        "spot_key": "yokohama_zounohana",
+        "title": "横浜開港の原点・波止場が象の鼻のように伸びる歴史公園",
+        "category": "風景・観光名所",
+        "sub_category": "横浜開港発祥地・スクリーンパネルアート",
+        "crop_target": "湾曲した防波堤と象の鼻テラス・赤レンガ倉庫を望む景色",
+        "hint_level_1": "赤レンガ倉庫と大さん橋のちょうど中間に位置する、1859年の横浜開港時に築かれた波止場跡の公園を切り取ろう。",
+        "hint_level_2": "横浜港発祥の地『象の鼻パーク・象の鼻テラス』です。",
+        "spot_name": "象の鼻パーク（象の鼻テラス）",
+        "built_year": "1859年開港・2009年開園",
+        "architect_note": "明治時代の波止場石積みを復元し、夜間はスクリーンパネルが港を照らす横浜ベイエリアの定番散策スポット。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.4498,
+        "lng": 139.6442,
+        "map_query": "象の鼻パーク"
+      }
+    ]
+  },
+  {
+    "id": "kamakura_hase_enoshima",
+    "region_group": "関東",
+    "prefecture_group": "神奈川",
+    "tour_type": "walk",
+    "title": "江ノ電で巡る 鎌倉長谷・七里ヶ浜〜江の島散策",
+    "subtitle": "ENODEN HASE & ENOSHIMA WALK",
+    "region": "神奈川県鎌倉市・藤沢市・長谷〜鎌倉高校前〜江の島",
+    "difficulty": "★★☆（散策目安：約3時間・江ノ電＋徒歩）",
+    "era_focus": "鎌倉〜現代",
+    "description": "江ノ電1日乗車券「のりおりくん」を使って約3時間で巡る湘南・鎌倉海沿いコース。鎌倉大仏や長谷寺、鎌倉文学館から鎌倉高校前踏切、江の島まで電車で爽快に移動。",
+    "theme_color": "#2E6F5E",
+    "accent_color": "#D9C5A0",
+    "specimen_prefix": "KHE",
+    "area_map_query": "鎌倉大仏 長谷寺 鎌倉高校前踏切 江島神社",
+    "cells": [
+      {
+        "id": "khe_01",
+        "position": 1,
+        "spot_key": "kamakura_daibutsu",
+        "title": "青空の下に露座で鎮座する鎌倉の象徴・国宝銅造阿弥陀如来",
+        "category": "歴史社寺・国宝",
+        "sub_category": "鎌倉時代金銅仏（国宝）",
+        "crop_target": "緑の山々を背に端座する高さ約11.3mの大仏様",
+        "hint_level_1": "江ノ電「長谷駅」から北へ徒歩7分。鎌倉で唯一の国宝仏像である、堂宇のない露座の大仏を拝観しよう。",
+        "hint_level_2": "1252年造立開始の『高徳院（鎌倉大仏）』です。",
+        "spot_name": "高徳院（鎌倉大仏）",
+        "built_year": "1252年（建長4年）造立開始",
+        "architect_note": "かつては木造の大仏殿があったが室町時代の津波等で失われ、以来500年以上にわたり露座の姿を保っている。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.3167,
+        "lng": 139.5357,
+        "map_query": "高徳院 鎌倉大仏"
+      },
+      {
+        "id": "khe_02",
+        "position": 2,
+        "spot_key": "kamakura_hasedera",
+        "title": "由比ヶ浜を見下ろす見晴台と十一面観音の「花の寺」",
+        "category": "歴史社寺・名所",
+        "sub_category": "鎌倉観音霊場（見晴台・回遊庭園）",
+        "crop_target": "見晴台から一望する由比ヶ浜の海と本堂・弁天窟",
+        "hint_level_1": "高徳院の少し南、長谷駅から徒歩5分。四季の花が咲き誇り、境内の高台から鎌倉の海を一望できるお寺へ。",
+        "hint_level_2": "日本最大級の木造観音像を安置する『長谷寺（鎌倉）』です。",
+        "spot_name": "長谷寺（鎌倉）",
+        "built_year": "736年（天平8年）創建伝承",
+        "architect_note": "境内の見晴台からは由比ヶ浜や三浦半島が一望でき、通年美しい庭園や和み地蔵など見どころが豊富。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.3125,
+        "lng": 139.5333,
+        "map_query": "長谷寺 鎌倉"
+      },
+      {
+        "id": "khe_03",
+        "position": 3,
+        "title": "バラ園を見晴らす侯爵邸の三連アーチと緑青屋根",
+        "category": "昭和初期建築",
+        "sub_category": "スパニッシュ・チューダー様式（登録有形文化財）",
+        "crop_target": "正面玄関の石造りアーチと緑青色のスペイン瓦屋根",
+        "hint_level_1": "由比ヶ浜の海を見下ろす谷戸の奥。三島由紀夫の小説『春の雪』の舞台にもなった旧侯爵別邸のアーチ玄関を切り取ろう。",
+        "hint_level_2": "加賀百万石・前田利為侯爵の別邸として建てられた『鎌倉文学館（旧前田侯爵家鎌倉別邸）』です。",
+        "spot_name": "鎌倉文学館（旧前田侯爵家別邸）",
+        "built_year": "1936年（昭和11年）",
+        "architect_note": "渡辺栄治の設計。相模湾を一望するテラスと、スパニッシュ様式にチューダー風の意匠を取り入れた重厚な別荘建築。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#E6DFD3",
+          "detail": "#1D2E28"
+        },
+        "lat": 35.315,
+        "lng": 139.5391,
+        "map_query": "鎌倉文学館",
+        "spot_key": "kamakura_bungakukan"
+      },
+      {
+        "id": "khe_04",
+        "position": 4,
+        "spot_key": "kamakura_gokurakuji_station",
+        "title": "関東の駅百選に選ばれた朱色の丸ポストが似合う木造駅舎",
+        "category": "観光名所・駅舎",
+        "sub_category": "江ノ電木造駅舎（関東の駅百選）",
+        "crop_target": "極楽寺駅の素朴な木造駅舎と駅前の赤い丸型郵便ポスト",
+        "hint_level_1": "長谷駅の隣駅。緑の木々に囲まれ、映画やドラマのロケ地として何度も登場した小さな木造駅舎を切り取ろう。",
+        "hint_level_2": "煉瓦造の極楽洞トンネルもすぐそばの『江ノ電 極楽寺駅』です。",
+        "spot_name": "江ノ電 極楽寺駅",
+        "built_year": "1904年（明治37年）開業",
+        "architect_note": "1999年に関東の駅百選に選定。駅前の丸ポストや隣接する極楽寺の参道と調和した絵になる駅。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#9E2A2B",
+          "detail": "#242830"
+        },
+        "lat": 35.3094,
+        "lng": 139.5287,
+        "map_query": "極楽寺駅 江ノ電"
+      },
+      {
+        "id": "khe_05",
+        "position": 5,
+        "spot_key": "kamakura_inamuragasaki",
+        "title": "江の島と富士山を海越しに望む湘南屈指の景勝岬",
+        "category": "風景・史跡",
+        "sub_category": "国指定史跡・関東の富士見百景",
+        "crop_target": "海へ突き出す岬の展望台と遠景の江の島・富士山",
+        "hint_level_1": "江ノ電「稲村ヶ崎駅」から海へ徒歩5分。新田義貞の伝説でも知られる岬の公園から海を望もう。",
+        "hint_level_2": "夕陽と富士山の絶景スポット『稲村ヶ崎（鎌倉海浜公園）』です。",
+        "spot_name": "稲村ヶ崎（鎌倉海浜公園稲村ガ崎地区）",
+        "built_year": "1333年新田義貞鎌倉攻め史跡",
+        "architect_note": "海浜公園内の高台からは七里ヶ浜の弧を描く海岸線と江の島、晴天時には富士山まで一望できる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.3021,
+        "lng": 139.5256,
+        "map_query": "稲村ヶ崎"
+      },
+      {
+        "id": "khe_06",
+        "position": 6,
+        "spot_key": "kamakura_kokomae_crossing",
+        "title": "江ノ電と相模湾の水平線が交差する世界で最も有名な踏切",
+        "category": "風景・観光名所",
+        "sub_category": "鉄道海浜景観スポット",
+        "crop_target": "緑とクリーム色の江ノ電と踏切の向こうに広がる青い海",
+        "hint_level_1": "江ノ電「鎌倉高校前駅」を降りてすぐ東側。海に向かって下る坂道と江ノ電の踏切が作る名風景をマナーを守って撮ろう。",
+        "hint_level_2": "人気漫画・アニメの聖地としても世界的に知られる『鎌倉高校前駅 踏切』です。",
+        "spot_name": "鎌倉高校前駅 踏切",
+        "built_year": "1903年（明治36年）駅開業",
+        "architect_note": "ホーム自体が海を正面に望む絶景駅。踏切越しに相模湾と江の島を望む構図は国内外から多くの旅人が訪れる。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#F2D06B",
+          "detail": "#2E6F5E"
+        },
+        "lat": 35.3067,
+        "lng": 139.5005,
+        "map_query": "鎌倉高校前駅"
+      },
+      {
+        "id": "khe_07",
+        "position": 7,
+        "title": "青銅の鳥居の先にそびえる竜宮城のような朱塗り楼門「瑞心門」",
+        "category": "歴史社寺・観光名所",
+        "sub_category": "日本三大弁財天・楼門建築",
+        "crop_target": "弁財天仲見世通りの突き当たりに立つ竜宮城風の朱塗り『瑞心門』",
+        "hint_level_1": "江の島弁財天仲見世通りを抜けた正面。1821年建立の緑青色の「青銅の鳥居」をくぐると現れる、まるで浦島太郎の竜宮城のような鮮やかな朱塗りの楼門を収めよう。",
+        "hint_level_2": "日本三大弁財天を祀る『江島神社（瑞心門・青銅の鳥居）』です。",
+        "spot_name": "江島神社（青銅の鳥居・瑞心門）",
+        "built_year": "1821年（文政4年）青銅の鳥居建立",
+        "architect_note": "入口の「青銅の鳥居」は江戸の講中によって寄進された藤沢市指定文化財で、柱に無数の寄進者名が刻まれている。石段上の瑞心門が参拝客を出迎える。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#3B7A6C",
+          "detail": "#E9C46A"
+        },
+        "lat": 35.3005,
+        "lng": 139.4802,
+        "map_query": "江島神社 瑞心門",
+        "spot_key": "enoshima_jinja"
+      },
+      {
+        "id": "khe_08",
+        "position": 8,
+        "title": "湘南の海と富士山を360度見渡す逆円錐トラスの展望灯台",
+        "category": "観光名所・塔",
+        "sub_category": "民間灯台・展望タワー",
+        "crop_target": "江の島の頂上にそびえる白い格子トラスとガラスの展望灯台",
+        "hint_level_1": "湘南の海に浮かぶ「江の島」のてっぺん（サムエル・コッキング苑内）。海抜100m超の高さから富士山と太平洋を一望する、ろうそくの形の美しい展望灯台を見上げよう。",
+        "hint_level_2": "江ノ電開業100周年を記念して建てられた『江の島シーキャンドル（江の島展望灯台）』です。",
+        "spot_name": "江の島シーキャンドル（展望灯台）",
+        "built_year": "2002年（平成14年）竣工",
+        "architect_note": "景観に調和するよう逆円錐形の白い鉄骨トラスがガラスのエレベーターシャフトを包み込む軽快なデザイン。現役の航路標識（灯台）としても機能している。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#2B6584",
+          "accent": "#FAF6EE",
+          "detail": "#E06D3B"
+        },
+        "lat": 35.2997,
+        "lng": 139.4786,
+        "map_query": "江の島シーキャンドル",
+        "spot_key": "enoshima_sea_candle"
+      },
+      {
+        "id": "khe_09",
+        "position": 9,
+        "title": "太平洋の荒波が削り出した隆起海食台地「稚児ヶ淵」と岩屋",
+        "category": "風景・自然名所",
+        "sub_category": "かながわの景勝50選・海食地形",
+        "crop_target": "島の最奥に広がる平らな岩礁台地『稚児ヶ淵』と打ち寄せる白波・富士山",
+        "hint_level_1": "江の島の裏側（南西端）まで階段を下りた海辺。関東大震災の時に海底が隆起してできた広大な岩場と、白波の向こうに富士山や伊豆半島を望む絶景を切り取ろう。",
+        "hint_level_2": "富士山のビューポイントとしても名高い『江の島 稚児ヶ淵（ちごがふち）と江の島岩屋』です。",
+        "spot_name": "江の島 稚児ヶ淵・岩屋",
+        "built_year": "1923年隆起海食台地（通年海岸景勝地）",
+        "architect_note": "波の浸食でできた海食洞窟「江の島岩屋」へと続く赤い橋（べんてん丸発着場付近）と、ダイナミックな海食崖が織りなす湘南随一の自然風景。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#1E3F5A",
+          "accent": "#D99B3C",
+          "detail": "#4A5859"
+        },
+        "lat": 35.2977,
+        "lng": 139.4748,
+        "map_query": "江の島 稚児ヶ淵",
+        "spot_key": "enoshima_iwaya"
+      }
+    ]
+  },
+  {
+    "id": "kanto_odawara_castle",
+    "region_group": "関東",
+    "prefecture_group": "神奈川",
+    "tour_type": "walk",
+    "title": "小田原城と城下町・明治別邸散策",
+    "subtitle": "ODAWARA CASTLE & VILLA WALK",
+    "region": "神奈川県小田原市・小田原駅〜小田原城〜御幸の浜",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "戦国〜昭和初期",
+    "description": "JR・小田急 小田原駅からすべて徒歩圏内。復興天守と銅門・常盤木門の小田原城跡から、黒田長成侯爵の清閑亭、白秋ゆかりの小田原文学館、ういろう本店まで約2時間半で巡ります。",
+    "theme_color": "#22384D",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "ODW",
+    "area_map_query": "小田原城 清閑亭 報徳二宮神社 松永記念館",
+    "cells": [
+      {
+        "id": "odw_01",
+        "position": 1,
+        "title": "相模湾を見晴らす白亜の三重四階天守と巨石の常盤木門",
+        "category": "観光名所・城郭",
+        "sub_category": "日本100名城・国指定史跡",
+        "crop_target": "白漆喰の『小田原城天守閣』と朱塗りの欄干橋（学橋）",
+        "hint_level_1": "箱根の玄関口・小田原。北条五代が関東を治めた難攻不落の城跡で、お堀の赤い橋（学橋）や巨石の常盤木門の奥にそびえる白亜の天守閣を切り取ろう。",
+        "hint_level_2": "江戸時代の宝永年間の模型・引図をもとに再建された『小田原城 天守閣』です。",
+        "spot_name": "小田原城（天守閣・常盤木門）",
+        "built_year": "1706年宝永再建天守（1960年復興・2016年大改修）",
+        "architect_note": "三重四階、高さ38.7mの層塔型天守。最上階には江戸時代と同様に高欄（廻縁）が巡らされ、相模湾から箱根連山までを一望できる。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#FAF6EE",
+          "accent": "#4A5859",
+          "detail": "#9E2A2B"
+        },
+        "lat": 35.2508,
+        "lng": 139.1536,
+        "map_query": "小田原城 天守閣",
+        "spot_key": "odawara_castle"
+      },
+      {
+        "id": "odw_02",
+        "position": 2,
+        "spot_key": "odawara_akagane_gate",
+        "title": "お堀端から天守への正規登城ルートを護る「銅門」",
+        "category": "歴史建築・城郭",
+        "sub_category": "江戸時代枡形門復元（1997年）",
+        "crop_target": "大扉に銅板が打ち付けられた重厚な渡櫓門と石垣枡形",
+        "hint_level_1": "学橋を渡って二の丸へ入る正面の門。扉の装飾に銅板が使われていることから名付けられた立派な城門を狙おう。",
+        "hint_level_2": "住吉橋の先、二の丸の表門『小田原城 銅門（あかがねもん）』です。",
+        "spot_name": "小田原城 銅門（あかがねもん）",
+        "built_year": "江戸時代創建（1997年木造復元）",
+        "architect_note": "伝統工法による本格的な木造復元。内部は土日祝などに特別公開されることもある。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.2491,
+        "lng": 139.1558,
+        "map_query": "小田原城 銅門"
+      },
+      {
+        "id": "odw_03",
+        "position": 3,
+        "spot_key": "odawara_hotoku_ninomiya",
+        "title": "二宮金次郎を祀る城址公園内の静かな杜と「きんじろうカフェ」",
+        "category": "歴史社寺・名所",
+        "sub_category": "神社建築・二宮尊徳像",
+        "crop_target": "木立の中の社殿と薪を背負う二宮金次郎像",
+        "hint_level_1": "小田原城本丸の南東、お堀に面した緑豊かな神社。境内にはオープンテラスの「きんじろうカフェ」もある。",
+        "hint_level_2": "小田原出身の偉人・二宮尊徳翁を祀る『報徳二宮神社』です。",
+        "spot_name": "報徳二宮神社",
+        "built_year": "1894年（明治27年）創建",
+        "architect_note": "小田原城二の丸小峰曲輪の一角に鎮座。神社内の「報徳博物館」やカフェが散策の休憩にも最適。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1E2631"
+        },
+        "lat": 35.2489,
+        "lng": 139.1526,
+        "map_query": "報徳二宮神社 小田原"
+      },
+      {
+        "id": "odw_04",
+        "position": 4,
+        "spot_key": "odawara_seikantei",
+        "title": "相模湾を見晴らす黒田長成侯爵の数寄屋造り別邸",
+        "category": "明治建築",
+        "sub_category": "近代数寄屋造別邸（国登録有形文化財）",
+        "crop_target": "真鶴半島や大島を遠望する2階座敷と数寄屋造りの外観",
+        "hint_level_1": "報徳二宮神社から南へ少し歩いた天神山の高台。明治39年に貴族院副議長だった黒田侯爵が建てた別邸へ。",
+        "hint_level_2": "相模湾の絶景を望む近代和風建築『清閑亭』です。",
+        "spot_name": "清閑亭（旧黒田長成別邸）",
+        "built_year": "1906年（明治39年）",
+        "architect_note": "戦前は多くの政財界人や文人が訪れ「小田原の別荘文化」を象徴する名邸。眺望の良さが魅力。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 35.2462,
+        "lng": 139.1527,
+        "map_query": "清閑亭 小田原"
+      },
+      {
+        "id": "odw_05",
+        "position": 5,
+        "spot_key": "odawara_bungakukan",
+        "title": "スパニッシュ瓦と白壁が美しい田中光顕伯爵の別邸洋館",
+        "category": "大正〜昭和建築",
+        "sub_category": "スパニッシュ様式洋館（国登録有形文化財）",
+        "crop_target": "スペイン瓦の屋根とアーチ窓が並ぶ白い洋館ファサード",
+        "hint_level_1": "清閑亭からさらに南へ徒歩5分。大正13年に建てられた、宮内大臣・田中光顕の別邸を活用した文学館を狙おう。",
+        "hint_level_2": "北原白秋や谷崎潤一郎らの資料を展示する『小田原文学館（旧田中光顕別邸）』です。",
+        "spot_name": "小田原文学館（旧田中光顕別邸）",
+        "built_year": "1924年（大正13年）",
+        "architect_note": "本館の洋館と隣に建つ純和風本館・白秋童謡館が緑豊かな庭園内に並び建つ。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#C2B9A7",
+          "accent": "#8F3A2B",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.2442,
+        "lng": 139.1522,
+        "map_query": "小田原文学館"
+      },
+      {
+        "id": "odw_06",
+        "position": 6,
+        "spot_key": "odawara_matsunaga_kinenkan",
+        "title": "電力王・松永安左エ門（耳庵）が晩年を過ごした数寄屋「老欅荘」",
+        "category": "昭和建築",
+        "sub_category": "近代数寄屋建築（国登録有形文化財）",
+        "crop_target": "大きな欅の木に寄り添う数寄屋造り「老欅荘」の玄関・庭園",
+        "hint_level_1": "小田原文学館から西へ徒歩約10分（または板橋駅近く）。明治〜昭和の財界人・茶人の別荘が集中する板橋エリアへ。",
+        "hint_level_2": "数寄屋の名匠・吉田五十八らが関わった茶室・邸宅がある『松永記念館（老欅荘）』です。",
+        "spot_name": "松永記念館（老欅荘）",
+        "built_year": "1946年（昭和21年）老欅荘建築",
+        "architect_note": "電力王と呼ばれた松永安左エ門の旧宅。庭園には茶室「葉雨庵」や無住庵も点在する。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1C2420"
+        },
+        "lat": 35.2454,
+        "lng": 139.1445,
+        "map_query": "松永記念館 老欅荘"
+      },
+      {
+        "id": "odw_07",
+        "position": 7,
+        "spot_key": "odawara_uirou",
+        "title": "小田原城の八棟造りを模した五百年老舗「ういろう」の城郭店舗",
+        "category": "昭和建築・名店",
+        "sub_category": "城郭風伝統和風建築（小田原市街地景観重要建造物）",
+        "crop_target": "国道1号沿いにそびえる入母屋八棟造りの立派な瓦屋根店舗",
+        "hint_level_1": "小田原城の南東、国道1号（本町交差点付近）を歩くと目を引く、お城のような屋根の老舗薬・菓子店を見上げよう。",
+        "hint_level_2": "室町時代から続く小田原の名店『ういろう 本店（外郎博物館）』です。",
+        "spot_name": "ういろう 本店",
+        "built_year": "1504年小田原創業（現店舗は戦後再建）",
+        "architect_note": "外郎薬と菓子「ういろう」の発祥家。店舗の八棟造りは北条氏綱から贈られた屋敷を模した伝統デザイン。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#FAF6EE",
+          "detail": "#C49A45"
+        },
+        "lat": 35.2485,
+        "lng": 139.1613,
+        "map_query": "ういろう 本店 小田原"
+      },
+      {
+        "id": "odw_08",
+        "position": 8,
+        "spot_key": "odawara_kamaboko_dori",
+        "title": "明治から昭和の看板建築が残る小田原「かまぼこ通り」",
+        "category": "歴史街並み",
+        "sub_category": "伝統商家・レトロ看板建築群",
+        "crop_target": "老舗かまぼこ店や干物店が軒を連ねるノスタルジックな通り",
+        "hint_level_1": "ういろう本店から海の方へ一本入った通り。鈴廣や籠清などの老舗かまぼこ店が並ぶ石畳の街並みを歩こう。",
+        "hint_level_2": "かつての旧東海道・魚屋通り『小田原 かまぼこ通り』です。",
+        "spot_name": "小田原 かまぼこ通り",
+        "built_year": "江戸〜昭和期の商家街",
+        "architect_note": "100年以上の歴史を持つかまぼこ店や鰹節店、和菓子屋が集まり、食べ歩きとレトロ建築鑑賞を同時に楽しめる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.2468,
+        "lng": 139.1605,
+        "map_query": "小田原 かまぼこ通り"
+      },
+      {
+        "id": "odw_09",
+        "position": 9,
+        "spot_key": "odawara_miyukihama",
+        "title": "相模湾の潮風を感じる小田原の海「御幸の浜」",
+        "category": "風景・自然名所",
+        "sub_category": "海浜景勝地・西湘バイパス高架下",
+        "crop_target": "御幸の浜海岸から望む相模湾と伊豆半島・三浦半島の水平線",
+        "hint_level_1": "かまぼこ通りを抜けてトンネルをくぐると、目の前に相模湾が広がる海岸に出る。爽やかな海の絶景で締めくくろう。",
+        "hint_level_2": "明治天皇が漁をご覧になったことにちなむ『御幸の浜（みゆきのはま）』です。",
+        "spot_name": "御幸の浜",
+        "built_year": "1873年（明治6年）命名",
+        "architect_note": "城下町から徒歩わずか数分で海に出られる小田原の魅力を体感できる海岸。北条氏康の歌碑もある。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.2456,
+        "lng": 139.1623,
+        "map_query": "御幸の浜 小田原"
+      }
+    ]
+  },
+  {
+    "id": "kanto_naritasan_omotesando",
+    "region_group": "関東",
+    "prefecture_group": "埼玉・千葉",
+    "tour_type": "walk",
+    "title": "成田山新勝寺と歴史的表参道 徒歩散策",
+    "subtitle": "NARITASAN TEMPLE & OMOTESANDO WALK",
+    "region": "千葉県成田市・JR/京成成田駅〜表参道〜成田山公園",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸中期〜昭和",
+    "description": "JR・京成成田駅から表参道を通って成田山新勝寺の広大な境内・重要文化財堂宇群と成田山公園を巡る、門前町と名建築の2時間半散歩。",
+    "theme_color": "#7A2E2E",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "NRT",
+    "area_map_query": "成田山新勝寺 大本堂 仁王門 三重塔 表参道",
+    "cells": [
+      {
+        "id": "nrt_01",
+        "position": 1,
+        "spot_key": "naritasan_daihondo",
+        "title": "吉田五十八が設計した壮大な鉄筋コンクリート造大本堂",
+        "category": "昭和建築・社寺",
+        "sub_category": "現代和風寺院建築（吉田五十八設計）",
+        "crop_target": "大屋根の優美な反りと朱色の欄干が壮麗な大本堂",
+        "hint_level_1": "成田山新勝寺の中心にそびえる巨大な本堂。実は近代数寄屋建築の巨匠・吉田五十八が設計した昭和の名建築だ。",
+        "hint_level_2": "1968年落慶の中心伽藍『成田山新勝寺 大本堂』です。",
+        "spot_name": "成田山新勝寺 大本堂",
+        "built_year": "1968年（昭和43年）",
+        "architect_note": "吉田五十八が伝統的な木造寺院の美を現代の鉄筋コンクリート構造で昇華させた代表作。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.7862,
+        "lng": 140.3183,
+        "map_query": "成田山新勝寺 大本堂"
+      },
+      {
+        "id": "nrt_02",
+        "position": 2,
+        "spot_key": "naritasan_niomon",
+        "title": "巨大な「魚がし」の大提灯が掛かる重要文化財の仁王門",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸後期楼門建築（国重要文化財）",
+        "crop_target": "朱塗りの仁王門中央に吊るされた「魚がし」の巨大な赤い提灯",
+        "hint_level_1": "総門をくぐり急な石段を見上げた先に建つ朱色の門。日本橋魚河岸講から奉納された重さ800kgの大提灯を狙おう。",
+        "hint_level_2": "天保2年再建の重要文化財『成田山新勝寺 仁王門』です。",
+        "spot_name": "成田山新勝寺 仁王門",
+        "built_year": "1831年（天保2年）",
+        "architect_note": "密迹金剛・那羅延金剛の二尊を安置し、左右の八体仏や緻密な組物・彫刻が江戸後期の技術を示す。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.7854,
+        "lng": 140.3182,
+        "map_query": "成田山新勝寺 仁王門"
+      },
+      {
+        "id": "nrt_03",
+        "position": 3,
+        "spot_key": "naritasan_sanjunoto",
+        "title": "極彩色の雲水紋と十六羅漢彫刻が華やかな三重塔",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸中期仏塔建築（国重要文化財）",
+        "crop_target": "大本堂脇に立つ極彩色の三重塔と軒下の繊細な垂木",
+        "hint_level_1": "仁王門をくぐって右手に立つ高さ25mの塔。各層の軒下に施された一枚板彫りの「雲水紋」や龍の彫刻に注目しよう。",
+        "hint_level_2": "正徳2年建立の極彩色仏塔『成田山新勝寺 三重塔』です。",
+        "spot_name": "成田山新勝寺 三重塔",
+        "built_year": "1712年（正徳2年）",
+        "architect_note": "江戸中期の特徴をよく残す国重要文化財。鮮やかに修復された極彩色が境内を華やかに彩る。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#C85A32",
+          "accent": "#F2D06B",
+          "detail": "#1B3042"
+        },
+        "lat": 35.7858,
+        "lng": 140.3186,
+        "map_query": "成田山新勝寺 三重塔"
+      },
+      {
+        "id": "nrt_04",
+        "position": 4,
+        "spot_key": "naritasan_komyodo",
+        "title": "江戸中期の重厚な彫り物を残す旧本堂「光明堂」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸中期仏堂（国重要文化財）",
+        "crop_target": "大本堂のさらに奥、高台に建つ江戸時代の旧本堂・光明堂",
+        "hint_level_1": "大本堂の裏手（奥之院方向）へ石段を上がった場所にある、元禄14年建立の古いお堂を探そう。",
+        "hint_level_2": "江戸時代の本堂として使われていた『成田山新勝寺 光明堂』です。",
+        "spot_name": "成田山新勝寺 光明堂",
+        "built_year": "1701年（元禄14年）",
+        "architect_note": "縁結びのご利益でも知られる大日如来を安置。江戸中期の重厚な木造建築の風格を今に伝える。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 35.7871,
+        "lng": 140.3177,
+        "map_query": "成田山新勝寺 光明堂"
+      },
+      {
+        "id": "nrt_05",
+        "position": 5,
+        "spot_key": "naritasan_heiwa_daito",
+        "title": "成田山公園の奥にそびえる高さ58mの巨大な平和大塔",
+        "category": "現代建築・社寺",
+        "sub_category": "多宝塔様式大仏塔（昭和59年）",
+        "crop_target": "朱と白のコントラストが鮮やかな2層多宝塔「平和大塔」",
+        "hint_level_1": "境内の最奥部、成田山公園の丘の上に立つ高さ58mの巨大な塔。遠くからでも一目でわかるシンボルを狙おう。",
+        "hint_level_2": "真言密教の教えを象徴する『成田山新勝寺 平和大塔』です。",
+        "spot_name": "成田山新勝寺 平和大塔",
+        "built_year": "1984年（昭和59年）",
+        "architect_note": "1階は写経道場や歴史展示、2階明王殿には高さ約6mの不動明王像が安置されている。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.7885,
+        "lng": 140.3195,
+        "map_query": "成田山新勝寺 平和大塔"
+      },
+      {
+        "id": "nrt_06",
+        "position": 6,
+        "spot_key": "naritasan_park",
+        "title": "滝と3つの池が織りなす東京ドーム3.5個分の成田山公園",
+        "category": "風景・名園",
+        "sub_category": "池泉回遊式公園（昭和3年完成）",
+        "crop_target": "文殊の池・竜智の池に浮かぶ浮御堂や雄飛の滝",
+        "hint_level_1": "大本堂の裏手から平和大塔の麓に広がる自然豊かな公園。池に浮かぶ「浮御堂」や静かな滝の風景を切り取ろう。",
+        "hint_level_2": "四季折々の自然美が楽しめる『成田山公園（浮御堂・雄飛の滝）』です。",
+        "spot_name": "成田山公園（浮御堂・雄飛の滝）",
+        "built_year": "1928年（昭和3年）完成",
+        "architect_note": "書道美術館も園内に併設。梅や新緑、紅葉の名所だが、通年で静かな水辺の散策を楽しめる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1C2420"
+        },
+        "lat": 35.7875,
+        "lng": 140.3204,
+        "map_query": "成田山公園"
+      },
+      {
+        "id": "nrt_07",
+        "position": 7,
+        "spot_key": "naritasan_omotesando",
+        "title": "うなぎの名店や老舗旅館が並ぶ約800mの成田山表参道",
+        "category": "歴史街並み",
+        "sub_category": "日本遺産門前町（木造町家・登録有形文化財群）",
+        "crop_target": "黒漆喰や木造3階建ての老舗旅館「大野屋」やうなぎ店「川豊」",
+        "hint_level_1": "JR成田駅から新勝寺へ続く約800mの参道。店頭で鰻をさばく様子や明治・大正の町家建築を眺めながら歩こう。",
+        "hint_level_2": "日本遺産にも認定された門前町『成田山表参道（川豊・大野屋旅館等）』です。",
+        "spot_name": "成田山表参道（川豊本店・大野屋旅館等）",
+        "built_year": "明治〜昭和期の門前建築群",
+        "architect_note": "明治44年築の川豊本店や、登録有形文化財の旧大野屋旅館、なごみの米屋總本店など歴史的建造物が軒を連ねる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.7827,
+        "lng": 140.3168,
+        "map_query": "成田山表参道 川豊"
+      },
+      {
+        "id": "nrt_08",
+        "position": 8,
+        "spot_key": "naritasan_kankokan",
+        "title": "成田祇園祭の豪華な山車が間近に見られる成田観光館",
+        "category": "観光名所・建築",
+        "sub_category": "蔵造り風観光案内施設",
+        "crop_target": "蔵造り風の館外観または展示されている絢爛豪華な山車",
+        "hint_level_1": "成田山表参道の仲町坂の途中にある、なまこ壁と蔵風の観光拠点。中では成田祇園祭の立派な山車や歴史資料が見られる。",
+        "hint_level_2": "街歩きの案内拠点『成田市観光案内所・成田観光館』です。",
+        "spot_name": "成田観光館",
+        "built_year": "1998年（平成10年）開館",
+        "architect_note": "無料で入館でき、成田祇園祭で実際に曳かれる山車や人形、成田市街の歴史模型などを鑑賞できる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#E6DFD3",
+          "detail": "#C49A45"
+        },
+        "lat": 35.7819,
+        "lng": 140.3162,
+        "map_query": "成田観光館"
+      },
+      {
+        "id": "nrt_09",
+        "position": 9,
+        "spot_key": "naritasan_yakushido",
+        "title": "九代目市川團十郎らも祈願した表参道沿いの「薬師堂」",
+        "category": "歴史社寺・名所",
+        "sub_category": "江戸時代仏堂（明暦元年建立）",
+        "crop_target": "表参道の坂の途中に建つ朱色の屋根と木造の薬師堂",
+        "hint_level_1": "表参道と電車通りの間（上町）に建つ、1655年建立の成田山新勝寺旧本堂。実は新勝寺のルーツに関わる古いお堂だ。",
+        "hint_level_2": "明暦元年（1655年）建立の『成田山 薬師堂』です。",
+        "spot_name": "成田山 薬師堂（旧本堂）",
+        "built_year": "1655年（明暦元年）",
+        "architect_note": "光明堂が建つ前の旧本堂を移築した建物で、現存する成田山関係の堂宇の中で最古級。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E473B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.7796,
+        "lng": 140.3142,
+        "map_query": "成田山 薬師堂"
+      }
+    ]
+  },
+  {
+    "id": "kanto_nikko_tosho_gu",
+    "region_group": "関東",
+    "prefecture_group": "栃木・群馬",
+    "tour_type": "walk",
+    "title": "日光・二社一寺と明治洋館 バス＆徒歩散策",
+    "subtitle": "NIKKO WORLD HERITAGE WALK",
+    "region": "栃木県日光市・東武/JR日光駅〜神橋〜東照宮〜田母沢",
+    "difficulty": "★★☆（散策目安：約3時間・東武バス＋徒歩）",
+    "era_focus": "江戸初期〜大正",
+    "description": "JR/東武日光駅から世界遺産めぐりバスと徒歩だけで約3時間で完結する日光の王道コース。神橋、日光東照宮、輪王寺、二荒山神社、金谷ホテル、田母沢御用邸を網羅します。",
+    "theme_color": "#6B2D26",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "NKK",
+    "area_map_query": "日光東照宮 陽明門 神橋 輪王寺 日光田母沢御用邸",
+    "cells": [
+      {
+        "id": "nkk_01",
+        "position": 1,
+        "spot_key": "nikko_yomeimon",
+        "title": "508体の彫刻と金箔が輝く世界遺産・日光東照宮「陽明門」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "江戸初期権現造楼門（国宝・世界遺産）",
+        "crop_target": "極彩色の彫刻と白・金が絢爛な国宝「陽明門」",
+        "hint_level_1": "「日暮の門」とも呼ばれる日光東照宮のシンボル。12本の白い柱のうち1本だけ模様が逆さまの「魔除けの逆柱」も探そう。",
+        "hint_level_2": "徳川家康公を祀る東照宮の正門、国宝『日光東照宮 陽明門』です。",
+        "spot_name": "日光東照宮 陽明門",
+        "built_year": "1636年（寛永13年）造替",
+        "architect_note": "500体を超える霊獣・聖人・童子の彫刻が施され、平成の大修理で往時の輝きを取り戻した。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#1E2631",
+          "accent": "#D4AF37",
+          "detail": "#9E2A2B"
+        },
+        "lat": 36.758,
+        "lng": 139.5988,
+        "map_query": "日光東照宮 陽明門"
+      },
+      {
+        "id": "nkk_02",
+        "position": 2,
+        "spot_key": "nikko_nemurineko_sanzaru",
+        "title": "「見ざる・言わざる・聞かざる」の神厩舎と眠り猫",
+        "category": "歴史社寺・国宝",
+        "sub_category": "江戸初期彫刻（国宝・重要文化財）",
+        "crop_target": "神厩舎の「三猿」彫刻または東回廊の「眠り猫」",
+        "hint_level_1": "陽明門の手前にある白い馬小屋の「三猿」と、奥宮への入口・東回廊の欄間に潜む小さな「眠り猫」を見つけよう。",
+        "hint_level_2": "左甚五郎作と伝わる『日光東照宮 神厩舎（三猿）・眠り猫』です。",
+        "spot_name": "日光東照宮 神厩舎（三猿）・眠り猫",
+        "built_year": "1636年（寛永13年）",
+        "architect_note": "三猿は猿の一生を通じて人の生き方を説く8面の彫刻の一つ。眠り猫の裏面には雀が彫られている。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 36.7577,
+        "lng": 139.5985,
+        "map_query": "日光東照宮 神厩舎"
+      },
+      {
+        "id": "nkk_03",
+        "position": 3,
+        "title": "渓谷の急流に映える朱塗りの木造反り橋",
+        "category": "明治・近代再建",
+        "sub_category": "木造はね橋形式（重要文化財・世界遺産）",
+        "crop_target": "大谷川に架かる鮮やかな朱塗りの高欄と金色の擬宝珠",
+        "hint_level_1": "日光の社寺の入口、大谷川の深い渓谷に架かる美しい朱塗りの橋。エメラルドグリーンの川面と朱色のコントラストを切り取ろう。",
+        "hint_level_2": "日本三大奇橋のひとつにも数えられる世界遺産『神橋（しんきょう）』です。",
+        "spot_name": "日光二荒山神社 神橋",
+        "built_year": "1904年（明治37年）再建",
+        "architect_note": "寛永13年（1636年）の形式を忠実に踏襲して明治37年に再建された、岸壁に橋桁を埋め込む伝統的な「はね橋」構造。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#3B7A6C",
+          "detail": "#1B262B"
+        },
+        "lat": 36.7533,
+        "lng": 139.6039,
+        "map_query": "日光二荒山神社 神橋",
+        "spot_key": "nikko_shinkyo"
+      },
+      {
+        "id": "nkk_04",
+        "position": 4,
+        "spot_key": "nikko_rinnoji_sanbutsudo",
+        "title": "日光山最大の木造建築・千手観音ら三尊を祀る「三仏堂」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸初期仏堂（重要文化財・世界遺産）",
+        "crop_target": "銅板葺きの大屋根と朱塗りの壮大な「三仏堂」正面",
+        "hint_level_1": "神橋から表参道を登って最初に出会う巨大な赤いお堂。奈良の大仏に次ぐ大きさとも言われる三体の黄金仏を祀る。",
+        "hint_level_2": "日光山の総本堂『日光山輪王寺 三仏堂』です。",
+        "spot_name": "日光山輪王寺 三仏堂",
+        "built_year": "1645年（正保2年）",
+        "architect_note": "間口約33m・高さ約26mを誇る日光山最大の木造建築。前面に建つ金剛桜も天然記念物。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.7544,
+        "lng": 139.6012,
+        "map_query": "日光山輪王寺 三仏堂"
+      },
+      {
+        "id": "nkk_05",
+        "position": 5,
+        "spot_key": "nikko_futarasan_shrine",
+        "title": "男体山を御神体とする日光の氏神「日光二荒山神社」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸初期神社建築（重要文化財・世界遺産）",
+        "crop_target": "東照宮の西隣に鎮座する朱塗りの楼門と本殿・拝殿",
+        "hint_level_1": "東照宮陽明門から西へ杉並木（上新道）を歩いてすぐ。縁結びや霊水「二荒霊泉」でも知られる古社へ。",
+        "hint_level_2": "767年勝道上人創建に遡る『日光二荒山神社（本社）』です。",
+        "spot_name": "日光二荒山神社（本社）",
+        "built_year": "1619年（元和5年）現本殿造営",
+        "architect_note": "日光山内で最も古い歴史を持つ神社。本殿・拝殿は徳川秀忠の寄進で造営された現存最古の日光社寺建築。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 36.7586,
+        "lng": 139.5963,
+        "map_query": "日光二荒山神社"
+      },
+      {
+        "id": "nkk_06",
+        "position": 6,
+        "title": "三時代の建築美が連なる御用邸の御車寄",
+        "category": "明治・大正建築",
+        "sub_category": "近代和風宮廷建築（国の重要文化財）",
+        "crop_target": "重厚な銅板葺き屋根の御車寄（おくるまよせ）と数寄屋窓",
+        "hint_level_1": "日光の静かな森の中。江戸・明治・大正の3つの時代の建築がひとつに連なる、広大な旧皇室御用邸の玄関（御車寄）を狙おう。",
+        "hint_level_2": "大正天皇のご静養地として造営された『旧日光田母沢（たもざわ）御用邸』です。",
+        "spot_name": "旧日光田母沢御用邸記念公園",
+        "built_year": "1899年（明治32年）造営・1918年増改築",
+        "architect_note": "宮内省内匠寮の木子清敬らが設計。全106室におよぶ現存最大級の明治・大正期木造宮廷建築。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#59483E",
+          "accent": "#C9B79C",
+          "detail": "#1E2623"
+        },
+        "lat": 36.7518,
+        "lng": 139.5919,
+        "map_query": "日光田母沢御用邸記念公園",
+        "spot_key": "nikko_tamozawa"
+      },
+      {
+        "id": "nkk_07",
+        "position": 7,
+        "title": "現存最古のクラシックホテルを飾る唐破風と彫刻",
+        "category": "明治建築",
+        "sub_category": "和洋折衷リゾートホテル（登録有形文化財）",
+        "crop_target": "洋館正面の和風唐破風ポーチと想像の象・花鳥の木彫",
+        "hint_level_1": "神橋を見下ろす高台。アインシュタインやヘレン・ケラーも投宿した日本最古のリゾートホテルで、和と洋が融合した玄関ポーチを探そう。",
+        "hint_level_2": "1873年（明治6年）創業の『日光金谷ホテル 本館・新館』です。",
+        "spot_name": "日光金谷ホテル（本館・新館）",
+        "built_year": "1893年（明治26年）本館竣工・1936年増築",
+        "architect_note": "東照宮の彫刻美を意識した木彫レリーフや唐破風屋根を、西洋のホテル建築に巧みに融合させた日本独自のクラシックホテル。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#8C3B2B",
+          "accent": "#DFD3C3",
+          "detail": "#261C1A"
+        },
+        "lat": 36.7525,
+        "lng": 139.6042,
+        "map_query": "日光金谷ホテル",
+        "spot_key": "nikko_kanaya_hotel"
+      },
+      {
+        "id": "nkk_08",
+        "position": 8,
+        "title": "白亜のハーフティンバーとネオ・ルネサンス駅舎",
+        "category": "大正建築",
+        "sub_category": "ネオ・ルネサンス木造駅舎（近代化産業遺産）",
+        "crop_target": "白い外壁に映える木骨装飾（ハーフティンバー）と時計破風",
+        "hint_level_1": "世界遺産・日光の玄関口となるJRの終着駅。大正元年に建てられた、貴賓室を備える白く優雅な2階建て木造駅舎を切り取ろう。",
+        "hint_level_2": "大正天皇が利用する貴賓室や1等車待合室を備えた名駅舎『JR日光駅舎』です。",
+        "spot_name": "JR日光駅舎",
+        "built_year": "1912年（大正元年）",
+        "architect_note": "鉄道院の明石虎雄らが設計に関与したとも伝わる白亜の洋風木造駅舎。2階の旧1等待合室のシャンデリアと意匠は必見。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#EAE4DC",
+          "accent": "#6E473B",
+          "detail": "#291C1E"
+        },
+        "lat": 36.7472,
+        "lng": 139.6221,
+        "map_query": "JR日光駅",
+        "spot_key": "nikko_jr_station"
+      },
+      {
+        "id": "nkk_09",
+        "position": 9,
+        "spot_key": "nikko_kanmangafuchi",
+        "title": "大谷川沿いに苔むした地蔵群が並ぶ「憾満ヶ淵」",
+        "category": "風景・史跡",
+        "sub_category": "渓谷景観・化け地蔵群",
+        "crop_target": "赤い帽子と前掛けをした苔むすお地蔵様の列と大谷川の渓流",
+        "hint_level_1": "田母沢御用邸から南へ徒歩10分、大谷川沿いの静かな遊歩道へ。行きと帰りで数が違うと言われるお地蔵様を探そう。",
+        "hint_level_2": "松尾芭蕉も訪れた静謐な渓谷『憾満ヶ淵（並び地蔵）』です。",
+        "spot_name": "憾満ヶ淵（並び地蔵）",
+        "built_year": "1654年（承応3年）慈眼堂建立",
+        "architect_note": "男体山から噴出した溶岩によってできた奇勝。約70体の石地蔵（通称・化け地蔵）が川沿いに並ぶ。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#9E2A2B",
+          "detail": "#1C2420"
+        },
+        "lat": 36.7497,
+        "lng": 139.5867,
+        "map_query": "憾満ヶ淵 日光"
+      }
+    ]
+  },
+  {
+    "id": "koshinetsu_nagano_zenkoji_walk",
+    "region_group": "甲信越",
+    "prefecture_group": "長野",
+    "tour_type": "walk",
+    "title": "長野・善光寺門前〜城山公園 徒歩散策",
+    "subtitle": "NAGANO ZENKOJI & MONZEN WALK",
+    "region": "長野県長野市・JR長野駅〜中央通り〜善光寺〜城山",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸中期〜現代",
+    "description": "JR長野駅から表参道（中央通り）を歩いて国宝・善光寺と門前の蔵造り街並み「ぱてぃお大門」、藤屋御本陣、谷口吉生設計の東山魁夷館まで約2時間半で巡ります。",
+    "theme_color": "#2C3545",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "NGZ",
+    "area_map_query": "善光寺 ぱてぃお大門 藤屋御本陣 長野県立美術館",
+    "cells": [
+      {
+        "id": "ngz_01",
+        "position": 1,
+        "title": "5羽の鳩が隠された「善光寺」の大額と巨大な撞木造り本堂",
+        "category": "歴史建築・社寺",
+        "sub_category": "撞木（しゅもく）造・総檜皮葺き（国宝）",
+        "crop_target": "国宝本堂の二重破風と、三門に掲げられた『鳩字の額』",
+        "hint_level_1": "長野市の門前町の突き当たり。奥行き54mにおよぶ東日本最大級の国宝木造本堂と、手前の三門に掲げられた「文字の中に5羽の鳩が隠れている扁額」を探そう！",
+        "hint_level_2": "1400年の歴史を誇る無宗派の古刹『信州善光寺 本堂（国宝）・三門（重要文化財）』です。",
+        "spot_name": "善光寺 本堂・三門",
+        "built_year": "本堂1707年（宝永4年）・三門1750年（寛延3年）再建",
+        "architect_note": "鐘を撞くT字型の棒（撞木）のように屋根が組み合わさる「撞木造」の代表作。約108本の柱と約6万枚の檜皮（ひわだ）で葺かれた巨大空間は圧巻。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#593E2E",
+          "accent": "#E6C875",
+          "detail": "#1E1815"
+        },
+        "lat": 36.6617,
+        "lng": 138.1877,
+        "map_query": "信州 善光寺 本堂",
+        "spot_key": "nagano_zenkoji"
+      },
+      {
+        "id": "ngz_02",
+        "position": 2,
+        "spot_key": "nagano_zenkoji_niomon",
+        "title": "高村光雲作の仁王像が守護する「善光寺 仁王門」",
+        "category": "歴史社寺・建築",
+        "sub_category": "大正木造楼門（高村光雲・米原雲海作仁王像）",
+        "crop_target": "仲見世の入口に立つ「定額山」の扁額と仁王門",
+        "hint_level_1": "善光寺仲見世通りの入口に立つ大きな木造の門。左右に安置された迫力ある仁王像と裏面の三宝荒神も見どころ。",
+        "hint_level_2": "1918年再建の表玄関『善光寺 仁王門・仲見世』です。",
+        "spot_name": "善光寺 仁王門・仲見世",
+        "built_year": "1918年（大正7年）再建",
+        "architect_note": "彫刻界の巨匠・高村光雲と米原雲海による阿吽の仁王像が睨みを利かせる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 36.6596,
+        "lng": 138.1877,
+        "map_query": "善光寺 仁王門"
+      },
+      {
+        "id": "ngz_03",
+        "position": 3,
+        "spot_key": "nagano_zenkoji_daikanjin",
+        "title": "天台宗本坊「大勧進」と浄土宗本坊「大本願」の門前伽藍",
+        "category": "歴史社寺・名所",
+        "sub_category": "善光寺本坊・放生池・萬善堂",
+        "crop_target": "放生池の橋越しに見る大勧進の門構えまたは大本願の本堂",
+        "hint_level_1": "善光寺の仁王門から三門へ向かう参道沿いに建つ2つの本坊。天台宗と浄土宗が守り継ぐ格式高い寺院建築を探そう。",
+        "hint_level_2": "善光寺を護持する両本坊『善光寺 大勧進・大本願』です。",
+        "spot_name": "善光寺 大勧進・大本願",
+        "built_year": "江戸〜明治期再建",
+        "architect_note": "善光寺は無宗派の単立寺院で、天台宗の大勧進と浄土宗の大本願が共同で護持している。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.6606,
+        "lng": 138.187,
+        "map_query": "善光寺 大勧進"
+      },
+      {
+        "id": "ngz_04",
+        "position": 4,
+        "spot_key": "nagano_higashiyama_kaii",
+        "title": "谷口吉生が設計した水盤と白磁の「東山魁夷館」",
+        "category": "現代建築",
+        "sub_category": "現代美術館（谷口吉生・宮崎浩設計）",
+        "crop_target": "城山公園の水盤に映る端正な東山魁夷館と善光寺借景の「水辺テラス」",
+        "hint_level_1": "善光寺本堂の東隣、城山公園の中にある美術館。2021年刷新の本館の屋上広場や谷口吉生設計の東山魁夷館を狙おう。",
+        "hint_level_2": "善光寺の堂宇を借景とする『長野県立美術館・東山魁夷館』です。",
+        "spot_name": "長野県立美術館・東山魁夷館",
+        "built_year": "1990年東山魁夷館・2021年本館開館",
+        "architect_note": "東山魁夷館は谷口吉生、本館は宮崎浩（プランツアソシエイツ）設計。「風テラス」からの善光寺の眺めが絶品。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 36.6615,
+        "lng": 138.1912,
+        "map_query": "長野県立美術館 東山魁夷館"
+      },
+      {
+        "id": "ngz_05",
+        "position": 5,
+        "spot_key": "nagano_patio_daimon",
+        "title": "明治・大正の土蔵を再生した門前町の蔵広場「ぱてぃお大門」",
+        "category": "歴史街並み・再生",
+        "sub_category": "土蔵造り商業再生空間",
+        "crop_target": "白壁土蔵と黒瓦が連なる中庭（パティオ）の蔵店舗群",
+        "hint_level_1": "善光寺のすぐ南（大門町）にある、歴史的な土蔵や町家をリノベーションした中庭付きのおしゃれな商店街へ。",
+        "hint_level_2": "蔵造りの建物が集まる『ぱてぃお大門 蔵楽庭』です。",
+        "spot_name": "ぱてぃお大門（蔵楽庭）",
+        "built_year": "明治〜大正期の蔵群（2005年再生）",
+        "architect_note": "江戸〜昭和の商家に残っていた土蔵を活かし、門前町の新しい賑わい空間として再生された。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 36.6562,
+        "lng": 138.1869,
+        "map_query": "ぱてぃお大門 長野"
+      },
+      {
+        "id": "ngz_06",
+        "position": 6,
+        "spot_key": "nagano_fujiya_gohonjin",
+        "title": "アール・デコ様式と和の趣が融合した老舗旅館「藤屋御本陣」",
+        "category": "大正建築",
+        "sub_category": "アール・デコ様式鉄筋コンクリート造（登録有形文化財）",
+        "crop_target": "正面2階の連続アーチ窓とテラコッタ装飾の洋風ファサード",
+        "hint_level_1": "善光寺大門交差点の角に建つ、江戸時代から続く加賀藩本陣跡の老舗。大正14年築のモダンな洋館外観を切り取ろう。",
+        "hint_level_2": "現在はレストラン・ウェディング施設として愛される『THE FUJIYA GOHONJIN』です。",
+        "spot_name": "THE FUJIYA GOHONJIN（旧藤屋旅館）",
+        "built_year": "1925年（大正14年）",
+        "architect_note": "大正期の和風旅館を洋風に改築した登録有形文化財。善光寺表参道のランドマーク的存在。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 36.6566,
+        "lng": 138.1873,
+        "map_query": "藤屋御本陣 長野"
+      },
+      {
+        "id": "ngz_07",
+        "position": 7,
+        "spot_key": "nagano_nishinomon_yoshinoya",
+        "title": "善光寺西隣に続く酒蔵・味噌蔵の歴史的町並み「西之門よしのや」",
+        "category": "歴史街並み",
+        "sub_category": "江戸〜明治酒造・蔵造り建築",
+        "crop_target": "白壁土蔵と杉玉が吊るされた「よしのや」の門構え",
+        "hint_level_1": "善光寺大勧進のすぐ西側。寛永年間創業の酒蔵・味噌蔵が並ぶ風情ある一角で、杉玉と歴史的な蔵を切り取ろう。",
+        "hint_level_2": "善光寺参拝と合わせて立ち寄りたい『西之門 よしのや』です。",
+        "spot_name": "西之門 よしのや（酒蔵・味噌蔵）",
+        "built_year": "1637年（寛永14年）創業",
+        "architect_note": "伝統的な木造酒蔵が立ち並び、利き酒や味噌ソフトなどを楽しみながら門前町の歴史を感じられる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#1C2420"
+        },
+        "lat": 36.6592,
+        "lng": 138.1856,
+        "map_query": "西之門よしのや"
+      },
+      {
+        "id": "ngz_08",
+        "position": 8,
+        "spot_key": "nagano_saikohji_karukayasan",
+        "title": "中央通り沿いに佇む「かるかや山」と明治の看板建築群",
+        "category": "歴史社寺・街並み",
+        "sub_category": "門前町の古刹と看板建築（往生寺／西光寺）",
+        "crop_target": "表参道沿いの「かるかや山 西光寺」の山門と周辺の木造商家",
+        "hint_level_1": "長野駅から善光寺へ向かう中央通りの途中（北石堂町）。石堂・刈萱道心伝説で名高いお寺の門前を狙おう。",
+        "hint_level_2": "善光寺参りの途中に必ず通りかかる『かるかや山 西光寺』です。",
+        "spot_name": "かるかや山 西光寺",
+        "built_year": "鎌倉初期創建伝承",
+        "architect_note": "絵解き説法で知られる古刹。周辺の中央通り沿いには大正・昭和の看板建築も点在する。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 36.6479,
+        "lng": 138.1864,
+        "map_query": "西光寺 かるかや山 長野"
+      },
+      {
+        "id": "ngz_09",
+        "position": 9,
+        "spot_key": "nagano_station_zenkoji_gate",
+        "title": "門前町の伝統木組みを現代に翻訳した「JR長野駅 善光寺口」",
+        "category": "現代建築・駅舎",
+        "sub_category": "木質列柱大庇（2015年リニューアル）",
+        "crop_target": "信州杉を使った列柱と大庇が連なるJR長野駅善光寺口外観",
+        "hint_level_1": "散策のスタートまたはゴール地点。12本の大きな木柱が門前町の列柱廊のように並ぶ駅舎の正面を見上げよう。",
+        "hint_level_2": "北陸新幹線金沢延伸時に一新された『JR長野駅 善光寺口大庇』です。",
+        "spot_name": "JR長野駅 善光寺口（大庇・列柱）",
+        "built_year": "2015年（平成27年）完成",
+        "architect_note": "善光寺の門前町にふさわしい「門前大庇」をコンセプトに、地元長野県産スギ材をふんだんに用いて設計された。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#D9C5A0",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.6431,
+        "lng": 138.1886,
+        "map_query": "長野駅 善光寺口"
+      }
+    ]
+  },
+  {
+    "id": "koshinetsu_matsumoto_castle_walk",
+    "region_group": "甲信越",
+    "prefecture_group": "長野",
+    "tour_type": "walk",
+    "title": "松本城・旧開智学校・中町通り 徒歩散策",
+    "subtitle": "MATSUMOTO CASTLE & HERITAGE WALK",
+    "region": "長野県松本市・JR松本駅〜松本城〜中町〜あがたの森",
+    "difficulty": "★☆☆（散策目安：約2.5時間・完全徒歩）",
+    "era_focus": "戦国〜現代",
+    "description": "JR松本駅からすべて徒歩圏内で巡れる城下町コース。黒漆塗りの国宝松本城、擬洋風の旧開智学校・旧司祭館、なまこ壁の中町通り、草間彌生の松本市美術館まで約2時間半で歩きます。",
+    "theme_color": "#1E2631",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "MTW",
+    "area_map_query": "松本城 旧開智学校 中町通り 松本市美術館",
+    "cells": [
+      {
+        "id": "mtw_01",
+        "position": 1,
+        "title": "北アルプスを背に水堀へ映る「漆黒の下見板」と朱塗りの月見櫓",
+        "category": "歴史建築・城郭",
+        "sub_category": "五重六階連結複合式層塔型天守（国宝）",
+        "crop_target": "白漆喰と黒漆塗りの下見板が重なる五重の大天守と朱色の高欄",
+        "hint_level_1": "松本市の中心。現存する五重天守としては日本最古を誇り、黒い下見板と白い漆喰のコントラストが水堀に映える国宝の名城を切り取ろう！",
+        "hint_level_2": "戦国期の黒塗りの大天守と、泰平の世に増築された朱塗り高欄の月見櫓が連なる国宝『松本城』です。",
+        "spot_name": "国宝 松本城 大天守・月見櫓",
+        "built_year": "1593〜1594年（文禄2〜3年）頃築造",
+        "architect_note": "石川数正・康長父子が築いた黒づくめの重厚な戦国天守に、江戸初期の寛永年間に優雅な「辰巳附櫓・月見櫓」が増築され、戦と平和の二面性を備える唯一無二の城郭建築。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#1B2430",
+          "accent": "#FAF6EE",
+          "detail": "#9E2A2B"
+        },
+        "lat": 36.2386,
+        "lng": 137.9689,
+        "map_query": "国宝 松本城",
+        "spot_key": "matsumoto_castle"
+      },
+      {
+        "id": "mtw_02",
+        "position": 2,
+        "title": "雲と瑞光の上で「二人の天使」が校章を掲げる八角塔屋の学舎",
+        "category": "明治建築",
+        "sub_category": "擬洋風木造学校建築（国宝）",
+        "crop_target": "正面バルコニー上の『開智学校』看板を支えるエンジェル彫刻と八角塔屋",
+        "hint_level_1": "松本城の北側。屋根の上に風見鶏付きの八角塔屋がそびえ、玄関バルコニーの上で「2人のキューピッド（天使）」が学校名の看板を掲げている明治の校舎を探そう。",
+        "hint_level_2": "近代学校建築として初めて国宝に指定された『旧開智学校校舎』です。",
+        "spot_name": "旧開智学校校舎",
+        "built_year": "1876年（明治9年）",
+        "architect_note": "地元の大工棟梁・立石清重が設計施工。寺社建築の唐破風と西洋の八角塔・ギヤマン（色ガラス）を大胆に融合させた明治擬洋風建築の最高傑作。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#5C80BC",
+          "accent": "#FAF6EE",
+          "detail": "#B5893E"
+        },
+        "lat": 36.2435,
+        "lng": 137.9673,
+        "map_query": "旧開智学校校舎",
+        "spot_key": "matsumoto_kaichi_school"
+      },
+      {
+        "id": "mtw_03",
+        "position": 3,
+        "title": "赤い屋根と白の下見板にベランダが巡る明治の宣教師館",
+        "category": "明治建築",
+        "sub_category": "アーリーアメリカン様式洋館（長野県宝）",
+        "crop_target": "白い下見板外壁に映える緑の鎧戸（よろいど）と1・2階のベランダ列柱",
+        "hint_level_1": "旧開智学校のすぐ隣。外国人宣教師が自ら設計して建てた、赤い屋根と白い板壁、緑の窓枠が絵本のように可愛らしい明治の西洋館を狙おう。",
+        "hint_level_2": "明治22年に建てられた県内最古の純西洋館『松本市旧司祭館』です。",
+        "spot_name": "松本市旧司祭館",
+        "built_year": "1889年（明治22年）",
+        "architect_note": "フランス人宣教師クレマン神父の設計。1階と2階の南面に吹き抜けのベランダを設け、室内には暖炉を備える初期洋風住宅の好例。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8C3B2B",
+          "accent": "#FAF6EE",
+          "detail": "#3B7A6C"
+        },
+        "lat": 36.2431,
+        "lng": 137.9669,
+        "map_query": "松本市旧司祭館",
+        "spot_key": "matsumoto_old_priest_house"
+      },
+      {
+        "id": "mtw_04",
+        "position": 4,
+        "title": "白と黒の幾何学模様が連なる城下町の「なまこ壁」土蔵通り",
+        "category": "明治・大正建築",
+        "sub_category": "土蔵造り商家町並み",
+        "crop_target": "黒い平瓦の継ぎ目を白い漆喰で蒲鉾型に盛り上げた『なまこ壁』の連続風景",
+        "hint_level_1": "女鳥羽川の南側、旧善光寺街道沿い。大火から街を守るために造られた、白と黒の格子模様「なまこ壁」の土蔵がずらりと並ぶ通りを歩こう。",
+        "hint_level_2": "民芸の街・松本を象徴する『中町通りの土蔵造り商家群（蔵シック館ほか）』です。",
+        "spot_name": "松本・中町通りのなまこ壁土蔵群",
+        "built_year": "明治中期〜大正期",
+        "architect_note": "明治21年の大火後に防火建築として競って建てられた土蔵群。旧造り酒屋を移築再生した「松本市はかり資料館」や「蔵シック館」などが連なる。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B2D32",
+          "accent": "#FAF6EE",
+          "detail": "#5C4738"
+        },
+        "lat": 36.2335,
+        "lng": 137.9718,
+        "map_query": "松本 中町通り 蔵シック館",
+        "spot_key": "matsumoto_nakamachi"
+      },
+      {
+        "id": "mtw_05",
+        "position": 5,
+        "spot_key": "matsumoto_nawate_yohashira",
+        "title": "カエル像が並ぶ女鳥羽川沿いの「縄手通り」と四柱神社",
+        "category": "観光名所・街並み",
+        "sub_category": "城下町長屋商店街・神社",
+        "crop_target": "縄手通りのカエルモニュメントと四柱神社の大鳥居",
+        "hint_level_1": "松本城と中町通りの間、女鳥羽川沿いに続く歩行者天国の商店街。レトロな長屋とカエルのオブジェを探そう。",
+        "hint_level_2": "「カエルの街」として親しまれる『縄手通り・四柱神社』です。",
+        "spot_name": "縄手通り・四柱神社",
+        "built_year": "1879年（明治12年）四柱神社遷座",
+        "architect_note": "4柱の神を祀ることから「願いごとむすびの神」として信仰される四柱神社と、昭和の長屋風商店街が並ぶ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 36.2351,
+        "lng": 137.9711,
+        "map_query": "縄手通り 松本"
+      },
+      {
+        "id": "mtw_06",
+        "position": 6,
+        "spot_key": "matsumoto_art_museum",
+        "title": "草間彌生の巨大な水玉チューリップ「幻の華」が咲く美術館",
+        "category": "現代建築・観光名所",
+        "sub_category": "宮本忠長設計美術館・野外彫刻",
+        "crop_target": "美術館前に立つ草間彌生作の鮮やかな水玉野外彫刻『幻の華』",
+        "hint_level_1": "松本駅から東へ徒歩約12分。松本出身の現代芸術家・草間彌生さんのカラフルな巨大彫刻が正面に立つ美術館へ。",
+        "hint_level_2": "水玉の自動販売機やベンチも楽しい『松本市美術館』です。",
+        "spot_name": "松本市美術館（幻の華）",
+        "built_year": "2002年（平成14年）開館",
+        "architect_note": "長野県の建築家・宮本忠長が設計。エントランス前の『幻の華』は松本散歩の象徴的フォトスポット。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.2319,
+        "lng": 137.9794,
+        "map_query": "松本市美術館"
+      },
+      {
+        "id": "mtw_07",
+        "position": 7,
+        "spot_key": "matsumoto_agata_no_mori",
+        "title": "ヒマラヤ杉の並木に佇む大正ロマンの木造校舎「旧制松本高校」",
+        "category": "大正建築",
+        "sub_category": "ハーフティンバー風木造校舎（国重要文化財）",
+        "crop_target": "長い廊下と上げ下げ窓が並ぶ大正9年築の本館木造校舎",
+        "hint_level_1": "松本市美術館からさらに東へ徒歩5分。どら焼きやカフェも楽しめる、ヒマラヤ杉並木の公園内の木造校舎を狙おう。",
+        "hint_level_2": "旧制松本高等学校の本館・講堂を保存した『あがたの森文化会館』です。",
+        "spot_name": "あがたの森文化会館（旧制松本高等学校）",
+        "built_year": "1920年（大正9年）",
+        "architect_note": "北杜夫『どくとるマンボウ青春記』の舞台。2018年に国の重要文化財に指定された。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 36.2301,
+        "lng": 137.9838,
+        "map_query": "あがたの森文化会館"
+      },
+      {
+        "id": "mtw_08",
+        "position": 8,
+        "spot_key": "matsumoto_clock_museum",
+        "title": "巨大な振り子時計が目印の「松本市時計博物館」",
+        "category": "観光名所・博物館",
+        "sub_category": "現代建築・古時計コレクション",
+        "crop_target": "女鳥羽川近くに建つ博物館外壁の巨大な振り子時計",
+        "hint_level_1": "中町通りの北側・千歳橋近くを歩くと、建物の壁面に大きな時計の振り子が揺れているユニークな博物館が見つかる。",
+        "hint_level_2": "全国から集められた和時計・洋時計が動く状態で展示される『松本市時計博物館』です。",
+        "spot_name": "松本市時計博物館",
+        "built_year": "2002年（平成14年）開館",
+        "architect_note": "本田親蔵氏のコレクションを中心に約110点の古時計を動態展示。毎正時の時報の音色も魅力。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#F2D06B",
+          "detail": "#1B3042"
+        },
+        "lat": 36.2349,
+        "lng": 137.9737,
+        "map_query": "松本市時計博物館"
+      },
+      {
+        "id": "mtw_09",
+        "position": 9,
+        "spot_key": "matsumoto_fukashi_shrine",
+        "title": "城下町の南の守護・彫刻鮮やかな「深志神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "松本総鎮守・天神様",
+        "crop_target": "朱塗りの随神門と本殿・境内の梅の木",
+        "hint_level_1": "中町通りから南へ徒歩5分。室町時代に創建され、松本の総鎮守として親しまれる天神様をお参りしよう。",
+        "hint_level_2": "7月の「天神祭」の山車奉納でも有名な『深志神社』です。",
+        "spot_name": "深志神社",
+        "built_year": "1339年（暦応2年）創建伝承",
+        "architect_note": "松本城主・小笠原氏や戸田氏の崇敬を受けた古社。境内には歴史的建造物や歌碑も多い。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 36.2297,
+        "lng": 137.9718,
+        "map_query": "深志神社 松本"
+      }
+    ]
+  },
+  {
+    "id": "koshinetsu_karuizawa_old_walk",
+    "region_group": "甲信越",
+    "prefecture_group": "長野",
+    "tour_type": "walk",
+    "title": "旧軽井沢・万平ホテル〜旧三笠ホテル散策",
+    "subtitle": "OLD KARUIZAWA HERITAGE WALK",
+    "region": "長野県軽井沢町・JR軽井沢駅〜旧軽井沢〜雲場池",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・徒歩＆町内循環バス/レンタサイクルも可）",
+    "era_focus": "明治〜昭和初期",
+    "description": "北陸新幹線・軽井沢駅から雲場池、旧軽井沢銀座、レーモンドの聖パウロ教会、ショー記念礼拝堂、万平ホテル、旧三笠ホテルまで高原の避暑地建築を巡ります。",
+    "theme_color": "#2E4F3E",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "KRZ",
+    "area_map_query": "旧三笠ホテル 軽井沢聖パウロカトリック教会 万平ホテル 雲場池",
+    "cells": [
+      {
+        "id": "krz_01",
+        "position": 1,
+        "title": "「軽井沢の鹿鳴館」と謳われた八角塔屋と連続ブラケットの木造ホテル",
+        "category": "明治建築",
+        "sub_category": "アメリカン・スティックスタイル洋館（重要文化財）",
+        "crop_target": "白い下見板外壁を彩る幾何学的な窓枠・手すりと中央の八角形塔屋",
+        "hint_level_1": "軽井沢のカラマツ並木を抜けた先。日本人の設計・施工による純西洋式木造ホテルとして明治38年に開業し、政財界人や文豪が集った白とグレーの優美な洋館を探そう。",
+        "hint_level_2": "重要文化財『旧三笠ホテル』です。",
+        "spot_name": "旧三笠ホテル",
+        "built_year": "1905年（明治38年）",
+        "architect_note": "岡田時太郎が設計、佐藤万平が施工監督。軒下の曲線方杖（ブラケット）や2階ベランダのバラスター（手すり子）など、軽井沢の洋館文化の原点となった名建築。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A6B5D",
+          "accent": "#FAF6EE",
+          "detail": "#2B3A35"
+        },
+        "lat": 36.3694,
+        "lng": 138.6272,
+        "map_query": "軽井沢 旧三笠ホテル",
+        "spot_key": "karuizawa_mikasa_hotel"
+      },
+      {
+        "id": "krz_02",
+        "position": 2,
+        "title": "カラマツ林に佇む三角屋根と杉皮張りの尖塔教会",
+        "category": "昭和初期建築",
+        "sub_category": "アントニン・レーモンド設計・木造教会（米国建築家協会賞）",
+        "crop_target": "急勾配の切り妻屋根と青銅の風見鶏が乗る四面傾斜の鐘楼塔",
+        "hint_level_1": "旧軽井沢銀座の近く。スロバキアの民家建築をモチーフに、栗の木の構造材や杉皮を使って建てられた、急勾配の三角屋根と尖塔が美しい木造教会を探そう。",
+        "hint_level_2": "堀辰雄の小説にも登場する、アントニン・レーモンド設計の『軽井沢聖パウロカトリック教会』です。",
+        "spot_name": "軽井沢聖パウロカトリック教会",
+        "built_year": "1935年（昭和10年）",
+        "architect_note": "近代建築の巨匠アントニン・レーモンドの代表作。内部は丸太のシザーストラス（鋏状トラス）がむき出しになった温かみのある祈りの空間。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DEC8",
+          "detail": "#2D4739"
+        },
+        "lat": 36.3579,
+        "lng": 138.6344,
+        "map_query": "軽井沢聖パウロカトリック教会",
+        "spot_key": "karuizawa_st_paul"
+      },
+      {
+        "id": "krz_03",
+        "position": 3,
+        "spot_key": "karuizawa_shaw_chapel",
+        "title": "軽井沢避暑地の原点・宣教師ショーが建てた木造教会",
+        "category": "明治建築",
+        "sub_category": "木造教会建築（明治28年）",
+        "crop_target": "木立の中に佇む下見板張りの素朴な礼拝堂と木製十字架",
+        "hint_level_1": "旧軽井沢銀座通りの奥、つるや旅館のさらに北側。避暑地・軽井沢の父と呼ばれる宣教師A.C.ショーゆかりの教会へ。",
+        "hint_level_2": "軽井沢最古の教会『軽井沢ショー記念礼拝堂』です。",
+        "spot_name": "軽井沢ショー記念礼拝堂",
+        "built_year": "1895年（明治28年）",
+        "architect_note": "軽井沢を避暑地として世界に紹介したA.C.ショーの記念礼拝堂。隣には復元されたショーハウス記念館もある。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 36.3607,
+        "lng": 138.6368,
+        "map_query": "軽井沢ショー記念礼拝堂"
+      },
+      {
+        "id": "krz_04",
+        "position": 4,
+        "spot_key": "karuizawa_mampei_hotel",
+        "title": "ジョン・レノンも愛した和洋折衷の老舗「万平ホテル」",
+        "category": "昭和初期建築",
+        "sub_category": "ハーフティンバー様式クラシックホテル（登録有形文化財）",
+        "crop_target": "唐破風風の車寄せとハーフティンバーのアルプス館外観",
+        "hint_level_1": "旧軽井沢から桜並木を西へ徒歩約10分。2024年に大規模改修を終えて蘇った、日本を代表するクラシックホテルへ。",
+        "hint_level_2": "1894年創業の名門『万平ホテル（アルプス館）』です。",
+        "spot_name": "万平ホテル（アルプス館）",
+        "built_year": "1936年（昭和11年）アルプス館竣工",
+        "architect_note": "久米権九郎の設計。和の社寺建築意匠と西洋のハーフティンバーが見事に融合した避暑地建築の金字塔。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 36.3574,
+        "lng": 138.6285,
+        "map_query": "万平ホテル 軽井沢"
+      },
+      {
+        "id": "krz_05",
+        "position": 5,
+        "spot_key": "karuizawa_kumoba_pond",
+        "title": "木々の緑や紅葉を鏡のように映し出す「雲場池」",
+        "category": "風景・自然名所",
+        "sub_category": "別荘地水辺景観（スワンレイク）",
+        "crop_target": "水鏡のように周囲のカラマツやモミジを映す細長い池",
+        "hint_level_1": "軽井沢駅と旧軽井沢の中間、六本辻からほど近い森の中の池。一周約20分の遊歩道から穏やかな水面を切り取ろう。",
+        "hint_level_2": "かつて「スワンレイク」とも呼ばれた『雲場池』です。",
+        "spot_name": "雲場池",
+        "built_year": "大正期造成・通年景勝地",
+        "architect_note": "御膳水と呼ばれる湧水を源とする美しい池。新緑、夏、紅葉、雪景色と四季を通じて絵になる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.3526,
+        "lng": 138.6258,
+        "map_query": "雲場池 軽井沢"
+      },
+      {
+        "id": "krz_06",
+        "position": 6,
+        "spot_key": "karuizawa_ginza_dori",
+        "title": "明治の外国人避暑客で賑わった「旧軽井沢銀座通り」",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的避暑地商店街",
+        "crop_target": "レトロな看板や老舗ベーカリー「浅野屋」「フランスベーカリー」の街並み",
+        "hint_level_1": "旧軽井沢ロータリーから約750m続くメインストリート。老舗のパン屋やジャム店、写真館が並ぶ華やかな通りを歩こう。",
+        "hint_level_2": "避暑地文化が息づく『旧軽井沢銀座通り』です。",
+        "spot_name": "旧軽井沢銀座通り",
+        "built_year": "江戸中山道宿場〜明治避暑地商店街",
+        "architect_note": "元は中山道の宿場町・軽井沢宿。明治以降に宣教師や文化人のための洋風商店が立ち並んだ。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#7A4E3A",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 36.358,
+        "lng": 138.6347,
+        "map_query": "旧軽井沢銀座通り"
+      },
+      {
+        "id": "krz_07",
+        "position": 7,
+        "spot_key": "karuizawa_muroo_saisei",
+        "title": "文豪・室生犀星が晩年まで夏を過ごした苔庭の別荘",
+        "category": "昭和初期建築",
+        "sub_category": "文豪木造別荘（軽井沢町指定文化財）",
+        "crop_target": "一面の美しい苔庭と素朴な木造平屋建ての別荘縁側",
+        "hint_level_1": "旧軽井沢の別荘地の中、矢ケ崎川沿いの小道にひっそりと建つ、詩人・小説家 室生犀星の旧居を訪ねよう。",
+        "hint_level_2": "『杏っ子』などを執筆した『室生犀星記念館』です。",
+        "spot_name": "室生犀星記念館",
+        "built_year": "1931年（昭和6年）",
+        "architect_note": "犀星自身が造り上げた美しい苔庭が見事。無料で公開されており（冬期休館あり）、文豪の息吹を感じられる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1C2420"
+        },
+        "lat": 36.3545,
+        "lng": 138.6344,
+        "map_query": "室生犀星記念館 軽井沢"
+      },
+      {
+        "id": "krz_08",
+        "position": 8,
+        "spot_key": "karuizawa_suwa_shrine",
+        "title": "旧軽井沢の森に鎮座する古社「軽井沢諏訪神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "旧軽井沢鎮守社・大木林",
+        "crop_target": "苔むした石灯籠と杉・ケヤキの大木に囲まれた拝殿",
+        "hint_level_1": "旧軽井沢銀座のすぐ脇道、テニスコート通り近くに鎮座する静かな神社。巨大な御神木に圧倒されよう。",
+        "hint_level_2": "8月の例大祭でも賑わう『軽井沢諏訪神社』です。",
+        "spot_name": "軽井沢諏訪神社",
+        "built_year": "江戸時代以前創建",
+        "architect_note": "旧軽井沢宿の産土神。喧騒を離れて樹齢数百年ともいわれる巨木群の中で森林浴を楽しめる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E4F3E",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.3568,
+        "lng": 138.6335,
+        "map_query": "軽井沢諏訪神社"
+      },
+      {
+        "id": "krz_09",
+        "position": 9,
+        "spot_key": "karuizawa_old_station",
+        "title": "明治43年築の軽井沢駅旧駅舎を復元した貴賓室記念館",
+        "category": "明治建築・駅舎",
+        "sub_category": "明治洋風木造駅舎復元（旧軽井沢駅舎記念館）",
+        "crop_target": "新幹線駅北口横に建つレトロな水色と白の旧軽井沢駅舎",
+        "hint_level_1": "JR軽井沢駅北口のすぐ横（東側）に保存・復元されている、かつての信越本線時代の洋風駅舎を狙おう。",
+        "hint_level_2": "皇室も利用した貴賓室を伝える『旧軽井沢駅舎記念館』です。",
+        "spot_name": "旧軽井沢駅舎記念館（JR軽井沢駅北口）",
+        "built_year": "1910年（明治43年）築（1997年復元）",
+        "architect_note": "現在はしなの鉄道の駅舎口としても活用されており、明治の避暑地鉄道旅のロマンを感じさせる。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#3A6EA5",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 36.3426,
+        "lng": 138.6353,
+        "map_query": "旧軽井沢駅舎記念館"
+      }
+    ]
+  },
+  {
+    "id": "koshinetsu_kofu_central_walk",
+    "region_group": "甲信越",
+    "prefecture_group": "山梨",
+    "tour_type": "walk",
+    "title": "甲府城・藤村記念館〜武田神社 散策",
+    "subtitle": "KOFU CASTLE & TAKEDA SHRINE WALK",
+    "region": "山梨県甲府市・JR甲府駅〜舞鶴城公園〜武田神社",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・徒歩＋路線バス）",
+    "era_focus": "戦国〜大正",
+    "description": "JR甲府駅周辺にまとまった甲府城跡（舞鶴城公園）、甲州夢小路、藤村式擬洋風建築の藤村記念館、そして駅からバス約8分の武田神社を巡る甲斐の歴史散歩。",
+    "theme_color": "#4A2C2A",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "KFW",
+    "area_map_query": "甲府城跡 武田神社 藤村記念館 甲州夢小路",
+    "cells": [
+      {
+        "id": "kfw_01",
+        "position": 1,
+        "title": "400年前の野面積み高石垣と白漆喰が輝く「鉄門（くろがねもん）」",
+        "category": "歴史建築・城郭",
+        "sub_category": "野面積み石垣＆復元櫓門（国指定史跡）",
+        "crop_target": "自然石を積み上げた勇壮な野面積み石垣と二層の『鉄門（くろがねもん）』",
+        "hint_level_1": "甲府駅のすぐ南側。武田氏滅亡後に豊臣秀吉の命で築かれた城跡で、重機のない時代に巨石を巧みに噛み合わせた「野面積み」の高石垣と白い二層櫓門を見上げよう！",
+        "hint_level_2": "天守台から富士山と甲府盆地を一望できる『甲府城跡（舞鶴城公園）天守台と鉄門・稲荷櫓』です。",
+        "spot_name": "甲府城跡（舞鶴城公園）天守台・鉄門",
+        "built_year": "1590年代築城・2013年鉄門復元",
+        "architect_note": "穴太衆（あのうしゅう）の技術を伝える初期の野面積み石垣が現存。天守台直下の本丸入口を固める「鉄門」は発掘調査と古絵図に基づき伝統工法で木造復元された。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#4A5568",
+          "accent": "#FAF6EE",
+          "detail": "#2D3748"
+        },
+        "lat": 35.6644,
+        "lng": 138.5711,
+        "map_query": "甲府城 舞鶴城公園 鉄門",
+        "spot_key": "kofu_castle"
+      },
+      {
+        "id": "kfw_02",
+        "position": 2,
+        "title": "「人は城、人は石垣」武田信玄公の館跡を守る水堀と伊東忠太設計の社殿",
+        "category": "大正建築・社寺",
+        "sub_category": "伊東忠太設計・流造社殿＆戦国館跡（国指定史跡）",
+        "crop_target": "水堀に架かる朱塗りの『神橋』と檜皮葺きの拝殿・館跡の石垣",
+        "hint_level_1": "甲府駅の北へまっすぐ伸びる武田通りの突き当たり。武田信玄公の本拠地「躑躅ヶ崎館（つつじがさきやかた）」の堀と石垣に囲まれ、伊東忠太が設計した風格ある神社を参拝しよう。",
+        "hint_level_2": "日本100名城の筆頭にも挙げられる『武田神社（躑躅ヶ崎館跡）』です。",
+        "spot_name": "武田神社（国指定史跡 躑躅ヶ崎館跡）",
+        "built_year": "1519年館築造・1919年（大正8年）武田神社創建",
+        "architect_note": "戦国大名・武田三代（信虎・信玄・勝頼）が60年間にわたり政務を執った居館跡。大正8年創建の社殿は建築界の泰斗・伊東忠太博士による設計。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#8C2D19",
+          "accent": "#D4AF37",
+          "detail": "#1E2D24"
+        },
+        "lat": 35.6869,
+        "lng": 138.5775,
+        "map_query": "甲府 武田神社",
+        "spot_key": "kofu_takeda_shrine"
+      },
+      {
+        "id": "kfw_03",
+        "position": 3,
+        "title": "宝形屋根の上に六角形の「太鼓楼」を載せた白亜の藤村式学校",
+        "category": "明治建築",
+        "sub_category": "藤村式擬洋風建築（国の重要文化財）",
+        "crop_target": "正方形の白漆喰2階建て校舎と、屋根の頂部にそびえる六角形の太鼓楼",
+        "hint_level_1": "JR甲府駅の北口広場。明治初期の山梨県令・藤村紫朗が奨励した「藤村式建築」の代表作で、サイコロのような白い2階建ての上に六角形の望楼が乗った可愛らしい校舎を探そう。",
+        "hint_level_2": "国の重要文化財『旧睦沢（むつざわ）学校校舎（藤村記念館）』です。",
+        "spot_name": "旧睦沢学校校舎（藤村記念館）",
+        "built_year": "1875年（明治8年）",
+        "architect_note": "下見板張りに白漆喰のコーナー柱、2階正面のベランダ、そして屋根上の太鼓楼という山梨独自の「藤村式」擬洋風デザインを今に伝える名建築。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#3A506B",
+          "accent": "#FAF6EE",
+          "detail": "#B5893E"
+        },
+        "lat": 35.6675,
+        "lng": 138.5688,
+        "map_query": "甲府 藤村記念館 旧睦沢学校",
+        "spot_key": "kofu_fujimura_kinenkan"
+      },
+      {
+        "id": "kfw_04",
+        "position": 4,
+        "spot_key": "kofu_koshu_yumekoji",
+        "title": "明治〜昭和初期の甲府城下町を再現した「甲州夢小路」",
+        "category": "観光名所・街並み",
+        "sub_category": "レトロ町家＆時の鐘再現エリア",
+        "crop_target": "石畳の小路に建つ黒漆喰の「時の鐘」と明治館",
+        "hint_level_1": "JR甲府駅北口のすぐ東側。明治の洋風建築や蔵、江戸時代の「時の鐘」が復元されたレトロな散策エリアへ。",
+        "hint_level_2": "甲府駅北口の定番スポット『甲州夢小路（時の鐘）』です。",
+        "spot_name": "甲州夢小路（時の鐘・明治館）",
+        "built_year": "2013年（平成25年）整備",
+        "architect_note": "明治・大正・昭和初期の甲府の街並みを再現。ワインや甲州印伝、カフェなどお土産探しにも最適。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 35.6672,
+        "lng": 138.5706,
+        "map_query": "甲州夢小路"
+      },
+      {
+        "id": "kfw_05",
+        "position": 5,
+        "spot_key": "kofu_shingen_statue",
+        "title": "JR甲府駅南口で街を見守る「武田信玄公像」",
+        "category": "観光名所・像",
+        "sub_category": "駅前モニュメント（川中島合戦陣中姿）",
+        "crop_target": "軍配を握り座す勇壮な武田信玄公のブロンズ像",
+        "hint_level_1": "JR甲府駅南口広場に出るとすぐ目に飛び込んでくる、高さ約3.1mの巨大な武将の銅像を切り取ろう。",
+        "hint_level_2": "甲府のシンボル『JR甲府駅南口 武田信玄公銅像』です。",
+        "spot_name": "JR甲府駅南口 武田信玄公之像",
+        "built_year": "1969年（昭和44年）建立",
+        "architect_note": "彫刻家・北村西望門下の小森邦夫らによる制作。台座を含めると高さ6mを超える迫力。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#D4AF37",
+          "detail": "#8F3A2B"
+        },
+        "lat": 35.6661,
+        "lng": 138.5688,
+        "map_query": "武田信玄公像 甲府駅"
+      },
+      {
+        "id": "kfw_06",
+        "position": 6,
+        "spot_key": "kofu_onshirin_kinenkan",
+        "title": "舞鶴城公園内に建つ明治天皇御下賜記念の洋風木造庁舎",
+        "category": "大正建築",
+        "sub_category": "和洋折衷木造庁舎（山梨県指定有形文化財）",
+        "crop_target": "白い下見板張りの外壁と三角破風・寄せ棟屋根の外観",
+        "hint_level_1": "甲府城跡（舞鶴城公園）の西側広場に建つ、大正8年築の白亜の木造洋風建築を見に行こう。",
+        "hint_level_2": "山梨県の林業と自然を伝える『恩賜林記念館』です。",
+        "spot_name": "恩賜林記念館（舞鶴城公園）",
+        "built_year": "1919年（大正8年）",
+        "architect_note": "明治天皇からの御料林下賜を記念して建設。甲府城跡の散策と合わせて見学できる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6648,
+        "lng": 138.5702,
+        "map_query": "恩賜林記念館 甲府"
+      },
+      {
+        "id": "kfw_07",
+        "position": 7,
+        "spot_key": "kofu_shaonhi",
+        "title": "甲府城跡にそびえる高さ18.5mの巨大なオベリスク「謝恩碑」",
+        "category": "大正建築・記念碑",
+        "sub_category": "花崗岩製オベリスク（妻木頼黄関与・登録有形文化財）",
+        "crop_target": "空へ真っ直ぐ伸びる白い花崗岩の巨大記念塔",
+        "hint_level_1": "舞鶴城公園の天守台近く、広場の中央に立つ非常に背の高い白い石塔を切り取ろう。",
+        "hint_level_2": "大正9年建立の国登録有形文化財『謝恩碑（舞鶴城公園）』です。",
+        "spot_name": "謝恩碑（舞鶴城公園）",
+        "built_year": "1920年（大正9年）",
+        "architect_note": "恩賜県有財産の下賜への感謝を込めて建てられた、日本有数の規模を誇る花崗岩のオベリスク。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6644,
+        "lng": 138.5712,
+        "map_query": "謝恩碑 舞鶴城公園"
+      },
+      {
+        "id": "kfw_08",
+        "position": 8,
+        "spot_key": "kofu_jewelry_museum",
+        "title": "日本一のジュエリー産地・山梨の技が集う「山梨ジュエリーミュージアム」",
+        "category": "観光名所・博物館",
+        "sub_category": "地場産業ミュージアム（防災新館内）",
+        "crop_target": "舞鶴城公園西側の近代的な防災新館と1階ミュージアム入口",
+        "hint_level_1": "甲府駅から舞鶴城公園へ向かう途中、県庁の南隣にあるガラス張りの建物「やまなしプラザ（防災新館）」の1階へ。",
+        "hint_level_2": "入館無料で水晶・宝石文化を学べる『山梨ジュエリーミュージアム』です。",
+        "spot_name": "山梨ジュエリーミュージアム",
+        "built_year": "2013年（平成25年）開館",
+        "architect_note": "甲府は水晶研磨・宝飾加工で日本一の集積地。職人による実演や体験コーナーも人気。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#F2D06B",
+          "detail": "#13293D"
+        },
+        "lat": 35.6637,
+        "lng": 138.5678,
+        "map_query": "山梨ジュエリーミュージアム"
+      },
+      {
+        "id": "kfw_09",
+        "position": 9,
+        "spot_key": "kofu_kai_zenkoji",
+        "title": "武田信玄公が川中島合戦の折に創建した東日本最大級の木造本堂",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸時代撞木造本堂（国重要文化財）",
+        "crop_target": "金堂（本堂）の壮大な檜皮葺屋根と山門",
+        "hint_level_1": "JR甲府駅から身延線（またはバス）ですぐの善光寺町。信玄公が信濃善光寺の御本尊を遷して建立した名刹へ。",
+        "hint_level_2": "日本一の鳴き龍でも知られる重要文化財『甲斐善光寺』です。",
+        "spot_name": "甲斐善光寺（金堂・山門）",
+        "built_year": "1796年（寛政8年）現本堂再建",
+        "architect_note": "信濃善光寺の焼失を恐れた武田信玄が1558年に創建。重要文化財の金堂は撞木造りの壮麗な建築。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6578,
+        "lng": 138.5914,
+        "map_query": "甲斐善光寺"
+      }
+    ]
+  },
+  {
+    "id": "koshinetsu_niigata_central_walk",
+    "region_group": "甲信越",
+    "prefecture_group": "新潟",
+    "tour_type": "walk",
+    "title": "新潟・萬代橋〜みなとぴあ〜古町花街散策",
+    "subtitle": "NIIGATA BANDAI BRIDGE & FURUMACHI WALK",
+    "region": "新潟県新潟市・JR新潟駅〜萬代橋〜みなとぴあ〜古町",
+    "difficulty": "★★☆（散策目安：約2.5時間・循環バス＋徒歩）",
+    "era_focus": "明治〜現代",
+    "description": "新潟駅前から新潟市観光循環バスと徒歩で巡る港町コース。重要文化財の萬代橋、旧新潟税関庁舎（みなとぴあ）、旧齋藤家別邸、新潟県政記念館、朱鷺メッセ展望室を巡ります。",
+    "theme_color": "#22384D",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "NGW",
+    "area_map_query": "萬代橋 旧新潟税関庁舎 旧齋藤家別邸 新潟県政記念館",
+    "cells": [
+      {
+        "id": "ngw_01",
+        "position": 1,
+        "title": "日本一の大河・信濃川に優美な弧を描く御影石の6連アーチ橋",
+        "category": "昭和初期建築",
+        "sub_category": "鉄筋コンクリート造6連アーチ橋（国の重要文化財）",
+        "crop_target": "花崗岩（御影石）をまとった連続アーチと川面に映る橋のシルエット",
+        "hint_level_1": "新潟市の中心、信濃川に架かる街のシンボル。重厚な御影石（花崗岩）で化粧された6つのアーチが川面に連なる、全長306.9mの美しい石造風アーチ橋を切り取ろう！",
+        "hint_level_2": "1964年の新潟地震でもびくともしなかった国の重要文化財『萬代橋（ばんだいばし）』です。",
+        "spot_name": "萬代橋（三代目）",
+        "built_year": "1929年（昭和4年）",
+        "architect_note": "内務省の福田武雄らが構造設計、山田守が意匠設計に関与。鉄筋コンクリートアーチの表面に重厚な花崗岩を張り、近代都市・新潟の風格を決定づけた名橋。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#2B4C7E",
+          "accent": "#E5E0D8",
+          "detail": "#1A2639"
+        },
+        "lat": 37.9197,
+        "lng": 139.0542,
+        "map_query": "新潟 萬代橋",
+        "spot_key": "niigata_bandai_bridge"
+      },
+      {
+        "id": "ngw_02",
+        "position": 2,
+        "title": "なまこ壁の上にガラス張りの「望楼塔屋」を載せた開港五港の税関",
+        "category": "明治建築",
+        "sub_category": "擬洋風木造庁舎（国の重要文化財）",
+        "crop_target": "白黒のなまこ壁腰壁と、屋根中央にそびえる四角形のガラス張り望楼",
+        "hint_level_1": "信濃川河口のみなとぴあ（新潟市歴史博物館）敷地内。開港五港のひとつ・新潟で明治2年に建てられ、現存する税関庁舎として日本最古を誇る擬洋風建築を探そう。",
+        "hint_level_2": "国の重要文化財『旧新潟税関庁舎』です。",
+        "spot_name": "旧新潟税関庁舎",
+        "built_year": "1869年（明治2年）",
+        "architect_note": "開港当時の運上所（税関）として地元の大工たちが建設。なまこ壁や瓦屋根という日本の伝統技法に、アーチ門やガラス窓の塔屋を組み合わせた最初期の擬洋風建築。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#3A506B",
+          "accent": "#FAF6EE",
+          "detail": "#1C2541"
+        },
+        "lat": 37.9325,
+        "lng": 139.0606,
+        "map_query": "旧新潟税関庁舎",
+        "spot_key": "niigata_old_customs"
+      },
+      {
+        "id": "ngw_03",
+        "position": 3,
+        "title": "砂丘の起伏を活かした滝と紅葉の庭園を座敷から一望する豪商別邸",
+        "category": "大正建築",
+        "sub_category": "近代和風数寄屋建築＆池泉回遊式庭園（国指定名勝）",
+        "crop_target": "開放的な1階大広間の縁側から望む、砂丘斜面を利用した立体的な日本庭園",
+        "hint_level_1": "新潟市中央区西大畑町。新潟三大財閥・齋藤家が迎賓館として築いた別邸で、砂丘の斜面をそのまま借景にした「庭屋一如（ていおくいちにょ）」の名勝庭園を狙おう。",
+        "hint_level_2": "国指定名勝『旧齋藤家別邸』です。",
+        "spot_name": "旧齋藤家別邸",
+        "built_year": "1918年（大正7年）",
+        "architect_note": "東京の庭師・二代松本亀吉らが作庭。柱を極力減らした近代数寄屋の広い開口部から、高低差のある砂丘庭園の滝や茶室がパノラマ画のように広がる。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#2D5A27",
+          "accent": "#D4A359",
+          "detail": "#3E2723"
+        },
+        "lat": 37.9261,
+        "lng": 139.0419,
+        "map_query": "新潟 旧齋藤家別邸",
+        "spot_key": "niigata_saito_villa"
+      },
+      {
+        "id": "ngw_04",
+        "position": 4,
+        "title": "白と黒のハーフティンバーと八角塔屋が気品ある明治16年の県会議事堂",
+        "category": "明治建築",
+        "sub_category": "擬洋風議事堂建築（国の重要文化財）",
+        "crop_target": "正面中央の八角形ドーム塔屋と、白壁に黒の柱型が走るハーフティンバー風外観",
+        "hint_level_1": "新潟市中央区一番堀通町（白山公園近く）。府県会の議事堂として現存する日本最古の木造建築で、白地に黒い柱型が走るモダンな外観と中央のドーム塔屋を見上げよう。",
+        "hint_level_2": "国の重要文化財『新潟県政記念館（旧新潟県会議事堂）』です。",
+        "spot_name": "新潟県政記念館（旧新潟県会議事堂）",
+        "built_year": "1883年（明治16年）",
+        "architect_note": "新潟県雇工師・星野総四郎の設計。イギリス・ゴシックやチューダー様式を意識した外観と、傍聴席が2階をぐるりと囲む吹き抜けの議場空間が素晴らしい。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#EAE4DC",
+          "accent": "#2B2D32",
+          "detail": "#5C4738"
+        },
+        "lat": 37.9169,
+        "lng": 139.0389,
+        "map_query": "新潟県政記念館",
+        "spot_key": "niigata_kensei_kinenkan"
+      },
+      {
+        "id": "ngw_05",
+        "position": 5,
+        "spot_key": "niigata_hoppo_bunka_branch",
+        "title": "豪農・伊藤家が建てた古町界隈の明治別邸",
+        "category": "明治建築",
+        "sub_category": "明治末期木造和風別邸（国登録有形文化財）",
+        "crop_target": "静かな門構えと松・池のある数寄屋風和室・庭園",
+        "hint_level_1": "旧齋藤家別邸のすぐ近く（西大畑町）。越後の大豪農・伊藤家が新潟市内に構えた別邸を探そう。",
+        "hint_level_2": "登録有形文化財の和風建築『北方文化博物館 新潟分館』です。",
+        "spot_name": "北方文化博物館 新潟分館",
+        "built_year": "1894年（明治27年）建築・1902年移築",
+        "architect_note": "越後最大の地主であった伊藤家の別邸。隣接する旧齋藤家別邸・行形亭とともに西大畑の歴史景観をつくる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1C2420"
+        },
+        "lat": 37.9261,
+        "lng": 139.0402,
+        "map_query": "北方文化博物館 新潟分館"
+      },
+      {
+        "id": "ngw_06",
+        "position": 6,
+        "spot_key": "niigata_enkikan_hakusan",
+        "title": "白山公園に佇む明治の迎賓館「燕喜館」と総鎮守・白山神社",
+        "category": "明治建築・社寺",
+        "sub_category": "明治商家移築建築（国登録有形文化財）＆古社",
+        "crop_target": "白山公園内の和風建築「燕喜館」と白山神社の朱塗り拝殿",
+        "hint_level_1": "新潟県政記念館のすぐ隣、白山公園の中。新潟の豪商・斎藤喜十郎の邸宅を移築した「燕喜館」と白山神社を歩こう。",
+        "hint_level_2": "日本の都市公園100選の白山公園にある『燕喜館・白山神社』です。",
+        "spot_name": "燕喜館・白山神社（白山公園）",
+        "built_year": "1908年（明治41年）燕喜館建築",
+        "architect_note": "江戸時代からの名刹・白山神社に隣接して明治6年に開園した白山公園は、日本最初の都市公園の一つ。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 37.9163,
+        "lng": 139.0358,
+        "map_query": "燕喜館 新潟"
+      },
+      {
+        "id": "ngw_07",
+        "position": 7,
+        "spot_key": "niigata_furumachi_nabechaya",
+        "title": "京都・東京に並ぶ日本三大花街「古町花街・鍋茶屋通り」",
+        "category": "歴史街並み",
+        "sub_category": "花街・料亭木造建築（国登録有形文化財）",
+        "crop_target": "黒板塀が続く鍋茶屋通りと老舗料亭「鍋茶屋」の門構え",
+        "hint_level_1": "古町通8番町・9番町界隈。安政年間に築かれた老舗料亭を中心に、黒塀と石畳が残る花街の小路を歩こう。",
+        "hint_level_2": "200年の歴史を誇る『古町花街（鍋茶屋通り）』です。",
+        "spot_name": "古町花街（鍋茶屋通り）",
+        "built_year": "1846年（弘化3年）鍋茶屋創業",
+        "architect_note": "北前船の寄港地として栄えた新潟の粋を伝える料亭街。鍋茶屋本館は国の登録有形文化財。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#D9C5A0",
+          "detail": "#9E2A2B"
+        },
+        "lat": 37.9219,
+        "lng": 139.0449,
+        "map_query": "鍋茶屋通り 新潟"
+      },
+      {
+        "id": "ngw_08",
+        "position": 8,
+        "spot_key": "niigata_toki_messe",
+        "title": "信濃川河口と佐渡島まで見渡す槇文彦設計「朱鷺メッセ」展望室",
+        "category": "現代建築・展望",
+        "sub_category": "槇文彦設計コンベンション複合ビル（31階無料展望室）",
+        "crop_target": "日本海側随一の高さ125m展望室からの信濃川・萬代橋パノラマ",
+        "hint_level_1": "みなとぴあから信濃川沿い（または対岸の万代島）へ。槇文彦設計の船のような高層ビル31階の無料展望室へ上がろう。",
+        "hint_level_2": "地上125mの絶景『朱鷺メッセ（Befcoばかうけ展望室）』です。",
+        "spot_name": "朱鷺メッセ（Befcoばかうけ展望室）",
+        "built_year": "2003年（平成15年）",
+        "architect_note": "槇文彦（槇総合計画事務所）の設計。31階展望室からは萬代橋・新潟市街・佐渡島まで360度見渡せる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 37.9261,
+        "lng": 139.0598,
+        "map_query": "朱鷺メッセ 展望室"
+      },
+      {
+        "id": "ngw_09",
+        "position": 9,
+        "spot_key": "niigata_ozawa_house",
+        "title": "北前船の廻船問屋・明治の町家文化を伝える「旧小澤家住宅」",
+        "category": "明治建築",
+        "sub_category": "明治町屋・廻船問屋建築（新潟市指定文化財）",
+        "crop_target": "上大川前通に面した重厚な木造町家ファサードと中庭の蔵",
+        "hint_level_1": "みなとぴあ（旧新潟税関庁舎）と古町の間に位置する下町エリア。明治時代の豪商の町家と庭園を見学しよう。",
+        "hint_level_2": "湊町にいがたの町家建築の典型『旧小澤家住宅』です。",
+        "spot_name": "旧小澤家住宅",
+        "built_year": "明治後期〜大正期増改築",
+        "architect_note": "主屋・道具蔵・離れ座敷など一式が良好に残り、北前船時代の新潟商人の暮らしを今に伝えている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 37.928,
+        "lng": 139.0485,
+        "map_query": "旧小澤家住宅 新潟"
+      }
+    ]
+  },
+  {
+    "id": "hokuriku_tsuruga_port_walk",
+    "region_group": "北陸",
+    "prefecture_group": "富山・福井",
+    "tour_type": "walk",
+    "title": "敦賀港レトロ・赤レンガ倉庫〜氣比神宮散策",
+    "subtitle": "TSURUGA PORT HERITAGE WALK",
+    "region": "福井県敦賀市・JR敦賀駅〜氣比神宮〜金ヶ崎エリア",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・周遊バス＋徒歩）",
+    "era_focus": "明治後期〜昭和初期",
+    "description": "北陸新幹線の終着・敦賀駅からぐるっと敦賀周遊バスと徒歩で巡る港町コース。赤レンガ倉庫、旧大和田銀行本館、人道の港 敦賀ムゼウム、氣比神宮大鳥居を2時間半で歩きます。",
+    "theme_color": "#8F3A2B",
+    "accent_color": "#E6C77A",
+    "specimen_prefix": "TRG",
+    "area_map_query": "敦賀赤レンガ倉庫 氣比神宮 敦賀市立博物館 人道の港敦賀ムゼウム",
+    "cells": [
+      {
+        "id": "trg_01",
+        "position": 1,
+        "title": "敦賀湾の潮風を受ける明治の2棟連立赤レンガ倉庫",
+        "category": "明治建築",
+        "sub_category": "イギリス積み煉瓦倉庫（国登録有形文化財）",
+        "crop_target": "2棟並んで建つ切妻の赤煉瓦壁と控え壁（バットレス）の連続リズム",
+        "hint_level_1": "敦賀港の海辺。明治38年に外国の石油会社が建てた、福井県下最大級の2棟並びの赤レンガ倉庫を切り取ろう。",
+        "hint_level_2": "ニューヨーク・スタンダード石油会社が建設した『敦賀赤レンガ倉庫』です。",
+        "spot_name": "敦賀赤レンガ倉庫",
+        "built_year": "1905年（明治38年）",
+        "architect_note": "外国人技師の設計により、側壁にバットレス（控え壁）をリズミカルに配したイギリス積みの煉瓦建築。内部には往時の敦賀ジオラマが展示されている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#D9CFC1",
+          "detail": "#1E293B"
+        },
+        "lat": 35.6615,
+        "lng": 136.0757,
+        "map_query": "敦賀赤レンガ倉庫",
+        "spot_key": "tsuruga_akarenga"
+      },
+      {
+        "id": "trg_02",
+        "position": 2,
+        "title": "北陸初のエレベーターを備えたコリント式大列柱ビル",
+        "category": "昭和初期建築",
+        "sub_category": "古典主義様式（重要文化財）",
+        "crop_target": "正面玄関にそびえる巨大な石造円柱と重厚なブロンズ扉",
+        "hint_level_1": "福井県敦賀市の中心部（相生町）。かつて「欧亜国際連絡列車」が走り国際都市として栄えた敦賀の象徴、巨大な円柱が並ぶ石造りの旧銀行を見上げよう。",
+        "hint_level_2": "吉田茂・永瀬狂三が設計した重要文化財『みなとつるが山車会館・敦賀市立博物館（旧大和田銀行本店）』です。",
+        "spot_name": "敦賀市立博物館（旧大和田銀行本店）",
+        "built_year": "1927年（昭和2年）",
+        "architect_note": "北陸で最初にエレベーターが設置された当時の最先端ビル。花崗岩と擬石で仕上げられた古典主義ファサードと大理石カウンターが威容を誇る。",
+        "icon_type": "capital",
+        "dummy_palette": {
+          "bg": "#C8C0B0",
+          "accent": "#5C646D",
+          "detail": "#1D242B"
+        },
+        "lat": 35.6552,
+        "lng": 136.0694,
+        "map_query": "敦賀市立博物館 旧大和田銀行本店",
+        "spot_key": "tsuruga_owada_bank"
+      },
+      {
+        "id": "trg_03",
+        "position": 3,
+        "title": "大陸への鉄路を照らした明治15年の小さな赤煉瓦ランプ小屋",
+        "category": "明治建築",
+        "sub_category": "鉄道遺産・煉瓦造油庫（準鉄道記念物）",
+        "crop_target": "イギリス積みの小さな切妻赤煉瓦壁とアーチ型の鉄扉・窓",
+        "hint_level_1": "敦賀赤レンガ倉庫のすぐ近く。明治15年（1882年）に列車や駅のカンテラ（石油ランプ）を保管するために建てられた、可愛らしい小さな赤煉瓦小屋を探そう。",
+        "hint_level_2": "日本海に面した最初の鉄道遺構『旧敦賀港駅ランプ小屋』です。",
+        "spot_name": "旧敦賀港駅ランプ小屋",
+        "built_year": "1882年（明治15年）",
+        "architect_note": "現存する日本の鉄道建築の中でも最古級の煉瓦建造物。小さなプロポーションながら、欠円アーチの開口部など丁寧な煉瓦積み技術が見て取れる。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#8A3324",
+          "accent": "#E3DAC9",
+          "detail": "#262B30"
+        },
+        "lat": 35.6634,
+        "lng": 136.0757,
+        "map_query": "旧敦賀港駅ランプ小屋",
+        "spot_key": "tsuruga_lamp_hut"
+      },
+      {
+        "id": "trg_04",
+        "position": 4,
+        "spot_key": "tsuruga_kehi_jingu",
+        "title": "日本三大木造大鳥居の一つがそびえる越前国一之宮",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸初期木造大鳥居（国重要文化財）",
+        "crop_target": "高さ約11m・朱塗りの堂々たる「氣比神宮 大鳥居」",
+        "hint_level_1": "JR敦賀駅から徒歩約15分。厳島神社・春日大社と並ぶ「日本三大木造大鳥居」に数えられる朱色の大鳥居を見上げよう。",
+        "hint_level_2": "「けいさん」の愛称で親しまれる『氣比神宮（大鳥居）』です。",
+        "spot_name": "氣比神宮（大鳥居）",
+        "built_year": "1645年（正保2年）大鳥居造営",
+        "architect_note": "佐渡島から奉納された榁（むろ）の木で造られた大鳥居は国重要文化財。松尾芭蕉も参拝した。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6548,
+        "lng": 136.0747,
+        "map_query": "氣比神宮"
+      },
+      {
+        "id": "trg_05",
+        "position": 5,
+        "spot_key": "tsuruga_museum_port",
+        "title": "「命のビザ」で渡った人々を迎えた人道の港 敦賀ムゼウム",
+        "category": "歴史記念館・建築",
+        "sub_category": "欧亜国際連絡船ゆかりの港湾資料館",
+        "crop_target": "金ヶ崎緑地に建つ、かつての税関検査場をイメージした木造風外観",
+        "hint_level_1": "敦賀赤レンガ倉庫の目の前、金ヶ崎緑地に建つ施設。杉原千畝の「命のビザ」で上陸した人々の歴史を学ぼう。",
+        "hint_level_2": "2020年に新築移転オープンした『人道の港 敦賀ムゼウム』です。",
+        "spot_name": "人道の港 敦賀ムゼウム",
+        "built_year": "2020年（令和2年）移転開館",
+        "architect_note": "かつて欧亜国際連絡列車が発着した敦賀港の歴史と、ポーランド孤児やユダヤ難民を受け入れた史実を伝える。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#E6DFD3",
+          "detail": "#13293D"
+        },
+        "lat": 35.6596,
+        "lng": 136.0747,
+        "map_query": "人道の港 敦賀ムゼウム"
+      },
+      {
+        "id": "trg_06",
+        "position": 6,
+        "spot_key": "tsuruga_old_station",
+        "title": "欧亜国際連絡列車の終着駅を再現した「敦賀鉄道資料館」",
+        "category": "明治〜現代復元建築",
+        "sub_category": "欧亜国際連絡列車・旧敦賀港駅舎再現",
+        "crop_target": "洋風とんがり屋根の旧敦賀港駅舎の外観",
+        "hint_level_1": "敦賀ムゼウムのすぐ西側、金ヶ崎緑地内にあるレトロな洋風駅舎。かつて東京〜敦賀港〜ウラジオストク〜欧州を結んだ起点だ。",
+        "hint_level_2": "鉄道の街・敦賀の誇りを展示する『敦賀鉄道資料館（旧敦賀港駅舎）』です。",
+        "spot_name": "敦賀鉄道資料館（旧敦賀港駅舎）",
+        "built_year": "1999年（平成11年）再現建築",
+        "architect_note": "明治・大正期の敦賀港駅舎の外観を再現し、鉄道と海運の結節点として栄えた敦賀の資料を展示。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 35.6587,
+        "lng": 136.0725,
+        "map_query": "敦賀鉄道資料館"
+      },
+      {
+        "id": "trg_07",
+        "position": 7,
+        "spot_key": "tsuruga_kanegasaki_shrine",
+        "title": "敦賀湾を見下ろす恋の宮・金ヶ崎城跡「金崎宮」",
+        "category": "歴史社寺・史跡",
+        "sub_category": "南北朝・戦国城跡（金ヶ崎城跡）＆神社",
+        "crop_target": "石段の上の社殿と眼下に広がる敦賀湾の港風景",
+        "hint_level_1": "旧敦賀港駅舎の東側の小高い丘へ。織田信長「金ヶ崎の退き口」の舞台となった戦国城跡に鎮座する神社へ。",
+        "hint_level_2": "「花換まつり」でも知られる『金崎宮（金ヶ崎城跡）』です。",
+        "spot_name": "金崎宮（金ヶ崎城跡）",
+        "built_year": "1890年（明治23年）創建",
+        "architect_note": "新田義貞や織田信長ゆかりの古戦場跡。境内や月見御殿跡からは敦賀港と赤レンガ倉庫を一望できる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 35.6626,
+        "lng": 136.0761,
+        "map_query": "金崎宮 敦賀"
+      },
+      {
+        "id": "trg_08",
+        "position": 8,
+        "spot_key": "tsuruga_kehi_pine",
+        "title": "日本三大松原の一つ・白い砂浜と青松の「気比の松原」",
+        "category": "風景・自然名所",
+        "sub_category": "国指定名勝・日本三大松原",
+        "crop_target": "敦賀湾の青い海と白砂青松の美しい弓なりの海岸線",
+        "hint_level_1": "周遊バスで西へ少し足を延ばした敦賀湾岸（氣比神宮から徒歩約20〜25分）。約1万7千本の松が続く絶景海岸へ。",
+        "hint_level_2": "三保松原・虹の松原と並ぶ日本三大松原『気比の松原』です。",
+        "spot_name": "気比の松原",
+        "built_year": "1934年（昭和9年）国指定名勝",
+        "architect_note": "長さ約1kmにわたりアカマツ・クロマツの林と砂浜が続き、夏以外の季節も静かな海辺の散策が楽しめる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.6548,
+        "lng": 136.0478,
+        "map_query": "気比の松原"
+      },
+      {
+        "id": "trg_09",
+        "position": 9,
+        "spot_key": "tsuruga_symbol_road",
+        "title": "銀河鉄道999・宇宙戦艦ヤマトの銅像が並ぶ「シンボルロード」",
+        "category": "観光名所・街並み",
+        "sub_category": "駅前〜氣比神宮モニュメント通り",
+        "crop_target": "敦賀駅前から続く歩道のメーテル・鉄郎や古代進のブロンズ像",
+        "hint_level_1": "JR敦賀駅から氣比神宮へ向かうメインストリート沿いに合計28体のアニメキャラクター銅像が並んでいるのを見つけよう。",
+        "hint_level_2": "松本零士作品の名場面を再現した『敦賀シンボルロード モニュメント群』です。",
+        "spot_name": "敦賀シンボルロード（松本零士モニュメント群）",
+        "built_year": "1999年（平成11年）設置",
+        "architect_note": "鉄道と港の街・敦賀のシンボルとして整備。歩いて駅と氣比神宮を往復するだけで楽しく巡れる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#1B3042",
+          "accent": "#F2D06B",
+          "detail": "#3A6EA5"
+        },
+        "lat": 35.6494,
+        "lng": 136.0749,
+        "map_query": "敦賀シンボルロード"
+      }
+    ]
+  },
+  {
+    "id": "tokai_nagoya_castle_osu_walk",
+    "region_group": "東海",
+    "prefecture_group": "愛知・名古屋",
+    "tour_type": "walk",
+    "title": "名古屋城〜栄・久屋大通〜大須観音散策",
+    "subtitle": "NAGOYA CASTLE SAKAE & OSU WALK",
+    "region": "愛知県名古屋市・名古屋城〜栄〜大須",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・地下鉄＋徒歩）",
+    "era_focus": "江戸〜現代",
+    "description": "名古屋市営地下鉄と徒歩だけで約3時間で巡れる名古屋都心の王道コース。名古屋城本丸御殿から帝冠様式の県庁・市役所、テレビ塔・オアシス21、大須観音まで網羅します。",
+    "theme_color": "#22384D",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "NGO",
+    "area_map_query": "名古屋城 名古屋市役所本庁舎 中部電力MIRAI TOWER 大須観音",
+    "cells": [
+      {
+        "id": "ngo_01",
+        "position": 1,
+        "spot_key": "nagoya_castle",
+        "title": "金の鯱鉾が輝く天守と豪華絢爛な「名古屋城 本丸御殿」",
+        "category": "歴史建築・城郭",
+        "sub_category": "特別史跡・近世城郭御殿復元",
+        "crop_target": "金鯱を戴く大天守と総檜造りで復元された本丸御殿の車寄",
+        "hint_level_1": "地下鉄名城線「名古屋城駅」すぐ。徳川家康が築いた名城で、2018年に完全復元された狩野派障壁画の本丸御殿も必見。",
+        "hint_level_2": "尾張徳川家の居城『名古屋城（天守・本丸御殿）』です。",
+        "spot_name": "名古屋城（天守閣・本丸御殿）",
+        "built_year": "1612年築城・2018年本丸御殿完全復元",
+        "architect_note": "特別史跡に指定。忠実に木造復元された本丸御殿の表書院・上洛殿の障壁画と飾金具は息を呑む美しさ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#D4AF37",
+          "detail": "#3B7A6C"
+        },
+        "lat": 35.1856,
+        "lng": 136.8991,
+        "map_query": "名古屋城"
+      },
+      {
+        "id": "ngo_02",
+        "position": 2,
+        "title": "赤煉瓦と白花崗岩が織りなすネオ・バロックの殿堂",
+        "category": "大正建築",
+        "sub_category": "ネオ・バロック様式（重要文化財）",
+        "crop_target": "正面の赤煉瓦×白花崗岩の三連アーチと中央ドーム・大階段",
+        "hint_level_1": "名古屋城の東側（東区白壁）。鮮やかな赤煉瓦と白い花崗岩のコントラストが美しい旧裁判所建築で、正面のドーム屋根や内部のステンドグラスを狙おう。",
+        "hint_level_2": "司法省の山下啓次郎・金刺森太郎らが設計した重要文化財『名古屋市市政資料館（旧名古屋控訴院地方裁判所区裁判所庁舎）』です。",
+        "spot_name": "名古屋市市政資料館（旧名古屋控訴院）",
+        "built_year": "1922年（大正11年）",
+        "architect_note": "現存する控訴院庁舎として最古級。中央階段室の吹き抜けを彩る「罪と罰」「公明正大」をテーマにしたステンドグラスは必見。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#FAF6EE",
+          "detail": "#222A35"
+        },
+        "lat": 35.1813,
+        "lng": 136.9098,
+        "map_query": "名古屋市市政資料館",
+        "spot_key": "nagoya_shiseishiryokan"
+      },
+      {
+        "id": "ngo_03",
+        "position": 3,
+        "title": "四隅の鯱が睨みを利かせる二層の時計塔",
+        "category": "昭和初期建築",
+        "sub_category": "帝冠様式（重要文化財）",
+        "crop_target": "スクラッチタイルの時計塔頂部に載る和風二層屋根と四隅の博多人形焼・鯱",
+        "hint_level_1": "名古屋城のすぐ南。近代的なオフィスビルの上に、火の見櫓のような2段の和風瓦屋根と時計台が載った重厚な庁舎を見上げよう。",
+        "hint_level_2": "公募コンペで選ばれた平林金吾の案をもとに建設された重要文化財『名古屋市役所本庁舎』です。",
+        "spot_name": "名古屋市役所本庁舎",
+        "built_year": "1933年（昭和8年）",
+        "architect_note": "高さ約53mの時計塔の頂部には、四隅に陶製の赤い「鯱（しゃちほこ）」が配されており、近代建築と城郭意匠を融合させた帝冠様式の代表作。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#7B5843",
+          "accent": "#3B7A6C",
+          "detail": "#1E242B"
+        },
+        "lat": 35.1815,
+        "lng": 136.9064,
+        "map_query": "名古屋市役所本庁舎",
+        "spot_key": "nagoya_city_hall"
+      },
+      {
+        "id": "ngo_04",
+        "position": 4,
+        "title": "名古屋城天守と呼応する緑青の大城郭屋根",
+        "category": "昭和初期建築",
+        "sub_category": "帝冠様式（重要文化財）",
+        "crop_target": "洋風庁舎の上に堂々と載る千鳥破風・唐破風の緑青銅板大屋根",
+        "hint_level_1": "名古屋市役所のすぐ隣。西洋風の石貼り・タイル貼りビルの上に、まるで名古屋城天守閣のような巨大な緑色の城郭屋根が載った庁舎を切り取ろう。",
+        "hint_level_2": "渡辺仁・西村好時らが設計に関わった重要文化財『愛知県庁本庁舎』です。",
+        "spot_name": "愛知県庁本庁舎",
+        "built_year": "1938年（昭和13年）",
+        "architect_note": "隣の名古屋市役所および名古屋城との景観調和を図って設計された帝冠様式の極致。正面車寄せの列柱と城郭風大屋根の対比が圧倒的。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#CFC8B8",
+          "detail": "#1D2A32"
+        },
+        "lat": 35.1802,
+        "lng": 136.9066,
+        "map_query": "愛知県庁本庁舎",
+        "spot_key": "aichi_pref_office"
+      },
+      {
+        "id": "ngo_05",
+        "position": 5,
+        "title": "大通りをまたぐ銀色のトラスアーチと展望鉄塔",
+        "category": "昭和建築",
+        "sub_category": "集約電波鉄塔・内藤多仲設計（重要文化財）",
+        "crop_target": "久屋大通をまたぐ4本の美しい鋼製トラス脚部とアーチ",
+        "hint_level_1": "栄・久屋大通公園の中央。「耐震構造の父」内藤多仲が東京タワーより先に設計した、日本初の集約電波鉄塔のダイナミックな脚部アーチを見上げよう。",
+        "hint_level_2": "タワーとして全国で初めて国の重要文化財に指定された『名古屋テレビ塔（中部電力 MIRAI TOWER）』です。",
+        "spot_name": "名古屋テレビ塔（中部電力 MIRAI TOWER）",
+        "built_year": "1954年（昭和29年）",
+        "architect_note": "通天閣や東京タワーも手がけた「塔博士」内藤多仲の傑作。優美な放物線を描くトラス構造が、戦後復興期の都市デザインの象徴となった。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#3B596A",
+          "accent": "#D8DDE0",
+          "detail": "#1B263B"
+        },
+        "lat": 35.1723,
+        "lng": 136.9083,
+        "map_query": "中部電力 MIRAI TOWER 名古屋テレビ塔",
+        "spot_key": "nagoya_tv_tower"
+      },
+      {
+        "id": "ngo_06",
+        "position": 6,
+        "spot_key": "nagoya_oasis_21",
+        "title": "水を湛えたガラスの大屋根「水の宇宙船」が浮かぶオアシス21",
+        "category": "現代建築",
+        "sub_category": "立体型公園（葛西秀樹／大林組設計）",
+        "crop_target": "地上14mに浮かぶ楕円形ガラス屋根「水の宇宙船」とMIRAI TOWER",
+        "hint_level_1": "名古屋テレビ塔のすぐ東隣。屋上に薄く水を張ったガラス屋根の上を歩ける栄の立体公園へ上がってみよう。",
+        "hint_level_2": "2002年完成の立体公園『オアシス21（水の宇宙船）』です。",
+        "spot_name": "オアシス21（水の宇宙船）",
+        "built_year": "2002年（平成14年）",
+        "architect_note": "空中散歩ができるガラスの大屋根からは中部電力 MIRAI TOWERの美しい鉄骨を至近距離で撮影できる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.1707,
+        "lng": 136.9094,
+        "map_query": "オアシス21 名古屋"
+      },
+      {
+        "id": "ngo_07",
+        "position": 7,
+        "spot_key": "nagoya_osu_kannon",
+        "title": "日本三大観音の一つ・朱塗りの本堂が賑わう「大須観音」",
+        "category": "歴史社寺・名所",
+        "sub_category": "真言宗智山派別格本山（大須文庫）",
+        "crop_target": "朱塗りの仁王門と大提灯・大須観音の本堂正面",
+        "hint_level_1": "地下鉄鶴舞線「大須観音駅」から徒歩3分。国宝『古事記』最古の写本（真福寺本）を蔵することでも有名な古刹へ。",
+        "hint_level_2": "門前町の中心に鎮座する『大須観音（寶生院）』です。",
+        "spot_name": "大須観音（寶生院）",
+        "built_year": "1612年徳川家康により現在地へ移築（1970年本堂再建）",
+        "architect_note": "毎月18日・28日の骨董市でも大いに賑わい、大須商店街の起点となっている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.1597,
+        "lng": 136.8995,
+        "map_query": "大須観音"
+      },
+      {
+        "id": "ngo_08",
+        "position": 8,
+        "spot_key": "nagoya_osu_shotengai",
+        "title": "約1200軒がひしめく名古屋最大のアーケード「大須商店街」",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的門前商店街（万松寺通・仁王門通）",
+        "crop_target": "巨大な招き猫オブジェ「ふれあい広場」またはアーケードの賑わい",
+        "hint_level_1": "大須観音の東側に広がるアーケード街。東仁王門通にある大きな「招き猫」や、信長ゆかりの万松寺などを巡ろう。",
+        "hint_level_2": "ごった煮文化の聖地『大須商店街（招き猫・万松寺）』です。",
+        "spot_name": "大須商店街（招き猫・万松寺周辺）",
+        "built_year": "江戸初期門前町形成",
+        "architect_note": "老舗のういろ屋や古着屋、電気街、食べ歩きグルメが混在する名古屋随一の活気ある商店街。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#C85A32",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.1592,
+        "lng": 136.9038,
+        "map_query": "大須商店街 招き猫"
+      },
+      {
+        "id": "ngo_09",
+        "position": 9,
+        "spot_key": "nagoya_science_museum",
+        "title": "直径35mの巨大な銀色の球体プラネタリウム「名古屋市科学館」",
+        "category": "現代建築・博物館",
+        "sub_category": "世界最大級プラネタリウム球体建築（2011年改築）",
+        "crop_target": "建物の間に浮遊するように組み込まれた直径35mの銀色球体",
+        "hint_level_1": "大須から北へ歩いてすぐの白川公園内。ビルの谷間に巨大な銀の惑星が挟まったようなインパクト抜群の建築を見上げよう。",
+        "hint_level_2": "世界最大級のプラネタリウムを有する『名古屋市科学館（Brother Earth）』です。",
+        "spot_name": "名古屋市科学館（白川公園）",
+        "built_year": "2011年（平成23年）新館開館",
+        "architect_note": "日建設計の設計。内径35mのプラネタリウムドームが外観の象徴としてそのまま空中に現れている。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#4A607A",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.1653,
+        "lng": 136.8998,
+        "map_query": "名古屋市科学館"
+      }
+    ]
+  },
+  {
+    "id": "tokai_inuyama_castle_walk",
+    "region_group": "東海",
+    "prefecture_group": "岐阜・愛知",
+    "tour_type": "walk",
+    "title": "国宝犬山城と城下町・国宝茶室如庵 散策",
+    "subtitle": "INUYAMA CASTLE & JOAN WALK",
+    "region": "愛知県犬山市・名鉄犬山駅〜本町通り〜犬山城〜有楽苑",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "室町〜昭和初期",
+    "description": "名鉄犬山駅から徒歩圏内で完結する城下町コース。現存最古級の木造天守・国宝犬山城から三光稲荷神社の赤い鳥居、本町通りの古民家、織田有楽斎の国宝茶室「如庵」まで巡ります。",
+    "theme_color": "#2E3A4D",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "INY",
+    "area_map_query": "犬山城 三光稲荷神社 犬山城下町 有楽苑 如庵",
+    "cells": [
+      {
+        "id": "iny_01",
+        "position": 1,
+        "title": "木曽川の断崖に立つ現存最古級の国宝「望楼型天守」と唐破風",
+        "category": "観光名所・国宝城郭",
+        "sub_category": "現存12天守・望楼型三重四階（国宝）",
+        "crop_target": "入母屋屋根の上に望楼が載り、南北に『唐破風』を備えた国宝犬山城天守",
+        "hint_level_1": "愛知県犬山市、木曽川の南岸の崖の上。全国に5つしかない「国宝五城」のひとつで、大きな入母屋屋根の上に物見櫓（望楼）を載せた現存天守を見上げよう。",
+        "hint_level_2": "織田信長の叔父・織田信康が築き、成瀬氏が代々城主を務めた国宝『犬山城 天守（白帝城）』です。",
+        "spot_name": "国宝 犬山城 天守",
+        "built_year": "1537年（天文6年）創建・1601年頃現天守完成",
+        "architect_note": "最上階の周囲にぐるりと高欄付きの廻縁（バルコニー）を巡らせた初期の望楼型天守。眼下に雄大な木曽川を見下ろす断崖立地は中国の「白帝城」にも喩えられた。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#FAF6EE",
+          "detail": "#8C6625"
+        },
+        "lat": 35.3883,
+        "lng": 136.9392,
+        "map_query": "国宝 犬山城",
+        "spot_key": "inuyama_castle"
+      },
+      {
+        "id": "iny_02",
+        "position": 2,
+        "title": "国宝天守へ一直線に続く「犬山城下町・本町通り」と三光稲荷の鳥居",
+        "category": "観光名所・街並み",
+        "sub_category": "城下町景観＆千本鳥居",
+        "crop_target": "犬山城の麓にある三光稲荷神社のピンクのハート絵馬＆朱塗り連鳥居または城下町",
+        "hint_level_1": "犬山城へ登るすぐ麓の神社、または天守へ真っすぐ続く城下町の本町通り。連なる朱塗りの鳥居とピンクのハート絵馬、江戸期の町家風景を収めよう。",
+        "hint_level_2": "犬山城のすぐ下に鎮座する『三光稲荷神社 と 犬山城下町（旧磯部家住宅ほか）』です。",
+        "spot_name": "三光稲荷神社・犬山城下町",
+        "built_year": "江戸期〜明治期（旧磯部家住宅は1860年頃）",
+        "architect_note": "城下町には緩やかな曲線を描く「起り（むくり）屋根」を持つ江戸期の町家（旧磯部家住宅など）が現存し、城郭へのビスタ（見通し線）を守り続けている。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E8A5B8",
+          "detail": "#26282A"
+        },
+        "lat": 35.3865,
+        "lng": 136.9391,
+        "map_query": "犬山 三光稲荷神社",
+        "spot_key": "inuyama_sanko_inari"
+      },
+      {
+        "id": "iny_03",
+        "position": 3,
+        "spot_key": "inuyama_haritsuna_shrine",
+        "title": "犬山城の守り神・安産と長寿の古社「針綱神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "延喜式内社・犬山城下鎮守",
+        "crop_target": "犬山城登城口の赤い鳥居と立派な木造拝殿",
+        "hint_level_1": "犬山城のすぐ南麓、三光稲荷神社の隣に鎮座する、犬山祭が奉納される格式高い神社をお参りしよう。",
+        "hint_level_2": "織田信長の叔父・信康も祈願した『針綱神社』です。",
+        "spot_name": "針綱神社",
+        "built_year": "延喜式内社（1537年城下へ遷座）",
+        "architect_note": "毎年4月のユネスコ無形文化遺産「犬山祭」は針綱神社の祭礼として行われる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.3869,
+        "lng": 136.9395,
+        "map_query": "針綱神社 犬山"
+      },
+      {
+        "id": "iny_04",
+        "position": 4,
+        "spot_key": "inuyama_honmachi_dori",
+        "title": "江戸の町割りを残す食べ歩きと町家の「本町通り」",
+        "category": "歴史街並み",
+        "sub_category": "江戸期城下町町家通り",
+        "crop_target": "犬山城天守を正面奥に望む本町通りの町家並み",
+        "hint_level_1": "犬山城から南へ一直線に伸びる城下町のメインストリート。道の突き当たりに犬山城が見える構図を狙おう。",
+        "hint_level_2": "江戸から昭和の町家が残る『犬山城下町 本町通り』です。",
+        "spot_name": "犬山城下町 本町通り",
+        "built_year": "江戸〜昭和期の町家群",
+        "architect_note": "旧磯部家住宅や旧堀部家住宅などの登録有形文化財の町家が並び、串グルメなどの食べ歩きも楽しめる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.3837,
+        "lng": 136.9403,
+        "map_query": "犬山城下町 本町通り"
+      },
+      {
+        "id": "iny_05",
+        "position": 5,
+        "spot_key": "inuyama_isobe_house",
+        "title": "うなぎの寝床と呼ばれる江戸末期の呉服商「旧磯部家住宅」",
+        "category": "歴史建築",
+        "sub_category": "江戸末期町家建築（国登録有形文化財）",
+        "crop_target": "本町通り沿いの起り（むくり）屋根と格子戸・奥に続く中庭",
+        "hint_level_1": "本町通りの西側に建つ、緩やかに膨らんだ「むくり屋根」が特徴的な江戸時代の呉服屋さんの建物を見学しよう（入館無料）。",
+        "hint_level_2": "奥行き58mの町家『旧磯部家住宅（柏屋孫兵衛）』です。",
+        "spot_name": "旧磯部家住宅",
+        "built_year": "1862年（文久2年）頃",
+        "architect_note": "犬山城下町で唯一「むくり屋根」を残す主屋から、裏座敷・土蔵・展示蔵までが一直線に連なる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.3834,
+        "lng": 136.9401,
+        "map_query": "旧磯部家住宅 犬山"
+      },
+      {
+        "id": "iny_06",
+        "position": 6,
+        "spot_key": "inuyama_dondenkan",
+        "title": "高さ8mの豪華な犬山祭の車山（やま）を展示する「どんでん館」",
+        "category": "観光名所・博物館",
+        "sub_category": "祭礼山車展示施設",
+        "crop_target": "吹き抜けに飾られた3層構造の豪華な犬山祭「車山」",
+        "hint_level_1": "本町通りの真ん中あたり。ユネスコ無形文化遺産にも登録された犬山祭の巨大な山車をいつでも間近に見られる館へ。",
+        "hint_level_2": "城下町散策の拠点施設『犬山市文化史料館・どんでん館』です。",
+        "spot_name": "どんでん館（犬山祭車山展示）",
+        "built_year": "2004年（平成16年）開館",
+        "architect_note": "3層構造・高さ8mの車山（やま）4輛を常設展示。館名は車山を方向転換させる豪快な技「どんでん」に由来。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#D4AF37",
+          "detail": "#242830"
+        },
+        "lat": 35.3831,
+        "lng": 136.9404,
+        "map_query": "どんでん館 犬山"
+      },
+      {
+        "id": "iny_07",
+        "position": 7,
+        "spot_key": "inuyama_urakuen_joan",
+        "title": "織田信長の弟・有楽斎が建てた国宝茶室「如庵（有楽苑）」",
+        "category": "歴史建築・国宝",
+        "sub_category": "江戸初期茶室建築（国宝三名席）",
+        "crop_target": "日本庭園の中に佇む杮葺きの国宝茶室「如庵」と旧正伝院書院",
+        "hint_level_1": "犬山城から木曽川沿いに東へ徒歩約10分。名鉄犬山ホテル跡地隣の日本庭園内に移築された国宝茶室を訪ねよう。",
+        "hint_level_2": "茶道三名席の一つ国宝『有楽苑（茶室 如庵）』です。",
+        "spot_name": "有楽苑（国宝茶室 如庵）",
+        "built_year": "1618年（元和4年）頃",
+        "architect_note": "織田有楽斎が京都建仁寺に建てた茶室を昭和47年に移築。腰張りに暦を用いた「暦張り」や有楽窓など独創的意匠。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#D9C5A0",
+          "detail": "#1C2420"
+        },
+        "lat": 35.3879,
+        "lng": 136.9465,
+        "map_query": "有楽苑 如庵 犬山"
+      },
+      {
+        "id": "iny_08",
+        "position": 8,
+        "spot_key": "inuyama_karakuri_tenjikan",
+        "title": "江戸時代から続く伝統の技・犬山祭「からくり展示館」",
+        "category": "観光名所・博物館",
+        "sub_category": "伝統工芸・からくり人形展示",
+        "crop_target": "本町通り沿いの町家風展示館と精巧なからくり人形",
+        "hint_level_1": "旧磯部家住宅のすぐ近く、本町通り沿い。犬山祭の山車の上で舞う「からくり人形」の仕組みを見られる施設へ。",
+        "hint_level_2": "からくり実演日もある『犬山祭からくり展示館（IMASEN）』です。",
+        "spot_name": "IMASEN 犬山からくりミュージアム",
+        "built_year": "2008年（平成20年）開館",
+        "architect_note": "車山からくりや座敷からくりを実物展示。江戸時代の精巧な歯車・クジラひげの技術に触れられる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.3849,
+        "lng": 136.9401,
+        "map_query": "犬山からくりミュージアム"
+      },
+      {
+        "id": "iny_09",
+        "position": 9,
+        "spot_key": "inuyama_kisogawa_bridge",
+        "title": "木曽川の清流と断崖の上にそびえる犬山城を望む「犬山橋」",
+        "category": "風景・観光名所",
+        "sub_category": "河川城郭パノラマ風景（日本ライン）",
+        "crop_target": "木曽川対岸・犬山橋付近から見上げる断崖上の犬山城天守",
+        "hint_level_1": "有楽苑のすぐ北側、木曽川に架かる犬山橋の歩道へ。川面越しに見上げる国宝犬山城のシルエットは最高の一枚になる。",
+        "hint_level_2": "「日本ライン」の雄大な景観『木曽川・犬山橋からの犬山城眺望』です。",
+        "spot_name": "木曽川・犬山橋（犬山城眺望）",
+        "built_year": "2000年（平成12年）道路橋架替",
+        "architect_note": "かつては名鉄電車と自動車が同じ橋を走る珍しい併用橋だった。歩道から眺める白帝城（犬山城）の姿が圧巻。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.3905,
+        "lng": 136.945,
+        "map_query": "犬山橋 犬山城眺望"
+      }
+    ]
+  },
+  {
+    "id": "tokai_takayama_sanmachi_walk",
+    "region_group": "東海",
+    "prefecture_group": "岐阜・愛知",
+    "tour_type": "walk",
+    "title": "飛騨高山 古い町並・高山陣屋〜朝市散策",
+    "subtitle": "HIDA TAKAYAMA SANMACHI WALK",
+    "region": "岐阜県高山市・JR高山駅〜高山陣屋〜上三之町〜桜山八幡宮",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸〜明治",
+    "description": "JR高山駅から徒歩圏内に見どころが凝縮された飛騨の小京都コース。国史跡・高山陣屋、古い町並（上三之町）、赤い中橋、日下部民藝館・吉島家住宅を約2時間半で歩きます。",
+    "theme_color": "#4A3525",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "TKY",
+    "area_map_query": "高山陣屋 上三之町 中橋 日下部民藝館",
+    "cells": [
+      {
+        "id": "tky_01",
+        "position": 1,
+        "title": "全国で唯一現存する徳川幕府郡代役所の「青海波」と柿葺き屋根",
+        "category": "歴史建築・名所",
+        "sub_category": "国指定史跡・江戸幕府代官・郡代所",
+        "crop_target": "表門と玄関の『青海波（せいがいは）』模様壁と広大な板葺き屋根・真向兎の釘隠",
+        "hint_level_1": "宮川の西側。江戸時代に幕府の直轄領（天領）を治めた役所で、全国に60以上あった中で唯一当時の建物が現存する表門と、波模様の壁・うさぎの釘隠しを探そう。",
+        "hint_level_2": "国指定史跡『高山陣屋（たかやまじんや）』です。",
+        "spot_name": "高山陣屋",
+        "built_year": "1816年（文化13年）主屋改築・1695年御蔵",
+        "architect_note": "瓦が凍てつく飛騨の気候に合わせ、「熨斗葺（のしぶき）」「柿葺（こけらぶき）」などの木の板葺き屋根を採用。慶長年間築の米蔵は日本最古・最大級の土蔵。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#5C4738",
+          "accent": "#D5C3AA",
+          "detail": "#222A30"
+        },
+        "lat": 36.1397,
+        "lng": 137.2575,
+        "map_query": "高山陣屋",
+        "spot_key": "takayama_jinya"
+      },
+      {
+        "id": "tky_02",
+        "position": 2,
+        "title": "出格子の町家が連なる「さんまち通り」と造り酒屋の杉玉",
+        "category": "観光名所・街並み",
+        "sub_category": "重要伝統的建造物群保存地区",
+        "crop_target": "低い軒が一直線に揃う黒い出格子町家と軒先に吊るされた丸い『杉玉（酒林）』",
+        "hint_level_1": "「飛騨の小京都」高山の中心部。用水路が流れる通りの両側に黒光りする出格子の町家が並び、造り酒屋の軒先に大きな丸い「杉玉（酒林）」が揺れる風景を収めよう。",
+        "hint_level_2": "高山の最も有名な散策ストリート『古い町並（上三之町・さんまち通り）』です。",
+        "spot_name": "飛騨高山 古い町並（さんまち通り）",
+        "built_year": "江戸後期〜明治期",
+        "architect_note": "雪国のため軒を低く深く出し、1階に繊細な連子格子（出格子）を配した高山町家。飛騨の匠の高度な木工技術が、水平ラインの揃った美しい通りを生んでいる。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#3B2820",
+          "accent": "#4A6B4E",
+          "detail": "#E0C9A6"
+        },
+        "lat": 36.1415,
+        "lng": 137.2597,
+        "map_query": "飛騨高山 古い町並 上三之町",
+        "spot_key": "takayama_sanmachi"
+      },
+      {
+        "id": "tky_03",
+        "position": 3,
+        "title": "宮川の清流に鮮やかに映える朱塗りの欄干と擬宝珠「中橋」",
+        "category": "風景・観光名所",
+        "sub_category": "河川橋梁＆城下町風景",
+        "crop_target": "宮川に架かる鮮やかな朱塗りの『中橋（なかばし）』と銅製の擬宝珠",
+        "hint_level_1": "高山陣屋と古い町並（上三之町）を結ぶ宮川の橋。城山の緑と清らかな川面に、鮮やかな朱色の欄干と擬宝珠（ぎぼし）が映える高山のシンボル橋を切り取ろう。",
+        "hint_level_2": "春と秋の高山祭では豪華な屋台も渡る『宮川 中橋（なかばし）』です。",
+        "spot_name": "飛騨高山 中橋",
+        "built_year": "1925年（大正14年）コンクリート橋化・1969年改修",
+        "architect_note": "高山の城下町を東西に結ぶ要衝の橋。黒や茶色の落ち着いた町並みの中で、この中橋の鮮やかな朱色が都市景観の絶妙なアクセントになっている。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#3B6978",
+          "detail": "#FAF6EE"
+        },
+        "lat": 36.1399,
+        "lng": 137.259,
+        "map_query": "飛騨高山 中橋",
+        "spot_key": "takayama_nakabashi"
+      },
+      {
+        "id": "tky_04",
+        "position": 4,
+        "spot_key": "takayama_kusakabe",
+        "title": "飛騨の匠の技が光る豪壮な吹き抜け梁の「日下部民藝館」",
+        "category": "明治建築・重要文化財",
+        "sub_category": "明治期町家建築（国重要文化財）",
+        "crop_target": "出格子と深い庇、内部の吹き抜けに組まれた豪快な松の梁組",
+        "hint_level_1": "古い町並の北側、宮川沿いの大新町に建つ明治12年築の豪商・日下部家の旧宅。民家として初の国重文指定建築だ。",
+        "hint_level_2": "飛騨町家の代表作『日下部民藝館』です。",
+        "spot_name": "日下部民藝館（重要文化財）",
+        "built_year": "1879年（明治12年）",
+        "architect_note": "天領時代の御用商人だった日下部家の本宅。名棟梁・川尻治助による吹き抜け梁組の美しさは圧巻。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 36.1453,
+        "lng": 137.2602,
+        "map_query": "日下部民藝館"
+      },
+      {
+        "id": "tky_05",
+        "position": 5,
+        "spot_key": "takayama_yoshijima",
+        "title": "高窓から光が差し込む端正な町家「吉島家住宅」",
+        "category": "明治建築・重要文化財",
+        "sub_category": "明治期造り酒屋町家（国重要文化財）",
+        "crop_target": "日下部家と並び建つ出格子の外観と大黒柱・光溢れる土間",
+        "hint_level_1": "日下部民藝館のすぐ隣！こちらも国重要文化財に指定された造り酒屋の名建築で、繊細な木組みを見比べよう。",
+        "hint_level_2": "名工・西田伊三郎が手掛けた『吉島家住宅』です。",
+        "spot_name": "吉島家住宅（重要文化財）",
+        "built_year": "1907年（明治40年）",
+        "architect_note": "日下部家が男性的・豪壮な町家と評されるのに対し、吉島家は高窓から柔らかな光が差し込む女性的・繊細な美と称される。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 36.1456,
+        "lng": 137.2604,
+        "map_query": "吉島家住宅 高山"
+      },
+      {
+        "id": "tky_06",
+        "position": 6,
+        "spot_key": "takayama_kokubunji",
+        "title": "樹齢1250年の大イチョウと飛騨唯一の三重塔「飛騨国分寺」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "室町時代本堂（重要文化財）＆三重塔",
+        "crop_target": "室町時代建立の鐘楼門・本堂と境内にそびえる三重塔・大イチョウ",
+        "hint_level_1": "JR高山駅から東へ徒歩5分、古い町並へ向かう途中にある古刹。高山城から移築された鐘楼門と三重塔を探そう。",
+        "hint_level_2": "天平年間創建の『飛騨国分寺』です。",
+        "spot_name": "飛騨国分寺（三重塔・大イチョウ）",
+        "built_year": "室町時代本堂・1821年三重塔再建",
+        "architect_note": "本堂は高山市最古の建造物で国重要文化財。境内の大イチョウは国の天然記念物に指定されている。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.1433,
+        "lng": 137.2557,
+        "map_query": "飛騨国分寺"
+      },
+      {
+        "id": "tky_07",
+        "position": 7,
+        "spot_key": "takayama_sakurayama_yatai",
+        "title": "秋の高山祭の舞台「櫻山八幡宮」と豪華な屋台会館",
+        "category": "歴史社寺・博物館",
+        "sub_category": "古社＆ユネスコ無形文化遺産屋台展示",
+        "crop_target": "櫻山八幡宮の社殿と高山祭屋台会館の絢爛な祭屋台",
+        "hint_level_1": "日下部民藝館からさらに東へ徒歩8分。秋の高山祭（八幡祭）の本物の祭屋台が通年展示されている会館へ。",
+        "hint_level_2": "「動く陽明門」とも称される屋台が並ぶ『櫻山八幡宮・高山祭屋台会館』です。",
+        "spot_name": "櫻山八幡宮・高山祭屋台会館",
+        "built_year": "377年創建伝承・1965年屋台会館開館",
+        "architect_note": "飛騨の匠の彫刻や飾金具が施された本物の祭屋台4台を常設展示しており、見応え抜群。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#D4AF37",
+          "detail": "#242830"
+        },
+        "lat": 36.1476,
+        "lng": 137.2636,
+        "map_query": "高山祭屋台会館"
+      },
+      {
+        "id": "tky_08",
+        "position": 8,
+        "spot_key": "takayama_machihaku",
+        "title": "江戸時代からの町家と蔵を活かした「飛騨高山まちの博物館」",
+        "category": "観光名所・博物館",
+        "sub_category": "蔵造り歴史博物館（旧永田家・矢嶋家土蔵活用）",
+        "crop_target": "白壁土蔵群を繋いだ落ち着いた博物館外観と中庭",
+        "hint_level_1": "古い町並（上一之町）の東側、城山の麓。豪商の土蔵群を活かした入館無料の博物館で高山の歴史を学ぼう。",
+        "hint_level_2": "高山の町並みと祭りの歴史がわかる『飛騨高山まちの博物館』です。",
+        "spot_name": "飛騨高山まちの博物館",
+        "built_year": "江戸〜明治期の土蔵群（2011年開館）",
+        "architect_note": "かつての豪商・永田家と矢嶋家の土蔵14棟を整備・公開した入館無料の充実した市立博物館。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 36.1422,
+        "lng": 137.2617,
+        "map_query": "飛騨高山まちの博物館"
+      },
+      {
+        "id": "tky_09",
+        "position": 9,
+        "spot_key": "takayama_miyagawa_asaichi",
+        "title": "宮川沿いに白いテントと町家が並ぶ「宮川朝市通り」",
+        "category": "観光名所・街並み",
+        "sub_category": "日本三大朝市・川沿い散策路",
+        "crop_target": "宮川の清流と白いテントが連なる朝市通りの風景",
+        "hint_level_1": "鍛冶橋から弥生橋までの宮川東岸。午前中は日本三大朝市の一つが開かれ、午後も川沿いの散策が心地よい通りだ。",
+        "hint_level_2": "飛騨の暮らしと食に出会える『宮川朝市通り』です。",
+        "spot_name": "宮川朝市通り",
+        "built_year": "江戸後期〜明治発祥の朝市",
+        "architect_note": "季節の野菜や果物、民芸品、飛騨の名物グルメの露店と町家が並ぶ、高山観光の朝の定番（通り自体は通年散策可）。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 36.1436,
+        "lng": 137.2589,
+        "map_query": "宮川朝市 高山"
+      }
+    ]
+  },
+  {
+    "id": "tokai_ise_jingu_walk",
+    "region_group": "東海",
+    "prefecture_group": "三重・伊勢湾",
+    "tour_type": "walk",
+    "title": "伊勢神宮（外宮〜内宮・おかげ横丁）散策",
+    "subtitle": "ISE JINGU & OKAGE YOKOCHO WALK",
+    "region": "三重県伊勢市・伊勢市駅〜外宮〜内宮〜おかげ横丁",
+    "difficulty": "★★☆（散策目安：約3時間・三重交通バス＋徒歩）",
+    "era_focus": "古代神明造〜昭和初期",
+    "description": "JR/近鉄 伊勢市駅・宇治山田駅から外宮を参拝し、路線バスで内宮・宇治橋・五十鈴川・おかげ横丁・猿田彦神社・神宮徴古館を巡る、車不要の王道参宮コース。",
+    "theme_color": "#2E4F3E",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "ISW",
+    "area_map_query": "伊勢神宮内宮 伊勢神宮外宮 おかげ横丁 宇治山田駅",
+    "cells": [
+      {
+        "id": "isw_01",
+        "position": 1,
+        "spot_key": "ise_naiku",
+        "title": "五十鈴川の清流と宇治橋を渡る聖域「伊勢神宮 内宮」",
+        "category": "歴史社寺・名所",
+        "sub_category": "唯一神明造・日本総氏神",
+        "crop_target": "五十鈴川に架かる木造の「宇治橋」と大鳥居",
+        "hint_level_1": "日常の世界から神域への架け橋とされる長さ約101mの木造橋「宇治橋」と大鳥居の前で記念の一枚を。",
+        "hint_level_2": "天照大御神を祀る皇大神宮『伊勢神宮 内宮（宇治橋）』です。",
+        "spot_name": "伊勢神宮 内宮（宇治橋・正宮）",
+        "built_year": "垂仁天皇26年鎮座伝承（20年ごとに式年遷宮）",
+        "architect_note": "素木造の宇治橋を渡り、玉砂利の参道を歩いて正宮へ参拝する日本人の心のふるさと。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#E6DFD3",
+          "detail": "#1C2420"
+        },
+        "lat": 34.4558,
+        "lng": 136.7258,
+        "map_query": "伊勢神宮 内宮 宇治橋"
+      },
+      {
+        "id": "isw_02",
+        "position": 2,
+        "title": "おはらい町の「妻入り」切妻屋根と擬洋風郵便局",
+        "category": "明治・再現建築",
+        "sub_category": "伊勢妻入り町家＆擬洋風建築",
+        "crop_target": "三角形の屋根面（妻）を通りに向けた町家並みと八角望楼の郵便局",
+        "hint_level_1": "伊勢神宮内宮へ続くおはらい町・おかげ横丁。屋根の三角形の面（妻）が通りにズラリと並ぶ伊勢独自の町家と、レトロな擬洋風郵便局を切り取ろう。",
+        "hint_level_2": "明治の通信局舎を再現した『五十鈴川郵便局とおはらい町の妻入り商家群』です。",
+        "spot_name": "五十鈴川郵便局・おはらい町の妻入り町家群",
+        "built_year": "江戸〜昭和期（おかげ横丁は1993年再現）",
+        "architect_note": "神宮のお膝元・伊勢では、神明造の社殿に遠慮して平入りではなく「妻入り」の町家を建てたと伝わり、連続する切妻破風が独自のリズムを生む。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#5E4636",
+          "accent": "#E2D5C1",
+          "detail": "#241E1A"
+        },
+        "lat": 34.4608,
+        "lng": 136.7239,
+        "map_query": "五十鈴川郵便局 おかげ横丁",
+        "spot_key": "ise_oharaimachi_okage"
+      },
+      {
+        "id": "isw_03",
+        "position": 3,
+        "spot_key": "ise_geku",
+        "title": "衣食住の神・豊受大御神を祀る「伊勢神宮 外宮」",
+        "category": "歴史社寺・名所",
+        "sub_category": "唯一神明造・豊受大神宮",
+        "crop_target": "伊勢市駅からまっすぐ続く表参道と火除橋・外宮鳥居",
+        "hint_level_1": "「お伊勢参りは外宮から」の習わし通り、JR・近鉄伊勢市駅から徒歩5分の広大な神域へまず向かおう。",
+        "hint_level_2": "せんぐう館も境内にある『伊勢神宮 外宮（豊受大神宮）』です。",
+        "spot_name": "伊勢神宮 外宮（豊受大神宮）",
+        "built_year": "雄略天皇22年鎮座伝承",
+        "architect_note": "伊勢市駅から表参道を歩いてすぐ。木立に囲まれた静謐な境内に正宮や三ツ石、勾玉池が広がる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E4F3E",
+          "accent": "#D9C5A0",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.4875,
+        "lng": 136.7037,
+        "map_query": "伊勢神宮 外宮"
+      },
+      {
+        "id": "isw_04",
+        "position": 4,
+        "spot_key": "ise_akafuku_honten",
+        "title": "五十鈴川畔に建つ明治10年築の切妻妻入り店舗「赤福 本店」",
+        "category": "明治建築・名店",
+        "sub_category": "明治木造町家店舗（おはらい町）",
+        "crop_target": "唐破風風の看板と五十鈴川沿いに開かれた縁側座敷",
+        "hint_level_1": "おはらい町とおかげ横丁の入口、新橋のたもとに建つ伊勢名物の老舗。明治10年建築の立派な木造店舗を狙おう。",
+        "hint_level_2": "1707年創業の餅菓子舗『赤福 本店』です。",
+        "spot_name": "赤福 本店",
+        "built_year": "1877年（明治10年）現店舗建築",
+        "architect_note": "五十鈴川のせせらぎを眺めながら赤福餅をいただける。店頭の赤い番台や竈（へっついさん）も名物。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.4628,
+        "lng": 136.7222,
+        "map_query": "赤福 本店"
+      },
+      {
+        "id": "isw_05",
+        "position": 5,
+        "spot_key": "ise_isuzugawa_mitarashi",
+        "title": "透き通る清流で心身を清める内宮「五十鈴川 御手洗場」",
+        "category": "風景・歴史名所",
+        "sub_category": "神域の清流・石畳御手洗場",
+        "crop_target": "五十鈴川の清らかな川面と江戸時代に敷かれた石畳の階段",
+        "hint_level_1": "内宮の宇治橋を渡って手水舎を過ぎた右手に広がる、徳川綱吉の生母・桂昌院が寄進した石畳の川岸へ。",
+        "hint_level_2": "手を浸して清める神聖な川辺『五十鈴川 御手洗場』です。",
+        "spot_name": "五十鈴川 御手洗場（内宮境内）",
+        "built_year": "1692年（元禄5年）石畳寄進",
+        "architect_note": "手水舎と並び、古来より参拝者が五十鈴川の水で手と口を清めてきた神聖で美しい水辺。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#EFE8D8",
+          "detail": "#1E2631"
+        },
+        "lat": 34.4557,
+        "lng": 136.7279,
+        "map_query": "五十鈴川 御手洗場"
+      },
+      {
+        "id": "isw_06",
+        "position": 6,
+        "spot_key": "ise_sarutahiko_shrine",
+        "title": "みちひらきの大神を祀る八角形の石柱「猿田彦神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "神社建築・方位石（古殿地）",
+        "crop_target": "さだひこ造りの拝殿と境内にある八角形の「方位石」",
+        "hint_level_1": "おかげ横丁から北西へ歩いてすぐ。物事の始まりを良い方向へ導く「みちひらき」の神様にお参りしよう。",
+        "hint_level_2": "芸能の神社「佐瑠女神社」も境内にある『猿田彦神社』です。",
+        "spot_name": "猿田彦神社",
+        "built_year": "古来より宇治土公家が奉斎",
+        "architect_note": "社殿の欄干や柱がすべて八角形に造られているのが特徴。境内の古殿地にある方位石は人気のパワースポット。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.467,
+        "lng": 136.718,
+        "map_query": "猿田彦神社 伊勢"
+      },
+      {
+        "id": "isw_07",
+        "position": 7,
+        "title": "ベルサイユ宮殿を思わせる宮廷建築家の石造博物館",
+        "category": "明治建築",
+        "sub_category": "ルネサンス＆バロック様式（登録有形文化財）",
+        "crop_target": "前庭に向かって翼を広げる白い石造りファサードと中央ドーム",
+        "hint_level_1": "伊勢市の倉田山公園。迎賓館赤坂離宮を設計した宮廷建築家が手がけた、フランス宮殿のような気品ある白い博物館を探そう。",
+        "hint_level_2": "片山東熊が設計した明治42年竣工の『神宮徴古館（じんぐうちょうこかん）』です。",
+        "spot_name": "神宮徴古館",
+        "built_year": "1909年（明治42年）",
+        "architect_note": "伊勢神宮の文化と歴史を伝える日本最古級の私立博物館建築。空襲で内部を焼失するも、片山東熊による重厚な煉瓦・石貼りの外観が復原された。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#E6E1D6",
+          "accent": "#4A7C6B",
+          "detail": "#1D2D3A"
+        },
+        "lat": 34.4867,
+        "lng": 136.7259,
+        "map_query": "伊勢 神宮徴古館",
+        "spot_key": "ise_chokokan"
+      },
+      {
+        "id": "isw_08",
+        "position": 8,
+        "title": "火の見櫓を兼ねた大塔屋とクリーム色のテラコッタ駅舎",
+        "category": "昭和初期建築",
+        "sub_category": "スパニッシュ＆テラコッタ様式（登録有形文化財）",
+        "crop_target": "駅舎の右端にそびえる高い八角塔屋と連続アーチ窓・テラコッタ",
+        "hint_level_1": "お伊勢参りの玄関口となる近鉄のターミナル駅。スペイン瓦とクリーム色のテラコッタで彩られた、巨大な時計塔・火の見櫓付きの駅舎を見上げよう。",
+        "hint_level_2": "南海難波駅や浅草松屋も手がけた久野節（くのみさお）設計の『近鉄 宇治山田駅舎』です。",
+        "spot_name": "宇治山田駅舎",
+        "built_year": "1931年（昭和6年）",
+        "architect_note": "全長120mにおよぶ壮麗な高架駅舎。北端の塔屋はかつて市の消防望楼（火の見櫓）としても使われ、3階の「転車台」にはバスが乗り入れる構造だった。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#DFD3C3",
+          "accent": "#B85D3B",
+          "detail": "#263238"
+        },
+        "lat": 34.4883,
+        "lng": 136.7142,
+        "map_query": "宇治山田駅",
+        "spot_key": "ise_ujiyamada_station"
+      },
+      {
+        "id": "isw_09",
+        "position": 9,
+        "title": "「伊勢の台所」の水運を伝える黒漆喰蔵とサイダー塔",
+        "category": "明治・江戸建築",
+        "sub_category": "河崎の蔵造り問屋街（登録有形文化財）",
+        "crop_target": "勢田川沿いに連なる切妻の土蔵群と赤煉瓦のボイラー煙突・塔",
+        "hint_level_1": "伊勢市河崎の勢田川沿い。かつてお伊勢参りの物資を船から直接荷揚げしていた「川蔵」の並びと、明治のサイダー工場の塔を探そう。",
+        "hint_level_2": "300年以上の歴史を持つ酒問屋を保存した『伊勢河崎商人館（旧小川酒店）』です。",
+        "spot_name": "伊勢河崎商人館（旧小川酒店）",
+        "built_year": "江戸後期〜明治44年（サイダー塔）",
+        "architect_note": "江戸期の主屋・土蔵7棟に加え、明治44年に建てられた洋風の「エスサイダー」製造棟が現存する、伊勢商人の活気を伝える複合遺産。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#2E2D2A",
+          "accent": "#D5C8B8",
+          "detail": "#8C3B2B"
+        },
+        "lat": 34.4981,
+        "lng": 136.7153,
+        "map_query": "伊勢河崎商人館",
+        "spot_key": "ise_kawasaki_shoninkan"
+      }
+    ]
+  },
+  {
+    "id": "tokai_atami_onsen_walk",
+    "region_group": "東海",
+    "prefecture_group": "静岡・富士山",
+    "tour_type": "walk",
+    "title": "熱海・起雲閣〜来宮神社〜海辺温泉街散策",
+    "subtitle": "ATAMI HERITAGE & HOT SPRING WALK",
+    "region": "静岡県熱海市・JR熱海駅〜起雲閣〜来宮神社〜サンビーチ",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・徒歩＋湯～遊～バス）",
+    "era_focus": "大正〜昭和中期",
+    "description": "東海道新幹線で都心から約45分の熱海駅を起点に、名邸「起雲閣」、樹齢2100年の大楠がある来宮神社、熱海銀座、お宮の松・サンビーチを巡る車不要の温泉街散歩。",
+    "theme_color": "#1B4353",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "ATM",
+    "area_map_query": "起雲閣 来宮神社 熱海サンビーチ 熱海銀座商店街",
+    "cells": [
+      {
+        "id": "atm_01",
+        "position": 1,
+        "spot_key": "atami_kiunkaku",
+        "title": "三大文豪も泊まった和洋中折衷の名邸「起雲閣」",
+        "category": "大正〜昭和初期建築",
+        "sub_category": "和洋折衷別荘・旅館建築（熱海市指定有形文化財）",
+        "crop_target": "ステンドグラス輝く「玉姫」の洋館と池泉回遊式庭園",
+        "hint_level_1": "熱海市中心部に残る、大正8年築の別荘から名旅館となった近代建築。ローマ風浴室のステンドグラスや洋館「玉姫」が見どころ。",
+        "hint_level_2": "太宰治や谷崎潤一郎らも愛した名邸『起雲閣』です。",
+        "spot_name": "起雲閣",
+        "built_year": "1919年（大正8年）和館建築・1932年洋館",
+        "architect_note": "実業家・内田信也の別荘として築かれ、のちに根津嘉一郎が増築。日本・中国・欧州の装飾が融合した傑作。",
+        "icon_type": "stained_glass",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 35.095,
+        "lng": 139.0702,
+        "map_query": "起雲閣 熱海"
+      },
+      {
+        "id": "atm_02",
+        "position": 2,
+        "spot_key": "atami_kinomiya_shrine",
+        "title": "幹周り約24m！樹齢2100年を超える「来宮神社の大楠」",
+        "category": "歴史社寺・自然造形",
+        "sub_category": "国指定天然記念物・モダン社務所建築",
+        "crop_target": "圧倒的な存在感を放つ「大楠」の巨幹と鳥居",
+        "hint_level_1": "JR伊東線「来宮駅」から徒歩5分（起雲閣からも徒歩約12分）。一周すると寿命が1年延びると伝わる巨大な御神木を見上げよう。",
+        "hint_level_2": "熱海の地主の神として信仰される『來宮神社（大楠）』です。",
+        "spot_name": "來宮神社（大楠）",
+        "built_year": "和銅3年（710年）創建伝承",
+        "architect_note": "国指定天然記念物の大楠は本州一の巨樹とも言われる。境内にはおしゃれなオープンカフェも併設され若い世代にも人気。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 35.0987,
+        "lng": 139.0623,
+        "map_query": "来宮神社 熱海"
+      },
+      {
+        "id": "atm_03",
+        "position": 3,
+        "spot_key": "atami_moa_museum",
+        "title": "相模湾を一望する高台の美の殿堂「MOA美術館」",
+        "category": "現代建築・美術館",
+        "sub_category": "杉本博司＋榊田倫之による空間改装（2017年）",
+        "crop_target": "万華鏡が映る円形ホールと海を望むムアスクエア・能楽堂",
+        "hint_level_1": "熱海駅からバスで約7分、伊豆山の中腹に建つ美術館。全長200mの地下エスカレーターの先にある絶景ロビーへ。",
+        "hint_level_2": "国宝3点を含む東洋美術を収蔵する『MOA美術館』です。",
+        "spot_name": "MOA美術館",
+        "built_year": "1982年開館・2017年リニューアル",
+        "architect_note": "杉本博司と榊田倫之（新素材研究所）が展示室やロビーを一新。メインロビーの窓から初島や伊豆大島を一望できる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#D4AF37",
+          "detail": "#13293D"
+        },
+        "lat": 35.1088,
+        "lng": 139.0751,
+        "map_query": "MOA美術館 熱海"
+      },
+      {
+        "id": "atm_04",
+        "position": 4,
+        "spot_key": "atami_sun_beach_omiyanomatsu",
+        "title": "ヤシの木と白い砂浜が続くリゾート海岸「熱海サンビーチ・お宮の松」",
+        "category": "風景・観光名所",
+        "sub_category": "海浜プロムナード・文学碑",
+        "crop_target": "弧を描く熱海サンビーチと「貫一・お宮の像」",
+        "hint_level_1": "熱海銀座から海へ出てすぐ。尾崎紅葉『金色夜叉』の名場面を再現した銅像と、南国ムード漂う海岸線を歩こう。",
+        "hint_level_2": "熱海海辺の定番スポット『熱海サンビーチ・お宮の松』です。",
+        "spot_name": "熱海サンビーチ・お宮の松",
+        "built_year": "1897年小説発表・1986年像建立",
+        "architect_note": "石井幹子デザインによる砂浜の夜間ライトアップも有名。昼はヤシ並木と相模湾の爽やかな風景が楽しめる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 35.0987,
+        "lng": 139.0757,
+        "map_query": "熱海サンビーチ お宮の松"
+      },
+      {
+        "id": "atm_05",
+        "position": 5,
+        "spot_key": "atami_ginza",
+        "title": "昭和レトロな看板と温泉まんじゅうが並ぶ「熱海銀座商店街」",
+        "category": "観光名所・街並み",
+        "sub_category": "昭和レトロ温泉商店街",
+        "crop_target": "「ATAMI GINZA」のアーチ看板とレトロ喫茶・干物店の並び",
+        "hint_level_1": "サンビーチからすぐ山側に入った通り。昭和の観光ブームの面影を残す喫茶店や最新のプリン専門店が混在する賑わいの街へ。",
+        "hint_level_2": "熱海街歩きの中心『熱海銀座商店街』です。",
+        "spot_name": "熱海銀座商店街",
+        "built_year": "昭和初期〜中期形成",
+        "architect_note": "近年リノベーションによって古民家カフェやゲストハウスが次々と誕生し、新旧が交わる熱海のホットスポットに。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#C85A32",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.0968,
+        "lng": 139.074,
+        "map_query": "熱海銀座商店街"
+      },
+      {
+        "id": "atm_06",
+        "position": 6,
+        "spot_key": "atami_itokawa_promenade",
+        "title": "温泉街の中心を流れる糸川沿いの「糸川遊歩道」",
+        "category": "風景・街並み",
+        "sub_category": "川沿い遊歩道（ブーゲンビリア・あたみ桜）",
+        "crop_target": "糸川の小さな橋と川沿いのレトロな温泉宿・飲食店街",
+        "hint_level_1": "熱海銀座のすぐ南を流れる糸川沿いの遊歩道。冬は早咲きのあたみ桜、初夏〜秋はブーゲンビリアが彩る水辺を歩こう。",
+        "hint_level_2": "熱海温泉街の風情を感じる『糸川遊歩道』です。",
+        "spot_name": "糸川遊歩道（ドラゴン橋・柳橋）",
+        "built_year": "昭和期整備",
+        "architect_note": "川沿いには熱海芸妓見番や昭和の趣を残すスナック街が続き、散歩にぴったりの小径となっている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.0947,
+        "lng": 139.0742,
+        "map_query": "糸川遊歩道 熱海"
+      },
+      {
+        "id": "atm_07",
+        "position": 7,
+        "spot_key": "atami_oyu_geyser",
+        "title": "湯気が立ち上る熱海温泉発祥の地「大湯間歇泉・湯前神社」",
+        "category": "歴史名所・温泉遺産",
+        "sub_category": "間歇泉遺構＆温泉守護神社",
+        "crop_target": "モウモウと湯気を上げる「大湯間歇泉」と隣の湯前神社",
+        "hint_level_1": "起雲閣から熱海銀座方面へ戻る途中、熱海市役所近く。かつて世界の三大間歇泉に数えられた熱海温泉の原点へ。",
+        "hint_level_2": "徳川家康も湯治に訪れた名湯の源泉『大湯間歇泉・湯前神社』です。",
+        "spot_name": "大湯間歇泉・湯前神社",
+        "built_year": "749年（天平勝宝元年）湯前神社創建",
+        "architect_note": "関東大震災後は人工的に4分ごとに湯気と熱湯が噴き出すよう整備され、温泉街らしい湯けむりを間近に見られる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.0977,
+        "lng": 139.0708,
+        "map_query": "大湯間歇泉 熱海"
+      },
+      {
+        "id": "atm_08",
+        "position": 8,
+        "spot_key": "atami_castle",
+        "title": "錦ヶ浦の断崖絶壁から熱海市街を一望する「熱海城」",
+        "category": "観光名所・展望",
+        "sub_category": "昭和34年築城型展望施設",
+        "crop_target": "相模湾の断崖上にそびえる白亜の5層天守風建築",
+        "hint_level_1": "アタミロープウェイや湯～遊～バスでアクセスできる錦ヶ浦の山頂。360度パノラマの天守展望台から熱海の街を見下ろそう。",
+        "hint_level_2": "熱海の南端のランドマーク『熱海城（錦ヶ浦）』です。",
+        "spot_name": "熱海城（錦ヶ浦展望）",
+        "built_year": "1959年（昭和34年）",
+        "architect_note": "歴史上の城郭ではないが、桃山様式を模した天守型展望施設として半世紀以上親しまれ、展望足湯も人気。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 35.0848,
+        "lng": 139.0785,
+        "map_query": "熱海城"
+      },
+      {
+        "id": "atm_09",
+        "position": 9,
+        "spot_key": "atami_station_ashiyu",
+        "title": "熱海駅前の天然温泉足湯「家康の湯」と仲見世通り商店街",
+        "category": "観光名所・駅前",
+        "sub_category": "駅前足湯＆レトロアーケード街",
+        "crop_target": "駅前の蒸気機関車「軽便鉄道7号機」と湯気立つ「家康の湯」",
+        "hint_level_1": "JR熱海駅の改札を出てすぐ！無料で浸かれる天然温泉の足湯と、その前に保存された小さな蒸気機関車を撮影しよう。",
+        "hint_level_2": "散策の疲れを癒やす玄関口『熱海駅前 家康の湯・仲見世通り』です。",
+        "spot_name": "熱海駅前「家康の湯」・仲見世通り",
+        "built_year": "2004年（平成16年）足湯設置",
+        "architect_note": "徳川家康来湯400年を記念して整備された駅前足湯。すぐ隣の仲見世・平和通り商店街は土産探しの名所。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.1035,
+        "lng": 139.0777,
+        "map_query": "家康の湯 熱海駅"
+      }
+    ]
+  },
+  {
+    "id": "kinki_kyoto_arashiyama_walk",
+    "region_group": "近畿",
+    "prefecture_group": "京都",
+    "tour_type": "walk",
+    "title": "京都・嵐山〜嵯峨野 竹林と世界遺産散策",
+    "subtitle": "KYOTO ARASHIYAMA & SAGANO WALK",
+    "region": "京都府京都市・嵐山駅〜渡月橋〜天龍寺〜竹林〜落柿舎",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・完全徒歩）",
+    "era_focus": "鎌倉〜現代",
+    "description": "JR嵯峨嵐山駅・阪急嵐山駅・嵐電嵐山駅から徒歩だけで巡れる嵐山・嵯峨野コース。渡月橋、世界遺産・天龍寺、竹林の小径、野宮神社、常寂光寺、キモノフォレストを歩きます。",
+    "theme_color": "#2E4F3E",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "ARS",
+    "area_map_query": "渡月橋 天龍寺 竹林の小径 野宮神社 嵐電嵐山駅",
+    "cells": [
+      {
+        "id": "ars_01",
+        "position": 1,
+        "title": "嵐山の山並みを背に桂川をまたぐ木製高欄の「渡月橋」",
+        "category": "風景・観光名所",
+        "sub_category": "国指定史跡及び名勝・嵐山風景",
+        "crop_target": "ゆったりと流れる桂川に架かる全長155mの『渡月橋』と嵐山の稜線",
+        "hint_level_1": "京都・嵐山のシンボル。亀山上皇が「くまなき月の渡るに似る」と詠んだことから名付けられた、ヒノキの欄干が優美に伸びる全長155mの名橋と川の風景を切り取ろう。",
+        "hint_level_2": "国の史跡・名勝に指定されている嵐山の中心『渡月橋（とげつきょう）』です。",
+        "spot_name": "嵐山 渡月橋",
+        "built_year": "836年頃創架・1934年（昭和9年）現橋構造完成",
+        "architect_note": "洪水に耐えるため橋脚と橋桁は鉄筋コンクリート造としつつ、景観を守るため高欄（欄干）すべてに国産ヒノキを用いた、昭和初期の景観配慮型橋梁の先駆け。",
+        "icon_type": "bridge",
+        "dummy_palette": {
+          "bg": "#2E5A44",
+          "accent": "#D5C3AA",
+          "detail": "#2B5B6C"
+        },
+        "lat": 35.0116,
+        "lng": 135.6778,
+        "map_query": "嵐山 渡月橋",
+        "spot_key": "kyoto_togetsukyo"
+      },
+      {
+        "id": "ars_02",
+        "position": 2,
+        "title": "空を覆うほど高く伸びた数万本の青竹が続く「竹林の小径」",
+        "category": "風景・観光名所",
+        "sub_category": "歴史的風土特別保存地区・竹林風景",
+        "crop_target": "空に向かって真っすぐ伸びる青竹の幹と黒穂垣が続く一本道",
+        "hint_level_1": "嵐山・野宮神社から大河内山荘へと抜ける約400mの散策路。1年中いつでも瑞々しい緑の竹が空を覆い、竹穂垣が続く京都屈指のヒーリング風景を狙おう。",
+        "hint_level_2": "「残したい日本の音風景100選」にも選ばれている『嵯峨野 竹林の小径（ちくりんのこみち）』です。",
+        "spot_name": "嵯峨野 竹林の小径",
+        "built_year": "歴史的風土特別保存地区（通年名勝風景）",
+        "architect_note": "天龍寺の北側に広がる孟宗竹の林と、枯れ竹の枝を編み上げた伝統的な「嵯峨野垣・竹穂垣」が、垂直と水平の端正な空間美を作り出している。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#264E36",
+          "accent": "#6B9E78",
+          "detail": "#162A1E"
+        },
+        "lat": 35.0169,
+        "lng": 135.6713,
+        "map_query": "嵐山 竹林の小径",
+        "spot_key": "kyoto_chikurin"
+      },
+      {
+        "id": "ars_03",
+        "position": 3,
+        "spot_key": "kyoto_tenryuji",
+        "title": "嵐山を借景とする夢窓疎石の名園「天龍寺 曹源池庭園」",
+        "category": "歴史社寺・世界遺産",
+        "sub_category": "特別名勝・世界遺産（臨済宗天龍寺派大本山）",
+        "crop_target": "大方丈の縁側から望む曹源池と嵐山の借景",
+        "hint_level_1": "渡月橋の北詰からすぐ。足利尊氏が創建し、日本初の史跡・特別名勝に指定された美しい池泉回遊式庭園へ。",
+        "hint_level_2": "京都五山第一位の名刹『天龍寺（曹源池庭園）』です。",
+        "spot_name": "天龍寺（曹源池庭園）",
+        "built_year": "1339年（暦応2年）開創",
+        "architect_note": "夢窓疎石作庭の曹源池庭園は創建当時の面影を今に留め、亀山や嵐山を借景に取り入れた名園。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 35.0157,
+        "lng": 135.6738,
+        "map_query": "天龍寺 嵐山"
+      },
+      {
+        "id": "ars_04",
+        "position": 4,
+        "spot_key": "kyoto_nonomiya_shrine",
+        "title": "クヌギの皮を剥かない日本最古様式の「黒木鳥居」",
+        "category": "歴史社寺・名所",
+        "sub_category": "源氏物語ゆかりの神社・黒木鳥居",
+        "crop_target": "竹林の入口に立つ樹皮のついたままの「黒木鳥居」と小柴垣",
+        "hint_level_1": "竹林の小径の途中に現れる、平安時代に斎王が身を清めた神社。鳥居の柱が黒い丸太のままなのが特徴だ。",
+        "hint_level_2": "縁結びと『源氏物語』賢木の巻の舞台『野宮神社』です。",
+        "spot_name": "野宮神社",
+        "built_year": "平安時代斎宮群行の旧跡",
+        "architect_note": "樹皮がついたままのクヌギ材で組まれた「黒木鳥居」とクロモジの小柴垣が古代の神社の姿を伝える。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2E4F3E",
+          "accent": "#D9C5A0",
+          "detail": "#1E2631"
+        },
+        "lat": 35.0177,
+        "lng": 135.6744,
+        "map_query": "野宮神社 嵐山"
+      },
+      {
+        "id": "ars_05",
+        "position": 5,
+        "spot_key": "kyoto_jojakkoji",
+        "title": "小倉山の中腹に佇む茅葺き仁王門と多宝塔「常寂光寺」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "桃山時代多宝塔（重要文化財）＆茅葺き仁王門",
+        "crop_target": "苔の石段の先の仁王門または高台の多宝塔と京都市街の眺望",
+        "hint_level_1": "竹林の小径を抜けて小倉山麓へ。百人一首ゆかりの山中にある、茅葺き屋根の仁王門と重要文化財の多宝塔を訪ねよう。",
+        "hint_level_2": "紅葉だけでなく通年の苔美も素晴らしい『常寂光寺』です。",
+        "spot_name": "常寂光寺（仁王門・多宝塔）",
+        "built_year": "1596年（慶長元年）開創・1620年多宝塔",
+        "architect_note": "元和6年建立の多宝塔は国重要文化財。境内高台からは嵯峨野と京都タワー方面まで一望できる。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 35.0197,
+        "lng": 135.6683,
+        "map_query": "常寂光寺"
+      },
+      {
+        "id": "ars_06",
+        "position": 6,
+        "spot_key": "kyoto_rakushisha",
+        "title": "松尾芭蕉も滞在した茅葺きの草庵「落柿舎」",
+        "category": "歴史建築・文学名所",
+        "sub_category": "江戸時代草庵建築（向井去来旧宅）",
+        "crop_target": "竹垣と柿の木に囲まれた素朴な茅葺き屋根の「落柿舎」",
+        "hint_level_1": "常寂光寺から田園風景の小道を東へ徒歩5分。芭蕉の門人・向井去来の別荘で『嵯峨日記』の舞台となった庵へ。",
+        "hint_level_2": "軒先に柿の木と蓑笠が掛かる『落柿舎（らくししゃ）』です。",
+        "spot_name": "落柿舎",
+        "built_year": "江戸前期（1770年再建）",
+        "architect_note": "一夜の嵐で庭の柿の実がすべて落ちてしまったことから「落柿舎」と名付けられた風流な草庵。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D97B48",
+          "detail": "#1C2420"
+        },
+        "lat": 35.0209,
+        "lng": 135.6728,
+        "map_query": "落柿舎"
+      },
+      {
+        "id": "ars_07",
+        "position": 7,
+        "spot_key": "kyoto_okocho_sanso",
+        "title": "時代劇スター・大河内傳次郎が30年かけて築いた「大河内山荘庭園」",
+        "category": "昭和建築・名園",
+        "sub_category": "国登録有形文化財（大乗閣・持仏堂・茶室）",
+        "crop_target": "大乗閣と嵐山・比叡山を望む回遊式庭園",
+        "hint_level_1": "竹林の小径の西端からすぐ。昭和の名優が私財を投じて造り上げた、京都市内を一望する絶景の日本庭園へ。",
+        "hint_level_2": "入園料にお抹茶と和菓子が付く名園『大河内山荘庭園』です。",
+        "spot_name": "大河内山荘庭園",
+        "built_year": "1931年（昭和6年）着工",
+        "architect_note": "大乗閣は寝殿造・書院造・数寄屋造を取り入れた近代和風建築。茶室滴水庵や展望台など見どころが多い。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.0176,
+        "lng": 135.6694,
+        "map_query": "大河内山荘庭園"
+      },
+      {
+        "id": "ars_08",
+        "position": 8,
+        "spot_key": "kyoto_randen_kimono_forest",
+        "title": "京友禅の柱600本が立ち並ぶ「嵐電 嵐山駅 キモノフォレスト」",
+        "category": "現代建築・観光名所",
+        "sub_category": "森田恭通デザイン駅舎空間（2013年）",
+        "crop_target": "京友禅のアクリルポールが林立する光と着物の小径",
+        "hint_level_1": "天龍寺の目の前にある嵐電の駅構内・広場。色とりどりの京友禅の柄を閉じ込めた約600本の柱が並ぶ映えスポットへ。",
+        "hint_level_2": "足湯も併設されている『嵐電 嵐山駅（キモノフォレスト）』です。",
+        "spot_name": "嵐電 嵐山駅（キモノフォレスト）",
+        "built_year": "2013年（平成25年）リニューアル",
+        "architect_note": "デザイナー森田恭通が手がけ、老舗「亀田富染工場」の京友禅生地を用いた高さ2mのポールが駅を彩る。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 35.0151,
+        "lng": 135.6777,
+        "map_query": "キモノフォレスト 嵐山"
+      },
+      {
+        "id": "ars_09",
+        "position": 9,
+        "spot_key": "kyoto_saga_toriimoto",
+        "title": "愛宕神社の鳥居と茅葺き町家が続く「嵯峨鳥居本」",
+        "category": "歴史街並み",
+        "sub_category": "重要伝統的建造物群保存地区（愛宕街道）",
+        "crop_target": "「一の鳥居」と茅葺き屋根・鮎茶屋「平野屋」の佇まい",
+        "hint_level_1": "落柿舎から化野念仏寺を抜けて奥嵯峨へ（徒歩約15分）。江戸時代の愛宕詣での面影を色濃く残す保存地区を歩こう。",
+        "hint_level_2": "重伝建に選定された奥嵯峨の門前町並み『嵯峨鳥居本』です。",
+        "spot_name": "嵯峨鳥居本（一の鳥居・伝統的建造物群）",
+        "built_year": "江戸〜明治期の町家・農家建築群",
+        "architect_note": "下地区の京町家風民家と上地区の茅葺き農家が対照的な美しさを見せ、京都の原風景が残されている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 35.0273,
+        "lng": 135.6648,
+        "map_query": "嵯峨鳥居本"
+      }
+    ]
+  },
+  {
+    "id": "kinki_kyoto_higashiyama_gion_walk",
+    "region_group": "近畿",
+    "prefecture_group": "京都",
+    "tour_type": "walk",
+    "title": "京都・東山〜祇園〜清水寺 徒歩散策",
+    "subtitle": "KYOTO HIGASHIYAMA & GION WALK",
+    "region": "京都府京都市・清水寺〜産寧坂〜八坂の塔〜祇園〜知恩院",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・完全徒歩）",
+    "era_focus": "鎌倉〜昭和",
+    "description": "清水寺から二年坂・三年坂、八坂の塔、高台寺、八坂神社、花見小路、白川巽橋、知恩院三門まで、京都で最も風情ある東山〜祇園の石畳ルートを歩きます。",
+    "theme_color": "#6B2D26",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "HGS",
+    "area_map_query": "清水寺 法観寺八坂の塔 八坂神社 花見小路 知恩院三門",
+    "cells": [
+      {
+        "id": "hgs_01",
+        "position": 1,
+        "title": "釘を一本も使わず139本のケヤキ柱で崖にせり出す「清水の舞台」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "懸造（かけづくり）本堂（国宝・世界遺産）",
+        "crop_target": "音羽山の断崖に組まれた巨大な木組み柱とせり出した『清水の舞台』",
+        "hint_level_1": "東山・音羽山の中腹。4階建てのビルに相当する高さの崖に、太いケヤキの柱を格子状に組み上げて大舞台をせり出させた世界遺産の国宝本堂を狙おう。",
+        "hint_level_2": "寛永10年（1633年）に徳川家光公の寄進で再建された国宝・世界遺産『音羽山 清水寺 本堂』です。",
+        "spot_name": "清水寺 本堂（清水の舞台）・三重塔",
+        "built_year": "1633年（寛永10年）再建",
+        "architect_note": "急峻な崖地に床を張り出す日本古来の「懸造（かけづくり）」の最高峰。139本のケヤキ柱を貫（ぬき）と楔（くさび）だけで強固に連結し、地震の揺れを吸収する。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#5C3A2E",
+          "accent": "#D99B3C",
+          "detail": "#263A29"
+        },
+        "lat": 34.9949,
+        "lng": 135.785,
+        "map_query": "京都 清水寺",
+        "spot_key": "kyoto_kiyomizudera"
+      },
+      {
+        "id": "hgs_02",
+        "position": 2,
+        "title": "東山の石畳坂の先にそびえる古都のランドマーク「八坂の塔」",
+        "category": "風景・重要文化財",
+        "sub_category": "室町時代五重塔（重要文化財）＆産寧坂町並み",
+        "crop_target": "石畳と瓦屋根の町家の向こうにそびえ立つ本瓦葺きの『法観寺五重塔』",
+        "hint_level_1": "清水寺から八坂神社へと向かう八坂通。風情ある京町家の瓦屋根と石畳の坂道の真正面に、高さ46mの五重塔がすっくと立つ京都で最も絵になる坂道風景を切り取ろう。",
+        "hint_level_2": "足利義教によって永享12年（1440年）に再建された重要文化財『法観寺 五重塔（通称・八坂の塔）』です。",
+        "spot_name": "八坂の塔（法観寺五重塔）と八坂通",
+        "built_year": "1440年（永享12年）再建",
+        "architect_note": "聖徳太子創建とも伝わる白鳳時代以来の古刹。緩やかに反り上がる軒のラインと、手前の産寧坂・八坂通の木造町家群が完璧な都市のアイストップを形成している。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#3B2F2F",
+          "accent": "#D99B3C",
+          "detail": "#1D2832"
+        },
+        "lat": 34.9986,
+        "lng": 135.7793,
+        "map_query": "京都 八坂の塔 法観寺",
+        "spot_key": "kyoto_yasaka_pagoda"
+      },
+      {
+        "id": "hgs_03",
+        "position": 3,
+        "spot_key": "kyoto_sanneizaka_ninenzaka",
+        "title": "京町家としだれ桜・石段が美しい「産寧坂・二年坂」",
+        "category": "歴史街並み",
+        "sub_category": "重要伝統的建造物群保存地区（東山）",
+        "crop_target": "石畳の坂道と伝統的な京町家の瓦屋根・格子",
+        "hint_level_1": "清水寺から北へ下る風情たっぷりの坂道。瓦屋根の土塀や老舗の土産物店が連なる石段の風景を切り取ろう。",
+        "hint_level_2": "京都を代表する伝統的街並み『産寧坂（三年坂）・二年坂』です。",
+        "spot_name": "産寧坂（三年坂）・二年坂",
+        "built_year": "江戸〜大正期の京町家群",
+        "architect_note": "産寧坂は「お産が寧らか（やすらか）であるように」と清水寺の子安塔へ祈願する参道が名前の由来。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.9973,
+        "lng": 135.7808,
+        "map_query": "産寧坂 二年坂"
+      },
+      {
+        "id": "hgs_04",
+        "position": 4,
+        "spot_key": "kyoto_kodaiji",
+        "title": "豊臣秀吉の正室・ねねが建立した桃山文化の寺「高台寺」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "桃山時代霊屋・茶室建築（重要文化財）",
+        "crop_target": "白砂の「波心庭」と開山堂・臥龍廊の優美な木造建築",
+        "hint_level_1": "二年坂を北へ抜けた先の石塀小路のそば。秀吉の妻「ねね（北政所）」が秀吉の菩提を弔うために建てた禅寺へ。",
+        "hint_level_2": "蒔絵の美と枯山水で知られる『高台寺』です。",
+        "spot_name": "高台寺（開山堂・霊屋・波心庭）",
+        "built_year": "1606年（慶長11年）創建",
+        "architect_note": "開山堂や霊屋、傘亭・時雨亭の茶室など国重要文化財が多数残り、小堀遠州作の庭園も見事。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#D4AF37",
+          "detail": "#1E2631"
+        },
+        "lat": 35.0006,
+        "lng": 135.7812,
+        "map_query": "高台寺"
+      },
+      {
+        "id": "hgs_05",
+        "position": 5,
+        "spot_key": "kyoto_yasaka_shrine",
+        "title": "四条通の東端に鎮座する「祇園さん」こと八坂神社",
+        "category": "歴史社寺・国宝",
+        "sub_category": "祇園造本殿（国宝）＆重要文化財楼門",
+        "crop_target": "四条通正面に建つ朱塗りの「西楼門」または提灯並ぶ舞殿",
+        "hint_level_1": "円山公園の西隣、四条通の突き当たりに立つ鮮やかな朱色の楼門。日本三大祭りの一つ「祇園祭」の本社だ。",
+        "hint_level_2": "2020年に本殿が国宝に指定された『八坂神社（西楼門・本殿）』です。",
+        "spot_name": "八坂神社（西楼門・国宝本殿）",
+        "built_year": "656年創建伝承・1654年本殿造営",
+        "architect_note": "本殿は「祇園造」と呼ばれる日本唯一の建築様式で国宝。提灯が灯る舞殿の夕暮れも美しい。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.0037,
+        "lng": 135.7785,
+        "map_query": "八坂神社 京都"
+      },
+      {
+        "id": "hgs_06",
+        "position": 6,
+        "spot_key": "kyoto_gion_hanamikoji",
+        "title": "紅殻格子と犬矢来が続く京都随一の花街「祇園・花見小路」",
+        "category": "歴史街並み",
+        "sub_category": "茶屋街町並み（歴史的景観保全地区）",
+        "crop_target": "石畳に並ぶ茶屋の紅殻格子・犬矢来と祇園甲部歌舞練場",
+        "hint_level_1": "八坂神社から四条通を西へ少し歩いて南へ入る通り。伝統的なお茶屋が軒を連ねる京都屈指の花街を歩こう。",
+        "hint_level_2": "都をどりの舞台「歌舞練場」もある『祇園 花見小路通』です。",
+        "spot_name": "祇園 花見小路通（祇園甲部歌舞練場）",
+        "built_year": "江戸〜大正期の茶屋建築群",
+        "architect_note": "電柱地中化と石畳整備により美しい花街景観が保たれている（※私道での撮影マナーに配慮して公道から鑑賞）。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D97B48",
+          "detail": "#242830"
+        },
+        "lat": 35.0022,
+        "lng": 135.775,
+        "map_query": "花見小路通 祇園"
+      },
+      {
+        "id": "hgs_07",
+        "position": 7,
+        "spot_key": "kyoto_gion_shirakawa_tatsumi",
+        "title": "柳と白川のせせらぎが織りなす「祇園白川・巽橋」",
+        "category": "風景・歴史街並み",
+        "sub_category": "重要伝統的建造物群保存地区（祇園新橋）",
+        "crop_target": "石造りの小さな「巽橋」と白川沿いの町家・辰巳大明神",
+        "hint_level_1": "四条通の北側、新橋通と白川沿いに広がる一帯。小さな石橋と町家、柳の木が作る京都らしい水辺の風景を切り取ろう。",
+        "hint_level_2": "時代劇やCMの撮影でもおなじみ『祇園白川・巽橋』です。",
+        "spot_name": "祇園白川・巽橋（新橋通）",
+        "built_year": "江戸後期〜明治の茶屋町並み",
+        "architect_note": "白川の清流と石畳、両岸の木造町家が調和し、国選定の重要伝統的建造物群保存地区に指定されている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 35.0054,
+        "lng": 135.7746,
+        "map_query": "巽橋 祇園"
+      },
+      {
+        "id": "hgs_08",
+        "position": 8,
+        "spot_key": "kyoto_kenninji",
+        "title": "「風神雷神図屏風」と枯山水「〇△□乃庭」の京都最古の禅寺",
+        "category": "歴史社寺・名所",
+        "sub_category": "京都五山第三位・臨済宗建仁寺派大本山",
+        "crop_target": "勅使門・法堂の双龍図または独創的な枯山水「〇△□乃庭」",
+        "hint_level_1": "花見小路通の突き当たり（南端）に広がる大きな禅寺。俵屋宗達の『風神雷神図』高精細複製や天井の双龍図が圧巻だ。",
+        "hint_level_2": "1202年栄西禅師開山の京都最古の禅寺『建仁寺』です。",
+        "spot_name": "建仁寺（方丈・法堂・〇△□乃庭）",
+        "built_year": "1202年（建仁2年）開創",
+        "architect_note": "法堂天井の小泉淳作筆『双龍図』や、丸・三角・四角を苔と白砂で表した『〇△□乃庭』など見どころ満載。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 35.0005,
+        "lng": 135.7738,
+        "map_query": "建仁寺 京都"
+      },
+      {
+        "id": "hgs_09",
+        "position": 9,
+        "spot_key": "kyoto_chionin_sanmon",
+        "title": "高さ24m！現存する日本最大の木造二重門「知恩院 三門」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "江戸初期二重門（国宝）",
+        "crop_target": "東大路通の先にどっしりと構える国宝「知恩院 三門」",
+        "hint_level_1": "八坂神社の北、円山公園を抜けてすぐ。徳川秀忠が建立した、日本最大級の木造楼門の圧倒的スケールを見上げよう。",
+        "hint_level_2": "浄土宗総本山の玄関口、国宝『知恩院 三門』です。",
+        "spot_name": "知恩院 三門（国宝）",
+        "built_year": "1621年（元和7年）",
+        "architect_note": "高さ24m・横幅50mという破格の規模を誇る国宝。御影堂も国宝に指定されている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D4AF37",
+          "detail": "#1E2631"
+        },
+        "lat": 35.0061,
+        "lng": 135.7819,
+        "map_query": "知恩院 三門"
+      }
+    ]
+  },
+  {
+    "id": "kinki_uji_byodoin_walk",
+    "region_group": "近畿",
+    "prefecture_group": "京都",
+    "tour_type": "walk",
+    "title": "京都・宇治 平等院〜宇治上神社 徒歩散策",
+    "subtitle": "KYOTO UJI WORLD HERITAGE WALK",
+    "region": "京都府宇治市・JR/京阪宇治駅〜平等院〜宇治上神社",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "平安〜現代",
+    "description": "JR宇治駅・京阪宇治駅から徒歩だけで巡れる2つの世界遺産コース。10円玉でおなじみの国宝・平等院鳳凰堂から、日本最古の神社建築・宇治上神社、源氏物語ミュージアムまで歩きます。",
+    "theme_color": "#2E4F3E",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "UJI",
+    "area_map_query": "平等院 鳳凰堂 宇治上神社 宇治橋 源氏物語ミュージアム",
+    "cells": [
+      {
+        "id": "uji_01",
+        "position": 1,
+        "title": "十円玉のモデル！阿字池の中島に翼を広げる国宝「鳳凰堂」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "平安時代阿弥陀堂（国宝・世界遺産）",
+        "crop_target": "阿字池に映る左右対称の翼廊と大屋根の両端に立つ一対の『鳳凰』",
+        "hint_level_1": "京都府宇治市。ポケットの中の「10円硬貨」に描かれている建物そのもの！池の真ん中の島に、大きな鳥が翼を広げたように建つ平安時代の極楽浄土建築を収めよう。",
+        "hint_level_2": "藤原頼通が天喜元年（1053年）に建立した国宝・世界遺産『平等院 鳳凰堂（阿弥陀堂）』です。",
+        "spot_name": "平等院 鳳凰堂（国宝・世界遺産）",
+        "built_year": "1053年（天喜元年）",
+        "architect_note": "中堂・左右の翼廊・尾廊からなる唯一無二の造形。平成の大修理によって、平安創建当時の丹土（にっち）塗りの気品ある赤色と金色の鳳凰が蘇った。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#D4AF37",
+          "detail": "#2B5B6C"
+        },
+        "lat": 34.8893,
+        "lng": 135.8077,
+        "map_query": "宇治 平等院鳳凰堂",
+        "spot_key": "uji_byodoin"
+      },
+      {
+        "id": "uji_02",
+        "position": 2,
+        "spot_key": "uji_byodoin_hoshokan",
+        "title": "栗生明が景観に溶け込ませた地下展示空間「平等院 鳳翔館」",
+        "category": "現代建築・博物館",
+        "sub_category": "日本建築学会賞受賞ミュージアム（栗生明設計）",
+        "crop_target": "庭園の風景を損なわない低層の現代和風博物館外観",
+        "hint_level_1": "平等院の敷地内、鳳凰堂の南側に建つ美術館。国宝の雲中供養菩薩像や鳳凰（初代）を間近に鑑賞できる名建築だ。",
+        "hint_level_2": "世界遺産と現代建築が見事に調和した『平等院ミュージアム鳳翔館』です。",
+        "spot_name": "平等院ミュージアム鳳翔館",
+        "built_year": "2001年（平成13年）開館",
+        "architect_note": "栗生明の設計。建物ボリュームの大部分を地下に埋め、地上部は歴史的景観に溶け込む繊細なデザイン。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#D4AF37",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.8886,
+        "lng": 135.8077,
+        "map_query": "平等院ミュージアム鳳翔館"
+      },
+      {
+        "id": "uji_03",
+        "position": 3,
+        "spot_key": "uji_ujigami_shrine",
+        "title": "現存する日本最古の神社建築・世界遺産「宇治上神社」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "平安時代神社本殿（国宝・世界遺産）",
+        "crop_target": "檜皮葺の寝殿造風「拝殿」と奥に並ぶ平安時代の「本殿」",
+        "hint_level_1": "宇治川の東岸（京阪宇治駅側）、宇治神社のさらに奥へ。1060年頃に建てられた日本最古の本殿を持つ世界遺産へ。",
+        "hint_level_2": "「桐原水」の湧水も残る世界遺産『宇治上神社』です。",
+        "spot_name": "宇治上神社（国宝本殿・拝殿）",
+        "built_year": "平安時代後期（1060年頃本殿造営）",
+        "architect_note": "一間社流造りの三殿を一つの覆屋で包む本殿は、現存最古の神社建築として国宝・世界遺産に認定。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#EFE8D8",
+          "detail": "#1C2420"
+        },
+        "lat": 34.892,
+        "lng": 135.8115,
+        "map_query": "宇治上神社"
+      },
+      {
+        "id": "uji_04",
+        "position": 4,
+        "spot_key": "uji_uji_shrine",
+        "title": "「みかえり兎」が導く鎌倉時代の社殿「宇治神社」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "鎌倉時代三間社流造本殿（重要文化財）",
+        "crop_target": "朱塗りの鳥居と本殿・手水舎のかわいい兎の彫刻",
+        "hint_level_1": "宇治川の朝霧橋を渡ってすぐ、宇治上神社の手前に鎮座する神社。正しい道へ導いたという兎の伝説を探そう。",
+        "hint_level_2": "菟道稚郎子（うじのわきいらつこ）を祀る『宇治神社』です。",
+        "spot_name": "宇治神社",
+        "built_year": "鎌倉時代本殿造営",
+        "architect_note": "かつては宇治上神社と一体で「離宮明神」と呼ばれていた古社。可愛らしい「みかえり兎」のおみくじが人気。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 34.8906,
+        "lng": 135.8105,
+        "map_query": "宇治神社"
+      },
+      {
+        "id": "uji_05",
+        "position": 5,
+        "spot_key": "uji_bridge_murasaki",
+        "title": "日本三古橋の一つ「宇治橋」と紫式部像",
+        "category": "歴史名所・橋",
+        "sub_category": "日本三古橋（檜製高欄と擬宝珠）",
+        "crop_target": "檜の欄干・擬宝珠が美しい宇治橋と西詰に座す紫式部像",
+        "hint_level_1": "646年架橋と伝わる日本最古級の橋の一つ。西詰の「夢浮橋ひろば」に佇む『源氏物語』の作者像と合わせて撮ろう。",
+        "hint_level_2": "宇治十帖の舞台『宇治橋と紫式部像』です。",
+        "spot_name": "宇治橋・紫式部像",
+        "built_year": "646年（大化2年）初架伝承・1996年現橋",
+        "architect_note": "伝統的な擬宝珠（ぎぼし）を備えた檜の高欄と「三の間」の張り出しが、宇治川の流れに美しく映える。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#D9C5A0",
+          "detail": "#1B3042"
+        },
+        "lat": 34.8923,
+        "lng": 135.8058,
+        "map_query": "宇治橋 紫式部像"
+      },
+      {
+        "id": "uji_06",
+        "position": 6,
+        "spot_key": "uji_koshoji_kotosaka",
+        "title": "琴の音のような清流が沿う「琴坂」と竜宮造りの山門「興聖寺」",
+        "category": "歴史社寺・名所",
+        "sub_category": "曹洞宗寺院・竜宮造山門",
+        "crop_target": "木立のトンネル「琴坂」の奥に構える白い竜宮造りの山門",
+        "hint_level_1": "宇治川東岸の遊歩道を南へ歩くと現れる、道元禅師ゆかりの名刹。緑の参道「琴坂」の先に白い楼門が待っている。",
+        "hint_level_2": "日本曹洞宗最初の道場を受け継ぐ『興聖寺（琴坂）』です。",
+        "spot_name": "興聖寺（琴坂・山門）",
+        "built_year": "1649年（慶安2年）現在地再興",
+        "architect_note": "伏見城の遺構を用いた「鴬張りの廊下」や「血天井」が残り、参道の琴坂は四季を通じて静謐で美しい。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.8878,
+        "lng": 135.8131,
+        "map_query": "興聖寺 宇治"
+      },
+      {
+        "id": "uji_07",
+        "position": 7,
+        "spot_key": "uji_tou_no_shima",
+        "title": "鎌倉時代の高さ15mの巨大石塔がそびえる宇治川「塔の島」",
+        "category": "歴史遺産・重要文化財",
+        "sub_category": "鎌倉時代石造十三重塔（日本最大・重要文化財）",
+        "crop_target": "宇治川の中州に建つ高さ約15.2mの十三重石塔と橘橋・朝霧橋",
+        "hint_level_1": "平等院と宇治神社の間の宇治川に浮かぶ中州（橘島・塔の島）。1286年に建立された日本最大の石塔を見上げよう。",
+        "hint_level_2": "重要文化財の『宇治川 浮島十三重石塔（塔の島）』です。",
+        "spot_name": "宇治川・塔の島（十三重石塔）",
+        "built_year": "1286年（弘安9年）造立",
+        "architect_note": "西大寺の叡尊上人が宇治橋再興と殺生禁断を祈願して建立した、日本に現存する最大の古石塔。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.8891,
+        "lng": 135.8095,
+        "map_query": "宇治 浮島十三重石塔"
+      },
+      {
+        "id": "uji_08",
+        "position": 8,
+        "spot_key": "uji_genji_museum",
+        "title": "寝殿造風の優美な現代和風建築「宇治市源氏物語ミュージアム」",
+        "category": "現代建築・博物館",
+        "sub_category": "平安文化ミュージアム（1998年開館）",
+        "crop_target": "木立の中に佇む水盤と回廊風のモダンなミュージアム外観",
+        "hint_level_1": "宇治上神社から北へ徒歩5分、さわらびの道沿い。平安時代の雅な牛車や六条院の模型が展示された博物館へ。",
+        "hint_level_2": "宇治十帖の世界を体感できる『宇治市源氏物語ミュージアム』です。",
+        "spot_name": "宇治市源氏物語ミュージアム",
+        "built_year": "1998年（平成10年）開館",
+        "architect_note": "平安貴族の邸宅「寝殿造」を現代的に解釈した低層建築で、宇治の風景と美しく調和している。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 34.8943,
+        "lng": 135.812,
+        "map_query": "宇治市源氏物語ミュージアム"
+      },
+      {
+        "id": "uji_09",
+        "position": 9,
+        "spot_key": "uji_omotesando_nakamura",
+        "title": "宇治茶の芳醇な香りが漂う「平等院表参道（中村藤吉など）」",
+        "category": "歴史街並み・グルメ",
+        "sub_category": "日本の香り風景100選・登録有形文化財茶商建築",
+        "crop_target": "宇治茶の老舗が軒を連ねる表参道とレトロな茶商の暖簾",
+        "hint_level_1": "宇治橋から平等院正門へと続く石畳の参道。製茶工場の面影を残す登録有形文化財の老舗茶商や抹茶スイーツを味わおう。",
+        "hint_level_2": "日本茶文化の中心地『平等院表参道（宇治茶の老舗街）』です。",
+        "spot_name": "平等院表参道（中村藤吉本店・宇治茶街）",
+        "built_year": "江戸〜明治期の茶商建築群",
+        "architect_note": "環境省の「かおり風景100選」に選定。JR宇治駅前の中村藤吉本店や表参道の平等院店はいずれも名建築。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.8904,
+        "lng": 135.8065,
+        "map_query": "平等院表参道"
+      }
+    ]
+  },
+  {
+    "id": "kinki_kyoto_fushimi_walk",
+    "region_group": "近畿",
+    "prefecture_group": "京都",
+    "tour_type": "walk",
+    "title": "京都・伏見稲荷〜伏見酒蔵街・寺田屋散策",
+    "subtitle": "KYOTO FUSHIMI INARI & SAKE WALK",
+    "region": "京都府京都市伏見区・伏見稲荷〜中書島（京阪電車＋徒歩）",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・京阪電車＋徒歩）",
+    "era_focus": "江戸〜昭和初期",
+    "description": "京阪本線でわずか数駅で繋がる伏見稲荷大社と伏見酒蔵街のセットコース。千本鳥居から、月桂冠大倉記念館、龍馬ゆかりの寺田屋、十石舟の宇治川派流・松本酒造まで巡ります。",
+    "theme_color": "#8F3A2B",
+    "accent_color": "#E6DFD3",
+    "specimen_prefix": "FSM",
+    "area_map_query": "伏見稲荷大社 月桂冠大倉記念館 寺田屋 宇治川派流",
+    "cells": [
+      {
+        "id": "fsm_01",
+        "position": 1,
+        "title": "朱塗りの鳥居が光のトンネルのように幾千本も連なる参道",
+        "category": "観光名所・風景",
+        "sub_category": "稲荷塗・連鳥居景観",
+        "crop_target": "隙間なく二列に連なる鮮やかな朱塗りの『千本鳥居』トンネル",
+        "hint_level_1": "全国3万社の稲荷神社の総本宮。稲荷山へと続く参道に、朱色（稲荷塗）の鳥居がまるで赤いトンネルのように果てしなく並んでいる神秘の光景を収めよう。",
+        "hint_level_2": "世界的な人気観光スポット第1位にも輝く『伏見稲荷大社 千本鳥居（および重要文化財本殿・楼門）』です。",
+        "spot_name": "伏見稲荷大社（千本鳥居・楼門）",
+        "built_year": "711年鎮座・楼門は1589年豊臣秀吉寄進（重要文化財）",
+        "architect_note": "願いが「通る」または「通った」御礼として江戸時代から奉納され続けた鳥居が山全体に約1万基並ぶ。入口の楼門は豊臣秀吉が母の病気平癒を祈願して建てた神社楼門最大規模の重文。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E06D3B",
+          "detail": "#1E1614"
+        },
+        "lat": 34.9671,
+        "lng": 135.7727,
+        "map_query": "伏見稲荷大社 千本鳥居",
+        "spot_key": "kyoto_fushimi_inari"
+      },
+      {
+        "id": "fsm_02",
+        "position": 2,
+        "spot_key": "fushimi_gekkeikan_okura",
+        "title": "明治42年築の木造酒蔵と井戸「さかみづ」が迎える酒造博物館",
+        "category": "明治建築・産業遺産",
+        "sub_category": "木造酒蔵建築（京都市有形民俗文化財）",
+        "crop_target": "黒い焼杉板と白漆喰の明治酒蔵「月桂冠大倉記念館」外観",
+        "hint_level_1": "京阪「中書島駅」または「伏見桃山駅」から徒歩数分。堀川沿いに建つ、1909年築の木造酒蔵を活用した博物館へ。",
+        "hint_level_2": "伏見の酒造りの歴史と名水が味わえる『月桂冠大倉記念館』です。",
+        "spot_name": "月桂冠大倉記念館",
+        "built_year": "1909年（明治42年）内蔵酒造場建築",
+        "architect_note": "伏見の酒蔵風景を代表する黒い板壁と白漆喰の建物。館内の酒造用具は京都市指定有形民俗文化財。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#FAF6EE",
+          "detail": "#8F3A2B"
+        },
+        "lat": 34.93,
+        "lng": 135.7604,
+        "map_query": "月桂冠大倉記念館"
+      },
+      {
+        "id": "fsm_03",
+        "position": 3,
+        "spot_key": "fushimi_teradaya",
+        "title": "坂本龍馬襲撃の刀傷と弾痕が残る幕末の船宿「寺田屋」",
+        "category": "歴史建築・幕末史跡",
+        "sub_category": "幕末船宿建築（龍馬ゆかりの宿）",
+        "crop_target": "蓬莱橋そばに建つ木造2階建て「寺田屋」の玄関と龍馬像",
+        "hint_level_1": "中書島駅から北へ徒歩5分、濠川（ほりかわ）沿いに建つ船宿。お龍が機転を利かせて龍馬を救った「寺田屋事件」の舞台へ。",
+        "hint_level_2": "幕末ファン必訪の名所『船宿 寺田屋』です。",
+        "spot_name": "寺田屋",
+        "built_year": "幕末史跡（明治期に西隣へ再建・現建物）",
+        "architect_note": "伏見港の船宿として栄え、薩摩藩定宿でもあった。内部では龍馬の部屋（梅の間）や刀傷などを見学できる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#EFE8D8",
+          "detail": "#1E2631"
+        },
+        "lat": 34.9288,
+        "lng": 135.7595,
+        "map_query": "寺田屋 伏見"
+      },
+      {
+        "id": "fsm_04",
+        "position": 4,
+        "spot_key": "fushimi_jikkokubune_matsumoto",
+        "title": "柳並木と酒蔵が水面に映る宇治川派流・十石舟と松本酒造",
+        "category": "風景・大正建築",
+        "sub_category": "運河風景＆大正赤煉瓦煙突酒蔵（近代化産業遺産）",
+        "crop_target": "宇治川派流沿いの酒蔵と大正11年築「松本酒造」の煉瓦煙突",
+        "hint_level_1": "月桂冠大倉記念館の裏手から東高瀬川・宇治川派流沿いを散歩しよう。柳並木と白壁酒蔵、煉瓦煙突の絶景が続く。",
+        "hint_level_2": "伏見水郷のハイライト『宇治川派流（十石舟・松本酒造）』です。",
+        "spot_name": "宇治川派流・十石舟（松本酒造の煉瓦煙突）",
+        "built_year": "1922年（大正11年）松本酒造万代蔵",
+        "architect_note": "国の近代化産業遺産に認定された松本酒造の万代蔵と煉瓦煙突、水面の柳並木が伏見随一の撮影スポット。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#FAF6EE",
+          "detail": "#8F3A2B"
+        },
+        "lat": 34.9277,
+        "lng": 135.7555,
+        "map_query": "松本酒造 伏見"
+      },
+      {
+        "id": "fsm_05",
+        "position": 5,
+        "spot_key": "fushimi_kizakura_kappa",
+        "title": "カッパのイラストでおなじみ「黄桜 カッパカントリー」",
+        "category": "観光名所・建築",
+        "sub_category": "酒蔵複合施設・黄桜記念館",
+        "crop_target": "塩屋町に建つ白壁酒蔵風の「黄桜」看板と中庭広場",
+        "hint_level_1": "月桂冠大倉記念館のすぐ北側。清水崑や小島功が描いたカッパの資料館と地ビールレストランがある酒蔵施設へ。",
+        "hint_level_2": "伏見の酒と地ビールが楽しめる『キザクラカッパカントリー』です。",
+        "spot_name": "キザクラカッパカントリー",
+        "built_year": "1925年（大正14年）創業・1995年施設開設",
+        "architect_note": "伏見の名水「伏水」で仕込んだ日本酒や京都初の地ビール、黄桜CMギャラリーなどが無料で楽しめる。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#C49A45",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.9315,
+        "lng": 135.7618,
+        "map_query": "キザクラカッパカントリー"
+      },
+      {
+        "id": "fsm_06",
+        "position": 6,
+        "spot_key": "fushimi_gokonomiya_shrine",
+        "title": "伏見城の大手門を移築した表門と名水「御香水」の御香宮神社",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "桃山時代表門・拝殿（国重要文化財）",
+        "crop_target": "極彩色の彫刻が鮮やかな桃山期の「表門」と拝殿",
+        "hint_level_1": "近鉄桃山御陵前駅・京阪伏見桃山駅から東へすぐ。豊臣秀吉が伏見城の鬼門除けとした由緒ある神社へ。",
+        "hint_level_2": "環境省名水百選の「御香水」が湧く『御香宮神社』です。",
+        "spot_name": "御香宮神社（表門・御香水）",
+        "built_year": "1605年（慶長10年）本殿・1622年表門移築",
+        "architect_note": "徳川家康の命で伏見城の大手門を移築した表門と、極彩色の彫刻が見事な本殿・拝殿は国重要文化財。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 34.9333,
+        "lng": 135.7676,
+        "map_query": "御香宮神社"
+      },
+      {
+        "id": "fsm_07",
+        "position": 7,
+        "spot_key": "fushimi_otesuji_arcade",
+        "title": "豊臣秀吉の伏見城大手門に由来する活気ある「伏見大手筋商店街」",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的商店街アーケード",
+        "crop_target": "伏見桃山駅から西へ伸びるアーケード街と老舗店舗群",
+        "hint_level_1": "御香宮神社と酒蔵街を結ぶ東西のメインストリート。約400年前に秀吉が造った伏見城の大手門から続く道だ。",
+        "hint_level_2": "伏見市民の台所『伏見大手筋商店街』です。",
+        "spot_name": "伏見大手筋商店街",
+        "built_year": "安土桃山時代街区形成",
+        "architect_note": "約400年の歴史を持つ商店街。伏見の地酒専門店や老舗の和菓子屋、レトロ喫茶などが立ち並ぶ。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4A5859",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.9332,
+        "lng": 135.7634,
+        "map_query": "伏見大手筋商店街"
+      },
+      {
+        "id": "fsm_08",
+        "position": 8,
+        "spot_key": "fushimi_ryoma_dori",
+        "title": "ガス灯風の街灯と町家が並ぶレトロな「竜馬通り商店街」",
+        "category": "歴史街並み",
+        "sub_category": "明治〜昭和町家風商店街",
+        "crop_target": "ガス灯風街灯と石畳・寺田屋へ続く町家小路",
+        "hint_level_1": "大手筋商店街から南へ折れて寺田屋へ向かう小道。坂本龍馬にちなんで整備されたレトロな雰囲気の通りを歩こう。",
+        "hint_level_2": "寺田屋へのアプローチ『伏見 竜馬通り商店街』です。",
+        "spot_name": "伏見 竜馬通り商店街",
+        "built_year": "明治期街並み・平成整備",
+        "architect_note": "幕末の面影を感じさせる木格子やガス灯風の街灯が並び、個性的なカフェや雑貨店が点在する。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.9308,
+        "lng": 135.7604,
+        "map_query": "竜馬通り商店街 伏見"
+      },
+      {
+        "id": "fsm_09",
+        "position": 9,
+        "spot_key": "fushimi_chokenji",
+        "title": "中書島の弁天様・朱塗りの鐘楼門が水辺に映える「長建寺」",
+        "category": "歴史社寺・名所",
+        "sub_category": "真言宗醍醐派寺院・竜宮造鐘楼門",
+        "crop_target": "宇治川派流のほとりに立つ朱色の珍しい「鐘楼門」",
+        "hint_level_1": "十石舟の乗船場（弁天橋）のすぐそばに佇む、「島の弁天さん」と親しまれるお寺。鐘楼と山門が一体化した門を見よう。",
+        "hint_level_2": "伏見の開運・弁財天信仰の中心『長建寺（ちょうけんじ）』です。",
+        "spot_name": "長建寺（島の弁天さん）",
+        "built_year": "1699年（元禄12年）創建",
+        "architect_note": "伏見奉行・建部政宇が中書島を開拓した際に建立。朱塗りの鐘楼門と名水「閼伽水（あかすい）」で知られる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 34.9277,
+        "lng": 135.7611,
+        "map_query": "長建寺 伏見"
+      }
+    ]
+  },
+  {
+    "id": "kinki_nara_park_naramachi_walk",
+    "region_group": "近畿",
+    "prefecture_group": "奈良",
+    "tour_type": "walk",
+    "title": "奈良公園・東大寺〜春日大社〜ならまち散策",
+    "subtitle": "NARA PARK & NARAMACHI HERITAGE WALK",
+    "region": "奈良県奈良市・近鉄奈良駅〜東大寺〜春日大社〜ならまち",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・完全徒歩）",
+    "era_focus": "奈良〜明治",
+    "description": "近鉄奈良駅からすべて徒歩圏内で巡れる奈良中心部コース。東大寺大仏殿・南大門、春日大社、興福寺五重塔、辰野金吾設計の奈良国立博物館、元興寺・ならまちを歩きます。",
+    "theme_color": "#4A3525",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "NRP",
+    "area_map_query": "東大寺大仏殿 春日大社 興福寺 奈良国立博物館 元興寺",
+    "cells": [
+      {
+        "id": "nrp_01",
+        "position": 1,
+        "title": "金色の鴟尾と唐破風「観相窓」を戴く世界最大級の木造建築",
+        "category": "歴史社寺・国宝",
+        "sub_category": "大仏様・江戸中期再建（国宝・世界遺産）",
+        "crop_target": "大屋根の両端の金色の『鴟尾（しび）』と正面中央の唐破風『観相窓』",
+        "hint_level_1": "奈良公園の鹿たちが遊ぶ参道の奥。正面幅57m・高さ49mという圧倒的なスケールを誇る大仏様のお堂で、屋根の金色の飾り（鴟尾）と正面の唐破風を見上げよう。",
+        "hint_level_2": "奈良の大仏（盧舎那仏）が鎮座する国宝・世界遺産『東大寺 大仏殿（金堂）』です。",
+        "spot_name": "東大寺 大仏殿（国宝・世界遺産）",
+        "built_year": "752年開眼・1709年（宝永6年）再建",
+        "architect_note": "江戸中期の再建時に創建時の約3分の2の幅になったものの、今なお世界最大級の木造軸組建築。正面中央の唐破風にある扉「観相窓」は元旦などに開け放たれ大仏のお顔が外から拝める。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#4D3B2C",
+          "accent": "#E0B347",
+          "detail": "#26282A"
+        },
+        "lat": 34.689,
+        "lng": 135.8398,
+        "map_query": "奈良 東大寺大仏殿",
+        "spot_key": "nara_todaiji_daibutsuden"
+      },
+      {
+        "id": "nrp_02",
+        "position": 2,
+        "title": "天井を張らず太い貫が交差する「大仏様」の南大門と仁王像",
+        "category": "歴史社寺・国宝",
+        "sub_category": "鎌倉時代・大仏様二重門（国宝・世界遺産）",
+        "crop_target": "18本の巨大円柱と幾重にも突き抜ける挿肘木・運慶快慶の金剛力士像",
+        "hint_level_1": "大仏殿の手前にそびえる日本最大の山門。運慶・快慶が造った阿形・吽形の巨大な金剛力士像（仁王像）と、天井板がなく屋根裏の木組みが丸見えの豪快な構造を見上げよう。",
+        "hint_level_2": "重源上人が宋から伝えた「大仏様（だいぶつよう）」の最高傑作、国宝『東大寺 南大門』です。",
+        "spot_name": "東大寺 南大門（国宝）",
+        "built_year": "1199年（正治元年）再建",
+        "architect_note": "高さ21mの通し柱18本を何段もの「貫（ぬき）」で貫通し、柱に直接肘木を挿し込む『挿肘木（さしひじき）』を用いた、鎌倉時代の構造美の極致。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#C89B3C",
+          "detail": "#1E1A18"
+        },
+        "lat": 34.6855,
+        "lng": 135.8398,
+        "map_query": "東大寺 南大門",
+        "spot_key": "nara_todaiji_nandaimon"
+      },
+      {
+        "id": "nrp_03",
+        "position": 3,
+        "title": "約3000基の石灯籠・青銅釣灯籠が並ぶ朱塗りの回廊と春日造",
+        "category": "歴史社寺・国宝",
+        "sub_category": "春日造本殿（国宝・世界遺産）＆朱塗り回廊",
+        "crop_target": "鮮やかな朱塗りの回廊にずらりと吊るされた緑青色・金色の『釣灯籠』",
+        "hint_level_1": "春日山原始林の麓。苔むした参道に約2000基の石灯籠が並び、境内の真っ赤な回廊の軒先に約1000基もの美しい「釣灯籠（つりとうろう）」が連なる幻想風景を切り取ろう。",
+        "hint_level_2": "全国3000社の春日神社の総本社、国宝・世界遺産『春日大社（本社本殿・回廊）』です。",
+        "spot_name": "春日大社（朱塗りの回廊と釣灯籠）",
+        "built_year": "768年創建（20年ごとに式年造替）",
+        "architect_note": "20年ごとに社殿を新しく造り替える「式年造替（しきねんぞうたい）」によって、1250年間変わらぬ鮮やかな朱塗りと檜皮葺きの『春日造』が受け継がれている。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#3B7A6C",
+          "detail": "#D4AF37"
+        },
+        "lat": 34.6814,
+        "lng": 135.8484,
+        "map_query": "奈良 春日大社",
+        "spot_key": "nara_kasuga_taisha"
+      },
+      {
+        "id": "nrp_04",
+        "position": 4,
+        "title": "猿沢池の水面にも映る古都奈良のランドマーク「五重塔」と中金堂",
+        "category": "歴史社寺・国宝",
+        "sub_category": "室町時代五重塔（国宝・世界遺産）",
+        "crop_target": "高さ50.1mの端正な『興福寺五重塔』または鮮やかな朱柱の『中金堂・北円堂』",
+        "hint_level_1": "近鉄奈良駅から歩いてすぐ、猿沢池のほとりから見上げる古都奈良の象徴。日本で2番目に高い国宝の五重塔や、300年ぶりに再建された壮麗な中金堂・八角形の北円堂を狙おう。",
+        "hint_level_2": "藤原氏の氏寺として栄えた国宝・世界遺産『興福寺（五重塔・東金堂・北円堂・中金堂）』です。",
+        "spot_name": "興福寺（五重塔・中金堂・北円堂）",
+        "built_year": "1426年五重塔再建・1210年北円堂・2018年中金堂再建",
+        "architect_note": "境内に日本一美しい八角円堂と称される国宝「北円堂」や、天平様式で復元された「中金堂」が立ち並び、奈良時代の伽藍の威容を体感できる。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#4D3B2C",
+          "accent": "#9E2A2B",
+          "detail": "#FAF6EE"
+        },
+        "lat": 34.6825,
+        "lng": 135.8322,
+        "map_query": "奈良 興福寺",
+        "spot_key": "nara_kofukuji"
+      },
+      {
+        "id": "nrp_05",
+        "position": 5,
+        "title": "町家の軒先にぶら下がる赤い「身代り申（くくり猿）」と格子戸",
+        "category": "観光名所・街並み",
+        "sub_category": "ならまち伝統的建造物群保存地区",
+        "crop_target": "木格子の町家の軒先に吊るされた赤と白の布製『身代り申（ざる）』",
+        "hint_level_1": "元興寺（世界遺産）の周辺に広がる古い町家街「ならまち」。細い格子の町家の軒先に、家族の数だけ真っ赤な布の「お猿さん（身代り申）」がぶら下がる可愛い風景を探そう。",
+        "hint_level_2": "庚申信仰のまち『ならまち（ならまち格子の家・庚申堂・元興寺周辺）』です。",
+        "spot_name": "ならまち（身代り申と格子戸の町家）",
+        "built_year": "江戸時代〜明治期（元興寺極楽坊本堂は鎌倉期国宝）",
+        "architect_note": "元興寺の旧境内を中心に発展した町家街。間口が狭く奥に細長い「うなぎの寝床」の町家と、厄を代わりに背負う赤い『身代り申』が独特の街角を作る。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#4D3B2C",
+          "accent": "#9E2A2B",
+          "detail": "#FAF6EE"
+        },
+        "lat": 34.6765,
+        "lng": 135.8312,
+        "map_query": "奈良 ならまち格子の家",
+        "spot_key": "nara_naramachi"
+      },
+      {
+        "id": "nrp_06",
+        "position": 6,
+        "spot_key": "nara_national_museum",
+        "title": "片山東熊が設計したフレンチルネサンス様式の「なら仏像館」",
+        "category": "明治建築・重要文化財",
+        "sub_category": "フレンチルネサンス様式博物館（国重要文化財）",
+        "crop_target": "東大寺参道脇に建つ明治27年築の優雅な「なら仏像館」正面",
+        "hint_level_1": "興福寺と東大寺の間、氷室神社の向かい側に建つ明治の洋風博物館。赤坂離宮を手掛けた片山東熊の初期傑作だ。",
+        "hint_level_2": "旧帝国奈良博物館本館『奈良国立博物館（なら仏像館）』です。",
+        "spot_name": "奈良国立博物館（なら仏像館）",
+        "built_year": "1894年（明治27年）",
+        "architect_note": "片山東熊の設計による明治期洋風建築の最高峰の一つで国重要文化財。内部には国宝・重文の仏像が多数並ぶ。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 34.6836,
+        "lng": 135.8364,
+        "map_query": "奈良国立博物館 なら仏像館"
+      },
+      {
+        "id": "nrp_07",
+        "position": 7,
+        "spot_key": "nara_ukimido",
+        "title": "鷺池の水面に静かに浮かぶ檜皮葺きの六角堂「浮見堂」",
+        "category": "風景・観光名所",
+        "sub_category": "大正木造水辺建築（鷺池）",
+        "crop_target": "鷺池に架かる木橋と六角形の屋根が美しい「浮見堂」",
+        "hint_level_1": "春日大社一の鳥居の南側、奈良公園内の鷺池に浮かぶ優美な六角形のお堂を切り取ろう。",
+        "hint_level_2": "奈良公園の癒やしスポット『浮見堂（鷺池）』です。",
+        "spot_name": "浮見堂（奈良公園 鷺池）",
+        "built_year": "1916年（大正5年）建築（1994年修復）",
+        "architect_note": "池に映る姿が美しく、散策の休憩所として親しまれている。早朝や夕方の光景が特に幻想的。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#EFE8D8",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.6805,
+        "lng": 135.8369,
+        "map_query": "浮見堂 奈良公園"
+      },
+      {
+        "id": "nrp_08",
+        "position": 8,
+        "spot_key": "nara_gangoji",
+        "title": "飛鳥時代からの行基葺き瓦が屋根に残る世界遺産「元興寺」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "奈良時代〜鎌倉時代仏堂（国宝・世界遺産）",
+        "crop_target": "ならまちの中心に建つ国宝「極楽堂」と日本最古の行基葺瓦",
+        "hint_level_1": "ならまちの真ん中。飛鳥の法興寺（飛鳥寺）が平城京へ移されて創建された古刹で、1400年前の瓦が残る屋根を見よう。",
+        "hint_level_2": "『古都奈良の文化財』世界遺産のひとつ『元興寺（極楽堂）』です。",
+        "spot_name": "元興寺（極楽堂・禅室）",
+        "built_year": "718年平城京遷座・鎌倉時代極楽堂改築",
+        "architect_note": "極楽堂と禅室の屋根の一部には、飛鳥・奈良時代に焼かれた日本最古の瓦（行基葺き）が今も葺かれている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 34.6776,
+        "lng": 135.8313,
+        "map_query": "元興寺 ならまち"
+      },
+      {
+        "id": "nrp_09",
+        "position": 9,
+        "spot_key": "nara_sarusawa_pond",
+        "title": "興福寺の五重塔を水面に映す「猿沢池」",
+        "category": "風景・観光名所",
+        "sub_category": "奈良八景・興福寺五重塔眺望池",
+        "crop_target": "猿沢池の柳と石垣、水面に映り込む興福寺の五重塔",
+        "hint_level_1": "近鉄奈良駅からならまちへ向かう途中、興福寺の南側に広がる周囲360mの池。池越しに五重塔を見上げよう。",
+        "hint_level_2": "采女（うねめ）伝説でも知られる『猿沢池』です。",
+        "spot_name": "猿沢池（興福寺五重塔眺望）",
+        "built_year": "749年（天平勝宝元年）造池",
+        "architect_note": "興福寺の放生池として造られ、五重塔が池に映る姿は奈良を代表する風景の一つ（五重塔修理期間中も池越しの景色が楽しめる）。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 34.6815,
+        "lng": 135.8304,
+        "map_query": "猿沢池 奈良"
+      }
+    ]
+  },
+  {
+    "id": "kinki_himeji_castle_walk",
+    "region_group": "近畿",
+    "prefecture_group": "兵庫・神戸",
+    "tour_type": "walk",
+    "title": "国宝姫路城・好古園〜城下町赤煉瓦散策",
+    "subtitle": "HIMEJI CASTLE & KOKOEN WALK",
+    "region": "兵庫県姫路市・JR姫路駅〜大手前通り〜姫路城〜好古園",
+    "difficulty": "★☆☆（散策目安：約2.5時間・完全徒歩）",
+    "era_focus": "江戸初期〜現代",
+    "description": "JR姫路駅から大手前通りを一直線に歩いて世界遺産・国宝姫路城へ。西の丸百間廊下、池泉回遊式の好古園、旧陸軍赤煉瓦の市立美術館、丹下健三・安藤忠雄の建築まで巡ります。",
+    "theme_color": "#22384D",
+    "accent_color": "#FAF6EE",
+    "specimen_prefix": "HMW",
+    "area_map_query": "姫路城 好古園 姫路市立美術館 兵庫県立歴史博物館",
+    "cells": [
+      {
+        "id": "hmw_01",
+        "position": 1,
+        "title": "白漆喰総塗籠の「大天守と3つの小天守」が連なる白鷺の城",
+        "category": "観光名所・国宝城郭",
+        "sub_category": "連立式望楼型五重六階地下一階（国宝・世界遺産）",
+        "crop_target": "幾重にも千鳥破風・唐破風が重なる真っ白な『姫路城大天守群』",
+        "hint_level_1": "日本で最初に世界文化遺産に登録された日本城郭の最高峰。屋根の目地まで白い漆喰で塗り込められ、白鷺が翼を広げたように大天守と小天守が連なる絶景を見上げよう。",
+        "hint_level_2": "池田輝政が慶長14年に完成させた国宝・世界遺産『姫路城 大天守・連立小天守群』です。",
+        "spot_name": "国宝・世界遺産 姫路城",
+        "built_year": "1609年（慶長14年）現天守完成",
+        "architect_note": "五重六階の大天守と3つの小天守を渡櫓（わたりやぐら）でロの字型に結んだ「連立式天守」。大天守から西の丸まで合計8棟が国宝、74棟が重要文化財という桁違いの城郭建築。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#4A5859"
+        },
+        "lat": 34.8394,
+        "lng": 134.6939,
+        "map_query": "姫路城",
+        "spot_key": "himeji_castle"
+      },
+      {
+        "id": "hmw_02",
+        "position": 2,
+        "title": "千姫が暮らした「西の丸百間廊下」と優美に反り上がる扇の勾配石垣",
+        "category": "歴史建築・重要文化財",
+        "sub_category": "城郭長局＆高石垣（重要文化財）",
+        "crop_target": "曲線を描いて反り上がる『扇の勾配』石垣と白壁が連なる『西の丸百間廊下』",
+        "hint_level_1": "姫路城の西の丸。徳川家康の孫娘・千姫ゆかりの化粧櫓へと続く長さ約300mの白い長屋（百間廊下）と、広げた扇のように優美なカーブを描く高石垣を切り取ろう。",
+        "hint_level_2": "国の重要文化財『姫路城 西の丸長局（百間廊下）と化粧櫓・石垣』です。",
+        "spot_name": "姫路城 西の丸百間廊下と扇の勾配",
+        "built_year": "1618年（元和4年）本多忠政造営",
+        "architect_note": "城壁そのものを侍女たちの住居兼防御回廊とした全長約240mの木造長屋。下から上へ向かって反りが強くなる「扇の勾配」の石垣とともに完璧な防御美を誇る。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#7E827A",
+          "accent": "#FAF6EE",
+          "detail": "#263238"
+        },
+        "lat": 34.8398,
+        "lng": 134.6915,
+        "map_query": "姫路城 西の丸百間廊下",
+        "spot_key": "himeji_nishinomaru"
+      },
+      {
+        "id": "hmw_03",
+        "position": 3,
+        "spot_key": "himeji_kokoen",
+        "title": "姫路城を借景に9つの庭が連なる池泉回遊式庭園「好古園」",
+        "category": "歴史庭園・名所",
+        "sub_category": "江戸屋敷跡庭園（9つの日本庭園）",
+        "crop_target": "渡り廊下と大きな池、築地塀越しに望む姫路城天守",
+        "hint_level_1": "姫路城の西隣（西御屋敷跡）に広がる約1万坪の本格日本庭園。時代劇のロケ地としてもたびたび使われる名園だ。",
+        "hint_level_2": "1992年開園の『姫路城西御屋敷跡庭園 好古園』です。",
+        "spot_name": "姫路城西御屋敷跡庭園 好古園",
+        "built_year": "1992年（平成4年）開園",
+        "architect_note": "発掘調査で確認された武家屋敷跡の地割りを活かして造営。御屋敷の庭や茶室「双樹庵」などが美しい。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 34.8384,
+        "lng": 134.6886,
+        "map_query": "好古園 姫路"
+      },
+      {
+        "id": "hmw_04",
+        "position": 4,
+        "spot_key": "himeji_pref_history_museum",
+        "title": "丹下健三がガラスの壁面に姫路城を映し出した「兵庫県立歴史博物館」",
+        "category": "現代建築・博物館",
+        "sub_category": "モダニズム建築（丹下健三設計）",
+        "crop_target": "姫路城の姿を映す全面ミラーガラスと端正な四角い外観",
+        "hint_level_1": "姫路城の北東側、シロトピア記念公園の隣。世界の丹下健三が「城を映す鏡」として設計した博物館を訪ねよう。",
+        "hint_level_2": "1983年開館の『兵庫県立歴史博物館』です。",
+        "spot_name": "兵庫県立歴史博物館",
+        "built_year": "1983年（昭和58年）開館",
+        "architect_note": "丹下健三都市・建築設計研究所の設計。中庭やロビーからも姫路城天守を美しく望める。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 34.8427,
+        "lng": 134.6962,
+        "map_query": "兵庫県立歴史博物館"
+      },
+      {
+        "id": "hmw_05",
+        "position": 5,
+        "spot_key": "himeji_city_art_museum",
+        "title": "旧陸軍兵器庫の赤煉瓦が姫路城の白に映える「姫路市立美術館」",
+        "category": "明治〜大正建築",
+        "sub_category": "煉瓦造旧陸軍施設再生（国登録有形文化財）",
+        "crop_target": "赤煉瓦の連続切妻ファサードと背後にそびえる白い姫路城",
+        "hint_level_1": "姫路城の東側（三の丸広場から東へ徒歩5分）。明治〜大正の赤煉瓦建築を活かした美術館の芝生広場から城と煉瓦を一緒に撮ろう。",
+        "hint_level_2": "国登録有形文化財の『姫路市立美術館』です。",
+        "spot_name": "姫路市立美術館（旧陸軍被服庫）",
+        "built_year": "1905年（明治38年）〜1913年（大正2年）",
+        "architect_note": "旧陸軍第十師団の兵器庫・被服庫として建てられた赤煉瓦造建物を、1983年に美術館として再生した。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 34.8396,
+        "lng": 134.6992,
+        "map_query": "姫路市立美術館"
+      },
+      {
+        "id": "hmw_06",
+        "position": 6,
+        "spot_key": "himeji_literature_museum",
+        "title": "安藤忠雄が水庭とコンクリートで設計した「姫路文学館」",
+        "category": "現代建築・博物館",
+        "sub_category": "打放しコンクリート建築（安藤忠雄設計）＋大正和館望景亭",
+        "crop_target": "水盤と幾何学的なコンクリート北館・大正時代の和館「望景亭」",
+        "hint_level_1": "姫路城の北西、男山麓に建つ文学館。安藤忠雄設計のモダンな北館・南館と、大正時代に建てられた和風別邸「望景亭」が見どころ。",
+        "hint_level_2": "司馬遼太郎記念室もある『姫路文学館』です。",
+        "spot_name": "姫路文学館（望景亭）",
+        "built_year": "1991年開館（望景亭は1919年頃）",
+        "architect_note": "安藤忠雄によるコンクリートと水の空間から螺旋スロープを通って姫路城を望む構成が秀逸。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#7A8694",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.8414,
+        "lng": 134.6854,
+        "map_query": "姫路文学館"
+      },
+      {
+        "id": "hmw_07",
+        "position": 7,
+        "spot_key": "himeji_otokoyama_hachimangu",
+        "title": "198段の石段上から姫路城を正面に見下ろす「男山八幡宮・千姫天満宮」",
+        "category": "歴史社寺・展望",
+        "sub_category": "姫路城鎮護の社・天守絶景スポット",
+        "crop_target": "男山山頂の「水尾神社・千姫天満宮」から見下ろす姫路城全景",
+        "hint_level_1": "姫路文学館のすぐ北、男山の石段を登りきった高台へ。姫路城を「上から見下ろす」ような絶好の撮影ポイントがある。",
+        "hint_level_2": "千姫ゆかりの『男山八幡宮・千姫天満宮』です。",
+        "spot_name": "男山八幡宮・千姫天満宮（男山配水池公園）",
+        "built_year": "1623年（元和9年）千姫天満宮造営",
+        "architect_note": "千姫が姫路城西の丸から朝夕遥拝したという天満宮。隣接の男山配水池公園は姫路城の穴場絶景スポット。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.8435,
+        "lng": 134.6873,
+        "map_query": "男山八幡宮 姫路"
+      },
+      {
+        "id": "hmw_08",
+        "position": 8,
+        "spot_key": "himeji_otemae_dori",
+        "title": "JR姫路駅から姫路城へ真っ直ぐ伸びる幅50mの「大手前通り」",
+        "category": "風景・街並み",
+        "sub_category": "日本の道100選・戦災復興都市軸",
+        "crop_target": "並木道と彫刻の向こうに一直線に見える姫路城大天守",
+        "hint_level_1": "姫路駅北口の「キャッスルビュー」デッキや大手前通りの歩道から、通りの正面に堂々と浮かぶ白鷺城を切り取ろう。",
+        "hint_level_2": "日本の道100選にも選ばれた『姫路 大手前通り・キャッスルビュー』です。",
+        "spot_name": "大手前通り・JR姫路駅キャッスルビュー",
+        "built_year": "戦災復興事業整備・2015年駅北整備",
+        "architect_note": "駅からお城まで約1kmが一直線で結ばれており、歩きながら徐々に迫りくる天守の姿を楽しめる。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#FAF6EE",
+          "detail": "#13293D"
+        },
+        "lat": 34.8286,
+        "lng": 134.6911,
+        "map_query": "姫路駅 キャッスルビュー"
+      },
+      {
+        "id": "hmw_09",
+        "position": 9,
+        "spot_key": "himeji_miyuki_dori",
+        "title": "明治天皇の行幸に由来する城下町のアーケード「みゆき通り」",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的アーケード商店街",
+        "crop_target": "姫路城から駅へ続く賑やかな「みゆき通り」アーケード",
+        "hint_level_1": "大手前通りの1本東側を並行して走る、姫路最大の屋根付き商店街。ご当地グルメや和菓子店が並び雨の日も快適だ。",
+        "hint_level_2": "姫路城と姫路駅を結ぶ『みゆき通り商店街』です。",
+        "spot_name": "みゆき通り商店街",
+        "built_year": "1903年（明治36年）命名",
+        "architect_note": "明治天皇の行幸を記念して「御幸（みゆき）通り」と名付けられた、姫路の中心的な商店街。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#C49A45",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 34.8315,
+        "lng": 134.6918,
+        "map_query": "みゆき通り商店街 姫路"
+      }
+    ]
+  },
+  {
+    "id": "chugoku_kurashiki_bikan_walk",
+    "region_group": "中国・四国",
+    "prefecture_group": "岡山・広島",
+    "tour_type": "walk",
+    "title": "岡山・倉敷美観地区 白壁と柳並木散策",
+    "subtitle": "KURASHIKI BIKAN HISTORICAL WALK",
+    "region": "岡山県倉敷市・JR倉敷駅〜倉敷美観地区〜鶴形山",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "江戸〜昭和初期",
+    "description": "JR倉敷駅から徒歩約10分の美観地区に9スポットがすべて徒歩圏内で集結。大原美術館、倉敷アイビースクエア、倉敷館、大原本邸、阿智神社など2時間半で満喫できます。",
+    "theme_color": "#22384D",
+    "accent_color": "#E6DFD3",
+    "specimen_prefix": "KRB",
+    "area_map_query": "大原美術館 倉敷美観地区 倉敷アイビースクエア 阿智神社",
+    "cells": [
+      {
+        "id": "krb_01",
+        "position": 1,
+        "title": "白壁の町並みに立つギリシャ神殿のイオニア式大列柱",
+        "category": "昭和初期建築",
+        "sub_category": "グレコ・ローマン古典主義様式",
+        "crop_target": "正面玄関の4本のイオニア式円柱と三角ペディメント・青銅扉",
+        "hint_level_1": "倉敷美観地区の今橋のたもと。和風の白壁の町並みの中に堂々と建つ、古代ギリシャ神殿のような円柱と三角屋根の西洋美術館を切り取ろう。",
+        "hint_level_2": "大原孫三郎が設立し、薬師寺主計が設計した日本初の私立西洋美術館『大原美術館 本館』です。",
+        "spot_name": "大原美術館 本館",
+        "built_year": "1930年（昭和5年）",
+        "architect_note": "倉敷出身の建築家・薬師寺主計が設計。鉄筋コンクリート造に石貼り風仕上げを施し、前庭のロダン彫刻とともに美観地区の象徴となっている。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#D8D2C5",
+          "accent": "#4A6B5D",
+          "detail": "#1D2832"
+        },
+        "lat": 34.596,
+        "lng": 133.7706,
+        "map_query": "倉敷 大原美術館",
+        "spot_key": "kurashiki_ohara_museum"
+      },
+      {
+        "id": "krb_02",
+        "position": 2,
+        "title": "蔦（アイビー）が絡まる明治22年の赤煉瓦とノコギリ屋根",
+        "category": "明治建築",
+        "sub_category": "近代化産業遺産・煉瓦造紡績工場",
+        "crop_target": "赤煉瓦の壁面を覆う緑の蔦（アイビー）とアーチ型の入口",
+        "hint_level_1": "美観地区のすぐ東側。明治22年に建てられた巨大な赤煉瓦の紡績工場跡で、壁一面に美しい緑の蔦（アイビー）が絡まる中庭広場を切り取ろう。",
+        "hint_level_2": "建築家・浦辺鎮太郎の設計でホテル＆文化施設として再生された『倉敷アイビースクエア（旧倉敷紡績本社工場）』です。",
+        "spot_name": "倉敷アイビースクエア（旧倉敷紡績工場）",
+        "built_year": "1889年（明治22年）創建・1973年改修",
+        "architect_note": "産業遺産を壊さずに観光・宿泊施設へコンバージョンした日本における先駆的成功例。イギリス積みの赤煉瓦とノコギリ屋根が当時のまま息づく。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8F3929",
+          "accent": "#3B6E4C",
+          "detail": "#1E2422"
+        },
+        "lat": 34.5945,
+        "lng": 133.7729,
+        "map_query": "倉敷アイビースクエア",
+        "spot_key": "kurashiki_ivy_square"
+      },
+      {
+        "id": "krb_03",
+        "position": 3,
+        "title": "白漆喰の「なまこ壁」と倉敷窓・倉敷格子",
+        "category": "明治・江戸建築",
+        "sub_category": "倉敷町家・土蔵造り（重要文化財）",
+        "crop_target": "白い漆喰を蒲鉾型に盛り上げた『なまこ壁』と2階の倉敷窓",
+        "hint_level_1": "大原美術館のすぐ向かい。四角い瓦を並べて継ぎ目を白い漆喰で盛り上げた「なまこ壁」と、5本の木枠が入った2階の「倉敷窓」を狙おう。",
+        "hint_level_2": "寛政7年（1795年）から築かれた国の重要文化財『語らい座 大原本邸（旧大原家住宅）』です。",
+        "spot_name": "旧大原家住宅（語らい座 大原本邸）",
+        "built_year": "1795年（寛政7年）〜明治期",
+        "architect_note": "1階に「倉敷格子」、2階に「倉敷窓」、土蔵に「貼り瓦（なまこ壁）」を備えた倉敷町家の典型にして最高峰の遺構。",
+        "icon_type": "iron_grille",
+        "dummy_palette": {
+          "bg": "#2B2D2F",
+          "accent": "#FAF6EE",
+          "detail": "#4A525A"
+        },
+        "lat": 34.5957,
+        "lng": 133.7705,
+        "map_query": "旧大原家住宅 語らい座大原本邸",
+        "spot_key": "kurashiki_ohara_residence"
+      },
+      {
+        "id": "krb_04",
+        "position": 4,
+        "title": "柳並木の倉敷川に映える白い木造洋館の役場",
+        "category": "大正建築",
+        "sub_category": "大正洋風木造庁舎（重要文化財）",
+        "crop_target": "白い下見板外壁と正面の切妻ペディメント・屋根上の小塔屋",
+        "hint_level_1": "倉敷川の中橋のすぐそば。しだれ柳の緑と川舟の風景の中に佇む、白い下見板張りが爽やかな大正時代の旧町役場を探そう。",
+        "hint_level_2": "大正6年に倉敷町役場として建てられた重要文化財『倉敷館（観光案内所）』です。",
+        "spot_name": "倉敷館（旧倉敷町役場）",
+        "built_year": "1917年（大正6年）",
+        "architect_note": "伝統的な和風の町並みの中にありながら、破風飾りや上げ下げ窓、背面の八角形階段室など、洗練された洋風意匠で川畔の景観を引き立てている。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#EAE4DC",
+          "accent": "#4A7C59",
+          "detail": "#22333B"
+        },
+        "lat": 34.5952,
+        "lng": 133.7714,
+        "map_query": "倉敷館 観光案内所",
+        "spot_key": "kurashiki_kan"
+      },
+      {
+        "id": "krb_05",
+        "position": 5,
+        "title": "ステンドグラスの半円アーチ窓と紫褐色の八角屋根",
+        "category": "大正建築",
+        "sub_category": "ルネサンス＆セセッション様式（登録有形文化財）",
+        "crop_target": "正面の大きなステンドグラス半円窓と八角形の赤瓦塔屋",
+        "hint_level_1": "美観地区の本町通り。和風の町家が並ぶ角に突如現れる、八角形の屋根と色鮮やかなステンドグラス窓を持つ大正11年築の旧銀行を見上げよう。",
+        "hint_level_2": "大原美術館と同じ薬師寺主計が設計した『旧中国銀行倉敷本町出張所（旧第一合同銀行倉敷支店）』です。",
+        "spot_name": "旧中国銀行倉敷本町出張所",
+        "built_year": "1922年（大正11年）",
+        "architect_note": "赤紫色の萬成石（まん成石）とタイルを組み合わせ、半円アーチに色ガラスをはめ込んだ華麗な小銀行建築。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#7A4948",
+          "accent": "#E9C46A",
+          "detail": "#232830"
+        },
+        "lat": 34.5956,
+        "lng": 133.7731,
+        "map_query": "旧中国銀行倉敷本町出張所",
+        "spot_key": "kurashiki_chugoku_bank"
+      },
+      {
+        "id": "krb_06",
+        "position": 6,
+        "title": "特殊な釉薬で緑色に輝く「緑御殿」の瓦屋根と泰山タイル",
+        "category": "昭和初期建築",
+        "sub_category": "和洋折衷別邸（薬師寺主計設計）",
+        "crop_target": "見る角度で緑色に光る特注の泉州瓦屋根と独特の海鼠壁",
+        "hint_level_1": "今橋のたもと、旧大原家住宅の隣。太陽の光を受けると屋根全体が鮮やかな「エメラルドグリーン」に輝くことから『緑御殿』と呼ばれる別邸を探そう。",
+        "hint_level_2": "大原孫三郎が妻・寿恵子のために建てた『有隣荘（ゆうりんそう）』です。",
+        "spot_name": "有隣荘（緑御殿）",
+        "built_year": "1928年（昭和3年）",
+        "architect_note": "薬師寺主計が設計し、京都の泰山タイルや特注の緑釉瓦を採用。和風の外観ながら、縦長の窓配置など洋館の構成美が融合している。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#2E6B56",
+          "accent": "#E6DEC8",
+          "detail": "#1D2A24"
+        },
+        "lat": 34.5957,
+        "lng": 133.7709,
+        "map_query": "倉敷 有隣荘",
+        "spot_key": "kurashiki_yurinso"
+      },
+      {
+        "id": "krb_07",
+        "position": 7,
+        "spot_key": "kurashiki_nakahashi_imahashi",
+        "title": "白壁なまこ壁と柳並木が倉敷川に映える「中橋・今橋」",
+        "category": "風景・歴史橋",
+        "sub_category": "重要伝統的建造物群保存地区（倉敷川畔）",
+        "crop_target": "倉敷川に架かる石造「中橋」と両岸の白壁土蔵・柳並木",
+        "hint_level_1": "大原美術館のすぐ前から倉敷館の前へ続く倉敷川沿い。小舟（くらしき川舟流し）が行き交う美観地区のハイライトを切り取ろう。",
+        "hint_level_2": "倉敷美観地区で最も有名な撮影ポイント『倉敷川・中橋・今橋』です。",
+        "spot_name": "倉敷川・中橋・今橋",
+        "built_year": "江戸〜大正期の石橋・水辺景観",
+        "architect_note": "今橋の欄干には児島虎次郎デザインの龍のレリーフが刻まれており、倉敷の象徴的な風景となっている。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.5959,
+        "lng": 133.7711,
+        "map_query": "倉敷川 中橋"
+      },
+      {
+        "id": "krb_08",
+        "position": 8,
+        "spot_key": "kurashiki_achi_shrine",
+        "title": "鶴形山の山頂から白壁の美観地区を一望する「阿智神社」",
+        "category": "歴史社寺・展望",
+        "sub_category": "延喜式内社・鶴形山山頂展望",
+        "crop_target": "阿智神社境内・絵馬殿から見下ろす美観地区の瓦屋根群",
+        "hint_level_1": "美観地区本町通りの北側、鶴形山の石段（米寿坂・還暦坂・厄除坂）を登った先。倉敷の総鎮守から街を一望しよう。",
+        "hint_level_2": "樹齢300〜500年の「阿知の藤」でも知られる『阿智神社（鶴形山）』です。",
+        "spot_name": "阿智神社（鶴形山）",
+        "built_year": "古墳時代創建伝承・1684年現在地整備",
+        "architect_note": "境内には「磐座（いわくら）」や「花纏（はなまき）の御守り」などがあり、美観地区を見渡す展望も抜群。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 34.5977,
+        "lng": 133.7736,
+        "map_query": "阿智神社 倉敷"
+      },
+      {
+        "id": "krb_09",
+        "position": 9,
+        "spot_key": "kurashiki_ohashi_house",
+        "title": "江戸時代倉敷商家の典型・長屋門を構える「大橋家住宅」",
+        "category": "歴史建築・重要文化財",
+        "sub_category": "江戸後期町家建築（国重要文化財）",
+        "crop_target": "美観地区の西側に構える重厚な長屋門と「倉敷格子」の主屋",
+        "hint_level_1": "倉敷駅から美観地区へ向かう阿知町エリア。寛政8年築、塩田や新田開発で財を成した豪商の重厚な町家を見学しよう。",
+        "hint_level_2": "倉敷で最初に重要文化財に指定された町家『大橋家住宅』です。",
+        "spot_name": "大橋家住宅（重要文化財）",
+        "built_year": "1796年（寛政8年）",
+        "architect_note": "長屋門・主屋・内蔵・米蔵が一式で残り、2階の小窓「倉敷窓」や格子が倉敷町家の原型を示している。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 34.597,
+        "lng": 133.7695,
+        "map_query": "大橋家住宅 倉敷"
+      }
+    ]
+  },
+  {
+    "id": "chugoku_onomichi_slope_walk",
+    "region_group": "中国・四国",
+    "prefecture_group": "岡山・広島",
+    "tour_type": "walk",
+    "title": "広島・尾道 坂の街と千光寺・猫の細道散策",
+    "subtitle": "ONOMICHI HILLSIDE & TEMPLE WALK",
+    "region": "広島県尾道市・JR尾道駅〜千光寺山〜猫の細道〜U2",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・ロープウェイ＋徒歩）",
+    "era_focus": "鎌倉〜現代",
+    "description": "JR尾道駅から千光寺山ロープウェイで山頂へ上り、展望台「PEAK」や千光寺、猫の細道、ガウディハウス、尾道商業会議所記念館、ONOMICHI U2まで坂道と海風を下りながら歩きます。",
+    "theme_color": "#2B5B84",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "ONM",
+    "area_map_query": "千光寺公園 尾道 猫の細道 ONOMICHI U2 尾道商業会議所記念館",
+    "cells": [
+      {
+        "id": "onm_01",
+        "position": 1,
+        "title": "商都・尾道の通りを飾る3階建て風の擬洋風会議所",
+        "category": "大正建築",
+        "sub_category": "大正モダン町家風洋館（尾道市重要文化財）",
+        "crop_target": "正面中央の半円アーチペディメントと縦長上げ下げ窓の並び",
+        "hint_level_1": "広島県尾道市の本通り商店街近く。和風の瓦屋根を載せつつ、正面を洋風の3階建てビルのように見せた大正12年築のレトロな商業会議所を探そう。",
+        "hint_level_2": "吹き抜けの議場を持つ『尾道商業会議所記念館』です。",
+        "spot_name": "尾道商業会議所記念館",
+        "built_year": "1923年（大正12年）",
+        "architect_note": "間口が狭く奥行きが深い尾道の町家敷地に合わせ、1階から2階を吹き抜けのホールとした独創的な木造擬洋風建築。",
+        "icon_type": "iron_door",
+        "dummy_palette": {
+          "bg": "#7B6B5E",
+          "accent": "#E2D8C8",
+          "detail": "#23282E"
+        },
+        "lat": 34.4091,
+        "lng": 133.2036,
+        "map_query": "尾道商業会議所記念館",
+        "spot_key": "onomichi_chamber"
+      },
+      {
+        "id": "onm_02",
+        "position": 2,
+        "title": "坂の街・尾道に潜む曲線レンガとスクラッチタイルの別邸",
+        "category": "昭和初期建築",
+        "sub_category": "和洋折衷・スパニッシュ＆数寄屋（登録有形文化財）",
+        "crop_target": "坂道に面した曲線的な煉瓦・タイル壁と丸窓の洋館部",
+        "hint_level_1": "尾道の千光寺山の中腹、細い石段の路地。ガウディの建築のように曲線を描くレンガ塀と、スクラッチタイルの洋館が一体となった不思議な別邸を探そう。",
+        "hint_level_2": "通称「尾道のガウディハウス」とも呼ばれる『旧和泉家別邸』です。",
+        "spot_name": "尾道 旧和泉家別邸（尾道ガウディハウス）",
+        "built_year": "1932年（昭和7年）頃",
+        "architect_note": "急斜面の変形敷地を逆手に取り、曲線的な煉瓦の基礎の上にスパニッシュ風の洋館と茶室付き和館を巧みに配置した尾道ならではの坂道建築。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8A5238",
+          "accent": "#E4D5B7",
+          "detail": "#263238"
+        },
+        "lat": 34.4106,
+        "lng": 133.2019,
+        "map_query": "尾道 旧和泉家別邸",
+        "spot_key": "onomichi_gaudi_house"
+      },
+      {
+        "id": "onm_03",
+        "position": 3,
+        "spot_key": "onomichi_senkoji_peak",
+        "title": "尾道水道としまなみの島々を見渡す新展望台「PEAK」と千光寺",
+        "category": "現代建築・歴史社寺",
+        "sub_category": "山頂展望デッキ（2022年）＆懸造り朱塗り本堂",
+        "crop_target": "らせん状の展望台「PEAK」または断崖に建つ朱塗りの「千光寺」",
+        "hint_level_1": "千光寺山ロープウェイ山頂駅からすぐ。2022年に刷新された展望台と、大宝山中腹の赤い舞台造りの名刹を巡ろう。",
+        "hint_level_2": "尾道観光の象徴『千光寺・千光寺公園頂上展望台 PEAK』です。",
+        "spot_name": "千光寺・千光寺公園頂上展望台 PEAK",
+        "built_year": "806年千光寺開創・2022年展望台刷新",
+        "architect_note": "山頂展望台「PEAK」から尾道水道の大パノラマを望み、下りながら千光寺の「玉の岩」や「鐘楼」を楽しめる。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 34.4106,
+        "lng": 133.1989,
+        "map_query": "千光寺公園頂上展望台 PEAK"
+      },
+      {
+        "id": "onm_04",
+        "position": 4,
+        "spot_key": "onomichi_neko_no_hosomichi",
+        "title": "福石猫たちが潜む古寺とアートの小径「猫の細道・艮神社」",
+        "category": "観光名所・街並み",
+        "sub_category": "坂道アート路地・尾道最古神社",
+        "crop_target": "艮神社脇から続く細い石段の坂道と手描きの「福石猫」",
+        "hint_level_1": "千光寺山ロープウェイ山麓駅のすぐそば、大きなクスノキがそびえる艮（うしとら）神社横の細い路地を探そう。",
+        "hint_level_2": "画家・園山春二氏が作った猫の石が並ぶ『猫の細道・艮神社』です。",
+        "spot_name": "猫の細道・艮神社",
+        "built_year": "806年艮神社創建・1998年猫の細道開始",
+        "architect_note": "約200mの細い路地に1000匹以上の福石猫が置かれ、招き猫美術館や古民家カフェが点在する。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 34.4105,
+        "lng": 133.2008,
+        "map_query": "猫の細道 尾道"
+      },
+      {
+        "id": "onm_05",
+        "position": 5,
+        "spot_key": "onomichi_tenneiji_pagoda",
+        "title": "尾道風景の定番！海を見下ろす「天寧寺 三重塔（海雲塔）」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "室町時代三重塔（国重要文化財）",
+        "crop_target": "尾道の街並みと尾道水道の向こうに立つ端正な三重塔",
+        "hint_level_1": "千光寺から猫の細道へ下る途中に現れる美しい塔。実は元は五重塔だったが江戸時代に上の二層を降ろして三重塔になった。",
+        "hint_level_2": "尾道ポスターの定番アングル『天寧寺 三重塔（海雲塔）』です。",
+        "spot_name": "天寧寺 三重塔（海雲塔）",
+        "built_year": "1388年（嘉慶2年）建立",
+        "architect_note": "国重要文化財。千光寺側の坂道から三重塔越しに尾道水道を望む構図は尾道随一の絶景として知られる。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.4099,
+        "lng": 133.1999,
+        "map_query": "天寧寺 三重塔 尾道"
+      },
+      {
+        "id": "onm_06",
+        "position": 6,
+        "spot_key": "onomichi_u2",
+        "title": "谷尻誠が海運倉庫を再生したサイクリストの聖地「ONOMICHI U2」",
+        "category": "現代建築・リノベーション",
+        "sub_category": "昭和海運倉庫再生複合施設（谷尻誠＋吉田愛設計）",
+        "crop_target": "尾道水道に面した木と鉄骨の大空間倉庫「ONOMICHI U2」",
+        "hint_level_1": "JR尾道駅から海沿いに西へ徒歩5分。1943年築の県営上屋倉庫を改装した、自転車ごと泊まれるおしゃれな複合施設へ。",
+        "hint_level_2": "しまなみ海道の拠点『ONOMICHI U2』です。",
+        "spot_name": "ONOMICHI U2",
+        "built_year": "1943年倉庫建築・2014年リノベーション",
+        "architect_note": "建築家・谷尻誠＆吉田愛（SUPPOSE DESIGN OFFICE）設計。ホテルやベーカリー、ショップが海辺に並ぶ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#E6DFD3",
+          "detail": "#13293D"
+        },
+        "lat": 34.4034,
+        "lng": 133.1904,
+        "map_query": "ONOMICHI U2"
+      },
+      {
+        "id": "onm_07",
+        "position": 7,
+        "spot_key": "onomichi_jodoji",
+        "title": "足利尊氏ゆかり・鎌倉時代の国宝本堂と多宝塔「浄土寺」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "鎌倉時代仏堂・多宝塔（国宝）",
+        "crop_target": "唐門越しに見る国宝「本堂」と優雅な「多宝塔」",
+        "hint_level_1": "尾道駅前から路線バスまたは東へ徒歩約20分（古寺めぐり東側）。本堂と多宝塔の2つが国宝に指定されている名刹へ。",
+        "hint_level_2": "聖徳太子創建伝承の古刹、国宝『浄土寺』です。",
+        "spot_name": "浄土寺（国宝本堂・多宝塔）",
+        "built_year": "1327年本堂・1328年多宝塔",
+        "architect_note": "和様と大仏様を折衷した国宝本堂、そして日本屈指の美しさを誇る国宝多宝塔が山門の奥に佇む。",
+        "icon_type": "spiral",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#D4AF37",
+          "detail": "#1E2631"
+        },
+        "lat": 34.4126,
+        "lng": 133.2102,
+        "map_query": "浄土寺 尾道"
+      },
+      {
+        "id": "onm_08",
+        "position": 8,
+        "spot_key": "onomichi_bungaku_shiga",
+        "title": "志賀直哉が『暗夜行路』を執筆した坂の上の「志賀直哉旧居」",
+        "category": "大正建築・文学名所",
+        "sub_category": "文豪旧居（おのみち文学の館）",
+        "crop_target": "石段の途中に建つ三軒長屋の一角「志賀直哉旧居」と眺望",
+        "hint_level_1": "千光寺から東土堂町の坂道を下る途中。小説の神様・志賀直哉が大正元年から暮らした小さな木造住宅を訪ねよう。",
+        "hint_level_2": "おのみち文学の館の一つ『志賀直哉旧居』です。",
+        "spot_name": "志賀直哉旧居（おのみち文学の館）",
+        "built_year": "明治末〜大正初期",
+        "architect_note": "書斎の縁側からは尾道水道の造船所や向島が一望でき、『暗夜行路』の描写そのままの風景が広がる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#EFE8D8",
+          "detail": "#242830"
+        },
+        "lat": 34.41,
+        "lng": 133.2028,
+        "map_query": "志賀直哉旧居 尾道"
+      },
+      {
+        "id": "onm_09",
+        "position": 9,
+        "spot_key": "onomichi_hondori_arcade",
+        "title": "全長1.2km！林芙美子像が迎えるレトロな「尾道本通り商店街」",
+        "category": "観光名所・街並み",
+        "sub_category": "昭和レトロアーケード商店街",
+        "crop_target": "駅東口すぐの「林芙美子像」と昭和の面影残る商店街アーケード",
+        "hint_level_1": "JR尾道駅の東側から続く長いアーケード街。入口に立つ『放浪記』の作者・林芙美子の像と、銭湯を改装したカフェなどを巡ろう。",
+        "hint_level_2": "映画のロケ地にもなった『尾道本通り商店街（林芙美子像）』です。",
+        "spot_name": "尾道本通り商店街（林芙美子像）",
+        "built_year": "江戸〜昭和期形成商店街",
+        "architect_note": "尾道商業会議所記念館や老舗銭湯を再生した「ゆーゆー」など、レトロと新しさが混在する散策ルート。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#7A4E3A",
+          "accent": "#F2D06B",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.4063,
+        "lng": 133.1965,
+        "map_query": "尾道本通り商店街 林芙美子像"
+      }
+    ]
+  },
+  {
+    "id": "chugoku_miyajima_itsukushima_walk",
+    "region_group": "中国・四国",
+    "prefecture_group": "広島・山口",
+    "tour_type": "walk",
+    "title": "安芸の宮島 嚴島神社・五重塔・参道散策",
+    "subtitle": "MIYAJIMA WORLD HERITAGE WALK",
+    "region": "広島県廿日市市・宮島桟橋〜表参道〜嚴島神社〜大聖院",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・フェリー＋完全徒歩）",
+    "era_focus": "平安〜江戸",
+    "description": "JR宮島口からフェリーでわずか10分、宮島桟橋からは完全徒歩で2時間半！世界遺産・嚴島神社の大鳥居と社殿、千畳閣・五重塔、大聖院、表参道の大しゃもじを巡ります。",
+    "theme_color": "#8F2D2B",
+    "accent_color": "#FAF6EE",
+    "specimen_prefix": "MYW",
+    "area_map_query": "嚴島神社 大鳥居 豊国神社千畳閣 大聖院 宮島表参道",
+    "cells": [
+      {
+        "id": "myw_01",
+        "position": 1,
+        "title": "瀬戸内の海中に自重だけで立つ高さ16.6mの朱塗り「大鳥居」",
+        "category": "歴史社寺・世界遺産",
+        "sub_category": "六脚両部鳥居（重要文化財・世界遺産・日本三景）",
+        "crop_target": "満潮時は海に浮かび干潮時は砂浜に立つ朱塗りの『嚴島神社 大鳥居』",
+        "hint_level_1": "日本三景・安芸の宮島。海底に柱を埋めるのではなく、クスノキの巨木と屋根の中に詰めた石の重み（約60トン）だけで海の中に堂々と立ち続ける朱塗りの大鳥居を切り取ろう。",
+        "hint_level_2": "重要文化財・世界遺産『嚴島神社 大鳥居（おおとりい）』です。",
+        "spot_name": "嚴島神社 大鳥居（世界遺産）",
+        "built_year": "1875年（明治8年）8代目再建（2022年令和の大改修完了）",
+        "architect_note": "主柱の前後に4本の稚児柱（ちごばしら）を添えた「両部鳥居（四脚鳥居）」形式。高潮や台風の波を受け流すため、海底の松杭の上に置かれているだけという驚異の構造。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#2B5B84",
+          "detail": "#E9C46A"
+        },
+        "lat": 34.2959,
+        "lng": 132.3183,
+        "map_query": "宮島 厳島神社大鳥居",
+        "spot_key": "miyajima_torii"
+      },
+      {
+        "id": "myw_02",
+        "position": 2,
+        "title": "満潮の海に浮かぶ平清盛の「朱塗り寝殿造回廊」と高舞台",
+        "category": "歴史社寺・国宝",
+        "sub_category": "平安寝殿造社殿（国宝・世界遺産）",
+        "crop_target": "海上に張り巡らされた朱塗りの回廊・平舞台・黒漆の『高舞台』と反橋",
+        "hint_level_1": "大鳥居の正面に広がる海上の社殿群。波の力を逃がすために床板と床板の間に隙間（目透かし）が開けられた、全長約275mにおよぶ朱塗りの海上回廊と舞台を狙おう。",
+        "hint_level_2": "平清盛が仁安3年（1168年）に現在の規模に造営した国宝・世界遺産『嚴島神社 本社社殿・回廊・高舞台』です。",
+        "spot_name": "国宝 嚴島神社 社殿・海上回廊",
+        "built_year": "1168年平清盛造営（現本殿は1571年毛利元就再建）",
+        "architect_note": "背後の弥山（みせん）の緑と瀬戸内海の海面を庭園に見立てた平安貴族の「寝殿造」の極致。高潮の浮力を逃がす床板のスリットなど、海と共に生きる建築の知恵が光る。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#8F2D2B",
+          "accent": "#2E6B5E",
+          "detail": "#FAF6EE"
+        },
+        "lat": 34.2958,
+        "lng": 132.3198,
+        "map_query": "宮島 厳島神社",
+        "spot_key": "miyajima_itsukushima_shrine"
+      },
+      {
+        "id": "myw_03",
+        "position": 3,
+        "title": "宮島の丘にそびえる和様×唐様の「朱塗り五重塔」と千畳閣",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "室町時代五重塔＆桃山大経堂（重要文化財）",
+        "crop_target": "青い空に映える高さ27.6mの朱塗り『五重塔』と隣の大屋根『千畳閣』",
+        "hint_level_1": "嚴島神社のすぐ脇の丘の上。鮮やかな朱塗りの五重塔と、豊臣秀吉が千部経の読誦のために建てさせた畳857枚分の吹き抜け大建築「千畳閣」の並びを収めよう。",
+        "hint_level_2": "国の重要文化財『嚴島神社 五重塔 と 豊国神社本殿（千畳閣）』です。",
+        "spot_name": "宮島 五重塔・豊国神社（千畳閣）",
+        "built_year": "1407年（応永14年）五重塔・1587年（天正15年）千畳閣",
+        "architect_note": "五重塔は桧皮葺きの屋根と唐様の尾垂木を融合させた優美な室町建築。隣の千畳閣は秀吉の急死により天井や壁が未完成のまま残され、巨大な木組みと風が吹き抜ける開放空間となっている。",
+        "icon_type": "tower",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#5C4738",
+          "detail": "#2B5B84"
+        },
+        "lat": 34.2974,
+        "lng": 132.3208,
+        "map_query": "宮島 五重塔 千畳閣",
+        "spot_key": "miyajima_senjokaku_pagoda"
+      },
+      {
+        "id": "myw_04",
+        "position": 4,
+        "spot_key": "miyajima_daishoin",
+        "title": "500体の羅漢像と摩尼車が並ぶ宮島最古の寺院「大聖院」",
+        "category": "歴史社寺・名所",
+        "sub_category": "真言宗御室派大本山（806年開創）",
+        "crop_target": "仁王門と無数の摩尼車が並ぶ石段、観音堂・五百羅漢像",
+        "hint_level_1": "嚴島神社出口から山側（弥山登山口方面）へ徒歩約5分。弘法大師・空海が開いたと伝わる宮島で最も歴史あるお寺へ。",
+        "hint_level_2": "豊臣秀吉も歌会を開いた名刹『大本山 大聖院』です。",
+        "spot_name": "大本山 大聖院",
+        "built_year": "806年（大同元年）開創",
+        "architect_note": "一回転させるとお経を読んだことになる「摩尼車（まにぐるま）」の階段や、遍照窟の88ヶ所お砂踏みなど見どころ多数。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D4AF37",
+          "detail": "#1E2631"
+        },
+        "lat": 34.2923,
+        "lng": 132.3189,
+        "map_query": "大聖院 宮島"
+      },
+      {
+        "id": "myw_05",
+        "position": 5,
+        "spot_key": "miyajima_omotesando_shamoji",
+        "title": "もみじ饅頭と長さ7.7mの世界一「大杓子」がある表参道商店街",
+        "category": "観光名所・街並み",
+        "sub_category": "門前商店街・巨大木彫モニュメント",
+        "crop_target": "商店街に展示された高さ7.7m・重さ2.5トンの巨大「大杓子」",
+        "hint_level_1": "宮島桟橋から嚴島神社へ向かうアーケード街「清盛通り」。途中に展示されているギネス級の大きさを誇る宮島名産を探そう。",
+        "hint_level_2": "食べ歩きも楽しい『宮島表参道商店街（大杓子）』です。",
+        "spot_name": "宮島表参道商店街（大杓子）",
+        "built_year": "1983年大杓子制作（ケヤキ製）",
+        "architect_note": "宮島伝統の杓子（しゃもじ）を樹齢270年のケヤキで彫り上げた大杓子が商店街のシンボル。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 34.2974,
+        "lng": 132.3212,
+        "map_query": "宮島 大杓子"
+      },
+      {
+        "id": "myw_06",
+        "position": 6,
+        "spot_key": "miyajima_momijidani_park",
+        "title": "もみじ谷川に朱塗りの「もみじ橋」が架かる「紅葉谷公園」",
+        "category": "風景・自然名所",
+        "sub_category": "弥山麓の渓谷公園（朱塗り橋）",
+        "crop_target": "緑や紅葉の木々に囲まれた朱塗りの「もみじ橋」と渓流",
+        "hint_level_1": "嚴島神社の東側、弥山ロープウェー乗り場方面へ少し入った渓谷公園。入口の美しい赤い木橋を切り取ろう。",
+        "hint_level_2": "新緑の季節も紅葉の季節も美しい『紅葉谷公園（もみじ橋）』です。",
+        "spot_name": "紅葉谷公園（もみじ橋）",
+        "built_year": "江戸期整備（弥山原生林麓）",
+        "architect_note": "約700本のモミジが自生し、夏は新緑、秋は錦秋、冬は凛とした静けさを見せる宮島の癒やしスポット。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#9E2A2B",
+          "detail": "#1C2420"
+        },
+        "lat": 34.2932,
+        "lng": 132.3248,
+        "map_query": "紅葉谷公園 宮島"
+      },
+      {
+        "id": "myw_07",
+        "position": 7,
+        "spot_key": "miyajima_daiganji",
+        "title": "日本三大弁財天の一つを祀る嚴島神社出口隣の「大願寺」",
+        "category": "歴史社寺・名所",
+        "sub_category": "真言宗高野山派寺院（九本松・護摩堂）",
+        "crop_target": "嚴島神社出口すぐの「大願寺」山門と境内の九本松",
+        "hint_level_1": "嚴島神社の西側出口（唐門側）を出てすぐ目の前。明治の神仏分離まで嚴島神社の修理造営を担っていた名刹へ。",
+        "hint_level_2": "伊藤博文も愛した『亀居山 大願寺（日本三大弁財天）』です。",
+        "spot_name": "大願寺（日本三大弁財天）",
+        "built_year": "鎌倉初期（1201〜1203年）再興",
+        "architect_note": "江ノ島・竹生島と並ぶ日本三大弁財天の一つ。境内の九本松や木造薬師如来像（重要文化財）が見どころ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4A443E",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 34.2947,
+        "lng": 132.3186,
+        "map_query": "大願寺 宮島"
+      },
+      {
+        "id": "myw_08",
+        "position": 8,
+        "spot_key": "miyajima_kiyomori_shrine",
+        "title": "嚴島神社を現在の姿に造営した平清盛公を祀る「清盛神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "海辺の小社（西松原）",
+        "crop_target": "西松原の海辺に建つ平清盛公を祀る小社と石灯籠",
+        "hint_level_1": "嚴島神社から西松原沿いに海を眺めながら徒歩5分。平家栄華の象徴である清盛公の遺徳を偲ぶ神社にお参りしよう。",
+        "hint_level_2": "1954年に創建された『清盛神社（西松原）』です。",
+        "spot_name": "清盛神社（西松原）",
+        "built_year": "1954年（昭和29年）創建",
+        "architect_note": "西松原の防波堤沿いに佇み、ここから振り返って見る嚴島神社と大鳥居の眺めも通なスポット。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#1B3042"
+        },
+        "lat": 34.2941,
+        "lng": 132.3164,
+        "map_query": "清盛神社 宮島"
+      },
+      {
+        "id": "myw_09",
+        "position": 9,
+        "spot_key": "miyajima_sanbashi_stone",
+        "title": "宮島上陸の証！「日本三景碑」と宮島桟橋の鹿たち",
+        "category": "風景・観光名所",
+        "sub_category": "玄関口モニュメント・海辺プロムナード",
+        "crop_target": "宮島桟橋前広場の「日本三景安芸の宮島」石碑とフェリー桟橋",
+        "hint_level_1": "宮島フェリーを下船して桟橋を出たところの広場。松島・天橋立と並ぶ「日本三景」の石碑の前で記念写真を撮ろう。",
+        "hint_level_2": "旅の始まりと終わりを飾る『宮島桟橋・日本三景碑』です。",
+        "spot_name": "宮島桟橋・日本三景安芸の宮島碑",
+        "built_year": "1950年石碑建立（2020年桟橋新設）",
+        "architect_note": "桟橋前から嚴島神社まで続く海沿いの「御笠浜」には神の使いとされる鹿がのんびりと歩いている。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#F2D06B",
+          "detail": "#13293D"
+        },
+        "lat": 34.2998,
+        "lng": 132.323,
+        "map_query": "宮島桟橋 日本三景碑"
+      }
+    ]
+  },
+  {
+    "id": "shikoku_dogo_matsuyama_walk",
+    "region_group": "中国・四国",
+    "prefecture_group": "愛媛・四国",
+    "tour_type": "walk",
+    "title": "松山・道後温泉〜松山城 路面電車散策",
+    "subtitle": "DOGO ONSEN & MATSUYAMA CASTLE WALK",
+    "region": "愛媛県松山市・道後温泉〜大街道〜松山城",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・伊予鉄道＋徒歩）",
+    "era_focus": "江戸〜現代",
+    "description": "伊予鉄道の路面電車「市内電車」で結ばれた道後温泉と松山城エリアを3時間以内で巡るコース。道後温泉本館、道後温泉駅、伊佐爾波神社、松山城天守、萬翠荘、坂の上の雲ミュージアムを歩きます。",
+    "theme_color": "#2E4057",
+    "accent_color": "#C85A32",
+    "specimen_prefix": "DGM",
+    "area_map_query": "道後温泉本館 道後温泉駅 松山城 萬翠荘 伊佐爾波神社",
+    "cells": [
+      {
+        "id": "dgm_01",
+        "position": 1,
+        "title": "赤いギヤマンと白鷺が輝く三層木造の太鼓楼「振鷺閣」",
+        "category": "明治建築",
+        "sub_category": "近代和風温泉建築（重要文化財）",
+        "crop_target": "大屋根の頂部に載る赤いガラス窓の太鼓楼『振鷺閣』と唐破風",
+        "hint_level_1": "日本最古の名湯・道後温泉のシンボル。城郭のように重なる瓦屋根のてっぺんで、赤いギヤマン（ガラス）と白鷺の飾りが輝く太鼓楼を見上げよう。",
+        "hint_level_2": "棟梁・坂本又八郎が手がけた重要文化財『道後温泉本館（神の湯本館・振鷺閣）』です。",
+        "spot_name": "道後温泉本館（振鷺閣）",
+        "built_year": "1894年（明治27年）",
+        "architect_note": "公衆浴場として日本で初めて国の重要文化財に指定された木造三層楼。屋上の「振鷺閣」から1日3回打ち鳴らされる刻太鼓は日本の音風景100選。",
+        "icon_type": "crown_tower",
+        "dummy_palette": {
+          "bg": "#5E3229",
+          "accent": "#E9C46A",
+          "detail": "#9E2A2B"
+        },
+        "lat": 33.8521,
+        "lng": 132.7864,
+        "map_query": "道後温泉本館",
+        "spot_key": "matsuyama_dogo_honkan"
+      },
+      {
+        "id": "dgm_02",
+        "position": 2,
+        "title": "道後の街角に立つマンサード屋根とバージボードの洋風駅舎",
+        "category": "明治・再現建築",
+        "sub_category": "明治洋風木造駅舎",
+        "crop_target": "急勾配のマンサード屋根と切妻の繊細な透かし彫り（バージボード）",
+        "hint_level_1": "道後温泉の玄関口。夏目漱石の『坊っちゃん』にも登場する蒸気機関車のすぐ後ろに建つ、明治44年の洋風木造駅舎を狙おう。",
+        "hint_level_2": "明治期の旧駅舎を忠実に復元した『伊予鉄道 道後温泉駅』です。",
+        "spot_name": "道後温泉駅舎",
+        "built_year": "1911年（明治44年）旧駅舎意匠（1986年復元）",
+        "architect_note": "明治44年建築の2代目駅舎を同じ工法で再建。屋根のドーマー窓と繊細な木彫りのバージボードが、温泉街のレトロな旅情を高める。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#EAE4DC",
+          "accent": "#6E4B3A",
+          "detail": "#22333B"
+        },
+        "lat": 33.8505,
+        "lng": 132.7852,
+        "map_query": "道後温泉駅",
+        "spot_key": "matsuyama_dogo_station"
+      },
+      {
+        "id": "dgm_03",
+        "position": 3,
+        "title": "城山の森に佇む旧松山藩主伯爵のフランス・ルネサンス館",
+        "category": "大正建築",
+        "sub_category": "フランス・ルネサンス様式（重要文化財）",
+        "crop_target": "マンサード屋根のドーマー窓と正面の気品あるバルコニー車寄せ",
+        "hint_level_1": "松山城の麓、大街道から少し登った森の中。旧松山藩主の末裔・久松定謨（さだこと）伯爵が建てた、フランスの貴族の館のような白亜の洋館を探そう。",
+        "hint_level_2": "建築家・木子七郎が設計した重要文化財『萬翠荘（ばんすいそう）』です。",
+        "spot_name": "萬翠荘（旧久松家別邸）",
+        "built_year": "1922年（大正11年）",
+        "architect_note": "フランス生活が長かった久松伯爵のため、木子七郎が純フランス・ルネサンス様式で設計。大階段の帆船ステンドグラス（木内真太郎作）は圧巻。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#DFD8C8",
+          "accent": "#4A6B5D",
+          "detail": "#263238"
+        },
+        "lat": 33.8421,
+        "lng": 132.7689,
+        "map_query": "松山 萬翠荘",
+        "spot_key": "matsuyama_bansuiso"
+      },
+      {
+        "id": "dgm_04",
+        "position": 4,
+        "title": "緑青の中央ドームと白いイオニア列柱が映える昭和初期県庁",
+        "category": "昭和初期建築",
+        "sub_category": "近世復興様式（国登録有形文化財）",
+        "crop_target": "中央に輝く緑青ドーム屋根と正面4階まで続く白い列柱",
+        "hint_level_1": "松山市の一番町（城山公園の南）。路面電車が走る大通りに面して、緑色のドーム屋根と真っ白な列柱が威容を誇る現役の県庁本館を切り取ろう。",
+        "hint_level_2": "萬翠荘と同じ木子七郎が設計した『愛媛県庁本館』です。",
+        "spot_name": "愛媛県庁本館",
+        "built_year": "1929年（昭和4年）",
+        "architect_note": "戦災を免れた全国でも数少ない昭和初期の現役都道府県庁舎。ドーム下の階段室や知事室・正庁の華麗な漆喰天井が当時のまま残る。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#3B7A6C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2D3A"
+        },
+        "lat": 33.8416,
+        "lng": 132.7653,
+        "map_query": "愛媛県庁本館",
+        "spot_key": "matsuyama_ehime_pref"
+      },
+      {
+        "id": "dgm_05",
+        "position": 5,
+        "title": "打ち放しコンクリートの巨大な三角形とガラスの空中階段",
+        "category": "現代・平成建築",
+        "sub_category": "安藤忠雄モダニズム建築",
+        "crop_target": "萬翠荘の隣にそびえる三角形のコンクリート壁と連続ガラス面",
+        "hint_level_1": "萬翠荘へ登る坂の途中。大正時代の洋館と対話するように建つ、世界的な建築家・安藤忠雄が設計した三角形のガラス＆コンクリート建築を切り取ろう。",
+        "hint_level_2": "司馬遼太郎の小説をテーマにした『坂の上の雲ミュージアム』です。",
+        "spot_name": "坂の上の雲ミュージアム",
+        "built_year": "2007年（平成19年）",
+        "architect_note": "城山の緑や隣接する重要文化財・萬翠荘の景観を損なわないよう高さを抑え、支柱のない空中階段で明治の躍動感を表現した現代建築の傑作。",
+        "icon_type": "capital",
+        "dummy_palette": {
+          "bg": "#7E878C",
+          "accent": "#C8D6D8",
+          "detail": "#1E262B"
+        },
+        "lat": 33.8415,
+        "lng": 132.7695,
+        "map_query": "松山 坂の上の雲ミュージアム",
+        "spot_key": "matsuyama_saka_museum"
+      },
+      {
+        "id": "dgm_06",
+        "position": 6,
+        "spot_key": "matsuyama_castle",
+        "title": "連立式天守と石垣が圧巻の現存12天守「松山城」",
+        "category": "歴史建築・重要文化財",
+        "sub_category": "現存12天守・重要文化財21棟（勝山山頂）",
+        "crop_target": "ロープウェイで登る勝山山頂の白壁連立式天守閣",
+        "hint_level_1": "大街道電停から徒歩5分のロープウェイ乗り場から山頂へ。21棟もの重要文化財が集中する屈指の平山城天守を狙おう。",
+        "hint_level_2": "加藤嘉明が築いた伊予の名城『松山城（天守・本丸）』です。",
+        "spot_name": "松山城（天守閣・ロープウェイ）",
+        "built_year": "1602年築城開始・1854年現天守再建",
+        "architect_note": "日本で最後に建てられた完全な城郭建築であり、現存12天守の中で最も高い標高132mの山頂に建つ。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#FAF6EE",
+          "detail": "#9E2A2B"
+        },
+        "lat": 33.8455,
+        "lng": 132.7657,
+        "map_query": "松山城 天守"
+      },
+      {
+        "id": "dgm_07",
+        "position": 7,
+        "spot_key": "matsuyama_isaniwa_shrine",
+        "title": "京都・石清水八幡宮を模した極彩色の八幡造「伊佐爾波神社」",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "江戸時代八幡造社殿（国重要文化財）",
+        "crop_target": "135段の急な石段を登りきった先に輝く朱塗りの楼門と回廊",
+        "hint_level_1": "道後温泉駅の東側、湯神社の上の高台。日本三大八幡造の一つに数えられる鮮やかで重厚な社殿を見に行こう。",
+        "hint_level_2": "算額の奉納でも有名な国重要文化財『伊佐爾波（いさにわ）神社』です。",
+        "spot_name": "伊佐爾波神社（いさにわじんじゃ）",
+        "built_year": "1667年（寛文7年）現在社殿造営",
+        "architect_note": "全国に3例しかないとされる「八幡造」の代表作。道後の街並みを見下ろす石段上からの景色も爽快。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#F2D06B",
+          "detail": "#1E2631"
+        },
+        "lat": 33.8505,
+        "lng": 132.789,
+        "map_query": "伊佐爾波神社 道後"
+      },
+      {
+        "id": "dgm_08",
+        "position": 8,
+        "spot_key": "matsuyama_botchan_karakuri_clock",
+        "title": "毎時『坊っちゃん』の登場人物が踊り出す「坊っちゃんカラクリ時計」",
+        "category": "観光名所・モニュメント",
+        "sub_category": "放生園カラクリ時計＆足湯",
+        "crop_target": "道後温泉本館の振鷺閣を模したカラクリ時計塔",
+        "hint_level_1": "道後温泉駅の目の前、道後商店街（ハイカラ通り）の入口にある放生園。足湯に入りながらカラクリ時計の動く瞬間を待とう。",
+        "hint_level_2": "道後温泉本館100周年を記念して作られた『坊っちゃんカラクリ時計』です。",
+        "spot_name": "坊っちゃんカラクリ時計・放生園",
+        "built_year": "1994年（平成6年）設置",
+        "architect_note": "毎日8時〜22時の1時間ごと（土日祝などは30分ごと）に道後温泉の音楽とともに人形たちが登場する。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 33.8502,
+        "lng": 132.7851,
+        "map_query": "坊っちゃんカラクリ時計"
+      },
+      {
+        "id": "dgm_09",
+        "position": 9,
+        "spot_key": "matsuyama_ishiteji",
+        "title": "四国八十八ヶ所第51番札所・国宝二王門と三重塔の「石手寺」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "鎌倉時代二王門（国宝）＆重要文化財三重塔",
+        "crop_target": "鎌倉時代建立の国宝「二王門」と名物の大草鞋（わらじ）",
+        "hint_level_1": "道後温泉から東へ徒歩約15分（バスもあり）。お遍路の元祖「衛門三郎」ゆかりの寺院で、国宝の門と洞窟マントラを楽しもう。",
+        "hint_level_2": "7つの国宝・重要文化財建築を持つ『石手寺（四国51番札所）』です。",
+        "spot_name": "石手寺（国宝二王門・三重塔）",
+        "built_year": "1318年（文保2年）二王門建立",
+        "architect_note": "国宝の二王門をはじめ、本堂・三重塔・鐘楼・五輪塔など鎌倉期の建築がこれほど集中する寺院は四国屈指。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 33.8478,
+        "lng": 132.7964,
+        "map_query": "石手寺 松山"
+      }
+    ]
+  },
+  {
+    "id": "kyushu_dazaifu_tenmangu_walk",
+    "region_group": "九州",
+    "prefecture_group": "福岡・太宰府",
+    "tour_type": "walk",
+    "title": "太宰府天満宮〜九州国立博物館 徒歩散策",
+    "subtitle": "DAZAIFU TENMANGU & KYUHAKU WALK",
+    "region": "福岡県太宰府市・西鉄太宰府駅〜天満宮〜九州国立博物館〜観世音寺",
+    "difficulty": "★☆☆（散策目安：約2〜2.5時間・完全徒歩）",
+    "era_focus": "奈良〜現代",
+    "description": "西鉄太宰府駅から徒歩だけで巡れる学問と文化の街コース。太宰府天満宮、隈研吾の木組みスタバ、菊竹清訓の九州国立博物館、枯山水の光明禅寺、飛鳥・奈良時代の観世音寺まで歩きます。",
+    "theme_color": "#7A2E2E",
+    "accent_color": "#D4AF37",
+    "specimen_prefix": "DZF",
+    "area_map_query": "太宰府天満宮 九州国立博物館 光明禅寺 観世音寺",
+    "cells": [
+      {
+        "id": "dzf_01",
+        "position": 1,
+        "title": "心字池に架かる朱塗りの「太鼓橋」と桃山様式の重要文化財本殿",
+        "category": "歴史社寺・重要文化財",
+        "sub_category": "五間社流造本殿（重要文化財）＆太鼓橋",
+        "crop_target": "心字池を渡る朱塗りの『太鼓橋』と檜皮葺きの『太宰府天満宮 御本殿』",
+        "hint_level_1": "全国1万2000社の天満宮の総本宮。過去・現在・未来を表す3つの赤い「太鼓橋」を渡り、菅原道真公を祀る豪華な桃山様式の御本殿（または改修中の仮殿の森屋根）を収めよう。",
+        "hint_level_2": "天正19年（1591年）に小早川隆景が再建した重要文化財『太宰府天満宮 御本殿・太鼓橋』です。",
+        "spot_name": "太宰府天満宮（御本殿・太鼓橋）",
+        "built_year": "1591年（天正19年）御本殿再建",
+        "architect_note": "御本殿は正面に唐破風を備えた華麗な五間社流造。124年ぶりの令和の大改修期間中は、建築家・藤本壮介が設計した「屋根の上に森が浮かぶ仮殿」も世界的話題に。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#3B6E4C",
+          "detail": "#E0B347"
+        },
+        "lat": 33.5215,
+        "lng": 130.5349,
+        "map_query": "太宰府天満宮",
+        "spot_key": "dazaifu_tenmangu"
+      },
+      {
+        "id": "dzf_02",
+        "position": 2,
+        "title": "釘を一本も使わず2000本の杉材を斜めに編み上げた参道カフェ",
+        "category": "現代建築・名所",
+        "sub_category": "隈研吾設計・伝統木組みファサード",
+        "crop_target": "店舗入口から奥まで斜め格子の杉材が鳥の巣のように張り出した木組み空間",
+        "hint_level_1": "太宰府天満宮の表参道。約2000本もの細長い杉の角材が、釘を一切使わずに斜め格子（地獄組み）で入口から店内奥までうねるように組まれた有名なカフェを切り取ろう！",
+        "hint_level_2": "建築家・隈研吾が設計した『スターバックス コーヒー 太宰府天満宮表参道店』です。",
+        "spot_name": "スターバックス コーヒー 太宰府天満宮表参道店",
+        "built_year": "2011年（平成23年）竣工",
+        "architect_note": "長さ1.3m〜4m、6cm角の杉材2000本を、日本の伝統木工玩具「Cidori（千鳥格子）」を応用して立体的に連結。総延長は4.4kmに達する。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#7B5843",
+          "accent": "#E4D5B7",
+          "detail": "#263A29"
+        },
+        "lat": 33.5196,
+        "lng": 130.5322,
+        "map_query": "スターバックス 太宰府天満宮表参道店",
+        "spot_key": "dazaifu_starbucks_kuma"
+      },
+      {
+        "id": "dzf_03",
+        "position": 3,
+        "title": "周囲の山並みと空を映して大きく波打つ「青銀色の巨大屋根」",
+        "category": "現代建築・名所",
+        "sub_category": "菊竹清訓設計・大型ダブルスキン屋根建築",
+        "crop_target": "うねる山並みのような曲線屋根と空・緑を映す巨大な全面ガラス壁",
+        "hint_level_1": "太宰府天満宮のすぐ裏山を「虹のトンネル」のエスカレーターで抜けた先。周囲の山並みと呼応して巨大な波のように曲線を描く、ガラスとチタン屋根の国立博物館を見上げよう。",
+        "hint_level_2": "建築家・菊竹清訓（きくたけきよのり）が設計した『九州国立博物館』です。",
+        "spot_name": "九州国立博物館",
+        "built_year": "2005年（平成17年）開館",
+        "architect_note": "東京・京都・奈良に続き108年ぶりに新設された4番目の国立博物館。160m×80mの巨大な無柱ロビー空間と、周囲の森をそのまま鏡のように映し込むガラスカーテンウォールが圧巻。",
+        "icon_type": "dome",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#C8D6D8",
+          "detail": "#264E36"
+        },
+        "lat": 33.5183,
+        "lng": 130.5386,
+        "map_query": "九州国立博物館",
+        "spot_key": "dazaifu_kyuhaku"
+      },
+      {
+        "id": "dzf_04",
+        "position": 4,
+        "spot_key": "dazaifu_komyozenji",
+        "title": "苔と白砂で「光」の文字を描く「苔寺」こと光明禅寺",
+        "category": "歴史社寺・名園",
+        "sub_category": "鎌倉時代禅寺・枯山水庭園",
+        "crop_target": "仏光石庭と苔が美しい裏庭「一滴海之庭」",
+        "hint_level_1": "西鉄太宰府駅のすぐ南東、天満宮の参道から一本入った静かな禅寺。九州で唯一の本格枯山水庭園を拝観しよう。",
+        "hint_level_2": "通称「苔寺」として親しまれる『光明禅寺』です。",
+        "spot_name": "光明禅寺（苔寺）",
+        "built_year": "1273年（文永10年）開創",
+        "architect_note": "前庭は白砂と石で「光」の字を表現した仏光石庭、裏庭は青苔で陸を、白砂で大海を表した一滴海之庭が見事。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1C2420"
+        },
+        "lat": 33.5194,
+        "lng": 130.533,
+        "map_query": "光明禅寺 太宰府"
+      },
+      {
+        "id": "dzf_05",
+        "position": 5,
+        "spot_key": "dazaifu_kanzeonji",
+        "title": "日本三戒壇の一つ・国宝の梵鐘が響く古刹「観世音寺・戒壇院」",
+        "category": "歴史社寺・国宝",
+        "sub_category": "奈良時代創建寺院（国宝梵鐘・重要文化財仏像群）",
+        "crop_target": "戒壇院の門構えと観世音寺本堂・日本最古級の梵鐘",
+        "hint_level_1": "太宰府天満宮から西へ徒歩約15分（西鉄都府楼前駅寄り）。天智天皇が発願し、菅原道真公も鐘の音を聴いた名刹へ。",
+        "hint_level_2": "『源氏物語』にも登場する鎮西の名刹『観世音寺・戒壇院』です。",
+        "spot_name": "観世音寺・戒壇院",
+        "built_year": "746年（天平18年）完成",
+        "architect_note": "観世音寺の梵鐘は京都妙心寺の鐘と兄弟鐘とされる国宝。宝蔵には高さ5m近い木造仏像がずらりと並ぶ。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#E6DFD3",
+          "detail": "#1E2631"
+        },
+        "lat": 33.5146,
+        "lng": 130.5205,
+        "map_query": "観世音寺 太宰府"
+      },
+      {
+        "id": "dzf_06",
+        "position": 6,
+        "spot_key": "dazaifu_station_ume",
+        "title": "和モダンの梅文様が迎える「西鉄太宰府駅」",
+        "category": "現代建築・駅舎",
+        "sub_category": "観光駅舎リニューアル（2019年）",
+        "crop_target": "朱色と白・木格子に「梅」文様がデザインされた太宰府駅外観",
+        "hint_level_1": "散策のスタート地点。太宰府天満宮の「飛梅」と「朱塗りの鳥居・社殿」をモチーフに2019年に一新された駅舎を撮ろう。",
+        "hint_level_2": "観光列車「旅人」も発着する『西鉄太宰府駅』です。",
+        "spot_name": "西鉄太宰府駅",
+        "built_year": "1902年開業・2019年駅舎リニューアル",
+        "architect_note": "駅名看板や屋根の破風、柱の朱色に太宰府天満宮への玄関口としての伝統美が込められている。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 33.5186,
+        "lng": 130.5313,
+        "map_query": "西鉄太宰府駅"
+      },
+      {
+        "id": "dzf_07",
+        "position": 7,
+        "spot_key": "dazaifu_shinjike_taikobashi",
+        "title": "過去・現在・未来を表す三つの橋「心字池と太鼓橋」",
+        "category": "歴史名所・橋",
+        "sub_category": "池泉庭園・朱塗り木造太鼓橋（室町期造園）",
+        "crop_target": "「心」の字を象った池に架かる朱塗りの三連太鼓橋",
+        "hint_level_1": "天満宮の鳥居をくぐってすぐ渡る橋。手前から「過去」「現在」「未来」を表しており、振り返らずに渡るのが作法だ。",
+        "hint_level_2": "お清めの橋『太宰府天満宮 心字池・太鼓橋』です。",
+        "spot_name": "太宰府天満宮 心字池・太鼓橋",
+        "built_year": "室町時代造園",
+        "architect_note": "2つの太鼓橋と1つの平橋からなる3連の橋。朱色の欄干と池の鯉、周囲の楠が美しい空間をつくる。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E6DFD3",
+          "detail": "#1D2A35"
+        },
+        "lat": 33.5205,
+        "lng": 130.5342,
+        "map_query": "太宰府天満宮 太鼓橋"
+      },
+      {
+        "id": "dzf_08",
+        "position": 8,
+        "spot_key": "dazaifu_sando_umegae",
+        "title": "焼きたて梅ヶ枝餅の香りに誘われる「太宰府天満宮 表参道」",
+        "category": "観光名所・街並み",
+        "sub_category": "歴史的門前商店街（石鳥居・梅ヶ枝餅店群）",
+        "crop_target": "一の鳥居・二の鳥居が立つ石畳の参道と木造店舗の並び",
+        "hint_level_1": "西鉄太宰府駅から天満宮へ続く約400mの参道。30軒以上が軒を連ねる名物「梅ヶ枝餅」の焼きたてを頬張ろう。",
+        "hint_level_2": "九州屈指の賑わいを見せる『太宰府天満宮 表参道』です。",
+        "spot_name": "太宰府天満宮 表参道（梅ヶ枝餅通り）",
+        "built_year": "江戸〜昭和期門前商店街",
+        "architect_note": "菅原道真公ゆかりの「梅ヶ枝餅」を売る老舗や明太子店、和雑貨店が石畳の両側にずらりと並ぶ。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E5A4F",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 33.5192,
+        "lng": 130.5326,
+        "map_query": "太宰府天満宮 参道"
+      },
+      {
+        "id": "dzf_09",
+        "position": 9,
+        "spot_key": "dazaifu_tenkaikaku_kanko",
+        "title": "九州国立博物館へ導く未来的な光のトンネル「アクセストンネル」",
+        "category": "現代建築・空間",
+        "sub_category": "動く歩道・虹色光演出トンネル（2005年）",
+        "crop_target": "太宰府天満宮と九州国立博物館を結ぶ近未来的な光の回廊",
+        "hint_level_1": "天満宮境内の東側（菖蒲池近く）から九州国立博物館へ上がる、エスカレーターと動く歩道を備えた近未来のトンネルを歩こう。",
+        "hint_level_2": "歴史から現代へワープする『九博アクセストンネル（虹のトンネル）』です。",
+        "spot_name": "九州国立博物館 アクセストンネル（虹のトンネル）",
+        "built_year": "2005年（平成17年）",
+        "architect_note": "天満宮の境内から山をくり抜いて九博へ直結する利便性の高い通路。季節によって照明カラーが変化する。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#F2D06B",
+          "detail": "#13293D"
+        },
+        "lat": 33.5194,
+        "lng": 130.537,
+        "map_query": "九州国立博物館 アクセストンネル"
+      }
+    ]
+  },
+  {
+    "id": "kyushu_kumamoto_castle_walk",
+    "region_group": "九州",
+    "prefecture_group": "熊本・大分",
+    "tour_type": "walk",
+    "title": "熊本城・城彩苑〜水前寺成趣園 市電散策",
+    "subtitle": "KUMAMOTO CASTLE & SUIZENJI WALK",
+    "region": "熊本県熊本市・熊本城〜城彩苑〜上通〜水前寺成趣園",
+    "difficulty": "★☆☆（散策目安：約2.5〜3時間・熊本市電＋徒歩）",
+    "era_focus": "江戸初期〜明治",
+    "description": "熊本市電1日乗車券を使って車なし約3時間で巡る熊本市内コース。復興した熊本城天守閣、城彩苑、二の丸長塀、加藤神社、漱石旧居、そして名園・水前寺成趣園を巡ります。",
+    "theme_color": "#232B38",
+    "accent_color": "#C49A45",
+    "specimen_prefix": "KMW",
+    "area_map_query": "熊本城 加藤神社 桜の馬場城彩苑 水前寺成趣園",
+    "cells": [
+      {
+        "id": "kmw_01",
+        "position": 1,
+        "title": "黒と白の威容が復活した大小天守と「武者返し」の高石垣",
+        "category": "観光名所・重要文化財",
+        "sub_category": "日本三名城・特別史跡＆重要文化財（宇土櫓）",
+        "crop_target": "反り上がる『武者返し』の高石垣の上にそびえる黒い『熊本城大天守・小天守』",
+        "hint_level_1": "加藤清正が築いた日本三名城のひとつ。忍者ですら登れないほど上に向かって急角度に反り上がる石垣「武者返し（むしゃがえし）」と、完全復活した大小天守の雄姿を見上げよう。",
+        "hint_level_2": "特別史跡『熊本城（天守閣・重要文化財宇土櫓・空中回廊）』です。",
+        "spot_name": "熊本城（大小天守・武者返し石垣）",
+        "built_year": "1607年（慶長12年）完成・2021年天守閣完全復旧",
+        "architect_note": "黒塗りの下見板と幾重もの千鳥破風・唐破風が重なる豪壮な城郭。2020年には石垣や城内を傷つけずに地上6mから見学できる全長約350mの「特別見学通路（空中回廊）」も誕生。",
+        "icon_type": "castle",
+        "dummy_palette": {
+          "bg": "#222426",
+          "accent": "#FAF6EE",
+          "detail": "#8C6625"
+        },
+        "lat": 32.8062,
+        "lng": 130.7058,
+        "map_query": "熊本城",
+        "spot_key": "kumamoto_castle"
+      },
+      {
+        "id": "kmw_02",
+        "position": 2,
+        "title": "湧き水の池と円錐形の築山・茅葺き「古今伝授の間」が調和する名園",
+        "category": "風景・国指定名勝",
+        "sub_category": "国の名勝及び史跡・桃山式回遊庭園",
+        "crop_target": "阿蘇の伏流水が透き通る池と富士山型の築山・茅葺き『古今伝授の間』",
+        "hint_level_1": "熊本市中央区。細川藩主が東海道五十三次の景勝を模して造った庭園で、綺麗な円錐形の築山（富士）と、京都から移築された茅葺き屋根の数寄屋建築を切り取ろう。",
+        "hint_level_2": "国の名勝・史跡『水前寺成趣園（すいぜんじじょうじゅえん・古今伝授の間）』です。",
+        "spot_name": "水前寺成趣園（古今伝授の間）",
+        "built_year": "1636年（寛永13年）細川忠利開創",
+        "architect_note": "阿蘇山の伏流水が毎日約1万トン湧き出る清澄な池泉回遊式庭園。池畔の『古今伝授の間』は慶長5年に京都御所内に建てられた八条宮家の学問所を大正元年に移築したもの。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#2E6B4E",
+          "accent": "#2B5B84",
+          "detail": "#D5C3AA"
+        },
+        "lat": 32.7911,
+        "lng": 130.7347,
+        "map_query": "熊本 水前寺成趣園",
+        "spot_key": "kumamoto_suizenji"
+      },
+      {
+        "id": "kmw_03",
+        "position": 3,
+        "spot_key": "kumamoto_kato_shrine",
+        "title": "熊本城の天守閣を間近に望む清正公の社「加藤神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "加藤清正公を祀る神社・天守絶景地",
+        "crop_target": "鳥居越しに熊本城大小天守と宇土櫓を間近に見上げる絶景",
+        "hint_level_1": "熊本城本丸のすぐ北側。築城の名手・加藤清正公を祀る神社で、境内の石橋から天守閣が驚くほど近くに見える。",
+        "hint_level_2": "熊本城の最も美しい撮影スポットの一つ『加藤神社』です。",
+        "spot_name": "加藤神社",
+        "built_year": "1871年（明治4年）創建・1962年現在地遷座",
+        "architect_note": "熊本地震後、城内へ立ち入れなかった時期もここから復興しゆく天守閣を見守ることができた聖地。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#D4AF37",
+          "detail": "#9E2A2B"
+        },
+        "lat": 32.8072,
+        "lng": 130.7049,
+        "map_query": "加藤神社 熊本城"
+      },
+      {
+        "id": "kmw_04",
+        "position": 4,
+        "spot_key": "kumamoto_josaien",
+        "title": "江戸時代の城下町を再現した「桜の馬場 城彩苑」",
+        "category": "観光名所・街並み",
+        "sub_category": "城下町再現商業・体験施設",
+        "crop_target": "白壁と黒瓦が並ぶ「桜の小路」と熊本城ミュージアムわくわく座",
+        "hint_level_1": "熊本城の南麓（二の丸・行幸坂の下）。肥後グルメや馬肉コロッケ、歴史体験が楽しめる城下町風の広場へ。",
+        "hint_level_2": "熊本城観光の拠点『桜の馬場 城彩苑』です。",
+        "spot_name": "桜の馬場 城彩苑",
+        "built_year": "2011年（平成23年）開苑",
+        "architect_note": "熊本城築城400年を記念して整備。「わくわく座」ではプロジェクションマッピング等で築城の歴史を学べる。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#FAF6EE",
+          "detail": "#242830"
+        },
+        "lat": 32.8032,
+        "lng": 130.7034,
+        "map_query": "桜の馬場 城彩苑"
+      },
+      {
+        "id": "kmw_05",
+        "position": 5,
+        "spot_key": "kumamoto_nagabei",
+        "title": "坪井川沿いに242m続く現存最長の城郭塀「熊本城 長塀」",
+        "category": "歴史建築・重要文化財",
+        "sub_category": "江戸時代城郭土塀（国重要文化財）",
+        "crop_target": "坪井川越しに見る白漆喰と下見板張りの長い「長塀」",
+        "hint_level_1": "市電「熊本城・市役所前」電停から城彩苑へ向かう途中の坪井川沿い。約242mも続く日本最長クラスの城壁を見よう。",
+        "hint_level_2": "熊本地震からも復旧した国重要文化財『熊本城 長塀（ながべい）』です。",
+        "spot_name": "熊本城 長塀（重要文化財）",
+        "built_year": "江戸初期（慶長年間）",
+        "architect_note": "全長242mに及ぶ現存する城郭の塀として日本最長級。坪井川に映る白と黒のコントラストが見事。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B4252",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 32.8027,
+        "lng": 130.7064,
+        "map_query": "熊本城 長塀"
+      },
+      {
+        "id": "kmw_06",
+        "position": 6,
+        "spot_key": "kumamoto_soseki_uchitsuboi",
+        "title": "夏目漱石が『草枕』などの着想を得た「夏目漱石内坪井旧居」",
+        "category": "明治建築・文学名所",
+        "sub_category": "明治期木造和風住宅（熊本市指定有形文化財）",
+        "crop_target": "緑の木立に囲まれた明治の武家屋敷風木造住宅と漱石像",
+        "hint_level_1": "熊本城の北東、坪井川を渡った内坪井町。五高の英語教師として熊本に赴任した夏目漱石が最も長く住んだ家へ。",
+        "hint_level_2": "長女・筆子が生まれた家『夏目漱石内坪井旧居』です。",
+        "spot_name": "夏目漱石内坪井旧居",
+        "built_year": "明治中期建築",
+        "architect_note": "『吾輩は猫である』や『三四郎』にも登場する熊本の記憶が息づく旧居。庭園の井戸や産湯の井戸も残る。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#4D6B53",
+          "accent": "#EFE8D8",
+          "detail": "#1E2631"
+        },
+        "lat": 32.8099,
+        "lng": 130.7107,
+        "map_query": "夏目漱石内坪井旧居"
+      },
+      {
+        "id": "kmw_07",
+        "position": 7,
+        "spot_key": "kumamoto_gyobutei",
+        "title": "肥後細川藩の面影を伝える上級武家屋敷「旧細川刑部邸」",
+        "category": "歴史建築",
+        "sub_category": "江戸時代上級武家屋敷（熊本県指定重要文化財）",
+        "crop_target": "三の丸に建つ唐破風玄関を備えた格式高い武家屋敷外観",
+        "hint_level_1": "熊本城三の丸の一角、二の丸公園の北側。細川家一門の屋敷を移築・復元した格式高い大名級武家屋敷を見よう。",
+        "hint_level_2": "全国有数の規模を誇る上級武家屋敷『旧細川刑部邸』です。",
+        "spot_name": "旧細川刑部邸",
+        "built_year": "1646年（正保3年）造営開始・1993年移築復元",
+        "architect_note": "長屋門をくぐると表玄関や春草廬（茶室）が続き、江戸時代の肥後藩重臣の暮らしぶりを伝える（※復旧公開状況は要確認）。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5C4033",
+          "accent": "#D9C5A0",
+          "detail": "#242830"
+        },
+        "lat": 32.8092,
+        "lng": 130.6997,
+        "map_query": "旧細川刑部邸"
+      },
+      {
+        "id": "kmw_08",
+        "position": 8,
+        "spot_key": "kumamoto_kamitori_arcade",
+        "title": "パリのオルセー美術館をモデルにした「上通アーケード」",
+        "category": "観光名所・街並み",
+        "sub_category": "ガラスアーチ屋根商店街・老舗書店",
+        "crop_target": "明るく開放的なガラス張りアーチ屋根の上通商店街",
+        "hint_level_1": "市電「通町筋」電停から北へ伸びる商店街。1998年にパリのオルセー美術館をイメージして架け替えられた明るい屋根を見上げよう。",
+        "hint_level_2": "明治創業の長崎書店など文化の香り漂う『上通商店街（上通アーケード）』です。",
+        "spot_name": "上通商店街（上通アーケード）",
+        "built_year": "1998年（平成10年）アーケード刷新",
+        "architect_note": "熊本市現代美術館の入口があるびぷれす熊日会館から北へ約600m続く、カフェや老舗店が並ぶおしゃれな通り。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#3A5A78",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 32.8035,
+        "lng": 130.7097,
+        "map_query": "上通商店街 熊本"
+      },
+      {
+        "id": "kmw_09",
+        "position": 9,
+        "spot_key": "kumamoto_pref_crafts",
+        "title": "熊本城の麓で伝統工芸品を展示する「熊本県伝統工芸館」",
+        "category": "現代建築・博物館",
+        "sub_category": "木と煉瓦の公共建築（1982年）",
+        "crop_target": "千葉城町の緑に馴染む落ち着いた煉瓦タイルと和風屋根の建物",
+        "hint_level_1": "熊本城の東側、千葉城町（夏目漱石旧居からも徒歩圏内）。肥後象嵌や小代焼、来民渋うちわなど熊本の伝統工芸に出会おう。",
+        "hint_level_2": "1階は入場無料で見学できる『熊本県伝統工芸館』です。",
+        "spot_name": "熊本県伝統工芸館",
+        "built_year": "1982年（昭和57年）開館",
+        "architect_note": "熊本の伝統的工芸品の展示や企画展を行い、お土産ショップも充実している。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E473B",
+          "accent": "#EFE8D8",
+          "detail": "#242830"
+        },
+        "lat": 32.8075,
+        "lng": 130.7107,
+        "map_query": "熊本県伝統工芸館"
+      }
+    ]
+  },
+  {
+    "id": "kyushu_kagoshima_central_walk",
+    "region_group": "九州",
+    "prefecture_group": "鹿児島・宮崎・沖縄",
+    "tour_type": "walk",
+    "title": "鹿児島・城山〜天文館〜仙巌園 周遊散策",
+    "subtitle": "KAGOSHIMA SHIROYAMA & SENGAN-EN WALK",
+    "region": "鹿児島県鹿児島市・天文館〜城山〜仙巌園（カゴシマシティビュー）",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・周遊バス＋市電＋徒歩）",
+    "era_focus": "江戸末期〜昭和",
+    "description": "周遊バス「カゴシマシティビュー」と鹿児島市電だけで車なし約3時間で巡れる薩摩の歴史コース。名勝・仙巌園、尚古集成館、鶴丸城御楼門、西郷隆盛銅像、城山展望台を網羅。",
+    "theme_color": "#22384D",
+    "accent_color": "#D97B48",
+    "specimen_prefix": "KGW",
+    "area_map_query": "仙巌園 尚古集成館 鶴丸城跡御楼門 西郷隆盛銅像 城山展望台",
+    "cells": [
+      {
+        "id": "kgw_01",
+        "position": 1,
+        "title": "錦江湾を池に・活火山「桜島」を築山に見立てた天下の大名庭園",
+        "category": "風景・世界遺産",
+        "sub_category": "国指定名勝・明治日本の産業革命遺産（世界遺産）",
+        "crop_target": "仙厳園の庭園と錦江湾の向こうに堂々とそびえる『桜島』の借景パノラマ",
+        "hint_level_1": "鹿児島市の海岸沿い。薩摩藩主・島津家の別邸庭園で、目の前の錦江湾を「池」、対岸に噴煙を上げる標高1117mの活火山「桜島」を「築山」に見立てた日本一ダイナミックな借景庭園を切り取ろう。",
+        "hint_level_2": "世界文化遺産構成資産・国指定名勝『仙厳園（せんがんえん・磯庭園）と桜島』です。",
+        "spot_name": "名勝 仙厳園（磯庭園）と桜島",
+        "built_year": "1658年（万治元年）島津光久築庭",
+        "architect_note": "塀を一切設けず、海と活火山をそのまま庭園空間に取り込んだ豪快な薩摩流ランドスケープ。園内には日本初のガス灯「鶴灯籠」や反射炉跡（世界遺産）も残る。",
+        "icon_type": "landscape",
+        "dummy_palette": {
+          "bg": "#1D4E89",
+          "accent": "#4A6B4E",
+          "detail": "#6E5A4F"
+        },
+        "lat": 31.6186,
+        "lng": 130.5789,
+        "map_query": "鹿児島 仙厳園",
+        "spot_key": "kagoshima_senganen"
+      },
+      {
+        "id": "kgw_02",
+        "position": 2,
+        "title": "薩摩藩が築いた現存日本最古の洋式石造工場「旧集成館機械工場」",
+        "category": "明治・江戸建築",
+        "sub_category": "凝灰岩石造アーチ工場（重要文化財・世界遺産）",
+        "crop_target": "鹿児島産の溶結凝灰岩（小野石）で築かれた端正な石造壁とアーチ入口",
+        "hint_level_1": "仙厳園のすぐ隣。幕末の慶応元年（1865年）に薩摩藩が蒸気機関や艦船の修理のために建てた、日本に現存する最古の洋式石造工場建築を狙おう。",
+        "hint_level_2": "世界文化遺産・重要文化財『尚古集成館 本館（旧集成館機械工場）』です。",
+        "spot_name": "尚古集成館（旧集成館機械工場）",
+        "built_year": "1865年（慶応元年）",
+        "architect_note": "島津斉彬が創始した近代工場群「集成館」の中心施設。地元の石材「小野石」を用いた重厚な組積造の壁と洋式トラス屋根が、幕末薩摩の技術力を物語る。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8A8275",
+          "accent": "#E6DEC8",
+          "detail": "#26292E"
+        },
+        "lat": 31.6172,
+        "lng": 130.5769,
+        "map_query": "鹿児島 尚古集成館",
+        "spot_key": "kagoshima_shoko_shuseikan"
+      },
+      {
+        "id": "kgw_03",
+        "position": 3,
+        "spot_key": "kagoshima_tsurumaru_goromon",
+        "title": "2020年に147年ぶり復元！日本最大の城門「鶴丸城跡 御楼門」",
+        "category": "歴史建築・城郭",
+        "sub_category": "江戸時代木造大手門復元（2020年）",
+        "crop_target": "石垣と蓮池のお濠を背に建つ高さ約20mの巨大な「御楼門」",
+        "hint_level_1": "市電「朝日通」やカゴシマシティビュー「西郷銅像前」からすぐ。島津氏の居城・鹿児島城に復元された日本一大きな城門を見上げよう。",
+        "hint_level_2": "黎明館の入口にそびえる『鹿児島城（鶴丸城跡）御楼門』です。",
+        "spot_name": "鹿児島城（鶴丸城跡）御楼門・黎明館",
+        "built_year": "1601年築城・2020年御楼門復元",
+        "architect_note": "幅約20m・高さ約20mの日本最大の城門が忠実に木造復元され、明治維新150周年以降の鹿児島の象徴となった。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#5B554D",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 31.5975,
+        "lng": 130.5546,
+        "map_query": "鶴丸城跡 御楼門"
+      },
+      {
+        "id": "kgw_04",
+        "position": 4,
+        "spot_key": "kagoshima_saigo_statue",
+        "title": "城山を背に仁王立ちする安藤照作の「西郷隆盛銅像」",
+        "category": "観光名所・像",
+        "sub_category": "昭和12年建立・陸軍大将正装銅像",
+        "crop_target": "高さ5.7mの堂々たる西郷隆盛銅像（台座含め約8m）",
+        "hint_level_1": "鶴丸城跡のすぐ南側、中央公民館前。犬を連れた上野の像とは異なり、陸軍大将の軍服姿で立つ西郷どんを見上げよう。",
+        "hint_level_2": "渋谷の忠犬ハチ公像の作者・安藤照が手掛けた『西郷隆盛銅像』です。",
+        "spot_name": "西郷隆盛銅像",
+        "built_year": "1937年（昭和12年）建立",
+        "architect_note": "鹿児島出身の彫刻家・安藤照が8年の歳月をかけて制作。像の向かい側には撮影専用の台も用意されている。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B303A",
+          "accent": "#C49A45",
+          "detail": "#1E2631"
+        },
+        "lat": 31.5947,
+        "lng": 130.5542,
+        "map_query": "西郷隆盛銅像 鹿児島"
+      },
+      {
+        "id": "kgw_05",
+        "position": 5,
+        "spot_key": "kagoshima_shiroyama_observatory",
+        "title": "錦江湾と雄大な桜島を一望する「城山公園展望台」",
+        "category": "風景・展望名所",
+        "sub_category": "パノラマ展望台（標高107m・西南戦争史跡）",
+        "crop_target": "手前の鹿児島市街地と海を挟んで噴煙を上げる桜島の全景",
+        "hint_level_1": "カゴシマシティビュー「城山」下車すぐ。標高107mの展望台から、鹿児島市街地と桜島が織りなす絶景を一望しよう。",
+        "hint_level_2": "西郷隆盛終焉の地・城山山頂の『城山公園展望台』です。",
+        "spot_name": "城山公園展望台",
+        "built_year": "国指定史跡・天然記念物（通年展望）",
+        "architect_note": "市街地のすぐ背後にありながら約600種以上の植物が自生する森に囲まれ、桜島の最も美しいビュースポットとして人気。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#8F3A2B"
+        },
+        "lat": 31.5961,
+        "lng": 130.5488,
+        "map_query": "城山公園展望台 鹿児島"
+      },
+      {
+        "id": "kgw_06",
+        "position": 6,
+        "spot_key": "kagoshima_ijinkan_shuseikan",
+        "title": "英国人技師を招いた日本初の洋式紡績工場宿舎「旧鹿児島紡績所技師館」",
+        "category": "幕末建築・世界遺産",
+        "sub_category": "コロニアル様式木造洋館（国重要文化財・世界遺産）",
+        "crop_target": "ベランダコロネードが美しい白い2階建て洋館（異人館）",
+        "hint_level_1": "仙巌園のすぐ西側。幕末1867年に薩摩藩が英国から招いた紡績技師たちのために建てた、白亜の洋館を狙おう。",
+        "hint_level_2": "世界遺産「明治日本の産業革命遺産」の構成資産『旧鹿児島紡績所技師館（異人館）』です。",
+        "spot_name": "旧鹿児島紡績所技師館（異人館）",
+        "built_year": "1867年（慶応3年）",
+        "architect_note": "薩摩藩の近代化を象徴する現存洋風建築。2階のベランダやよろい戸など南国向けのコロニアル様式が特徴。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#3B5E4C",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 31.617,
+        "lng": 130.5736,
+        "map_query": "旧鹿児島紡績所技師館 異人館"
+      },
+      {
+        "id": "kgw_07",
+        "position": 7,
+        "spot_key": "kagoshima_marchenkan",
+        "title": "お城のような洋館に文学と童話が詰まった「かごしま近代文学館・メルヘン館」",
+        "category": "現代建築・博物館",
+        "sub_category": "童話城郭風デザイン建築（1998年開館）",
+        "crop_target": "三角屋根の尖塔が並ぶメルヘンチックな博物館外観",
+        "hint_level_1": "西郷隆盛銅像と鶴丸城跡のすぐ東隣（山下町）。向田邦子や林芙美子らの文学館と絵本の世界を体感できる館が並んでいる。",
+        "hint_level_2": "城山麓の文化ゾーンにある『かごしま近代文学館・メルヘン館』です。",
+        "spot_name": "かごしま近代文学館・メルヘン館",
+        "built_year": "1998年（平成10年）開館",
+        "architect_note": "向田邦子・海音寺潮五郎・椋鳩十など鹿児島ゆかりの作家資料を展示。メルヘン館の遊び心ある外観が楽しい。",
+        "icon_type": "clock_tower",
+        "dummy_palette": {
+          "bg": "#4A607A",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 31.5959,
+        "lng": 130.5567,
+        "map_query": "かごしま近代文学館 メルヘン館"
+      },
+      {
+        "id": "kgw_08",
+        "position": 8,
+        "spot_key": "kagoshima_terukuni_shrine",
+        "title": "島津斉彬公を祀る鶴丸城麓の大社「照国神社」",
+        "category": "歴史社寺・名所",
+        "sub_category": "別格官幣社・斉彬公銅像",
+        "crop_target": "大鳥居の奥にそびえる大きな「斉彬公の銅像」と社殿",
+        "hint_level_1": "西郷隆盛銅像から南西へ徒歩3分、城山の南麓に鎮座する神社。境内には「仙巌園」の主・島津斉彬公の銅像も建っている。",
+        "hint_level_2": "六月灯でも親しまれる『照国神社（てるくにじんじゃ）』です。",
+        "spot_name": "照国神社",
+        "built_year": "1864年（元治元年）創建",
+        "architect_note": "薩摩藩の名君・島津斉彬（照国大明神）を祀る。境内のイヌマキを象った「鶴の植木」も見どころ。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#4D5D53",
+          "accent": "#FAF6EE",
+          "detail": "#1E2631"
+        },
+        "lat": 31.5934,
+        "lng": 130.551,
+        "map_query": "照国神社 鹿児島"
+      },
+      {
+        "id": "kgw_09",
+        "position": 9,
+        "spot_key": "kagoshima_tenmonkan",
+        "title": "南九州一の繁華街・元祖白熊の「天文館むじゃき」とアーケード",
+        "category": "観光名所・街並み",
+        "sub_category": "薩摩藩天文台跡・繁華街アーケード",
+        "crop_target": "天文館G3アーケードと「むじゃき」店頭の白熊キャラクター",
+        "hint_level_1": "照国神社から南東へ徒歩5分。江戸時代に薩摩藩の天文観測所があったことから名が付いた繁華街で、名物かき氷「白熊」のお店へ。",
+        "hint_level_2": "鹿児島観光の定番グルメ＆街歩きエリア『天文館（天文館むじゃき）』です。",
+        "spot_name": "天文館（天文館むじゃき・アーケード）",
+        "built_year": "1779年島津重豪が明時館（天文館）設置",
+        "architect_note": "島津重豪が建てた天文観測所「明時館（別名・天文館）」が地名の由来。雨や灰をしのげる広大なアーケードが特徴。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#FAF6EE",
+          "detail": "#9E2A2B"
+        },
+        "lat": 31.591,
+        "lng": 130.5553,
+        "map_query": "天文館むじゃき 鹿児島"
+      }
+    ]
+  },
+  {
+    "id": "kyushu_naha_shuri_walk",
+    "region_group": "九州",
+    "prefecture_group": "鹿児島・宮崎・沖縄",
+    "tour_type": "walk",
+    "title": "沖縄・那覇 ゆいレールで巡る首里城〜国際通り",
+    "subtitle": "NAHA SHURI CASTLE & KOKUSAI STREET WALK",
+    "region": "沖縄県那覇市・首里駅〜首里城〜壺屋〜国際通り〜波上宮",
+    "difficulty": "★★☆（散策目安：約2.5〜3時間・ゆいレール＋徒歩）",
+    "era_focus": "琉球王国〜現代",
+    "description": "沖縄都市モノレール「ゆいレール」1日乗車券と徒歩だけで約3時間で完結する那覇コース。世界遺産・首里城、玉陵、金城町石畳道、壺屋やちむん通り、国際通り、波上宮を巡ります。",
+    "theme_color": "#8F2D2B",
+    "accent_color": "#F2D06B",
+    "specimen_prefix": "NHA",
+    "area_map_query": "首里城 玉陵 金城町石畳道 壺屋やちむん通り 波上宮",
+    "cells": [
+      {
+        "id": "nha_01",
+        "position": 1,
+        "title": "「守禮之邦」の扁額を掲げる琉球赤瓦の牌楼「守礼門」と曲線城壁",
+        "category": "観光名所・世界遺産",
+        "sub_category": "琉球牌楼建築＆グスク石積み（世界遺産）",
+        "crop_target": "二千円札にも描かれた赤い琉球瓦の『守礼門』と琉球石灰岩の『歓会門・園比屋武御嶽石門』",
+        "hint_level_1": "沖縄県那覇市・首里。二千円札の絵柄としても有名な、「守禮之邦（しゅれいのくに）」の額を掲げる優雅な赤瓦の門と、曲線を帯びた琉球石灰岩の城壁・石門を収めよう。",
+        "hint_level_2": "琉球王国のグスク及び関連遺産群（世界遺産）の玄関口『首里城公園 守礼門・園比屋武御嶽石門（重要文化財）・歓会門』です。",
+        "spot_name": "首里城公園 守礼門・園比屋武御嶽石門",
+        "built_year": "1527年頃守礼門創建（1958年復元）・1519年園比屋武御嶽石門",
+        "architect_note": "中国の牌楼（ぱいろう）様式に琉球独自の赤瓦と木組みを融合させた四脚三間の門。すぐ近くの「園比屋武御嶽石門」は琉球石灰岩の精緻な彫刻で重要文化財・世界遺産に指定されている。",
+        "icon_type": "torii",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#E0C9A6",
+          "detail": "#1D4E89"
+        },
+        "lat": 26.2178,
+        "lng": 127.7169,
+        "map_query": "那覇 首里城 守礼門",
+        "spot_key": "naha_shurijo"
+      },
+      {
+        "id": "nha_02",
+        "position": 2,
+        "spot_key": "naha_tamaudun",
+        "title": "琉球石灰岩で築かれた第二尚氏王統の陵墓・世界遺産「玉陵」",
+        "category": "歴史遺産・世界遺産",
+        "sub_category": "琉球王国石造陵墓（国宝・世界遺産）",
+        "crop_target": "珊瑚石灰岩の切石が積まれた壮麗な石牆と三室の石造墓室",
+        "hint_level_1": "首里城守礼門のすぐ近く（北西）。1501年に尚真王が築いた、琉球王国歴代国王が眠る国宝の石造建築へ。",
+        "hint_level_2": "2018年に国宝指定された世界遺産『玉陵（たまうどぅん）』です。",
+        "spot_name": "玉陵（たまうどぅん）",
+        "built_year": "1501年（文亀元年）造営",
+        "architect_note": "当時の木造宮殿を石造で模した破風墓が三室並び、琉球石造建築の最高峰として国宝・世界遺産に認定。",
+        "icon_type": "arch_brick",
+        "dummy_palette": {
+          "bg": "#8A8479",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 26.218,
+        "lng": 127.7145,
+        "map_query": "玉陵 首里"
+      },
+      {
+        "id": "nha_03",
+        "position": 3,
+        "spot_key": "naha_kinjo_ishidatami",
+        "title": "琉球石灰岩の石畳と赤瓦が続く「首里金城町石畳道」",
+        "category": "歴史街並み",
+        "sub_category": "16世紀琉球王国官道（日本の道100選）",
+        "crop_target": "首里城南麓を下る琉球石灰岩の石畳道と赤瓦・石垣の沖縄民家",
+        "hint_level_1": "首里城の南側（木曳門方面）から坂を下った場所。戦火を免れて16世紀の石畳がそのまま残る美しい坂道を探そう。",
+        "hint_level_2": "樹齢300年の大アカギも近くにある『首里金城町石畳道』です。",
+        "spot_name": "首里金城町石畳道",
+        "built_year": "1522年（尚真王代）着工",
+        "architect_note": "「真珠道（まだまみち）」の一部として整備された官道。道沿いのフクギや赤瓦民家と石畳が沖縄原風景を伝える。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#8F3A2B",
+          "accent": "#E6DFD3",
+          "detail": "#242830"
+        },
+        "lat": 26.2134,
+        "lng": 127.7155,
+        "map_query": "首里金城町石畳道"
+      },
+      {
+        "id": "nha_04",
+        "position": 4,
+        "spot_key": "naha_ryutan_benzaitendo",
+        "title": "首里城を映す王国の池「龍潭」と円鑑池に浮かぶ「弁財天堂」",
+        "category": "風景・歴史建築",
+        "sub_category": "琉球王国人工池・赤瓦御堂",
+        "crop_target": "天女橋で結ばれた円鑑池の赤瓦「弁財天堂」と龍潭の水面",
+        "hint_level_1": "首里城の北側、沖縄県立芸術大学のすぐ横に広がる歴史的な池。石橋の先に浮かぶ小さな赤瓦の堂宇を切り取ろう。",
+        "hint_level_2": "1427年に掘られた『龍潭（りゅうたん）・円鑑池・弁財天堂』です。",
+        "spot_name": "龍潭・円鑑池（弁財天堂）",
+        "built_year": "1427年龍潭築造・1502年円鑑池",
+        "architect_note": "尚巴志王の時代に中国からの冊封使を船遊びでもてなすために造られた龍潭と、高麗版大蔵経を納めた弁財天堂。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2E6F5E",
+          "accent": "#9E2A2B",
+          "detail": "#1C2420"
+        },
+        "lat": 26.2194,
+        "lng": 127.7176,
+        "map_query": "龍潭 弁財天堂 首里"
+      },
+      {
+        "id": "nha_05",
+        "position": 5,
+        "spot_key": "naha_tsuboya_yachimun",
+        "title": "登り窯とシーサーが迎える沖縄焼き物の里「壺屋やちむん通り」",
+        "category": "歴史街並み・工芸",
+        "sub_category": "琉球石灰岩の石畳通り・荒焼登り窯",
+        "crop_target": "石畳に並ぶ陶器工房と南窯（フェーヌカマ）の赤瓦屋根",
+        "hint_level_1": "ゆいレール「牧志駅」から徒歩約10分。1682年に琉球王府が各地の窯場を集めたことから始まる、やちむん（焼物）の通りを歩こう。",
+        "hint_level_2": "素朴で力強い沖縄陶器に出会える『壺屋やちむん通り』です。",
+        "spot_name": "壺屋やちむん通り（南窯）",
+        "built_year": "1682年（尚貞王代）窯場統合",
+        "architect_note": "壺屋焼物博物館や国登録有形文化財の「東ヌ窯（アガリヌカマ）」「南ヌ窯（フェーヌカマ）」など見どころが豊富。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#6E473B",
+          "accent": "#F2D06B",
+          "detail": "#242830"
+        },
+        "lat": 26.2121,
+        "lng": 127.6889,
+        "map_query": "壺屋やちむん通り"
+      },
+      {
+        "id": "nha_06",
+        "position": 6,
+        "spot_key": "naha_makishi_public_market",
+        "title": "2023年新装！「那覇の台所」第一牧志公設市場と市場本通り",
+        "category": "観光名所・市場",
+        "sub_category": "沖縄県民の台所（2023年新市場棟開館）",
+        "crop_target": "カラフルな南国の魚が並ぶ新市場とアーケードの賑わい",
+        "hint_level_1": "やちむん通りから平和通り・市場本通りを抜けてすぐ。2023年に建て替えられたばかりの活気あふれる公設市場へ。",
+        "hint_level_2": "1階で選んだ魚を2階食堂で食べられる『第一牧志公設市場』です。",
+        "spot_name": "第一牧志公設市場",
+        "built_year": "1950年開設・2023年新市場オープン",
+        "architect_note": "沖縄特有のカラフルなイラブチャーやグルクン、島豚などが並ぶ活気ある空間。周辺のマチグヮー（市場通り）散策も楽しい。",
+        "icon_type": "columns",
+        "dummy_palette": {
+          "bg": "#C85A32",
+          "accent": "#FAF6EE",
+          "detail": "#1D2A35"
+        },
+        "lat": 26.2143,
+        "lng": 127.6869,
+        "map_query": "第一牧志公設市場"
+      },
+      {
+        "id": "nha_07",
+        "position": 7,
+        "spot_key": "naha_kokusai_dori",
+        "title": "「奇跡の1マイル」と呼ばれる那覇のメインストリート「国際通り」",
+        "category": "観光名所・街並み",
+        "sub_category": "戦後復興シンボル通り（約1.6km）",
+        "crop_target": "ヤシ並木とシーサー看板が並ぶ活気ある「国際通り」",
+        "hint_level_1": "ゆいレール県庁前駅から牧志駅まで約1.6km続く那覇最大の目抜き通り。戦後の焼け野原から最も早く復興した通りを歩こう。",
+        "hint_level_2": "お土産や沖縄料理店がずらりと並ぶ『那覇 国際通り』です。",
+        "spot_name": "那覇 国際通り",
+        "built_year": "1948年アーニーパイル国際劇場開館に由来",
+        "architect_note": "全長1マイル（約1.6km）にわたってヤシ並木と沖縄雑貨・飲食店が立ち並び、那覇観光の心臓部となっている。",
+        "icon_type": "medallion",
+        "dummy_palette": {
+          "bg": "#2B5B84",
+          "accent": "#F2D06B",
+          "detail": "#9E2A2B"
+        },
+        "lat": 26.2155,
+        "lng": 127.6848,
+        "map_query": "国際通り 那覇"
+      },
+      {
+        "id": "nha_08",
+        "position": 8,
+        "spot_key": "naha_fukushuen",
+        "title": "那覇と福州市の友好を象徴する本格中国式庭園「福州園」",
+        "category": "観光名所・庭園",
+        "sub_category": "中国式庭園（1992年開園・久米エリア）",
+        "crop_target": "白い壁と青い瓦の中国楼閣、池と滝が織りなす異国情緒庭園",
+        "hint_level_1": "国際通り西端（県庁前）から西へ徒歩約10分、久米エリア。かつて中国からの渡来人が暮らした地に造られた美しい庭園へ。",
+        "hint_level_2": "那覇の街中に現れる極彩色の中国庭園『福州園』です。",
+        "spot_name": "福州園",
+        "built_year": "1992年（平成4年）開園",
+        "architect_note": "那覇市と中国福州市の友好都市締結10周年を記念し、福州の職人が設計・施工した本格的な中国式庭園。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#2B4C65",
+          "accent": "#D4AF37",
+          "detail": "#9E2A2B"
+        },
+        "lat": 26.2165,
+        "lng": 127.674,
+        "map_query": "福州園 那覇"
+      },
+      {
+        "id": "nha_09",
+        "position": 9,
+        "spot_key": "naha_naminoue_shrine",
+        "title": "海の上の珊瑚礁の断崖に鎮座する琉球八社筆頭「波上宮」",
+        "category": "歴史社寺・名所",
+        "sub_category": "琉球八社一之宮・赤瓦沖縄神社建築",
+        "crop_target": "珊瑚の崖（断崖）の上にそびえる赤瓦屋根の「波上宮」本殿",
+        "hint_level_1": "福州園からさらに西へ徒歩7分（旭橋駅からも徒歩圏内）。東シナ海に臨む隆起珊瑚礁の崖上に建つ沖縄総鎮守へ。",
+        "hint_level_2": "波の上ビーチの隣、崖上の聖地『波上宮（なみのうえぐう）』です。",
+        "spot_name": "波上宮",
+        "built_year": "琉球王国時代創建・1961年本殿再建",
+        "architect_note": "海から眺めると崖の上に浮かぶように見え、那覇港を出入りする船の安全を見守り続けてきた沖縄の代表的神社。",
+        "icon_type": "gable",
+        "dummy_palette": {
+          "bg": "#9E2A2B",
+          "accent": "#FAF6EE",
+          "detail": "#2B5B84"
+        },
+        "lat": 26.2206,
+        "lng": 127.6712,
+        "map_query": "波上宮 那覇"
       }
     ]
   }

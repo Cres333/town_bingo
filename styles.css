@@ -2036,3 +2036,203 @@ html, body {
 .btn-spot-google-map:hover {
   opacity: 0.94;
 }
+
+
+/* ============================================================================
+ * 散策／広域 ジャンル分け・複数ビンゴ連動バッジ
+ * ============================================================================ */
+.tourtype-filter-bar {
+  margin-bottom: 6px;
+}
+
+.filter-chip.tourtype-chip.active {
+  background: var(--navy-base);
+  color: var(--kraft-light);
+  border-color: var(--brass-light);
+}
+
+.tour-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 999px;
+  margin-left: 6px;
+  vertical-align: middle;
+  letter-spacing: 0.02em;
+}
+
+.tour-type-badge.is-walk {
+  background: rgba(46, 111, 94, 0.22);
+  color: #d7f3e8;
+  border: 1px solid rgba(116, 198, 157, 0.45);
+}
+
+.tour-type-badge.is-wide {
+  background: rgba(196, 154, 69, 0.22);
+  color: #f6e3b4;
+  border: 1px solid rgba(196, 154, 69, 0.5);
+}
+
+.modal-shared-courses-box {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: rgba(27, 48, 66, 0.07);
+  border: 1px dashed rgba(27, 48, 66, 0.3);
+  font-size: 0.74rem;
+  line-height: 1.5;
+  color: var(--ink-dark, #1b263b);
+}
+
+.modal-shared-courses-title {
+  font-weight: 700;
+  color: var(--navy-base, #1b3042);
+  margin-bottom: 3px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.modal-shared-courses-list {
+  color: var(--ink-mid, #3c4858);
+}
+
+.celebration-extra-box {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: rgba(212, 175, 55, 0.16);
+  border: 1px solid rgba(212, 175, 55, 0.55);
+  color: #faf6ee;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+
+/* ============================================================================
+ * ピン留めビンゴ クイックアクセスバー ＆ ピン留めボタン
+ * ============================================================================ */
+.pinned-quick-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  background: rgba(17, 25, 39, 0.94);
+  border-bottom: 1px solid rgba(217, 182, 108, 0.35);
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.pinned-quick-bar::-webkit-scrollbar {
+  display: none;
+}
+
+.pinned-quick-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--brass-light, #d9b66c);
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+
+.pinned-quick-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(250, 246, 238, 0.1);
+  border: 1px solid rgba(217, 182, 108, 0.4);
+  color: #faf6ee;
+  font-size: 0.74rem;
+  font-weight: 600;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.pinned-quick-chip:hover {
+  background: rgba(250, 246, 238, 0.18);
+}
+
+.pinned-quick-chip.is-active {
+  background: var(--brass-light, #d9b66c);
+  color: #111927;
+  border-color: #faf6ee;
+}
+
+.pinned-quick-progress {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  opacity: 0.85;
+}
+
+.pinned-quick-unpin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.25);
+  color: inherit;
+  border: none;
+  font-size: 0.66rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+
+.pinned-quick-unpin:hover {
+  background: rgba(158, 42, 43, 0.85);
+  color: #fff;
+}
+
+.btn-pin-town {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(217, 182, 108, 0.5);
+  background: rgba(17, 25, 39, 0.55);
+  color: #faf6ee;
+  font-size: 0.74rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-pin-town.is-pinned {
+  background: var(--brass-light, #d9b66c);
+  color: #111927;
+  border-color: #faf6ee;
+}
+
+.btn-card-pin {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(27, 48, 66, 0.22);
+  background: #f5f0e6;
+  color: #1b3042;
+  font-size: 0.76rem;
+  font-weight: 700;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+}
+
+.btn-card-pin.is-pinned {
+  background: #1b3042;
+  color: #d9b66c;
+  border-color: #d9b66c;
+}
