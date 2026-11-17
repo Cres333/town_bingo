@@ -2236,3 +2236,43 @@ html, body {
   color: #d9b66c;
   border-color: #d9b66c;
 }
+
+/* 分割読み込み（さらに表示）ボタン・写真履歴追加ボタン */
+.load-more-sentinel {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 6px;
+}
+
+.btn-load-more {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: 1px solid var(--brass-base, #b5893e);
+  background: var(--kraft-light, #faf6ee);
+  color: var(--navy-base, #111927);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 6px rgba(17, 25, 39, 0.08);
+}
+
+.btn-load-more:hover {
+  background: var(--navy-base, #111927);
+  color: var(--brass-light, #d9b66c);
+}
+
+.photo-history-more-btn {
+  min-width: 56px;
+  height: 56px;
+  padding: 0 10px;
+  border-radius: 6px;
+  border: 1px dashed var(--brass-base, #b5893e);
+  background: rgba(181, 137, 62, 0.12);
+  color: var(--navy-base, #111927);
+  font-size: 0.72rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  cursor: pointer;
+}

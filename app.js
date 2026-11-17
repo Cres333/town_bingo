@@ -32,6 +32,20 @@
   let unreadCompendiumCount = 0; // 図鑑タブを開くと消える新着バッジ件数
   let confettiAnimId = null;
 
+  // 分割読み込み（ページング）用の表示件数管理
+  const PAGE_SIZE_HOME = 12;
+  const PAGE_SIZE_PLATES = 8;
+  const PAGE_SIZE_PARTS = 18;
+  let homeVisibleLimit = PAGE_SIZE_HOME;
+  let platesVisibleLimit = PAGE_SIZE_PLATES;
+  let partsVisibleLimit = PAGE_SIZE_PARTS;
+
+  // 画像メモリ節約用 LRU キャッシュ（最大60枚までメモリ保持し、超過分は自動解放）
+  const MAX_PHOTO_MEMORY_CACHE = 60;
+  const photoMemoryCache = new Map();
+  let lazyImageObserver = null;
+  let loadMoreObserver = null;
+
   // スマホの戻るボタン（History API）管理用の状態
   let currentViewId = "view-home";
   let viewHistoryStack = []; // 遷移元のビューID履歴（トップでは空）
@@ -131,6 +145,142 @@
           resolve({});
         }
       });
+    });
+  }
+
+  function idbGetPhoto(cellId) {
+    return openPhotoDB().then((db) => {
+      if (!db || !cellId) return null;
+      return new Promise((resolve) => {
+        try {
+          const tx = db.transaction(IDB_STORE, "readonly");
+          const req = tx.objectStore(IDB_STORE).get(cellId);
+          req.onsuccess = () => resolve(req.result || null);
+          req.onerror = () => resolve(null);
+        } catch (err) {
+          resolve(null);
+        }
+      });
+    });
+  }
+
+  function setCachedPhoto(cellId, dataUrl) {
+    if (!cellId || !dataUrl) return;
+    if (photoMemoryCache.has(cellId)) {
+      photoMemoryCache.delete(cellId);
+    } else if (photoMemoryCache.size >= MAX_PHOTO_MEMORY_CACHE) {
+      const oldestKey = photoMemoryCache.keys().next().value;
+      if (oldestKey !== undefined) {
+        photoMemoryCache.delete(oldestKey);
+      }
+    }
+    photoMemoryCache.set(cellId, dataUrl);
+  }
+
+  function getCachedPhoto(cellId) {
+    if (!cellId) return null;
+    if (photoMemoryCache.has(cellId)) {
+      const val = photoMemoryCache.get(cellId);
+      photoMemoryCache.delete(cellId);
+      photoMemoryCache.set(cellId, val);
+      return val;
+    }
+    const rec = state.collectedCells[cellId];
+    if (rec && rec.photoDataUrl) {
+      return rec.photoDataUrl;
+    }
+    return null;
+  }
+
+  function deleteCachedPhoto(cellId) {
+    if (!cellId) return;
+    photoMemoryCache.delete(cellId);
+  }
+
+  async function resolveCellImageUrl(cellId) {
+    const cached = getCachedPhoto(cellId);
+    if (cached) return cached;
+
+    const rec = state.collectedCells[cellId];
+    if (!rec) return null;
+
+    const isSketchOrDummy = Boolean(
+      rec.isSketch || rec.mode === "sketch" || rec.isDummy || rec.mode === "dummy"
+    );
+    if (isSketchOrDummy) {
+      const found = findCellAndTown(cellId);
+      if (!found) return null;
+      const generated = generateFieldSketchSpecimen(found.cell, found.town);
+      setCachedPhoto(cellId, generated);
+      return generated;
+    }
+
+    const dbPhoto = await idbGetPhoto(cellId);
+    if (dbPhoto) {
+      setCachedPhoto(cellId, dbPhoto);
+      return dbPhoto;
+    }
+    return null;
+  }
+
+  function applyLazyImageToElement(imgEl) {
+    if (!imgEl || !imgEl.isConnected) return;
+    const cellId = imgEl.getAttribute("data-lazy-cell-img");
+    if (!cellId || imgEl.getAttribute("data-lazy-loaded") === "1") return;
+
+    const cached = getCachedPhoto(cellId);
+    if (cached) {
+      imgEl.src = cached;
+      imgEl.setAttribute("data-lazy-loaded", "1");
+      return;
+    }
+
+    imgEl.setAttribute("data-lazy-loaded", "loading");
+    resolveCellImageUrl(cellId).then((url) => {
+      if (!imgEl.isConnected) return;
+      if (imgEl.getAttribute("data-lazy-cell-img") !== cellId) return;
+      if (url) {
+        imgEl.src = url;
+        imgEl.setAttribute("data-lazy-loaded", "1");
+      } else {
+        imgEl.removeAttribute("data-lazy-loaded");
+      }
+    });
+  }
+
+  function observeLazyImages(rootElement) {
+    if (!rootElement) return;
+    const imgs = rootElement.querySelectorAll("img[data-lazy-cell-img]");
+    if (imgs.length === 0) return;
+
+    if (typeof IntersectionObserver === "undefined") {
+      imgs.forEach((img) => applyLazyImageToElement(img));
+      return;
+    }
+
+    if (!lazyImageObserver) {
+      lazyImageObserver = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const imgEl = entry.target;
+            observer.unobserve(imgEl);
+            applyLazyImageToElement(imgEl);
+          });
+        },
+        { rootMargin: "240px 0px" }
+      );
+    }
+
+    imgs.forEach((img) => {
+      const cellId = img.getAttribute("data-lazy-cell-img");
+      const cached = getCachedPhoto(cellId);
+      if (cached) {
+        img.src = cached;
+        img.setAttribute("data-lazy-loaded", "1");
+      } else {
+        lazyImageObserver.observe(img);
+      }
     });
   }
 
@@ -253,55 +403,124 @@
     return canvas.toDataURL("image/jpeg", quality);
   }
 
-  // スケッチ標本・ダミー標本の画像生成補完＆IndexedDBとの双方向マイグレーション（画質は一切落とさず移行）
-  function hydrateCellsAndMigrateStorage() {
-    // 1. スケッチやダミーでメモリ上に画像がない場合は動的生成してセット
+  // すでに登録済みのスポットと同一(spot_key/spot_name)の未登録マスを自動同期して開く
+  async function syncCollectedSpotDuplicates() {
+    const spotGroups = new Map();
+    INITIAL_TOWNS.forEach((town) => {
+      town.cells.forEach((cell) => {
+        const key = getCellSpotKey(cell);
+        if (!key) return;
+        if (!spotGroups.has(key)) {
+          spotGroups.set(key, []);
+        }
+        spotGroups.get(key).push({ cell, town });
+      });
+    });
+
+    let changed = false;
+    const affectedTowns = new Map();
+
+    for (const entries of spotGroups.values()) {
+      if (entries.length < 2) continue;
+
+      let sourceEntry = null;
+      let sourceRec = null;
+
+      for (const entry of entries) {
+        const rec = state.collectedCells[entry.cell.id];
+        if (!rec) continue;
+        if (!sourceRec || (!isPhotoRegistered(sourceRec) && isPhotoRegistered(rec))) {
+          sourceEntry = entry;
+          sourceRec = rec;
+        }
+      }
+
+      if (!sourceRec || !sourceEntry) continue;
+
+      const missingEntries = entries.filter((entry) => !state.collectedCells[entry.cell.id]);
+      if (missingEntries.length === 0) continue;
+
+      const isSketch = Boolean(sourceRec.isSketch || sourceRec.mode === "sketch");
+      const isDummy = Boolean(sourceRec.isDummy || sourceRec.mode === "dummy");
+      const hasPhoto = !isSketch && !isDummy && Boolean(sourceRec.hasPhoto || sourceRec.photoDataUrl);
+      let sharedPhotoUrl = null;
+
+      if (hasPhoto) {
+        sharedPhotoUrl = sourceRec.photoDataUrl || (await resolveCellImageUrl(sourceEntry.cell.id));
+      }
+
+      for (const target of missingEntries) {
+        const clonedRec = {
+          capturedAt: formatDateOnly(sourceRec.capturedAt),
+          mode: sourceRec.mode || (isSketch ? "sketch" : isDummy ? "dummy" : "photo"),
+          isSketch: isSketch,
+          isDummy: isDummy,
+          hasPhoto: Boolean(hasPhoto && (sharedPhotoUrl || sourceRec.hasPhoto))
+        };
+        if (!idbSupported && sharedPhotoUrl) {
+          clonedRec.photoDataUrl = sharedPhotoUrl;
+        }
+        state.collectedCells[target.cell.id] = clonedRec;
+        state.unlockedHints[target.cell.id] = true;
+
+        if (hasPhoto && sharedPhotoUrl && idbSupported) {
+          await idbPutPhoto(target.cell.id, sharedPhotoUrl);
+        }
+
+        affectedTowns.set(target.town.id, target.town);
+        changed = true;
+      }
+    }
+
+    if (changed) {
+      affectedTowns.forEach((town) => {
+        const prog = getTownProgress(town);
+        state.achievedBingos[town.id] = prog.activeLines.map((l) => l.id);
+      });
+    }
+
+    return changed;
+  }
+
+  // IndexedDBとの軽量マイグレーション（一括メモリ展開せず、必要時のみオンデマンド読み込み）＋重複スポット同期
+  async function hydrateCellsAndMigrateStorage() {
+    const db = await openPhotoDB();
+    const migrationPromises = [];
+    let migrated = false;
+
     Object.keys(state.collectedCells).forEach((cid) => {
       const rec = state.collectedCells[cid];
       if (!rec) return;
-      if ((rec.isSketch || rec.mode === "sketch") && !rec.photoDataUrl) {
-        const found = findCellAndTown(cid);
-        if (found) {
-          rec.photoDataUrl = generateFieldSketchSpecimen(found.cell, found.town);
+      const isSketch = Boolean(rec.isSketch || rec.mode === "sketch");
+      const isDummy = Boolean(rec.isDummy || rec.mode === "dummy");
+
+      if (!isSketch && !isDummy) {
+        if (rec.photoDataUrl && db && idbSupported) {
+          setCachedPhoto(cid, rec.photoDataUrl);
+          migrationPromises.push(idbPutPhoto(cid, rec.photoDataUrl));
+          delete rec.photoDataUrl;
+          rec.hasPhoto = true;
+          migrated = true;
+        } else if (rec.photoDataUrl) {
+          rec.hasPhoto = true;
         }
-      } else if ((rec.isDummy || rec.mode === "dummy") && !rec.photoDataUrl) {
-        const found = findCellAndTown(cid);
-        if (found) {
-          rec.photoDataUrl = generateFieldSketchSpecimen(found.cell, found.town);
-        }
+      } else if (rec.photoDataUrl) {
+        // スケッチ・ダミーも表示時に生成するためメモリから解放
+        delete rec.photoDataUrl;
+        migrated = true;
       }
     });
 
-    // 2. IndexedDBから保存済み高画質写真を読み込みつつ、旧localStorage内の写真を無劣化でIndexedDBへ移行
-    idbGetAllPhotos().then(async (dbPhotos) => {
-      const migrationPromises = [];
+    if (migrationPromises.length > 0) {
+      await Promise.all(migrationPromises);
+    }
 
-      Object.keys(state.collectedCells).forEach((cid) => {
-        const rec = state.collectedCells[cid];
-        if (!rec) return;
-        const isSketch = Boolean(rec.isSketch || rec.mode === "sketch");
-        const isDummy = Boolean(rec.isDummy || rec.mode === "dummy");
+    const synced = await syncCollectedSpotDuplicates();
 
-        if (!isSketch && !isDummy) {
-          if (dbPhotos[cid]) {
-            // IndexedDB側に高画質写真がある場合はそちらを採用
-            rec.photoDataUrl = dbPhotos[cid];
-          } else if (rec.photoDataUrl && idbSupported) {
-            // 旧localStorageに保存されていた写真をそのままの画質でIndexedDBへ移行保存
-            migrationPromises.push(idbPutPhoto(cid, rec.photoDataUrl));
-          }
-          rec.hasPhoto = Boolean(rec.photoDataUrl);
-        }
-      });
-
-      if (migrationPromises.length > 0) {
-        await Promise.all(migrationPromises);
-      }
-
-      // localStorage側を軽量メタデータのみで上書き保存
+    if (migrated || synced) {
       saveState();
-      renderAll();
-    });
+    }
+    renderAll();
   }
 
   // ==========================================================================
@@ -1080,14 +1299,23 @@
     entries.forEach(({ cell: mCell }) => {
       const wasAlreadyCollected = Boolean(state.collectedCells[mCell.id]);
 
-      state.collectedCells[mCell.id] = {
-        photoDataUrl,
+      const cellRecord = {
         capturedAt: formattedDate,
         mode: mode,
         isSketch: isSketch,
         isDummy: isDummy,
         hasPhoto: hasPhoto
       };
+      if (!idbSupported && photoDataUrl) {
+        cellRecord.photoDataUrl = photoDataUrl;
+      }
+      state.collectedCells[mCell.id] = cellRecord;
+
+      if (photoDataUrl) {
+        setCachedPhoto(mCell.id, photoDataUrl);
+      } else {
+        deleteCachedPhoto(mCell.id);
+      }
 
       // ユーザー写真は大容量のIndexedDBへ保存、スケッチ・ダミーの場合は不要な写真データをIndexedDBから削除
       if (hasPhoto) {
@@ -1153,6 +1381,7 @@
           unreadCompendiumCount -= 1;
         }
       }
+      deleteCachedPhoto(mCell.id);
       idbDeletePhoto(mCell.id);
       affectedTowns.set(t.id, t);
     });
@@ -1239,6 +1468,8 @@
       btn.textContent = `${opt.label} (${count})`;
       btn.addEventListener("click", () => {
         activeTourTypeFilter = opt.key;
+        homeVisibleLimit = PAGE_SIZE_HOME;
+        platesVisibleLimit = PAGE_SIZE_PLATES;
         renderHomeTownCards();
         renderTownSpecimenPlates();
       });
@@ -1268,6 +1499,8 @@
       btn.addEventListener("click", () => {
         activeRegionFilter = reg;
         activeSubRegionFilter = "すべて";
+        homeVisibleLimit = PAGE_SIZE_HOME;
+        platesVisibleLimit = PAGE_SIZE_PLATES;
         renderHomeTownCards();
         renderTownSpecimenPlates();
       });
@@ -1314,11 +1547,54 @@
       btn.textContent = sub === "すべて" ? `${activeRegionFilter}すべて (${count})` : `${sub} (${count})`;
       btn.addEventListener("click", () => {
         activeSubRegionFilter = sub;
+        homeVisibleLimit = PAGE_SIZE_HOME;
+        platesVisibleLimit = PAGE_SIZE_PLATES;
         renderHomeTownCards();
         renderTownSpecimenPlates();
       });
       subBar.appendChild(btn);
     });
+  }
+
+  function appendLoadMoreSentinel(container, totalCount, visibleCount, batchSize, onLoadMore) {
+    const remaining = totalCount - visibleCount;
+    if (remaining <= 0) return;
+
+    const wrap = document.createElement("div");
+    wrap.className = "load-more-sentinel";
+
+    const nextBatch = Math.min(batchSize, remaining);
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn-load-more";
+    btn.textContent = `さらに読み込む（次の ${nextBatch} 件 ／ 残り ${remaining} 件）`;
+    let triggered = false;
+    const trigger = () => {
+      if (triggered) return;
+      triggered = true;
+      onLoadMore();
+    };
+    btn.addEventListener("click", trigger);
+    wrap.appendChild(btn);
+    container.appendChild(wrap);
+
+    if (typeof IntersectionObserver !== "undefined") {
+      if (!loadMoreObserver) {
+        loadMoreObserver = new IntersectionObserver(
+          (entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              observer.unobserve(entry.target);
+              const cb = entry.target._onLoadMoreTrigger;
+              if (typeof cb === "function") cb();
+            });
+          },
+          { rootMargin: "320px 0px" }
+        );
+      }
+      wrap._onLoadMoreTrigger = trigger;
+      loadMoreObserver.observe(wrap);
+    }
   }
 
   function getAreaGoogleMapUrl(town) {
@@ -1333,8 +1609,9 @@
     container.innerHTML = "";
 
     const filteredTowns = getFilteredTowns();
+    const visibleTowns = filteredTowns.slice(0, homeVisibleLimit);
 
-    filteredTowns.forEach((town) => {
+    visibleTowns.forEach((town) => {
       const prog = getTownProgress(town);
       const percent = Math.round((prog.clearedCount / prog.totalCells) * 100);
       const isSelected = town.id === state.selectedTownId;
@@ -1357,6 +1634,7 @@
 
       const card = document.createElement("article");
       card.className = `town-card ${isSelected ? "selected-town" : ""}`;
+      card.setAttribute("data-town-id", town.id);
       card.innerHTML = `
         <div class="town-card-banner" style="background: ${town.theme_color || "var(--navy-base)"};">
           <div>
@@ -1423,6 +1701,11 @@
 
       container.appendChild(card);
     });
+
+    appendLoadMoreSentinel(container, filteredTowns.length, visibleTowns.length, PAGE_SIZE_HOME, () => {
+      homeVisibleLimit += PAGE_SIZE_HOME;
+      renderHomeTownCards();
+    });
   }
 
   // ==========================================================================
@@ -1480,9 +1763,9 @@
         const stampText = isSketch ? "✒️ 発見済" : "📷 採集済";
         const stampExtraClass = isSketch ? "sketch-stamp" : "";
 
-        // 達成マス：登録写真またはスケッチ標本画を全面表示＋クリア済みスタンプ演出
+        // 達成マス：登録写真またはスケッチ標本画を遅延読み込みで表示＋クリア済みスタンプ演出
         cellEl.innerHTML = `
-          <img class="cell-captured-photo" src="${collected.photoDataUrl}" alt="${cell.title}" />
+          <img class="cell-captured-photo" data-lazy-cell-img="${cell.id}" alt="${cell.title}" />
           <div class="cell-cleared-overlay">
             <span class="cell-cleared-number">${numCode}</span>
             <div class="cell-cleared-title">${cell.title}</div>
@@ -1514,6 +1797,8 @@
 
       gridEl.appendChild(cellEl);
     });
+
+    observeLazyImages(gridEl);
 
     // アニメーションフラグをクリア
     lastAnimatedCellId = null;
@@ -1657,11 +1942,13 @@
       const badgeExtraClass = isSketch ? "sketch-stamp" : "";
 
       frameEl.innerHTML = `
-        <img src="${collected.photoDataUrl}" alt="${cell.title}" />
+        <img data-lazy-cell-img="${cell.id}" alt="${cell.title}" />
         <div class="collected-wax-stamp ${badgeExtraClass}" style="top: 12px; right: 12px; font-size: 0.75rem; padding: 4px 10px;">
           ${badgeLabel}
         </div>
       `;
+      const modalImg = frameEl.querySelector("img[data-lazy-cell-img]");
+      if (modalImg) applyLazyImageToElement(modalImg);
     } else {
       frameEl.innerHTML = `
         <div style="color: var(--navy-base); opacity: 0.85; margin-bottom: 8px;">
@@ -1722,19 +2009,20 @@
       resetBtn.style.display = "inline-block";
     }
 
-    // アプリ内で過去に保存・登録した写真履歴一覧を描画
+    // アプリ内で過去に保存・登録した写真履歴一覧を描画（重複スポット除外＋遅延・分割読み込み）
     const historyBox = document.getElementById("modal-photo-history-box");
     const historyList = document.getElementById("modal-photo-history-list");
     if (historyBox && historyList) {
       const savedPhotos = [];
-      const seenUrls = new Set();
+      const seenKeys = new Set();
       Object.entries(state.collectedCells).forEach(([cid, rec]) => {
         if (isPhotoRegistered(rec)) {
-          if (!seenUrls.has(rec.photoDataUrl)) {
-            seenUrls.add(rec.photoDataUrl);
-            const info = findCellAndTown(cid);
+          const info = findCellAndTown(cid);
+          const dedupKey = info ? getCellSpotKey(info.cell) : cid;
+          if (!seenKeys.has(dedupKey)) {
+            seenKeys.add(dedupKey);
             savedPhotos.push({
-              photoDataUrl: rec.photoDataUrl,
+              cellId: cid,
               capturedAt: formatDateOnly(rec.capturedAt),
               label: info ? info.cell.title : cid
             });
@@ -1745,17 +2033,43 @@
       if (savedPhotos.length > 0) {
         historyBox.style.display = "block";
         historyList.innerHTML = "";
-        savedPhotos.forEach((item) => {
-          const thumbBtn = document.createElement("button");
-          thumbBtn.type = "button";
-          thumbBtn.className = "photo-history-thumb";
-          thumbBtn.title = `「${item.label}」の保存済み写真をこのマスに設定`;
-          thumbBtn.innerHTML = `<img src="${item.photoDataUrl}" alt="${item.label}" />`;
-          thumbBtn.addEventListener("click", () => {
-            registerCellPhoto(cell.id, item.photoDataUrl, "photo", item.capturedAt);
+        let historyLimit = 20;
+
+        const renderHistoryThumbs = () => {
+          historyList.innerHTML = "";
+          const slice = savedPhotos.slice(0, historyLimit);
+          slice.forEach((item) => {
+            const thumbBtn = document.createElement("button");
+            thumbBtn.type = "button";
+            thumbBtn.className = "photo-history-thumb";
+            thumbBtn.title = `「${item.label}」の保存済み写真をこのマスに設定`;
+            thumbBtn.innerHTML = `<img data-lazy-cell-img="${item.cellId}" alt="${item.label}" />`;
+            thumbBtn.addEventListener("click", async () => {
+              const photoUrl = await resolveCellImageUrl(item.cellId);
+              if (photoUrl) {
+                registerCellPhoto(cell.id, photoUrl, "photo", item.capturedAt);
+              }
+            });
+            historyList.appendChild(thumbBtn);
           });
-          historyList.appendChild(thumbBtn);
-        });
+
+          if (savedPhotos.length > historyLimit) {
+            const moreBtn = document.createElement("button");
+            moreBtn.type = "button";
+            moreBtn.className = "photo-history-more-btn";
+            moreBtn.textContent = `+${savedPhotos.length - historyLimit}件`;
+            moreBtn.title = "さらに過去の写真を読み込む";
+            moreBtn.addEventListener("click", () => {
+              historyLimit += 20;
+              renderHistoryThumbs();
+            });
+            historyList.appendChild(moreBtn);
+          }
+
+          observeLazyImages(historyList);
+        };
+
+        renderHistoryThumbs();
       } else {
         historyBox.style.display = "none";
       }
@@ -1783,16 +2097,42 @@
     renderDetailPartsCatalog();
   }
 
-  // 10-A. 街タイル図鑑（収集済みの街標本カード）
+  // 10-A. 街タイル図鑑（1マス以上開いている収集済みの街標本カードのみ表示＋分割読み込み）
   function renderTownSpecimenPlates() {
     renderTourTypeFilterBar("tiles-tourtype-filters");
     renderRegionFilterBar("tiles-region-filters", "tiles-subregion-filters");
     const container = document.getElementById("specimen-plates-container");
     container.innerHTML = "";
 
-    const filteredTowns = getFilteredTowns();
+    const filteredTowns = getFilteredTowns().filter(
+      (town) => getTownProgress(town).clearedCount >= 1
+    );
 
-    filteredTowns.forEach((town) => {
+    if (filteredTowns.length === 0) {
+      container.innerHTML = `
+        <div class="empty-catalog-state">
+          <div style="font-size: 2rem; margin-bottom: 8px;">📖</div>
+          <h3 style="font-family: var(--font-serif); color: var(--navy-base); margin-bottom: 6px;">
+            開いているビンゴがまだありません
+          </h3>
+          <p style="font-size: 0.8rem; line-height: 1.6; margin-bottom: 14px;">
+            「探索エリア」から街を選び、1マス以上ビンゴを開くと（写真登録またはスタンプ）、ここにコレクション標本カードが並びます。
+          </p>
+          <button type="button" class="btn-primary-expedition" id="btn-empty-plates-goto-home" style="max-width: 240px; margin: 0 auto;">
+            <span>🗺️ 探索エリアを選ぶ</span>
+          </button>
+        </div>
+      `;
+      const gotoHomeBtn = document.getElementById("btn-empty-plates-goto-home");
+      if (gotoHomeBtn) {
+        gotoHomeBtn.addEventListener("click", () => switchMainView("view-home", { scrollToAreaList: true }));
+      }
+      return;
+    }
+
+    const visibleTowns = filteredTowns.slice(0, platesVisibleLimit);
+
+    visibleTowns.forEach((town) => {
       const prog = getTownProgress(town);
       const plate = document.createElement("article");
       plate.className = `specimen-plate-card ${prog.isComplete ? "is-complete" : ""}`;
@@ -1802,7 +2142,7 @@
           const item = state.collectedCells[cell.id];
           if (item) {
             return `<div class="plate-mosaic-cell" data-open-cell="${cell.id}" style="cursor:pointer;" title="${cell.title}">
-              <img src="${item.photoDataUrl}" alt="${cell.title}" />
+              <img data-lazy-cell-img="${cell.id}" alt="${cell.title}" />
             </div>`;
           }
           return `<div class="plate-mosaic-cell" data-open-cell="${cell.id}" style="cursor:pointer;" title="未採集: ${cell.title}">
@@ -1859,6 +2199,13 @@
 
       container.appendChild(plate);
     });
+
+    observeLazyImages(container);
+
+    appendLoadMoreSentinel(container, filteredTowns.length, visibleTowns.length, PAGE_SIZE_PLATES, () => {
+      platesVisibleLimit += PAGE_SIZE_PLATES;
+      renderTownSpecimenPlates();
+    });
   }
 
   // 街タイル1枚の記念標本シート画像をCanvasで合成してダウンロード
@@ -1908,14 +2255,15 @@
     const gap = 18;
 
     const loadPromises = town.cells.map((cell, idx) => {
-      return new Promise((resolve) => {
+      return new Promise(async (resolve) => {
         const col = idx % 3;
         const row = Math.floor(idx / 3);
         const x = gridStartX + col * (cellSize + gap);
         const y = gridStartY + row * (cellSize + gap);
 
         const item = state.collectedCells[cell.id];
-        if (item && item.photoDataUrl) {
+        const photoUrl = item ? await resolveCellImageUrl(cell.id) : null;
+        if (item && photoUrl) {
           const img = new Image();
           img.onload = () => {
             ctx.drawImage(img, x, y, cellSize, cellSize);
@@ -1931,7 +2279,7 @@
             resolve();
           };
           img.onerror = () => resolve();
-          img.src = item.photoDataUrl;
+          img.src = photoUrl;
         } else {
           ctx.fillStyle = "#1B263B";
           ctx.fillRect(x, y, cellSize, cellSize);
@@ -2002,6 +2350,7 @@
       chip.textContent = cat;
       chip.addEventListener("click", () => {
         activePartsCategory = cat;
+        partsVisibleLimit = PAGE_SIZE_PARTS;
         renderDetailPartsCatalog();
       });
       filterBar.appendChild(chip);
@@ -2040,13 +2389,14 @@
 
     const grid = document.createElement("div");
     grid.className = "parts-catalog-grid";
+    const visibleEntries = filtered.slice(0, partsVisibleLimit);
 
-    filtered.forEach(({ cell, town, record }) => {
+    visibleEntries.forEach(({ cell, town, record }) => {
       const card = document.createElement("article");
       card.className = "part-specimen-card";
       card.innerHTML = `
         <div class="part-photo-wrap">
-          <img src="${record.photoDataUrl}" alt="${cell.title}" />
+          <img data-lazy-cell-img="${cell.id}" alt="${cell.title}" />
           <span class="part-category-ribbon">${cell.category}</span>
         </div>
         <div class="part-card-body">
@@ -2071,6 +2421,12 @@
 
     catalogContainer.innerHTML = "";
     catalogContainer.appendChild(grid);
+    observeLazyImages(catalogContainer);
+
+    appendLoadMoreSentinel(catalogContainer, filtered.length, visibleEntries.length, PAGE_SIZE_PARTS, () => {
+      partsVisibleLimit += PAGE_SIZE_PARTS;
+      renderDetailPartsCatalog();
+    });
   }
 
   // ==========================================================================
@@ -2238,9 +2594,58 @@
         return;
       }
       const prevView = viewHistoryStack.length > 0 ? viewHistoryStack.pop() : "view-home";
-      switchMainView(prevView, { fromHistory: true });
+      switchMainView(prevView, { fromHistory: true, scrollToAreaList: prevView === "view-home" });
       pushBrowserHistoryEntry({ view: currentViewId, guard: true });
     });
+  }
+
+  function ensureSelectedTownVisibleAndScroll() {
+    const targetTown = getTownById(state.selectedTownId);
+    if (!targetTown) return false;
+
+    let filterChanged = false;
+    const townTourType = targetTown.tour_type || "walk";
+    const townRegion = targetTown.region_group || "関東";
+    const townPref = targetTown.prefecture_group || "すべて";
+
+    if (activeTourTypeFilter !== "すべて" && activeTourTypeFilter !== townTourType) {
+      activeTourTypeFilter = "すべて";
+      filterChanged = true;
+    }
+    if (activeRegionFilter !== "すべて" && activeRegionFilter !== townRegion) {
+      activeRegionFilter = townRegion;
+      activeSubRegionFilter = townPref;
+      filterChanged = true;
+    } else if (
+      activeRegionFilter === townRegion &&
+      activeSubRegionFilter !== "すべて" &&
+      activeSubRegionFilter !== townPref
+    ) {
+      activeSubRegionFilter = townPref;
+      filterChanged = true;
+    }
+
+    const filteredTowns = getFilteredTowns();
+    const targetIdx = filteredTowns.findIndex((t) => t.id === targetTown.id);
+    if (targetIdx >= 0 && targetIdx + 1 > homeVisibleLimit) {
+      homeVisibleLimit = Math.ceil((targetIdx + 1) / PAGE_SIZE_HOME) * PAGE_SIZE_HOME;
+      filterChanged = true;
+    }
+
+    if (filterChanged) {
+      renderHomeTownCards();
+    }
+
+    requestAnimationFrame(() => {
+      const card = document.querySelector(`#town-cards-container [data-town-id="${targetTown.id}"]`);
+      if (card) {
+        card.scrollIntoView({ behavior: "smooth", block: "center" });
+      } else {
+        const areaHeader = document.getElementById("home-area-section-title");
+        if (areaHeader) areaHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+    return true;
   }
 
   function switchMainView(targetViewId, options = {}) {
@@ -2269,6 +2674,9 @@
     renderPinnedQuickBar();
 
     if (targetViewId === "view-home" && options.scrollToAreaList) {
+      if (ensureSelectedTownVisibleAndScroll()) {
+        return;
+      }
       const areaHeader = document.getElementById("home-area-section-title");
       if (areaHeader) {
         requestAnimationFrame(() => {
@@ -2493,14 +2901,32 @@
       switchMainView("view-compendium");
     });
 
-    // バックアップ書き出し（JSONファイルダウンロード）
+    // バックアップ書き出し（JSONファイルダウンロード・IndexedDB内の写真も含めて書き出し）
     const exportBtn = document.getElementById("btn-export-backup");
     if (exportBtn) {
-      exportBtn.addEventListener("click", () => {
+      exportBtn.addEventListener("click", async () => {
+        const dbPhotos = await idbGetAllPhotos();
+        const exportCells = {};
+        Object.keys(state.collectedCells).forEach((cid) => {
+          const rec = state.collectedCells[cid];
+          if (!rec) return;
+          const copied = Object.assign({}, rec);
+          if (dbPhotos[cid]) {
+            copied.photoDataUrl = dbPhotos[cid];
+          }
+          exportCells[cid] = copied;
+        });
+
         const backupPayload = {
           version: 1,
           exportedAt: new Date().toISOString(),
-          data: state
+          data: {
+            selectedTownId: state.selectedTownId,
+            pinnedTownIds: state.pinnedTownIds || [],
+            unlockedHints: state.unlockedHints,
+            collectedCells: exportCells,
+            achievedBingos: state.achievedBingos
+          }
         };
         const blob = new Blob([JSON.stringify(backupPayload)], { type: "application/json" });
         const url = URL.createObjectURL(blob);

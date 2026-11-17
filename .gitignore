@@ -1,3 +1,13 @@
+# ローカル開発・サーバー・デプロイ用スクリプト
 server.py
 start_server.bat
 update_github.bat
+
+# 単一HTMLビルド関連（GitHub Pages公開不要）
+build_single_html.py
+build_single_html.bat
+town_bingo_single.html
+
+# Pythonキャッシュ
+__pycache__/
+*.pyc
