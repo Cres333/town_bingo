@@ -82,6 +82,40 @@
           <span class="notebook-section-sub">SELECT AREA</span>
         </div>
 
+        <div class="home-search-row">
+          <div class="home-search-box">
+            <span class="home-search-icon" aria-hidden="true">🔍</span>
+            <input
+              type="search"
+              id="home-search-input"
+              class="home-search-input"
+              placeholder="街名・建物・スポット名で検索（例：赤れんが、東京駅）"
+              aria-label="コース・スポット検索"
+            />
+            <button
+              type="button"
+              id="home-search-clear"
+              class="home-search-clear"
+              style="display: none;"
+              aria-label="検索をクリア"
+              title="検索をクリア"
+            >
+              ✕
+            </button>
+          </div>
+          <button
+            type="button"
+            id="btn-sort-nearby"
+            class="btn-sort-nearby"
+            title="現在地を取得して近いコース順に並べ替えます"
+          >
+            <span>📍 近い順</span>
+          </button>
+        </div>
+
+        <div id="home-status-filters" class="parts-filter-bar status-filter-bar" aria-label="進捗状況フィルタ">
+          <!-- すべて / 探索中 / 未着手 / COMPLETE -->
+        </div>
         <div id="home-tourtype-filters" class="parts-filter-bar tourtype-filter-bar" aria-label="移動スタイルフィルタ">
           <!-- すべて / 散策（〜3時間・車不要） / 広域 -->
         </div>
@@ -298,6 +332,16 @@
           <h3 class="modal-title" id="modal-cell-title">マスのタイトル</h3>
         </div>
         <button type="button" class="btn-modal-close" id="btn-close-cell-modal" aria-label="閉じる">✕</button>
+      </div>
+
+      <div class="modal-cell-nav-bar" aria-label="マスの連続切り替え">
+        <button type="button" class="btn-modal-nav" id="btn-modal-prev-cell">
+          <span>◀ 前のマス</span>
+        </button>
+        <span class="modal-nav-indicator" id="modal-nav-indicator">#01 / 09</span>
+        <button type="button" class="btn-modal-nav" id="btn-modal-next-cell">
+          <span>次のマス ▶</span>
+        </button>
       </div>
 
       <div class="modal-body">
