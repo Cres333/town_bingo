@@ -28,11 +28,17 @@
   let activeSubRegionFilter = "すべて";
   let activeStatusFilter = "すべて"; // "すべて" | "active" | "untouched" | "complete"
   let homeSearchQuery = "";
-  let sortByNearby = false;
+  let homeSortMode = "default"; // "default" | "updated" | "nearby"
   let userLocation = null; // { lat, lng }
   let activePartsCategory = "すべて";
   let inlineMapVisible = false;
   let inlineMapPinMode = "coords"; // "coords" (座標ピン) | "spot" (スポット名ピン)
+  let activeAreaMapTownId = null;
+  let areaMapInstance = null;
+  let areaMapMarkersLayer = null;
+  let areaMapUserMarker = null;
+  let areaMapBounds = null;
+  let areaMapMarkerByCellId = new Map();
   let unreadCompendiumCount = 0; // 図鑑タブを開くと消える新着バッジ件数
   let confettiAnimId = null;
 
@@ -317,8 +323,9 @@
       selectedTownId: INITIAL_TOWNS[0].id,
       pinnedTownIds: [], // ピン留めされたコースID一覧
       unlockedHints: {}, // { [cellId]: true }
-      collectedCells: {}, // { [cellId]: { photoDataUrl, capturedAt, mode, isSketch, isDummy } }
-      achievedBingos: {} // { [townId]: ["row_1", ...] }
+      collectedCells: {}, // { [cellId]: { photoDataUrl, capturedAt, updatedAt, mode, isSketch, isDummy } }
+      achievedBingos: {}, // { [townId]: ["row_1", ...] }
+      townUpdatedAt: {} // { [townId]: epochMs }
     };
   }
 
@@ -342,7 +349,11 @@
         pinnedTownIds: Array.isArray(parsed.pinnedTownIds) ? parsed.pinnedTownIds : [],
         unlockedHints: parsed.unlockedHints || {},
         collectedCells: normalizedCells,
-        achievedBingos: parsed.achievedBingos || {}
+        achievedBingos: parsed.achievedBingos || {},
+        townUpdatedAt:
+          parsed.townUpdatedAt && typeof parsed.townUpdatedAt === "object"
+            ? parsed.townUpdatedAt
+            : {}
       };
     } catch (err) {
       console.warn("localStorageの読み込みに失敗したため初期状態を使用します:", err);
@@ -366,6 +377,9 @@
         isDummy: isDummy,
         hasPhoto: hasPhoto
       };
+      if (typeof rec.updatedAt === "number" && Number.isFinite(rec.updatedAt)) {
+        slimCells[cid].updatedAt = rec.updatedAt;
+      }
       if (includePhotosFallback && hasPhoto && rec.photoDataUrl) {
         slimCells[cid].photoDataUrl = rec.photoDataUrl;
       }
@@ -375,7 +389,8 @@
       pinnedTownIds: state.pinnedTownIds || [],
       unlockedHints: state.unlockedHints,
       collectedCells: slimCells,
-      achievedBingos: state.achievedBingos
+      achievedBingos: state.achievedBingos,
+      townUpdatedAt: state.townUpdatedAt || {}
     };
   }
 
@@ -461,6 +476,9 @@
           isDummy: isDummy,
           hasPhoto: Boolean(hasPhoto && (sharedPhotoUrl || sourceRec.hasPhoto))
         };
+        if (typeof sourceRec.updatedAt === "number" && Number.isFinite(sourceRec.updatedAt)) {
+          clonedRec.updatedAt = sourceRec.updatedAt;
+        }
         if (!idbSupported && sharedPhotoUrl) {
           clonedRec.photoDataUrl = sharedPhotoUrl;
         }
@@ -632,6 +650,68 @@
       }
     });
     return minDist;
+  }
+
+  function parseDateOnlyToTimestamp(dateStr) {
+    if (!dateStr || typeof dateStr !== "string") return 0;
+    const m = dateStr.trim().match(/^(\d{4})[./-](\d{1,2})[./-](\d{1,2})/);
+    if (!m) return 0;
+    const d = new Date(Number(m[1]), Number(m[2]) - 1, Number(m[3]), 0, 0, 0, 0);
+    return isNaN(d.getTime()) ? 0 : d.getTime();
+  }
+
+  function touchTownUpdatedAt(townId, ts = Date.now()) {
+    if (!townId) return;
+    if (!state.townUpdatedAt || typeof state.townUpdatedAt !== "object") {
+      state.townUpdatedAt = {};
+    }
+    state.townUpdatedAt[townId] = ts;
+  }
+
+  function getTownLastUpdatedInfo(town) {
+    if (!town) return { timestamp: 0, hasExactTime: false };
+    let exactMax = 0;
+    if (
+      state.townUpdatedAt &&
+      typeof state.townUpdatedAt[town.id] === "number" &&
+      Number.isFinite(state.townUpdatedAt[town.id])
+    ) {
+      exactMax = Math.max(exactMax, state.townUpdatedAt[town.id]);
+    }
+    let fallbackMax = 0;
+    if (Array.isArray(town.cells)) {
+      town.cells.forEach((cell) => {
+        const rec = state.collectedCells[cell.id];
+        if (!rec) return;
+        if (typeof rec.updatedAt === "number" && Number.isFinite(rec.updatedAt)) {
+          exactMax = Math.max(exactMax, rec.updatedAt);
+        } else if (rec.capturedAt) {
+          fallbackMax = Math.max(fallbackMax, parseDateOnlyToTimestamp(rec.capturedAt));
+        }
+      });
+    }
+    if (exactMax > 0) {
+      return { timestamp: exactMax, hasExactTime: true };
+    }
+    if (fallbackMax > 0) {
+      return { timestamp: fallbackMax, hasExactTime: false };
+    }
+    return { timestamp: 0, hasExactTime: false };
+  }
+
+  function formatUpdatedAtChipText(info) {
+    if (!info || !info.timestamp) return "🕒 未更新";
+    const d = new Date(info.timestamp);
+    if (isNaN(d.getTime())) return "🕒 未更新";
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    if (!info.hasExactTime) {
+      return `🕒 更新: ${y}.${m}.${day}`;
+    }
+    const hh = String(d.getHours()).padStart(2, "0");
+    const mm = String(d.getMinutes()).padStart(2, "0");
+    return `🕒 更新: ${y}.${m}.${day} ${hh}:${mm}`;
   }
 
   function getOverallStats() {
@@ -1326,15 +1406,17 @@
 
     // 写真と採集日（時間なし・写真の撮影日があれば優先）を保存
     const formattedDate = customDate ? formatDateOnly(customDate) : formatDateObj(new Date());
+    const nowTs = Date.now();
     const isSketch = mode === "sketch";
     const isDummy = mode === "dummy";
     const hasPhoto = !isSketch && !isDummy && Boolean(photoDataUrl);
 
-    entries.forEach(({ cell: mCell }) => {
+    entries.forEach(({ cell: mCell, town: mTown }) => {
       const wasAlreadyCollected = Boolean(state.collectedCells[mCell.id]);
 
       const cellRecord = {
         capturedAt: formattedDate,
+        updatedAt: nowTs,
         mode: mode,
         isSketch: isSketch,
         isDummy: isDummy,
@@ -1344,6 +1426,7 @@
         cellRecord.photoDataUrl = photoDataUrl;
       }
       state.collectedCells[mCell.id] = cellRecord;
+      touchTownUpdatedAt(mTown.id, nowTs);
 
       if (photoDataUrl) {
         setCachedPhoto(mCell.id, photoDataUrl);
@@ -1420,9 +1503,11 @@
       affectedTowns.set(t.id, t);
     });
 
+    const nowTs = Date.now();
     affectedTowns.forEach((t) => {
       const updatedProgress = getTownProgress(t);
       state.achievedBingos[t.id] = updatedProgress.activeLines.map((l) => l.id);
+      touchTownUpdatedAt(t.id, nowTs);
     });
 
     saveState();
@@ -1693,7 +1778,12 @@
       });
     }
 
-    if (sortByNearby && userLocation) {
+    if (homeSortMode === "updated") {
+      list = list
+        .map((town) => ({ town, updatedTs: getTownLastUpdatedInfo(town).timestamp }))
+        .sort((a, b) => b.updatedTs - a.updatedTs)
+        .map((item) => item.town);
+    } else if (homeSortMode === "nearby" && userLocation) {
       list = list
         .map((town) => ({ town, dist: getTownMinDistanceKm(town, userLocation) }))
         .sort((a, b) => a.dist - b.dist)
@@ -1701,6 +1791,21 @@
     }
 
     return list;
+  }
+
+  function updateHomeSortButtonsUI() {
+    const defaultBtn = document.getElementById("btn-sort-default");
+    const updatedBtn = document.getElementById("btn-sort-updated");
+    const nearbyBtn = document.getElementById("btn-sort-nearby");
+    if (defaultBtn) defaultBtn.classList.toggle("is-active", homeSortMode === "default");
+    if (updatedBtn) updatedBtn.classList.toggle("is-active", homeSortMode === "updated");
+    if (nearbyBtn) {
+      nearbyBtn.classList.toggle("is-active", homeSortMode === "nearby");
+      if (!nearbyBtn.disabled) {
+        nearbyBtn.innerHTML =
+          homeSortMode === "nearby" ? "<span>📍 近い順 ON</span>" : "<span>📍 近い順</span>";
+      }
+    }
   }
 
   function getAreaGoogleMapUrl(town) {
@@ -1770,10 +1875,9 @@
       const regionTag = town.region_group
         ? `${town.region_group}・${town.prefecture_group}`
         : town.prefecture_group || "関東";
-      const areaMapUrl = getAreaGoogleMapUrl(town);
       const tourTypeBadge = getTourTypeBadgeHtml(town);
       let distanceChipHtml = "";
-      if (sortByNearby && userLocation) {
+      if (homeSortMode === "nearby" && userLocation) {
         const distKm = getTownMinDistanceKm(town, userLocation);
         if (Number.isFinite(distKm)) {
           const distLabel =
@@ -1784,6 +1888,11 @@
                 : `${Math.round(distKm)}km`;
           distanceChipHtml = `<span class="town-meta-chip distance-chip">🧭 現在地から約 ${distLabel}</span>`;
         }
+      }
+      let updatedChipHtml = "";
+      if (homeSortMode === "updated") {
+        const updatedInfo = getTownLastUpdatedInfo(town);
+        updatedChipHtml = `<span class="town-meta-chip updated-chip">${formatUpdatedAtChipText(updatedInfo)}</span>`;
       }
 
       const card = document.createElement("article");
@@ -1799,6 +1908,7 @@
         </div>
         <div class="town-card-body">
           <div class="town-meta-row">
+            ${updatedChipHtml}
             ${distanceChipHtml}
             <span class="town-meta-chip">📍 ${town.region}</span>
             <span class="town-meta-chip">🏛️ ${town.era_focus}</span>
@@ -1830,15 +1940,14 @@
             >
               <span>${isTownPinned(town.id) ? "📌 ピン中" : "📌"}</span>
             </button>
-            <a
-              href="${areaMapUrl}"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
               class="btn-card-map-link"
-              title="この街の探索エリアをGoogleマップで開く"
+              data-open-area-map="${town.id}"
+              title="この街の全9スポットにピンを立てたエリア地図を開く"
             >
               <span>🗺️ 地図</span>
-            </a>
+            </button>
           </div>
         </div>
       `;
@@ -1852,6 +1961,10 @@
 
       card.querySelector("[data-pin-town]").addEventListener("click", () => {
         togglePinTown(town.id);
+      });
+
+      card.querySelector("[data-open-area-map]").addEventListener("click", () => {
+        openAreaMapModal(town.id);
       });
 
       container.appendChild(card);
@@ -1877,11 +1990,6 @@
       prog.isComplete ? "(COMPLETE!)" : ""
     }`;
     document.getElementById("bingo-status-summary-text").textContent = `${prog.bingoCount} / 8 LINES`;
-
-    const stageMapBtn = document.getElementById("btn-stage-area-map");
-    if (stageMapBtn) {
-      stageMapBtn.href = getAreaGoogleMapUrl(town);
-    }
 
     const pinBtn = document.getElementById("btn-toggle-pin-town");
     if (pinBtn) {
@@ -2273,6 +2381,286 @@
     if (frameBox) frameBox.innerHTML = "";
     inlineMapVisible = false;
     activeModalCellId = null;
+  }
+
+  // ==========================================================================
+  // 9-B. エリア全体マップモーダル（コースの全9スポットにピンを立てて表示）
+  // ==========================================================================
+  function escapeHtml(str) {
+    if (str == null) return "";
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  function openCellFromAreaMap(townId, cellId) {
+    closeAreaMapModal();
+    if (townId && state.selectedTownId !== townId) {
+      state.selectedTownId = townId;
+      saveState();
+      renderAll();
+    }
+    openCellModal(cellId);
+  }
+
+  function fitAreaMapBounds() {
+    if (areaMapInstance && areaMapBounds && areaMapBounds.isValid()) {
+      areaMapInstance.fitBounds(areaMapBounds, { padding: [36, 36], maxZoom: 16 });
+    }
+  }
+
+  function locateUserOnAreaMap() {
+    const locateBtn = document.getElementById("btn-area-map-locate");
+    if (!navigator.geolocation) {
+      alert("お使いのブラウザは現在地取得に対応していません。");
+      return;
+    }
+    if (locateBtn) {
+      locateBtn.disabled = true;
+      locateBtn.innerHTML = "<span>⏳ 取得中</span>";
+    }
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        userLocation = { lat: pos.coords.latitude, lng: pos.coords.longitude };
+        if (locateBtn) {
+          locateBtn.disabled = false;
+          locateBtn.innerHTML = "<span>📍 現在地</span>";
+        }
+        if (areaMapInstance && typeof window.L !== "undefined") {
+          const L = window.L;
+          if (areaMapUserMarker) {
+            areaMapInstance.removeLayer(areaMapUserMarker);
+          }
+          const userIcon = L.divIcon({
+            className: "bingo-map-pin-icon",
+            html: '<div class="bingo-map-user-dot"></div>',
+            iconSize: [16, 16],
+            iconAnchor: [8, 8]
+          });
+          areaMapUserMarker = L.marker([userLocation.lat, userLocation.lng], {
+            icon: userIcon,
+            zIndexOffset: 1000
+          })
+            .addTo(areaMapInstance)
+            .bindPopup("<strong>📍 現在地</strong>");
+          areaMapInstance.setView(
+            [userLocation.lat, userLocation.lng],
+            Math.max(areaMapInstance.getZoom(), 14),
+            { animate: true }
+          );
+        }
+      },
+      () => {
+        if (locateBtn) {
+          locateBtn.disabled = false;
+          locateBtn.innerHTML = "<span>📍 現在地</span>";
+        }
+        alert("現在地を取得できませんでした。ブラウザの位置情報許可をご確認ください。");
+      },
+      { enableHighAccuracy: true, timeout: 8000, maximumAge: 60000 }
+    );
+  }
+
+  function openAreaMapModal(townId) {
+    const town = getTownById(townId || state.selectedTownId);
+    if (!town) return;
+    const wasOpen = Boolean(activeAreaMapTownId);
+    activeAreaMapTownId = town.id;
+
+    const prog = getTownProgress(town);
+    const codeEl = document.getElementById("area-map-modal-code");
+    const countEl = document.getElementById("area-map-modal-count");
+    const titleEl = document.getElementById("area-map-modal-title");
+    const googleLink = document.getElementById("link-area-map-google");
+    const mapCanvas = document.getElementById("area-map-canvas");
+    const fallbackEl = document.getElementById("area-map-fallback");
+    const spotListEl = document.getElementById("area-map-spot-list");
+    const backdrop = document.getElementById("area-map-modal-backdrop");
+
+    if (codeEl) codeEl.textContent = `AREA MAP // ${town.specimen_prefix}`;
+    if (countEl) countEl.textContent = `全${town.cells.length}スポット（採集 ${prog.clearedCount}/${town.cells.length}）`;
+    if (titleEl) titleEl.textContent = town.title;
+    if (googleLink) googleLink.href = getAreaGoogleMapUrl(town);
+
+    areaMapMarkerByCellId.clear();
+    areaMapBounds = null;
+
+    // モーダルを表示してから地図を描画（Leafletのコンテナサイズ取得のため）
+    if (backdrop) {
+      backdrop.classList.add("open");
+    }
+    if (!wasOpen) {
+      pushBrowserHistoryEntry({ view: currentViewId, areaMap: town.id });
+    }
+
+    const validCells = town.cells.filter(
+      (c) => typeof c.lat === "number" && typeof c.lng === "number"
+    );
+
+    if (typeof window.L !== "undefined" && mapCanvas && validCells.length > 0) {
+      const L = window.L;
+      mapCanvas.style.display = "block";
+      if (fallbackEl) fallbackEl.style.display = "none";
+
+      if (!areaMapInstance) {
+        areaMapInstance = L.map(mapCanvas, {
+          zoomControl: true,
+          attributionControl: true
+        });
+        L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution: "&copy; OpenStreetMap contributors"
+        }).addTo(areaMapInstance);
+        areaMapMarkersLayer = L.layerGroup().addTo(areaMapInstance);
+      } else {
+        areaMapMarkersLayer.clearLayers();
+      }
+
+      if (areaMapUserMarker) {
+        areaMapInstance.removeLayer(areaMapUserMarker);
+        areaMapUserMarker = null;
+      }
+
+      const latLngs = [];
+
+      validCells.forEach((cell) => {
+        const collected = Boolean(state.collectedCells[cell.id]);
+        const isReach = !collected && prog.reachCellIds && prog.reachCellIds.has(cell.id);
+        const hintUnlocked = Boolean(state.unlockedHints[cell.id]) || collected;
+        const statusClass = collected ? "is-cleared" : isReach ? "is-reach" : "is-uncleared";
+        const statusText = collected ? "✓ 採集済" : isReach ? "🔥 リーチ" : "未採集";
+        const pinLabel = collected ? "✓" : String(cell.position);
+
+        const icon = L.divIcon({
+          className: "bingo-map-pin-icon",
+          html: `<div class="bingo-map-pin ${statusClass}"><span class="bingo-map-pin-num">${pinLabel}</span></div>`,
+          iconSize: [30, 30],
+          iconAnchor: [15, 30],
+          popupAnchor: [0, -28]
+        });
+
+        const gmapUrl = getCellGoogleMapExternalUrl(cell, hintUnlocked);
+        const subText = hintUnlocked
+          ? `📍 ${escapeHtml(cell.spot_name)}`
+          : `🧭 ${escapeHtml(cell.hint_level_1)}`;
+
+        const popupHtml = `
+          <div class="area-map-popup">
+            <div class="area-map-popup-meta">
+              <span class="area-map-popup-num">#0${cell.position}</span>
+              <span class="area-map-popup-status ${statusClass}">${statusText}</span>
+            </div>
+            <div class="area-map-popup-title">${escapeHtml(cell.title)}</div>
+            <div class="area-map-popup-sub">${subText}</div>
+            <div class="area-map-popup-actions">
+              <button type="button" class="btn-area-popup-open" data-area-popup-cell="${cell.id}" data-area-popup-town="${town.id}">🔍 マスを開く</button>
+              <a href="${gmapUrl}" target="_blank" rel="noopener noreferrer" class="btn-area-popup-gmap">🗺️ Googleマップ ↗</a>
+            </div>
+          </div>
+        `;
+
+        const marker = L.marker([cell.lat, cell.lng], {
+          icon: icon,
+          zIndexOffset: collected ? 100 : isReach ? 300 : 200
+        }).bindPopup(popupHtml, { maxWidth: 250 });
+
+        marker.addTo(areaMapMarkersLayer);
+        areaMapMarkerByCellId.set(cell.id, marker);
+        latLngs.push([cell.lat, cell.lng]);
+      });
+
+      if (userLocation) {
+        const userIcon = L.divIcon({
+          className: "bingo-map-pin-icon",
+          html: '<div class="bingo-map-user-dot"></div>',
+          iconSize: [16, 16],
+          iconAnchor: [8, 8]
+        });
+        areaMapUserMarker = L.marker([userLocation.lat, userLocation.lng], {
+          icon: userIcon,
+          zIndexOffset: 1000
+        })
+          .addTo(areaMapInstance)
+          .bindPopup("<strong>📍 現在地</strong>");
+      }
+
+      areaMapBounds = L.latLngBounds(latLngs);
+      requestAnimationFrame(() => {
+        if (!areaMapInstance) return;
+        areaMapInstance.invalidateSize();
+        fitAreaMapBounds();
+        setTimeout(() => {
+          if (areaMapInstance && activeAreaMapTownId === town.id) {
+            areaMapInstance.invalidateSize();
+            fitAreaMapBounds();
+          }
+        }, 220);
+      });
+    } else {
+      if (mapCanvas) mapCanvas.style.display = "none";
+      if (fallbackEl) {
+        fallbackEl.style.display = "block";
+        fallbackEl.innerHTML =
+          "オフラインまたは地図ライブラリの読み込み待ちのため、インタラクティブ地図を表示できませんでした。<br />下のスポット一覧から各スポットのヒントやGoogleマップを開けます。";
+      }
+    }
+
+    // 全9スポット一覧を描画
+    if (spotListEl) {
+      spotListEl.innerHTML = "";
+      town.cells.forEach((cell) => {
+        const collected = Boolean(state.collectedCells[cell.id]);
+        const isReach = !collected && prog.reachCellIds && prog.reachCellIds.has(cell.id);
+        const hintUnlocked = Boolean(state.unlockedHints[cell.id]) || collected;
+        const statusClass = collected ? "is-cleared" : isReach ? "is-reach" : "";
+        const badgeText = collected ? "✓" : String(cell.position);
+        const subLine = hintUnlocked
+          ? `📍 ${cell.spot_name}`
+          : `🧭 ヒント未開放（タップでピン位置を確認）`;
+
+        const row = document.createElement("div");
+        row.className = `area-map-spot-item ${statusClass}`;
+        row.innerHTML = `
+          <span class="area-map-spot-badge">${badgeText}</span>
+          <div class="area-map-spot-info">
+            <div class="area-map-spot-title">#0${cell.position} ${escapeHtml(cell.title)}</div>
+            <div class="area-map-spot-meta">${escapeHtml(subLine)}</div>
+          </div>
+          <button type="button" class="btn-area-spot-detail" data-spot-detail="${cell.id}">詳細</button>
+        `;
+
+        row.addEventListener("click", (e) => {
+          if (e.target.closest("[data-spot-detail]")) return;
+          const marker = areaMapMarkerByCellId.get(cell.id);
+          if (marker && areaMapInstance) {
+            areaMapInstance.setView(marker.getLatLng(), Math.max(areaMapInstance.getZoom(), 15), {
+              animate: true
+            });
+            marker.openPopup();
+            const modalBody = document.querySelector("#area-map-modal-backdrop .area-map-body");
+            if (modalBody) modalBody.scrollTo({ top: 0, behavior: "smooth" });
+          } else {
+            openCellFromAreaMap(town.id, cell.id);
+          }
+        });
+
+        row.querySelector("[data-spot-detail]").addEventListener("click", (e) => {
+          e.stopPropagation();
+          openCellFromAreaMap(town.id, cell.id);
+        });
+
+        spotListEl.appendChild(row);
+      });
+    }
+  }
+
+  function closeAreaMapModal() {
+    const backdrop = document.getElementById("area-map-modal-backdrop");
+    if (backdrop) backdrop.classList.remove("open");
+    activeAreaMapTownId = null;
   }
 
   // ==========================================================================
@@ -2767,6 +3155,13 @@
         return;
       }
 
+      // 2.5. エリア地図モーダルが開いていればモーダルを閉じる
+      if (activeAreaMapTownId) {
+        closeAreaMapModal();
+        pushBrowserHistoryEntry({ view: currentViewId, guard: true });
+        return;
+      }
+
       // 3. トップ（ホーム・街選択画面）ならページ遷移はしない
       if (currentViewId === "view-home") {
         pushBrowserHistoryEntry({ view: "view-home", guard: true });
@@ -2984,14 +3379,41 @@
       });
     }
 
-    // ホーム：現在地から近い順ソート
+    // ホーム：並び替え（標準 / 更新日時順 / 現在地から近い順）
+    const defaultSortBtn = document.getElementById("btn-sort-default");
+    if (defaultSortBtn) {
+      defaultSortBtn.addEventListener("click", () => {
+        homeSortMode = "default";
+        updateHomeSortButtonsUI();
+        homeVisibleLimit = PAGE_SIZE_HOME;
+        renderHomeTownCards();
+      });
+    }
+
+    const updatedSortBtn = document.getElementById("btn-sort-updated");
+    if (updatedSortBtn) {
+      updatedSortBtn.addEventListener("click", () => {
+        homeSortMode = homeSortMode === "updated" ? "default" : "updated";
+        updateHomeSortButtonsUI();
+        homeVisibleLimit = PAGE_SIZE_HOME;
+        renderHomeTownCards();
+      });
+    }
+
     const nearbyBtn = document.getElementById("btn-sort-nearby");
     if (nearbyBtn) {
       nearbyBtn.addEventListener("click", () => {
-        if (sortByNearby) {
-          sortByNearby = false;
-          nearbyBtn.classList.remove("is-active");
-          nearbyBtn.innerHTML = "<span>📍 近い順</span>";
+        if (homeSortMode === "nearby") {
+          homeSortMode = "default";
+          updateHomeSortButtonsUI();
+          homeVisibleLimit = PAGE_SIZE_HOME;
+          renderHomeTownCards();
+          return;
+        }
+
+        if (userLocation) {
+          homeSortMode = "nearby";
+          updateHomeSortButtonsUI();
           homeVisibleLimit = PAGE_SIZE_HOME;
           renderHomeTownCards();
           return;
@@ -3011,22 +3433,23 @@
               lat: pos.coords.latitude,
               lng: pos.coords.longitude
             };
-            sortByNearby = true;
+            homeSortMode = "nearby";
             nearbyBtn.disabled = false;
-            nearbyBtn.classList.add("is-active");
-            nearbyBtn.innerHTML = "<span>📍 近い順 ON</span>";
+            updateHomeSortButtonsUI();
             homeVisibleLimit = PAGE_SIZE_HOME;
             renderHomeTownCards();
           },
           () => {
             nearbyBtn.disabled = false;
-            nearbyBtn.innerHTML = "<span>📍 近い順</span>";
+            updateHomeSortButtonsUI();
             alert("現在地を取得できませんでした。ブラウザの位置情報許可をご確認ください。");
           },
           { enableHighAccuracy: false, timeout: 8000, maximumAge: 60000 }
         );
       });
     }
+
+    updateHomeSortButtonsUI();
 
     // ボトムナビゲーション切り替え
     document.querySelectorAll(".nav-tab-btn").forEach((btn) => {
@@ -3053,6 +3476,43 @@
       });
     }
 
+    // ビンゴ画面から全9スポットピン表示のエリア地図を開く
+    const stageAreaMapBtn = document.getElementById("btn-stage-area-map");
+    if (stageAreaMapBtn) {
+      stageAreaMapBtn.addEventListener("click", () => {
+        openAreaMapModal(state.selectedTownId);
+      });
+    }
+
+    // エリア地図モーダルの操作イベント
+    const closeAreaMapBtn = document.getElementById("btn-close-area-map-modal");
+    if (closeAreaMapBtn) {
+      closeAreaMapBtn.addEventListener("click", closeAreaMapModal);
+    }
+    const areaMapBackdrop = document.getElementById("area-map-modal-backdrop");
+    if (areaMapBackdrop) {
+      areaMapBackdrop.addEventListener("click", (e) => {
+        if (e.target.id === "area-map-modal-backdrop") {
+          closeAreaMapModal();
+          return;
+        }
+        const popupOpenBtn = e.target.closest("[data-area-popup-cell]");
+        if (popupOpenBtn) {
+          const cId = popupOpenBtn.getAttribute("data-area-popup-cell");
+          const tId = popupOpenBtn.getAttribute("data-area-popup-town");
+          openCellFromAreaMap(tId, cId);
+        }
+      });
+    }
+    const areaMapFitBtn = document.getElementById("btn-area-map-fit");
+    if (areaMapFitBtn) {
+      areaMapFitBtn.addEventListener("click", fitAreaMapBounds);
+    }
+    const areaMapLocateBtn = document.getElementById("btn-area-map-locate");
+    if (areaMapLocateBtn) {
+      areaMapLocateBtn.addEventListener("click", locateUserOnAreaMap);
+    }
+
     // ビンゴ画面から標本図鑑へ
     document.getElementById("btn-view-in-compendium").addEventListener("click", () => {
       switchMainView("view-compendium");
@@ -3075,10 +3535,13 @@
     document.getElementById("btn-unlock-hint-2").addEventListener("click", () => {
       if (!activeModalCellId) return;
       state.unlockedHints[activeModalCellId] = true;
+      const found = findCellAndTown(activeModalCellId);
+      if (found) {
+        touchTownUpdatedAt(found.town.id, Date.now());
+      }
       saveState();
       document.getElementById("btn-unlock-hint-2").style.display = "none";
       document.getElementById("modal-unlocked-section").style.display = "block";
-      const found = findCellAndTown(activeModalCellId);
       if (found) {
         inlineMapPinMode = "spot";
         updateModalMapUI(found.cell, true);
@@ -3195,7 +3658,8 @@
             pinnedTownIds: state.pinnedTownIds || [],
             unlockedHints: state.unlockedHints,
             collectedCells: exportCells,
-            achievedBingos: state.achievedBingos
+            achievedBingos: state.achievedBingos,
+            townUpdatedAt: state.townUpdatedAt || {}
           }
         };
         const blob = new Blob([JSON.stringify(backupPayload)], { type: "application/json" });
@@ -3244,6 +3708,17 @@
             state.unlockedHints = Object.assign({}, state.unlockedHints, incoming.unlockedHints || {});
             state.collectedCells = Object.assign({}, state.collectedCells, incomingCells);
             state.achievedBingos = Object.assign({}, state.achievedBingos, incoming.achievedBingos || {});
+            if (incoming.townUpdatedAt && typeof incoming.townUpdatedAt === "object") {
+              const mergedUpdatedAt = Object.assign({}, state.townUpdatedAt || {});
+              Object.keys(incoming.townUpdatedAt).forEach((tid) => {
+                const incVal = Number(incoming.townUpdatedAt[tid]) || 0;
+                const curVal = Number(mergedUpdatedAt[tid]) || 0;
+                if (incVal > curVal) {
+                  mergedUpdatedAt[tid] = incVal;
+                }
+              });
+              state.townUpdatedAt = mergedUpdatedAt;
+            }
             if (incoming.selectedTownId) {
               state.selectedTownId = incoming.selectedTownId;
             }

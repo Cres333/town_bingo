@@ -17,6 +17,17 @@
     href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&family=Shippori+Mincho:wght@600;700;800&display=swap"
     rel="stylesheet"
   />
+  <!-- Leaflet（エリア地図の複数ピン表示用） -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    crossorigin=""
+  />
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    crossorigin=""
+    defer
+  ></script>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -103,10 +114,30 @@
               ✕
             </button>
           </div>
+        </div>
+
+        <div class="home-sort-row" role="group" aria-label="コースの並び替え">
+          <span class="home-sort-label">並び替え:</span>
+          <button
+            type="button"
+            id="btn-sort-default"
+            class="btn-sort-option is-active"
+            title="標準のコース順で表示します"
+          >
+            <span>標準</span>
+          </button>
+          <button
+            type="button"
+            id="btn-sort-updated"
+            class="btn-sort-option"
+            title="最近更新したコース順に並べ替えます"
+          >
+            <span>🕒 更新日時順</span>
+          </button>
           <button
             type="button"
             id="btn-sort-nearby"
-            class="btn-sort-nearby"
+            class="btn-sort-option btn-sort-nearby"
             title="現在地を取得して近いコース順に並べ替えます"
           >
             <span>📍 近い順</span>
@@ -148,16 +179,14 @@
               >
                 <span>📌 ピン留め</span>
               </button>
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                type="button"
                 class="btn-stage-map-link"
                 id="btn-stage-area-map"
-                title="このコースの探索エリアをGoogleマップで開く"
+                title="このコースの全9スポットをピン表示したエリア地図を開く"
               >
                 <span>🗺️ エリア地図</span>
-              </a>
+              </button>
               <span class="stage-specimen-code" id="bingo-specimen-code">SPECIMEN CARD: YKH</span>
             </div>
           </div>
@@ -483,6 +512,64 @@
               <span>採集を取り消す</span>
             </button>
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== エリア全体マップモーダル（全9スポットピン表示） ==================== -->
+  <div id="area-map-modal-backdrop" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="area-map-modal-title">
+    <div class="specimen-modal area-map-modal">
+      <div class="modal-header">
+        <div>
+          <div class="modal-specimen-meta">
+            <span class="modal-code-badge" id="area-map-modal-code">AREA MAP</span>
+            <span class="modal-category-badge" id="area-map-modal-count">全9スポット</span>
+          </div>
+          <h3 class="modal-title" id="area-map-modal-title">エリア地図</h3>
+        </div>
+        <button type="button" class="btn-modal-close" id="btn-close-area-map-modal" aria-label="エリア地図を閉じる">✕</button>
+      </div>
+
+      <div class="area-map-toolbar">
+        <div class="area-map-legend" aria-label="ピンの凡例">
+          <span class="area-map-legend-item"><i class="legend-dot is-uncleared"></i>未採集</span>
+          <span class="area-map-legend-item"><i class="legend-dot is-reach"></i>リーチ</span>
+          <span class="area-map-legend-item"><i class="legend-dot is-cleared"></i>採集済</span>
+        </div>
+        <div class="area-map-toolbar-actions">
+          <button type="button" class="btn-area-map-tool" id="btn-area-map-fit" title="全9ピンが収まるように全体を表示">
+            <span>🗺️ 全体</span>
+          </button>
+          <button type="button" class="btn-area-map-tool" id="btn-area-map-locate" title="現在地を地図上に表示">
+            <span>📍 現在地</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="area-map-body">
+        <div id="area-map-canvas" class="area-map-canvas" aria-label="エリア地図（全スポットピン表示）"></div>
+        <div id="area-map-fallback" class="area-map-fallback" style="display: none;"></div>
+
+        <div class="area-map-spots-section">
+          <div class="area-map-spots-header">
+            <span>📍 このビンゴの全スポット（タップでピンへ移動）</span>
+          </div>
+          <div id="area-map-spot-list" class="area-map-spot-list">
+            <!-- JSで全9スポット一覧を描画 -->
+          </div>
+        </div>
+
+        <div class="area-map-footer-actions">
+          <a
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-spot-google-map"
+            id="link-area-map-google"
+          >
+            <span>🧭 Google マップでエリア周辺を開く ↗</span>
+          </a>
         </div>
       </div>
     </div>
